@@ -330,6 +330,9 @@
     <ClCompile Include="MWCReBarCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ExceptionErrorHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AutomaticVersionHeader.h">

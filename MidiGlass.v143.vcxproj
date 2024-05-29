@@ -317,6 +317,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="SysExDialog.cpp" />
+    <ClCompile Include="ExceptionErrorHandler.cpp" />
     <ClCompile Include="MCMemA.cpp" />
     <ClCompile Include="MCMemW.cpp" />
     <ClCompile Include="PrintRoutine.cpp" />

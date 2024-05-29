@@ -306,7 +306,7 @@ DWORD CMidiWave::Play(const char *pWaveFile, HWND hWnd)
 	 *		Start Playing.
 	 *		Do not Wait for the Playing to complete.
 	 */
-	m_mciPlayParms.dwCallback = ( DWORD_PTR ) ( ( DWORD ) hWnd );
+	m_mciPlayParms.dwCallback = ( DWORD_PTR ) ( ( unsigned long long ) hWnd );
 	m_dwReturn = mciSendCommand ( m_wDeviceID, MCI_PLAY, MCI_NOTIFY, ( DWORD_PTR ) &m_mciPlayParms );
 	if ( m_dwReturn )
 	{

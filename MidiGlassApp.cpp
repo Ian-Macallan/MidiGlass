@@ -29,21 +29,19 @@ extern CMidiWorksApp theApp;
 
 #pragma comment(lib, "Shlwapi.lib")
 
+#define     EXCEPTION_ERROR_HANDLER
+#include "ExceptionErrorHandler.h"
+#include "PrintRoutine.h"
+
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 // CMidiWorksApp
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 BEGIN_MESSAGE_MAP(CMidiWorksApp, CWinApp)
-	//{{AFX_MSG_MAP(CMidiWorksApp)
 	ON_COMMAND(ID_APP_ABOUT, OnAppAbout)
-		// NOTE - the ClassWizard will add and remove mapping macros here.
-		//    DO NOT EDIT what you see in these blocks of generated code!
-	//}}AFX_MSG_MAP
-	// Standard file based document commands
 	ON_COMMAND(ID_FILE_NEW, CWinApp::OnFileNew)
 	ON_COMMAND(ID_FILE_OPEN, CWinApp::OnFileOpen)
-	// Standard print setup command
 	ON_COMMAND(ID_FILE_PRINT_SETUP, CWinApp::OnFilePrintSetup)
 END_MESSAGE_MAP()
 
@@ -84,7 +82,11 @@ CMidiWorksApp theApp;
 ////////////////////////////////////////////////////////////////////////////////////////////
 BOOL CMidiWorksApp::InitInstance()
 {
+    //
+    DebugMode   = true;
+    InvokeExceptionErrorHandler( );
 
+    //
 	AfxEnableControlContainer();
 
 	// Initialize OLE 2.0 libraries
