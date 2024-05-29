@@ -87,7 +87,7 @@ int startAudioLoopBack()
     
     if (NULL == mmioFile)
 	{
-        sprintf_s ( szErrorText, sizeof(szErrorText), "mmioOpen(\"%ls\", ...) failed. wErrorRet == %u", szFilename, GetLastError());
+        sprintf_s ( szErrorText, sizeof(szErrorText), "mmioOpen(\"%s\", ...) failed. wErrorRet == %u", szFilename, GetLastError());
         return E_FAIL;
     }
     

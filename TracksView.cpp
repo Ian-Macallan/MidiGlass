@@ -1421,12 +1421,9 @@ void CTracksView::OnButtonUp()
 		{
 			char	szMessage [ MAX_LONG_STRING ];
 
-			sprintf_s ( 
-				szMessage, 
-				sizeof ( szMessage ),
-				"Do you want to merge track %d in track %d", 
-				m_Tracks_List.GetItemData ( m_hItemDrag ),
-				m_Tracks_List.GetItemData ( m_hItemDrop ) );
+			sprintf_s ( szMessage, sizeof ( szMessage ), "Do you want to merge track %d in track %d", 
+				( int ) m_Tracks_List.GetItemData ( m_hItemDrag ),
+				( int ) m_Tracks_List.GetItemData ( m_hItemDrop ) );
 			int iYesNo = MessageBox ( szMessage, NULL, MB_YESNO | MB_ICONEXCLAMATION );
 			if ( iYesNo == IDYES )
 			{
@@ -1577,12 +1574,9 @@ void CTracksView::OnEditPaste()
 		{
 			char	szMessage [ MAX_LONG_STRING ];
 
-			sprintf_s ( 
-				szMessage, 
-				sizeof ( szMessage ),
-				"Do you want to merge track %d in track %d", 
-				m_Tracks_List.GetItemData ( m_hItemDrag ),
-				m_Tracks_List.GetItemData ( m_hItemDrop ) );
+			sprintf_s ( szMessage, sizeof ( szMessage ), "Do you want to merge track %d in track %d", 
+				(int) m_Tracks_List.GetItemData ( m_hItemDrag ),
+				(int) m_Tracks_List.GetItemData ( m_hItemDrop ) );
 			int iYesNo = 
 				MessageBox ( szMessage, NULL, 
 								MB_YESNO | MB_ICONEXCLAMATION );

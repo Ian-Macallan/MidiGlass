@@ -2004,8 +2004,8 @@ BOOL CMidiExplorerView::OnToolTipNotify(UINT id, NMHDR *pNMH, LRESULT *pResult)
 		{
 			CTime tmdt ( tagFile.ftLastWriteTime );
 
-			sprintf_s ( szFilename, sizeof ( szFilename ), "%s - Size:%d",
-				tmdt.Format ( "%d %B %Y %H:%M:%S" ), tagFile.nFileSizeLow );
+            CString fmt = tmdt.Format ( "%d %B %Y %H:%M:%S" );
+			sprintf_s ( szFilename, sizeof ( szFilename ), "%s - Size:%d", ( const char *) fmt , tagFile.nFileSizeLow );
 			pText->lpszText = szFilename;
 			return TRUE;
 		}

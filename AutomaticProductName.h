@@ -6,22 +6,22 @@
 #ifdef _WIN64
 #ifdef UNICODE
 #define ORIGINAL_FILENAME   L"MidiGlass (x64 Unicode) (MSVC)\0"
-#define PRODUCT_NAME        L"MidiGlass - Version 4.0.02.019\r\n(Build 184) - (x64 Unicode) (MSVC)\0"
+#define PRODUCT_NAME        L"MidiGlass - Version 4.0.03.001\r\n(Build 185) - (x64 Unicode) (MSVC)\0"
 #else
 #define ORIGINAL_FILENAME   "MidiGlass (x64 MBCS) (MSVC)\0"
-#define PRODUCT_NAME        "MidiGlass - Version 4.0.02.019\r\n(Build 184) - (x64 MBCS) (MSVC)\0"
+#define PRODUCT_NAME        "MidiGlass - Version 4.0.03.001\r\n(Build 185) - (x64 MBCS) (MSVC)\0"
 #endif
 #elif _WIN32
 #ifdef UNICODE
 #define ORIGINAL_FILENAME   L"MidiGlass (x86 Unicode) (MSVC)\0"
-#define PRODUCT_NAME        L"MidiGlass - Version 4.0.02.019\r\n(Build 184) - (x86 Unicode) (MSVC)\0"
+#define PRODUCT_NAME        L"MidiGlass - Version 4.0.03.001\r\n(Build 185) - (x86 Unicode) (MSVC)\0"
 #else
 #define ORIGINAL_FILENAME   "MidiGlass (x86 MBCS) (MSVC)\0"
-#define PRODUCT_NAME        "MidiGlass - Version 4.0.02.019\r\n(Build 184) - (x86 MBCS) (MSVC)\0"
+#define PRODUCT_NAME        "MidiGlass - Version 4.0.03.001\r\n(Build 185) - (x86 MBCS) (MSVC)\0"
 #endif
 #else
 #define ORIGINAL_FILENAME   "MidiGlass (MSVC)\0"
-#define PRODUCT_NAME        "MidiGlass - Version 4.0.02.019\r\n(Build 184) - (MSVC)\0"
+#define PRODUCT_NAME        "MidiGlass - Version 4.0.03.001\r\n(Build 185) - (MSVC)\0"
 #endif
 
 #endif

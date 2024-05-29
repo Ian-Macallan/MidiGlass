@@ -829,21 +829,15 @@ void CPlayList::OnButtonUp()
 
 			if ( m_hItemDrag > m_hItemDrop )
 			{
-				sprintf_s ( 
-					szMessage, 
-					sizeof ( szMessage ),
-					"Do you want to move file %s before %s", 
-					m_PlayList.GetItemText ( m_hItemDrag, 0 ),
-					m_PlayList.GetItemText ( m_hItemDrop, 0 ) );
+				sprintf_s ( szMessage, sizeof ( szMessage ), "Do you want to move file %s before %s", 
+					(const char *) m_PlayList.GetItemText ( m_hItemDrag, 0 ),
+					(const char *) m_PlayList.GetItemText ( m_hItemDrop, 0 ) );
 			}
 			else
 			{
-				sprintf_s ( 
-					szMessage, 
-					sizeof ( szMessage ), 
-					"Do you want to move file %s after %s", 
-					m_PlayList.GetItemText ( m_hItemDrag, 0 ),
-					m_PlayList.GetItemText ( m_hItemDrop, 0 ) );
+				sprintf_s ( szMessage, sizeof ( szMessage ), "Do you want to move file %s after %s", 
+					(const char *) m_PlayList.GetItemText ( m_hItemDrag, 0 ),
+					(const char *) m_PlayList.GetItemText ( m_hItemDrop, 0 ) );
 			}
 			int iYesNo = 
 				MessageBox ( szMessage, NULL, 
