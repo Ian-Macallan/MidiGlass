@@ -1,5 +1,5 @@
 # MidiGlass
-Midi File Viewer and Player with alter functions
+MidiGlass is an old program that shows, alters and plays midi files.
 
 
 If you want to use SoundFont copy the .dll files from
