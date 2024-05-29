@@ -12,4 +12,8 @@ https://github.com/Ian-Macallan/MidiGlass/tree/main/fluidsynth-2.3.4-winXP-x86/b
 
 according to the version you use, and search Sound Font (.sf2) on the internet.
 
+[Midiglass Preferences](https://github.com/Ian-Macallan/MidiGlass/blob/main/Pictures/MidiGlass.prefs.png)
+
+[Midiglass](https://github.com/Ian-Macallan/MidiGlass/blob/main/Pictures/MidiGlass.png)
+
 Macallan
