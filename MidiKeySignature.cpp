@@ -1,0 +1,159 @@
+#include "stdafx.h"
+#include "MidiText.h"
+
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[]=__FILE__;
+#define new DEBUG_NEW
+#endif
+
+#include <stdio.h>
+
+IMPLEMENT_DYNAMIC(CMidiKeySignature, CMidiEvent)
+
+//
+////////////////////////////////////////////////////////////////////////
+//		Set Key Signature
+//
+////////////////////////////////////////////////////////////////////////
+CMidiKeySignature::CMidiKeySignature ( unsigned char cCommand, unsigned char *pBuffer )
+{
+	m_MidiEventStartOfBuffer	= pBuffer;
+
+	m_cMidiEventCode			= MIDI_EVENT_CODE_META;
+	m_cMidiEventSubCode			= MIDI_EVENT_CODE_META_KEYSIG_1;
+	m_cMidiEventSubCode2		= MIDI_EVENT_CODE_META_KEYSIG_2;
+
+	m_cMidiSf					= 0x00;
+	m_cMidiMi					= 0x00;
+
+	//		Set Event code
+	if ( cCommand != m_cMidiEventCode )
+	{
+		EventMessageBox("CMidiKeySignature Code Differ");
+	}
+
+	//	Set the Event Index.
+	m_iEventIndex				= MIDI_EVENT_KEYSIG;
+
+	pBuffer						+= 2;
+
+	m_cMidiSf					= *pBuffer;
+	pBuffer++;
+
+	m_cMidiMi					= *pBuffer;
+	pBuffer++;
+
+	m_MidiEventEndOfBuffer		= pBuffer;
+}
+
+//
+////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////
+CMidiKeySignature::CMidiKeySignature ( unsigned char cVal1, unsigned char cVal2 )
+{
+	m_cMidiEventCode			= MIDI_EVENT_CODE_META;
+	m_cMidiEventSubCode			= MIDI_EVENT_CODE_META_KEYSIG_1;
+	m_cMidiEventSubCode2		= MIDI_EVENT_CODE_META_KEYSIG_2;
+
+	m_cMidiSf					= cVal1;
+	m_cMidiMi					= cVal2;
+
+	//	Set the Event Index.
+	m_iEventIndex				= MIDI_EVENT_KEYSIG;
+
+}
+
+//
+////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////
+CMidiKeySignature::~CMidiKeySignature ()
+{
+	Free ();
+}
+
+//
+////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////
+void CMidiKeySignature::Save( FILE *hFile)
+{
+	if ( hFile != NULL )
+	{
+		fwrite ( &m_cMidiEventCode, 1, 1, hFile );
+		fwrite ( &m_cMidiEventSubCode, 1, 1, hFile );
+		fwrite ( &m_cMidiEventSubCode2, 1, 1, hFile );
+		fwrite ( &m_cMidiSf, 1, 1, hFile );
+		fwrite ( &m_cMidiMi, 1, 1, hFile );
+	}
+}
+
+//
+////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////
+const unsigned char *CMidiKeySignature::GetEventText() const
+{
+	return ( GetEventSmallText ( MIDI_EVENT_KEYSIG ) );
+}
+
+//
+////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////
+void CMidiKeySignature::Trace( FILE *hFile)
+{
+	if ( hFile != NULL )
+	{
+		fprintf ( hFile, "%s - Sf: %d, Mi: %d\n", 
+			GetEventSmallText ( MIDI_EVENT_KEYSIG ) ,
+			m_cMidiSf, m_cMidiMi );
+	}
+}
+
+//
+////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////
+void CMidiKeySignature::Free ()
+{
+}
+
+//
+////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////
+unsigned char CMidiKeySignature::GetEventValue1() const
+{
+	return m_cMidiSf;
+}
+
+//
+////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////
+unsigned char CMidiKeySignature::GetEventValue2() const
+{
+	return m_cMidiMi;
+}
+
+//
+////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////
+void CMidiKeySignature::SetEventValue1(unsigned char  val)
+{
+	m_cMidiSf = val;
+}
+
+//
+////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////
+void CMidiKeySignature::SetEventValue2(unsigned char  val)
+{
+	m_cMidiMi = val;
+}
+

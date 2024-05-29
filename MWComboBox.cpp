@@ -1,0 +1,275 @@
+//
+///////////////////////////////////////////////////////////////////////////////////
+// MWComboBox.cpp : implementation file
+//
+///////////////////////////////////////////////////////////////////////////////////
+#include "stdafx.h"
+#include "MidiGlassApp.h"
+#include "MWComboBox.h"
+
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+#endif
+
+extern CMidiWorksApp theApp;
+
+//
+IMPLEMENT_DYNAMIC(CMWComboBox, CComboBox)
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+// CMWComboBox
+//
+///////////////////////////////////////////////////////////////////////////////////
+CMWComboBox::CMWComboBox()
+{
+	m_bSendNormal	= false;
+	m_iInitialSel	= -2;
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+CMWComboBox::~CMWComboBox()
+{
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMWComboBox::ReLoad()
+{
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMWComboBox::SendNormalMessage()
+{
+	m_bSendNormal	= true;
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+BEGIN_MESSAGE_MAP(CMWComboBox, CComboBox)
+	//{{AFX_MSG_MAP(CMWComboBox)
+	ON_WM_CTLCOLOR()
+	ON_CONTROL_REFLECT(CBN_KILLFOCUS, OnKillfocus)
+	ON_CONTROL_REFLECT(CBN_SELCHANGE, OnSelchange)
+	ON_WM_ERASEBKGND()
+	//}}AFX_MSG_MAP
+END_MESSAGE_MAP()
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+// CMWComboBox message handlers
+//
+///////////////////////////////////////////////////////////////////////////////////
+HBRUSH CMWComboBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
+{
+	HBRUSH hbr = CComboBox::OnCtlColor(pDC, pWnd, nCtlColor);
+	
+	// TODO: Change any attributes of the DC here
+	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
+	if ( hBrush != NULL )
+	{
+		return hBrush;
+	}
+
+	// TODO: Return a different brush if the default is not desired
+	return hbr;
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMWComboBox::OnKillfocus() 
+{
+	// TODO: Add your control notification handler code here
+	CWnd	*wndParent	= GetParent ();
+
+	if ( GetFocus ( ) != this && GetFocus ( ) != wndParent )
+	{
+		::PostMessage ( wndParent->m_hWnd, WM_MW_EDIT_END, 0, ( LPARAM ) this->m_hWnd );
+	}
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMWComboBox::OnSelchange() 
+{
+	// TODO: Add your control notification handler code here
+	CWnd	*wndParent		= GetParent ();
+	CWnd	*wndGrandParent	= NULL;
+	if ( wndParent != NULL )
+	{
+		wndGrandParent = wndParent->GetParent();
+	}
+
+	//
+	LONG  id		= GetWindowLong ( this->m_hWnd, GWL_ID  );
+	WPARAM wParam	= MAKEWPARAM(id, CBN_SELCHANGE);
+	
+	LRESULT	lResult		= 0L;
+	BOOL bSent			= FALSE;
+
+	//	Send To Parent normal message
+	if ( m_bSendNormal )
+	{
+		//	Send The Default Message to parent
+		LPARAM lParam	= (LPARAM) wndParent->m_hWnd;				// Important that is is the handle of parent
+
+		//
+		lResult = ::SendMessage ( wndParent->m_hWnd, WM_COMMAND, wParam, lParam );
+	}
+	//	Send To Parent Custom message
+	else
+	{
+		bSent = ::PostMessage ( wndParent->m_hWnd, WM_MW_EDIT_SELECT, wParam, ( LPARAM ) this->m_hWnd );
+	}
+
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMWComboBox::SetAnsiVarFont()
+{
+	::SendMessage ( this->m_hWnd, WM_SETFONT, ( WPARAM ) ( ::GetStockObject ( ANSI_VAR_FONT ) ), 1 );
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMWComboBox::SetAnsiFixedFont()
+{
+	::SendMessage ( this->m_hWnd, WM_SETFONT, ( WPARAM ) ( ::GetStockObject ( ANSI_FIXED_FONT ) ), 1 );
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+BOOL CMWComboBox::OnEraseBkgnd(CDC* pDC) 
+{
+	// TODO: Add your message handler code here and/or call default
+	BOOL bRes = FriendEraseBkgnd(this, pDC);
+	if ( bRes )
+	{
+		return bRes;
+	}
+
+	return CComboBox::OnEraseBkgnd(pDC);
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+BOOL CMWComboBox::PreTranslateMessage(MSG* pMsg)
+{
+	// TODO: ajoutez ici votre code spécialisé et/ou l'appel de la classe de base
+	if ( pMsg != NULL && pMsg->message == WM_KEYDOWN && ( pMsg->wParam == VK_RETURN || pMsg->wParam == VK_TAB ) )
+	{
+		CWnd	*wndParent				= GetParent ();
+		CWnd	*wndGrandParent			= NULL;
+
+		if ( wndParent != NULL )
+		{
+			wndGrandParent = wndParent->GetParent ();
+		}
+
+		//
+		CView *pView = dynamic_cast<CView *>( wndParent );
+		if ( pView == NULL )
+		{
+			pView = dynamic_cast<CView *>( wndGrandParent );
+		}
+
+		//
+		LPARAM lParam	= (LPARAM) this->m_hWnd;				// Important that is is the handle of current
+
+		if ( pView != NULL )
+		{
+			::PostMessage ( pView->m_hWnd, WM_MW_EDIT_END, 0, ( LPARAM ) wndParent->m_hWnd );
+		}
+	}
+
+	return CComboBox::PreTranslateMessage(pMsg);
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+int CMWComboBox::SetCurSel(int nSelect)
+{
+	int returned = CComboBox::SetCurSel ( nSelect );
+	if ( m_iInitialSel == -2 )
+	{
+		m_iInitialSel = nSelect;
+	}
+	return returned;
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+int CMWComboBox::GetCurSel() const
+{
+	int iCurSel = CComboBox::GetCurSel();
+
+	return iCurSel;
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+BOOL CMWComboBox::GetModify() const
+{
+	if ( GetCurSel() != m_iInitialSel || GetCurSel()  == -1 )
+	{
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMWComboBox::SetModify(BOOL bModified )
+{
+	int iCurSel = CComboBox::GetCurSel();
+	if ( bModified )
+	{
+		if ( iCurSel == -1 )
+		{
+			m_iInitialSel	= -2;
+		}
+		else
+		{
+			m_iInitialSel	= -1;
+		}
+	}
+	else
+	{
+		m_iInitialSel = iCurSel;
+	}
+}
+

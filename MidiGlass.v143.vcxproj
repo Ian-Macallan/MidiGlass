@@ -1,0 +1,476 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>MidiGlass</ProjectName>
+    <ProjectGuid>{EE0D4109-6F5E-46AF-AF5D-0C6CDD57D68A}</ProjectGuid>
+    <RootNamespace>MidiGlass</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="FluidSynth32Dyn.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="FluidSynth64Dyn.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="FluidSynth32Dyn.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="FluidSynth64Dyn.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Release/MidiGlass.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;MCNODLL;MCNOEXTERNC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>DnsApi.lib;ws2_32.lib;winmm.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+
+</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TypeLibraryName>.\Release/MidiGlass.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;MCNODLL;MCNOEXTERNC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WIN64;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>DnsApi.lib;ws2_32.lib;winmm.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Debug/MidiGlass.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;MCNODLL;MCNOEXTERNC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>version.lib;DnsApi.lib;ws2_32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TypeLibraryName>.\Debug/MidiGlass.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;MCNODLL;MCNOEXTERNC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+      <OmitFramePointers>false</OmitFramePointers>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WIN64;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>version.lib;DnsApi.lib;ws2_32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AudioLoopback.cpp" />
+    <ClCompile Include="AudioLoopbackThread.cpp" />
+    <ClCompile Include="ChannelView.cpp" />
+    <ClCompile Include="CorrectOptions.cpp" />
+    <ClCompile Include="ErrorView.cpp" />
+    <ClCompile Include="EventDetail.cpp" />
+    <ClCompile Include="EventView.cpp" />
+    <ClCompile Include="FindEvent.cpp" />
+    <ClCompile Include="CFluidSynth.cpp" />
+    <ClCompile Include="Friend.cpp" />
+    <ClCompile Include="GeneralView.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="MainFrmTools.cpp" />
+    <ClCompile Include="MainFrmUI.cpp" />
+    <ClCompile Include="MfcMsIeView.cpp" />
+    <ClCompile Include="MidiBinary.cpp" />
+    <ClCompile Include="MidiGlassApp.cpp" />
+    <ClCompile Include="MidiAbout.cpp" />
+    <ClCompile Include="MidiChannel.cpp" />
+    <ClCompile Include="MidiChannelPressure.cpp" />
+    <ClCompile Include="MidiClass.cpp" />
+    <ClCompile Include="MidiDoc.cpp" />
+    <ClCompile Include="MidiEndOfTrack.cpp" />
+    <ClCompile Include="MidiError.cpp" />
+    <ClCompile Include="MidiEvent.cpp" />
+    <ClCompile Include="MidiExplorerView.cpp" />
+    <ClCompile Include="MidiFile.cpp" />
+    <ClCompile Include="MidiFileLowLevelPlay.cpp" />
+    <ClCompile Include="MidiFileMci.cpp" />
+    <ClCompile Include="MidiFrame.cpp" />
+    <ClCompile Include="MidiInputChunk.cpp" />
+    <ClCompile Include="MidiKeyPressure.cpp" />
+    <ClCompile Include="MidiKeySignature.cpp" />
+    <ClCompile Include="MidiList.cpp" />
+    <ClCompile Include="MidiNoteOff.cpp" />
+    <ClCompile Include="MidiNoteOn.cpp" />
+    <ClCompile Include="MidiOwnPlayer.cpp" />
+    <ClCompile Include="MidiParameters.cpp" />
+    <ClCompile Include="MidiPiece.cpp" />
+    <ClCompile Include="MidiPlayerChunk.cpp" />
+    <ClCompile Include="MidiProgram.cpp" />
+    <ClCompile Include="MidiSetSMPTE.cpp" />
+    <ClCompile Include="MidiSetTempo.cpp" />
+    <ClCompile Include="MidiStartOfTrack.cpp" />
+    <ClCompile Include="MidiSysEx.cpp" />
+    <ClCompile Include="MidiSystemExclusive.cpp" />
+    <ClCompile Include="MidiText.cpp" />
+    <ClCompile Include="MidiText2.cpp" />
+    <ClCompile Include="MidiTextView.cpp" />
+    <ClCompile Include="MidiTimeSignature.cpp" />
+    <ClCompile Include="MidiTrack.cpp" />
+    <ClCompile Include="MidiView.cpp" />
+    <ClCompile Include="MidiWave.cpp" />
+    <ClCompile Include="MidiWheel.cpp" />
+    <ClCompile Include="ModifyThread.cpp" />
+    <ClCompile Include="ModifyThreadDialog.cpp" />
+    <ClCompile Include="MWBase.cpp" />
+    <ClCompile Include="MWButton.cpp" />
+    <ClCompile Include="MWCHeaderCtrl.cpp" />
+    <ClCompile Include="MWComboBox.cpp" />
+    <ClCompile Include="MWControllersComboBox.cpp" />
+    <ClCompile Include="MWCReBarCtrl.cpp" />
+    <ClCompile Include="MWEdit.cpp" />
+    <ClCompile Include="MWEditInList.cpp" />
+    <ClCompile Include="MWEventsComboBox.cpp" />
+    <ClCompile Include="MWFormView.cpp" />
+    <ClCompile Include="MWFrameWnd.cpp" />
+    <ClCompile Include="MWListBox.cpp" />
+    <ClCompile Include="MWListCtrl.cpp" />
+    <ClCompile Include="MWListEditBox.cpp" />
+    <ClCompile Include="MWListEditCtrl.cpp" />
+    <ClCompile Include="MWProgramsComboBox.cpp" />
+    <ClCompile Include="MWProgressCtrl.cpp" />
+    <ClCompile Include="MWReBar.cpp" />
+    <ClCompile Include="MWRichEditControl.cpp" />
+    <ClCompile Include="MWScrollBar.cpp" />
+    <ClCompile Include="MWSF2FilesComboBox.cpp" />
+    <ClCompile Include="MWSliderCtrl.cpp" />
+    <ClCompile Include="MWStatic.cpp" />
+    <ClCompile Include="MWStatusBar.cpp" />
+    <ClCompile Include="MWToolBar.cpp" />
+    <ClCompile Include="NotesView.cpp" />
+    <ClCompile Include="Parameters.cpp" />
+    <ClCompile Include="PlayDirThreadProc.cpp" />
+    <ClCompile Include="PlayerDialog.cpp" />
+    <ClCompile Include="PlayList.cpp" />
+    <ClCompile Include="PlayListProperty.cpp" />
+    <ClCompile Include="PlayTuneThread.cpp" />
+    <ClCompile Include="Preferences.cpp" />
+    <ClCompile Include="RecordDialog.cpp" />
+    <ClCompile Include="RecordThread.cpp" />
+    <ClCompile Include="StaffView.cpp" />
+    <ClCompile Include="StaffViewParms.cpp" />
+    <ClCompile Include="StaffViewPrint.cpp" />
+    <ClCompile Include="StaticUrl.cpp" />
+    <ClCompile Include="StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SysExDialog.cpp" />
+    <ClCompile Include="MCMemA.cpp" />
+    <ClCompile Include="MCMemW.cpp" />
+    <ClCompile Include="PrintRoutine.cpp" />
+    <ClCompile Include="strstr.cpp" />
+    <ClCompile Include="ToolBarSoundFont.cpp" />
+    <ClCompile Include="TrackDetail.cpp" />
+    <ClCompile Include="TracksView.cpp" />
+    <ClCompile Include="WaitTreatment.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MidiGlass.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AudioLoopback.h" />
+    <ClInclude Include="AudioLoopbackThread.h" />
+    <ClInclude Include="AutomaticProductName.h" />
+    <ClInclude Include="AutomaticVersionHeader.h" />
+    <ClInclude Include="ChannelView.h" />
+    <ClInclude Include="CorrectOptions.h" />
+    <ClInclude Include="ErrorView.h" />
+    <ClInclude Include="EventDetail.h" />
+    <ClInclude Include="EventView.h" />
+    <ClInclude Include="FindEvent.h" />
+    <ClInclude Include="CFluidSynth.h" />
+    <ClInclude Include="Friend.h" />
+    <ClInclude Include="GeneralView.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MfcMsIeView.h" />
+    <ClInclude Include="MidiBinary.h" />
+    <ClInclude Include="MidiGlassApp.h" />
+    <ClInclude Include="MidiAbout.h" />
+    <ClInclude Include="MidiChannel.h" />
+    <ClInclude Include="MidiClass.h" />
+    <ClInclude Include="MidiDefs.h" />
+    <ClInclude Include="MidiDoc.h" />
+    <ClInclude Include="MidiError.h" />
+    <ClInclude Include="MidiEvent.h" />
+    <ClInclude Include="MidiExplorerView.h" />
+    <ClInclude Include="MidiExported.h" />
+    <ClInclude Include="MidiFile.h" />
+    <ClInclude Include="MidiFrame.h" />
+    <ClInclude Include="MidiInputChunk.h" />
+    <ClInclude Include="MidiList.h" />
+    <ClInclude Include="MidiOwnPlayer.h" />
+    <ClInclude Include="MidiPiece.h" />
+    <ClInclude Include="MidiPlayerChunk.h" />
+    <ClInclude Include="MidiSysEx.h" />
+    <ClInclude Include="MidiText.h" />
+    <ClInclude Include="MidiTextView.h" />
+    <ClInclude Include="MidiTrack.h" />
+    <ClInclude Include="MidiView.h" />
+    <ClInclude Include="MidiWave.h" />
+    <ClInclude Include="ModifyThread.h" />
+    <ClInclude Include="ModifyThreadDialog.h" />
+    <ClInclude Include="MWBase.h" />
+    <ClInclude Include="MWButton.h" />
+    <ClInclude Include="MWCHeaderCtrl.h" />
+    <ClInclude Include="MWComboBox.h" />
+    <ClInclude Include="MWControllersComboBox.h" />
+    <ClInclude Include="MWCReBarCtrl.h" />
+    <ClInclude Include="MWEdit.h" />
+    <ClInclude Include="MWEditInList.h" />
+    <ClInclude Include="MWEventsComboBox.h" />
+    <ClInclude Include="MWFormView.h" />
+    <ClInclude Include="MWFrameWnd.h" />
+    <ClInclude Include="MWListBox.h" />
+    <ClInclude Include="MWListCtrl.h" />
+    <ClInclude Include="MWListEditBox.h" />
+    <ClInclude Include="MWListEditCtrl.h" />
+    <ClInclude Include="MWObjects.h" />
+    <ClInclude Include="MWProgramsComboBox.h" />
+    <ClInclude Include="MWProgressCtrl.h" />
+    <ClInclude Include="MWReBar.h" />
+    <ClInclude Include="MWRichEditControl.h" />
+    <ClInclude Include="MWScrollBar.h" />
+    <ClInclude Include="MWSF2FilesComboBox.h" />
+    <ClInclude Include="MWSliderCtrl.h" />
+    <ClInclude Include="MWStatic.h" />
+    <ClInclude Include="MWStatusBar.h" />
+    <ClInclude Include="MWToolBar.h" />
+    <ClInclude Include="NotesView.h" />
+    <ClInclude Include="Parameters.h" />
+    <ClInclude Include="PlayDirThreadProc.h" />
+    <ClInclude Include="PlayerDialog.h" />
+    <ClInclude Include="PlayList.h" />
+    <ClInclude Include="PlayListProperty.h" />
+    <ClInclude Include="PlayTuneThread.h" />
+    <ClInclude Include="Preferences.h" />
+    <ClInclude Include="RecordDialog.h" />
+    <ClInclude Include="RecordThread.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="StaffView.h" />
+    <ClInclude Include="StaffViewParms.h" />
+    <ClInclude Include="StaticUrl.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="SysExDialog.h" />
+    <ClInclude Include="MCMemA.h" />
+    <ClInclude Include="MCMemW.h" />
+    <ClInclude Include="PrintRoutine.h" />
+    <ClInclude Include="strstr.h" />
+    <ClInclude Include="ToolBarSoundFont.h" />
+    <ClInclude Include="TrackDetail.h" />
+    <ClInclude Include="TracksView.h" />
+    <ClInclude Include="WaitTreatment.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MidiGlass.hpj" />
+    <None Include="res\back.bmp" />
+    <None Include="res\backempt.bmp" />
+    <None Include="res\backgrou.bmp" />
+    <None Include="res\backward.bmp" />
+    <None Include="res\bitmap1.bmp" />
+    <None Include="res\bmp00001.bmp" />
+    <None Include="res\bmp00002.bmp" />
+    <None Include="res\channel_.bmp" />
+    <None Include="res\event_32.bmp" />
+    <None Include="res\event_ic.bmp" />
+    <None Include="res\explorer.bmp" />
+    <None Include="res\forw.bmp" />
+    <None Include="res\forward.bmp" />
+    <None Include="res\H_point.cur" />
+    <None Include="res\ie_toolb.bmp" />
+    <None Include="res\loop.bmp" />
+    <None Include="res\mainfram.bmp" />
+    <None Include="res\mci_tool.bmp" />
+    <None Include="res\midifile2.mid" />
+    <None Include="res\MidiGlass.ico" />
+    <None Include="res\MidiGlass.rc2" />
+    <None Include="res\MidiGlassDoc.ico" />
+    <None Include="res\midi_too.bmp" />
+    <None Include="res\midifile1.mid" />
+    <None Include="res\Midirtf.rtf" />
+    <None Include="res\NOTE16X2.bmp" />
+    <None Include="res\NOTE32X2.bmp" />
+    <None Include="res\NOTE48X2.bmp" />
+    <None Include="res\pause.bmp" />
+    <None Include="res\play.bmp" />
+    <None Include="res\Shot0002.bmp" />
+    <None Include="res\stop.bmp" />
+    <None Include="res\Toolbar.bmp" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Pictogrammers-Material-Midi.ico" />
+    <Image Include="res\Simpleicons-Team-Simple-Midi.ico" />
+    <Image Include="res\toolbar1.bmp" />
+    <Image Include="res\Trayse101-Basic-Filetypes-1-Midi.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

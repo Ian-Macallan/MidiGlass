@@ -1,0 +1,1450 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "AutomaticProductName.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Anglais (États-Unis) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\MidiGlass.ico"
+IDI_MIDI1               ICON                    "res\\Pictogrammers-Material-Midi.ico"
+IDI_MIDI2               ICON                    "res\\Simpleicons-Team-Simple-Midi.ico"
+IDI_MIDI3               ICON                    "res\\Trayse101-Basic-Filetypes-1-Midi.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\mainfram.bmp"
+IDB_PLAY                BITMAP                  "res\\play.bmp"
+IDB_PAUSE               BITMAP                  "res\\pause.bmp"
+IDB_STOP                BITMAP                  "res\\stop.bmp"
+IDB_FORWARD             BITMAP                  "res\\forward.bmp"
+IDB_BACKWARD            BITMAP                  "res\\backward.bmp"
+IDB_LOOP                BITMAP                  "res\\loop.bmp"
+IDR_MCI_TOOLBAR         BITMAP                  "res\\mci_tool.bmp"
+IDR_MIDI_TOOLBAR        BITMAP                  "res\\midi_too.bmp"
+IDB_BACKGROUND          BITMAP                  "res\\backgrou.bmp"
+IDB_BACK_EMPTY          BITMAP                  "res\\backempt.bmp"
+IDB_IMAGE_16X2          BITMAP                  "res\\NOTE16X2.bmp"
+IDB_IMAGE_32X2          BITMAP                  "res\\NOTE32X2.bmp"
+IDB_IMAGE_48X2          BITMAP                  "res\\NOTE48X2.bmp"
+IDB_MCI_TOOLBAR         BITMAP                  "res\\bmp00001.bmp"
+IDB_MIDI_TOOLBAR        BITMAP                  "res\\bitmap1.bmp"
+IDB_MAINFRAME           BITMAP                  "res\\bmp00002.bmp"
+IDB_ABOUT_PICTURE       BITMAP                  "res\\Shot0002.bmp"
+IDB_EVENT_ICONS         BITMAP                  "res\\event_ic.bmp"
+IDB_EVENT_ICONS32       BITMAP                  "res\\event_32.bmp"
+IDR_IE_TOOLBAR          BITMAP                  "res\\ie_toolb.bmp"
+IDB_CHANNEL_STATE       BITMAP                  "res\\channel_.bmp"
+IDB_EXPLORER_ICONS      BITMAP                  "res\\explorer.bmp"
+IDB_FORW                BITMAP                  "res\\forw.bmp"
+IDB_BACK                BITMAP                  "res\\back.bmp"
+IDR_SF2_TOOLBAR         BITMAP                  "res\\toolbar1.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_APP_ABOUT
+END
+
+IDR_MCI_TOOLBAR TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_FILE_SEQUENCER_PLAY
+    BUTTON      ID_FILE_SEQUENCER_STOP
+    BUTTON      ID_FILE_SEQUENCER_PLAYANDLOOP
+END
+
+IDR_MIDI_TOOLBAR TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_FILE_SEQUENCER_BACKWARDLL
+    BUTTON      ID_FILE_SEQUENCER_PLAYLL
+    BUTTON      ID_FILE_SEQUENCER_PLAYANDLOOPLL
+    BUTTON      ID_FILE_SEQUENCER_PAUSELL
+    BUTTON      ID_FILE_SEQUENCER_FORWARDLL
+    BUTTON      ID_FILE_SEQUENCER_STOPLL
+END
+
+IDR_IE_TOOLBAR TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_CONTENT_START_IE
+    BUTTON      ID_CONTENT_STOP_IE
+END
+
+IDR_SF2_TOOLBAR TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_SF2_TOOL_1
+    BUTTON      ID_SF2_TOOL_2
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "Record",                      ID_FILE_RECORD
+        MENUITEM SEPARATOR
+        MENUITEM "Trace",                       ID_FILE_TRACE
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Pre&ferences",                ID_FILE_PREFERENCES
+        MENUITEM "Save Geometry",               ID_FILE_SAVEGEOMETRY
+        MENUITEM SEPARATOR
+        MENUITEM "Add File To The Play &List",  ID_FILE_ADDTOTHEPLAYLIST
+        MENUITEM SEPARATOR
+        POPUP "Se&quencer"
+        BEGIN
+            POPUP "M&CI Play File"
+            BEGIN
+                MENUITEM "&Play Midi File",             ID_FILE_SEQUENCER_PLAY
+                MENUITEM "Play Midi File and &Loop",    ID_FILE_SEQUENCER_PLAYANDLOOP
+                MENUITEM "&Stop Playing Midi File",     ID_FILE_SEQUENCER_STOP
+            END
+            POPUP "Mi&di Play"
+            BEGIN
+                MENUITEM "&Play Midi",                  ID_FILE_SEQUENCER_PLAYLL
+                MENUITEM "&Backward",                   ID_FILE_SEQUENCER_BACKWARDLL
+                MENUITEM "P&ause",                      ID_FILE_SEQUENCER_PAUSELL
+                MENUITEM "&Resume",                     ID_FILE_SEQUENCER_RESUMELL
+                MENUITEM "&Forward",                    ID_FILE_SEQUENCER_FORWARDLL
+                MENUITEM "&Stop Playing",               ID_FILE_SEQUENCER_STOPLL
+                MENUITEM "Play And &Loop",              ID_FILE_SEQUENCER_PLAYANDLOOPLL
+            END
+        END
+        MENUITEM "Me&dia Player",               ID_FILE_MEDIAPLAYER
+        MENUITEM SEPARATOR
+        MENUITEM "Send the Midi File as Mail",  ID_FILE_SEND_MAIL
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "Find\tAlt+F3",                ID_EDIT_FIND
+        MENUITEM "Find Again\tF3",              ID_EDIT_FINDAGAIN
+    END
+    POPUP "&Content"
+    BEGIN
+        MENUITEM "Tracks List\tShift+F1",       ID_CONTENT_TRACKS_LIST
+        MENUITEM "Midi Explorer\tShift+F2",     ID_CONTENT_MIDIEXPLORER
+        MENUITEM SEPARATOR
+        MENUITEM "&Header\tShift+F5",           ID_CONTENT_HEADER
+        MENUITEM "Events in &Tracks\tShift+F6", ID_CONTENT_TRACKS
+        POPUP "&Events"
+        BEGIN
+            MENUITEM "&Sequence",                   ID_CONTENT_EVENTS_SEQUENCE
+            MENUITEM "&Text",                       ID_CONTENT_EVENTS_TEXT
+            MENUITEM "&Copyright",                  ID_CONTENT_EVENTS_COPYRIGHT
+            MENUITEM "Track &Name",                 ID_CONTENT_EVENTS_TRACKNAME
+            MENUITEM "&Instrument Name",            ID_CONTENT_EVENTS_INSTRUMENTNAME
+            MENUITEM "&Lyrics",                     ID_CONTENT_EVENTS_LYRICS
+            MENUITEM "&Markers",                    ID_CONTENT_EVENTS_MARKERS
+            MENUITEM "&Cue Point",                  ID_CONTENT_EVENTS_CUEPOINT
+            MENUITEM "Se&quencer",                  ID_CONTENT_EVENTS_SEQUENCER
+            MENUITEM "Show/Hide",                   ID_CONTENT_EVENTS_SHOWHIDE
+        END
+        MENUITEM "System E&xclusive",           ID_CONTENT_SYSTEMEXCLUSIVE
+        MENUITEM "&Player",                     ID_CONTENT_PLAYER
+        MENUITEM "&Channels",                   ID_CONTENT_CHANNELS
+        MENUITEM "Sta&ff",                      ID_CONTENT_STAFF
+        MENUITEM SEPARATOR
+        MENUITEM "Play &List",                  ID_CONTENT_PLAYLIST
+        MENUITEM SEPARATOR
+        MENUITEM "Release Notes",               ID_CONTENT_NOTES
+        MENUITEM "Error &Messages",             ID_CONTENT_ERRORMESSAGES
+        MENUITEM SEPARATOR
+        POPUP "&Internet Explorer"
+        BEGIN
+            MENUITEM "&Start",                      ID_CONTENT_START_IE
+            MENUITEM "Sto&p",                       ID_CONTENT_STOP_IE
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "P&arameters",                 ID_CONTENT_PARAMETERS
+    END
+    POPUP "Co&rrect"
+    BEGIN
+        POPUP "&Add"
+        BEGIN
+            MENUITEM "&Start Of Track",             ID_CORRECT_STARTOFTRACK
+            MENUITEM "&End Of Track",               ID_CORRECT_ENDOFTRACK
+            MENUITEM "&GM Reset",                   ID_CORRECT_ADD_GMRESET
+            MENUITEM "GS &Reset",                   ID_CORRECT_ADD_GSRESET
+            MENUITEM "XG Reset",                    ID_CORRECT_ADD_XGRESET
+        END
+        MENUITEM "&Filter Tracks",              ID_CORRECT_FILTERTRACKS
+        POPUP "&Remove"
+        BEGIN
+            MENUITEM "System E&xclusive",           ID_REMOVE_SYSTEMEXCLUSIVE
+            POPUP "&Controllers"
+            BEGIN
+                MENUITEM "Bank Select &High",           ID_REMOVE_CONTROLLER_BANKSELECTHIGH
+                MENUITEM "Bank Select &Low",            ID_REMOVE_CONTROLLER_BANKSELECTLOW
+                MENUITEM "&Reset All Controlers",       ID_REMOVE_RESETALLCONTROLERS
+            END
+            POPUP "&Texts"
+            BEGIN
+                MENUITEM "&Sequence",                   ID_REMOVE_SEQUENCE
+                MENUITEM "&Text",                       ID_REMOVE_TEXT
+                MENUITEM "&Copyright",                  ID_REMOVE_COPYRIGHT
+                MENUITEM "Track &Name",                 ID_REMOVE_TRACKNAME
+                MENUITEM "&Instrument Name",            ID_REMOVE_INSTRUMENTNAME
+                MENUITEM "&Lyrics",                     ID_REMOVE_LYRICS
+                MENUITEM "&Markers",                    ID_REMOVE_MARKERS
+                MENUITEM "Cue &Point",                  ID_REMOVE_CUEPOINT
+                MENUITEM "Se&quencer",                  ID_REMOVE_SEQUENCER
+            END
+        END
+        MENUITEM "A&ll\tF4",                    ID_CORRECT_ALL
+        MENUITEM "&Options",                    ID_CORRECT_OPTIONS
+        POPUP "&Move"
+        BEGIN
+            MENUITEM "Time Signature to Track 0",   ID_CORRECT_TIMESIGNATURE
+            MENUITEM "Key Signature to Track 0",    ID_CORRECT_KEYSIGNATURE
+            MENUITEM "All to Track 0 (Midi Format 0 )", ID_CORRECT_MOVE_ALL
+        END
+        POPUP "&Truncate"
+        BEGIN
+            MENUITEM "&Note",                       ID_CORRECT_TRUNCATE_NOTE
+        END
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_MAINTOOLBAR
+        MENUITEM "M&CI Toolbar",                ID_VIEW_MCITOOLBAR
+        MENUITEM "Mi&di Toolbar",               ID_VIEW_MIDITOOLBAR
+        MENUITEM "I.E. Toolbar",                ID_VIEW_IETOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "&2 Two Views",                ID_VIEW_TWOVIEWS
+        MENUITEM "&Left View",                  ID_VIEW_LEFTVIEW
+        MENUITEM "&Right View",                 ID_VIEW_RIGHTVIEW
+    END
+    POPUP "&Tools"
+    BEGIN
+        MENUITEM "&Windows Explorer",           ID_TOOLS_EXPLORER
+        MENUITEM SEPARATOR
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Midi Glass\tF1",       ID_APP_ABOUT
+    END
+END
+
+IDR_MENU_TRACKS MENU
+BEGIN
+    POPUP "Tracks"
+    BEGIN
+        MENUITEM "&Property",                   ID_TRACKS_PROPERTY
+        MENUITEM "&Delete",                     ID_TRACKS_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Cut",                         ID_EDIT_CUT
+        MENUITEM "Paste",                       ID_EDIT_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "&Mute",                       ID_TRACKS_MUTE
+        MENUITEM "&Audible",                    ID_TRACKS_AUDIBLE
+        MENUITEM "Mute All",                    ID_TRACKS_MUTEALL
+        MENUITEM "Audible All",                 ID_TRACKS_AUDIBLEALL
+        MENUITEM SEPARATOR
+        MENUITEM "Play &Solo",                  ID_TRACKS_PLAYSOLO
+        MENUITEM SEPARATOR
+        MENUITEM "&Help",                       ID_TRACKS_HELP
+    END
+END
+
+IDR_MENU_EVENTS MENU
+BEGIN
+    POPUP "Events"
+    BEGIN
+        MENUITEM "&Property",                   ID_EVENTS_DETAIL
+        MENUITEM "&Delete",                     ID_EVENTS_DELETE
+        MENUITEM "Remove",                      ID_EVENTS_REMOVE
+        MENUITEM "Insert Before",               ID_EVENTS_INSERT_BEFORE
+        MENUITEM "Insert After",                ID_EVENTS_INSERT_AFTER
+        MENUITEM "&Modify",                     ID_EVENTS_MODIFY
+        MENUITEM SEPARATOR
+        MENUITEM "&Help",                       ID_EVENTS_HELP
+    END
+END
+
+IDR_MENU_PLAYLIST MENU
+BEGIN
+    POPUP "PlayList"
+    BEGIN
+        MENUITEM "&Open File",                  ID_PLAYLIST_OPENFILE
+        MENUITEM "&Property",                   ID_PLAYLIST_PROPERTY
+        MENUITEM SEPARATOR
+        MENUITEM "&Large Icons",                ID_LARGEICONS
+        MENUITEM "&Small Icons",                ID_SMALLICONS
+        MENUITEM "Lis&t",                       ID_LIST
+        MENUITEM "&Report",                     ID_REPORT
+        MENUITEM "&Arrange",                    ID_ARRANGE
+        MENUITEM SEPARATOR
+        MENUITEM "&Help",                       ID_PLAYLIST_HELP
+    END
+END
+
+IDR_TOOL MENU
+BEGIN
+    POPUP "Tools"
+    BEGIN
+        MENUITEM "ID_TOOLS_TOOL1",              ID_TOOLS_TOOL1
+        MENUITEM "ID_TOOLS_TOOL2",              ID_TOOLS_TOOL2
+        MENUITEM "ID_TOOLS_TOOL3",              ID_TOOLS_TOOL3
+        MENUITEM "ID_TOOLS_TOOL4",              ID_TOOLS_TOOL4
+        MENUITEM "ID_TOOLS_TOOL5",              ID_TOOLS_TOOL5
+        MENUITEM "ID_TOOLS_TOOL6",              ID_TOOLS_TOOL6
+        MENUITEM "ID_TOOLS_TOOL7",              ID_TOOLS_TOOL7
+        MENUITEM "ID_TOOLS_TOOL8",              ID_TOOLS_TOOL8
+        MENUITEM "ID_TOOLS_TOOL9",              ID_TOOLS_TOOL9
+        MENUITEM "ID_TOOLS_TOOL10",             ID_TOOLS_TOOL10
+        MENUITEM "ID_TOOLS_TOOL11",             ID_TOOLS_TOOL11
+        MENUITEM "ID_TOOLS_TOOL12",             ID_TOOLS_TOOL12
+        MENUITEM "ID_TOOLS_TOOL13",             ID_TOOLS_TOOL13
+        MENUITEM "ID_TOOLS_TOOL14",             ID_TOOLS_TOOL14
+        MENUITEM "ID_TOOLS_TOOL15",             ID_TOOLS_TOOL15
+        MENUITEM "ID_TOOLS_TOOL16",             ID_TOOLS_TOOL16
+        MENUITEM "ID_TOOLS_TOOL17",             ID_TOOLS_TOOL17
+        MENUITEM "ID_TOOLS_TOOL18",             ID_TOOLS_TOOL18
+        MENUITEM "ID_TOOLS_TOOL19",             ID_TOOLS_TOOL19
+        MENUITEM "ID_TOOLS_TOOL20",             ID_TOOLS_TOOL20
+    END
+END
+
+IDR_MENU_CHANNELS MENU
+BEGIN
+    POPUP "Channels"
+    BEGIN
+        MENUITEM "&Mute",                       ID_CHANNELS_MUTE
+        MENUITEM "&Audible",                    ID_CHANNELS_AUDIBLE
+        MENUITEM "Mute All",                    ID_CHANNELS_MUTEALL
+        MENUITEM "Audible All",                 ID_CHANNELS_AUDIBLEALL
+        MENUITEM SEPARATOR
+        MENUITEM "Solo",                        ID_CHANNELS_SOLO
+        MENUITEM SEPARATOR
+        MENUITEM "Help",                        ID_CHANNELS_HELP
+    END
+END
+
+IDR_MENU_VIEWS MENU
+BEGIN
+    POPUP "Views"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_MAINTOOLBAR
+        MENUITEM "M&CI Toolbar",                ID_VIEW_MCITOOLBAR
+        MENUITEM "Mi&di Toolbar",               ID_VIEW_MIDITOOLBAR
+        MENUITEM "I.E. Toolbar",                ID_VIEW_IETOOLBAR
+        MENUITEM "Sound Font 2",                ID_VIEW_SF2TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "&2 Two Views",                ID_VIEW_TWOVIEWS
+        MENUITEM "&Left View",                  ID_VIEW_LEFTVIEW
+        MENUITEM "&Right View",                 ID_VIEW_RIGHTVIEW
+    END
+END
+
+IDR_MENU_STAFF MENU
+BEGIN
+    POPUP "Staff"
+    BEGIN
+        MENUITEM "Scale",                       ID_STAFF_SCALE
+        MENUITEM SEPARATOR
+        MENUITEM "&Help",                       ID_STAFF_HELP
+    END
+END
+
+IDR_MENU_EXPLORER MENU
+BEGIN
+    POPUP "Explorer"
+    BEGIN
+        MENUITEM "Re&fresh\tF5",                ID_EXPLORER_REFRESH
+        MENUITEM "&Open",                       ID_EXPLORER_OPEN
+        MENUITEM "&Rename",                     ID_EXPLORER_RENAME
+        MENUITEM "&Delete",                     ID_EXPLORER_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Record",                      ID_EXPLORER_RECORD
+        MENUITEM SEPARATOR
+        MENUITEM "&Play Directory",             ID_EXPLORER_PLAYDIR
+        MENUITEM "&Correct Midi Files",         ID_EXPLORER_MODIFYFILES
+        MENUITEM SEPARATOR
+        MENUITEM "&Help",                       ID_EXPLORER_HELP
+    END
+END
+
+IDR_MENU_EMPTY MENU
+BEGIN
+    MENUITEM "Events",                      0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F1,          ID_APP_ABOUT,           VIRTKEY, NOINVERT
+    VK_F1,          ID_CONTENT_TRACKS_LIST, VIRTKEY, SHIFT, NOINVERT
+    VK_F2,          ID_CONTENT_MIDIEXPLORER, VIRTKEY, SHIFT, NOINVERT
+    VK_F3,          ID_EDIT_FINDAGAIN,      VIRTKEY, NOINVERT
+    VK_F3,          ID_EDIT_FIND,           VIRTKEY, ALT, NOINVERT
+    VK_F4,          ID_CORRECT_ALL,         VIRTKEY, NOINVERT
+    VK_F5,          ID_EXPLORER_REFRESH,    VIRTKEY, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_F7,          ID_CONTENT_HEADER,      VIRTKEY, SHIFT, NOINVERT
+    VK_F8,          ID_CONTENT_TRACKS,      VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 362, 190
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_ACCEPTFILES
+CAPTION "About MidiGlass"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "OK",IDOK,"Button",BS_OWNERDRAW | WS_GROUP | WS_TABSTOP,305,168,50,14
+    LTEXT           "Written with my\nC++ Class for Midi Files",IDC_STATIC,224,52,131,26,0,WS_EX_STATICEDGE
+    CONTROL         180,IDC_STATIC,"Static",SS_BITMAP,7,7,213,123
+    LTEXT           "If U Like This Program\nJust Send Me \nan Electronic Mail Message",IDC_STATIC,224,82,131,31,0,WS_EX_STATICEDGE
+    LTEXT           "This Program Is Under Construction",IDC_STATIC,224,118,131,29,0,WS_EX_STATICEDGE
+    EDITTEXT        IDC_LEGAL_COPYRIGHT,7,133,211,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_STATICEDGE
+    EDITTEXT        IDC_LEGAL_TRADEMARK,7,150,157,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_STATICEDGE
+    EDITTEXT        IDC_PRODUCT_VERSION,279,38,76,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_STATICEDGE
+    LTEXT           "Version",IDC_STATIC,225,38,49,12,0,WS_EX_RIGHT | WS_EX_STATICEDGE
+    CONTROL         "Tune",IDC_TUNE,"Button",BS_OWNERDRAW | WS_TABSTOP,168,168,50,14
+    LTEXT           "Static",IDC_PRODUCT_NAME,223,7,132,26,0,WS_EX_STATICEDGE
+    LTEXT           "Mail",IDC_COMMENTS,7,168,157,14,SS_NOTIFY,WS_EX_STATICEDGE
+    LTEXT           "Web",IDC_INTERNAL_NAME,169,150,186,12,SS_NOTIFY,WS_EX_STATICEDGE
+END
+
+IDD_GENERAL_VIEW DIALOGEX 0, 0, 308, 240
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Format",IDC_STATIC,7,8,64,10
+    EDITTEXT        IDC_FORMAT,79,7,45,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Number Of Tracks",IDC_STATIC,7,27,64,10
+    EDITTEXT        IDC_NBTRACKS,79,26,45,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Division High / Low",IDC_STATIC,7,46,64,10
+    EDITTEXT        IDC_DIVISION_HI,79,46,45,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DIVISION_LO,135,46,45,12,ES_AUTOHSCROLL
+    GROUPBOX        "Copyright Text",IDC_STATIC,7,63,294,133
+    EDITTEXT        IDC_TEXT,17,77,277,110,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL | NOT WS_TABSTOP
+    LTEXT           "mailto:empty@not.found.com",IDC_MAIL,7,203,294,12,SS_NOTIFY,WS_EX_STATICEDGE
+    LTEXT           "http://www.nowhere.com/",IDC_WEB,7,221,294,12,SS_NOTIFY,WS_EX_STATICEDGE
+END
+
+IDD_TRACKS_VIEW DIALOG 0, 0, 479, 271
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "List1",IDC_TRACKS_LIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,7,465,257
+END
+
+IDD_TEXT_VIEW DIALOG 0, 0, 307, 265
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EVENTNAME,7,7,93,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_SPIN_EVENT,"msctls_updown32",UDS_WRAP | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | WS_TABSTOP,100,7,11,14
+    CONTROL         "Compact",IDC_COMPACT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,126,7,174,12
+    EDITTEXT        IDC_TEXT,7,31,293,227,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL | NOT WS_TABSTOP
+END
+
+IDD_TRACK_EVENTS DIALOG 0, 0, 431, 285
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_TRACKNAME,73,7,40,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    CONTROL         "Spin1",IDC_SPIN,"msctls_updown32",UDS_WRAP | UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,113,7,11,12
+    CONTROL         "List1",IDC_TRACK_EVENT_LIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,7,26,415,253
+    RTEXT           "Track Number",IDC_STATIC,7,7,62,12,SS_CENTERIMAGE
+END
+
+IDD_EVENT_DETAIL DIALOGEX 0, 0, 407, 240
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Event Detailed Information"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Mesure",IDC_STATIC,7,17,105,8
+    EDITTEXT        IDC_MESURE,162,16,148,13,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Delta Time",IDC_STATIC,7,40,105,8
+    EDITTEXT        IDC_DELTA_TIME,162,40,148,13,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Channel",IDC_STATIC,7,60,105,8
+    EDITTEXT        IDC_EVENT_CHANNEL,162,60,150,13,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Event",IDC_STATIC,7,79,105,8
+    COMBOBOX        IDC_EVENT_COMBO,162,79,238,57,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Value",IDC_EVENT_LABEL_1,42,103,105,8
+    COMBOBOX        IDC_EVENT_COMBO_1,162,101,238,57,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Value",IDC_EVENT_TEXT_1,42,122,105,8
+    EDITTEXT        IDC_EVENT_VALUE_1,162,120,238,13,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "OK",IDOK,"Button",BS_OWNERDRAW | WS_TABSTOP,350,7,50,14
+    CONTROL         "Cancel",IDCANCEL,"Button",BS_OWNERDRAW | WS_TABSTOP,350,24,50,14
+    LTEXT           "Value",IDC_EVENT_TEXT_2,42,141,105,8
+    EDITTEXT        IDC_EVENT_VALUE_2,162,139,238,13,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Value",IDC_EVENT_TEXT_3,42,160,105,8
+    EDITTEXT        IDC_EVENT_VALUE_3,162,157,238,13,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Value",IDC_EVENT_TEXT_4,42,179,105,8
+    EDITTEXT        IDC_EVENT_VALUE_4,162,176,238,13,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Value",IDC_EVENT_TEXT_5,42,198,105,8
+    EDITTEXT        IDC_EVENT_VALUE_5,162,195,238,13,ES_AUTOHSCROLL | ES_READONLY
+    RTEXT           "1",IDC_NUM_LABEL_1,7,103,8,8
+    RTEXT           "1",IDC_NUM_TEXT_1,7,122,8,8
+    RTEXT           "2",IDC_NUM_TEXT_2,7,141,8,8
+    RTEXT           "3",IDC_NUM_TEXT_3,7,160,8,8
+    RTEXT           "4",IDC_NUM_TEXT_4,7,179,8,8
+    RTEXT           "5",IDC_NUM_TEXT_5,7,198,8,8
+END
+
+IDD_MIDI_PLAYER DIALOGEX 0, 0, 218, 134
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",WS_BORDER,15,38,186,8
+    EDITTEXT        IDC_TIME,7,115,40,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MAXIMUM,171,115,40,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_STATE,78,111,62,16,ES_AUTOHSCROLL | ES_READONLY,WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE | WS_EX_STATICEDGE
+    CONTROL         "Slider1",IDC_SLIDER,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,15,50,186,10
+    CONTROL         "Slider1",IDC_SLIDER_SPEED,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,15,79,186,9
+    GROUPBOX        "Position",IDC_STATIC,7,28,204,33
+    GROUPBOX        "Speed",IDC_STATIC,7,66,204,24
+    LTEXT           "1X",IDC_STATIC,7,93,23,8
+    LTEXT           "2X",IDC_STATIC,188,93,23,8,0,WS_EX_RIGHT
+END
+
+IDD_CORRECT_OPTION DIALOGEX 0, 0, 307, 209
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Correction Options"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Add Start Of Tracks",IDC_ADDSTARTTRACK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,41,110,10
+    CONTROL         "Add End Of Tracks",IDC_ADDENDTRACK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,58,110,10
+    CONTROL         "Filter Tracks By Channels",IDC_FILTER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,76,110,10
+    CONTROL         "Remove Bank Select High",IDC_BANKSELECTHIGH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,95,110,10
+    CONTROL         "Remove Bank Select Low",IDC_BANKSELECTLOW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,113,110,10
+    CONTROL         "OK",IDOK,"Button",BS_OWNERDRAW | WS_TABSTOP,250,7,50,14
+    CONTROL         "Cancel",IDCANCEL,"Button",BS_OWNERDRAW | WS_TABSTOP,250,24,50,14
+    COMBOBOX        IDC_SYSEX,17,20,188,78,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Correct Start Of Track",IDC_CORRECT_STARTOFTRACK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,133,110,10
+END
+
+IDD_ERRORTEXT DIALOGEX 0, 0, 382, 196
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Error Messages",IDC_ERROR_HEADER,7,7,368,8
+    EDITTEXT        IDC_ERROR_MESSAGE,7,25,368,124,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL | NOT WS_TABSTOP
+END
+
+IDD_PREFERENCES DIALOGEX 0, 0, 425, 187
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Preferences"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_START_PLAYING,7,7,171,78,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Skip To First Note When Playing",IDC_SKIP_TO_NOTE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,27,171,12
+    COMBOBOX        IDC_DEVICES,7,47,171,75,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_IN_DEVICES,7,77,171,75,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Sound Font 2 File",IDC_STATIC,7,118,152,8
+    EDITTEXT        IDC_SOUND_FONT_FILE,7,131,224,12,ES_AUTOHSCROLL
+    LTEXT           "Wave Directory",IDC_STATIC,7,154,152,8
+    EDITTEXT        IDC_WAVE_DIRECTORY,7,167,224,12,ES_AUTOHSCROLL
+    CONTROL         "Play Tune In About Box",IDC_PLAY_TUNE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,247,7,171,12
+    CONTROL         "Large Bar as Internet Explorer",IDC_LARGE_BAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,247,26,171,12
+    CONTROL         "Re Bar Style",IDC_REBAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,247,47,171,12
+    CONTROL         "Background Color",IDC_BACKGROUND,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,247,66,171,12
+    CONTROL         "Control Colors",IDC_CONTROL_COLOR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,247,87,171,12
+    CONTROL         "Split Window",IDC_SPLITTER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,247,106,171,12
+    CONTROL         "Browse",ID_BROWSE,"Button",BS_OWNERDRAW | WS_TABSTOP,368,130,50,14
+    CONTROL         "Cancel",IDCANCEL,"Button",BS_OWNERDRAW | WS_TABSTOP,302,165,50,14
+    CONTROL         "OK",IDOK,"Button",BS_OWNERDRAW | WS_TABSTOP,368,165,50,14
+    CONTROL         "Use Sound Font",IDC_USE_SF,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,246,131,87,12
+END
+
+IDD_CONTROLER DIALOGEX 0, 0, 324, 47
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Controlers"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "OK",IDOK,"Button",BS_OWNERDRAW | WS_TABSTOP,267,7,50,14
+    CONTROL         "Cancel",IDCANCEL,"Button",BS_OWNERDRAW | WS_TABSTOP,267,24,50,14
+    COMBOBOX        IDC_CONTROLER,87,7,161,48,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_SETTINGS,87,24,161,14,ES_AUTOHSCROLL
+    LTEXT           "Parameter",IDC_STATIC,7,7,74,12
+    CONTROL         "Settings",IDC_CHECK_SETTINGS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,24,76,16
+END
+
+IDD_PLAYLIST DIALOGEX 0, 0, 414, 268
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_DISPLAY,7,7,127,48,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "List1",IDC_PLAYLIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,30,400,211
+    CONTROL         "&Add",IDC_ADD,"Button",BS_OWNERDRAW | WS_TABSTOP,7,244,52,17
+    CONTROL         "&Remove",IDC_REMOVE,"Button",BS_OWNERDRAW | WS_TABSTOP,75,244,52,17
+    CONTROL         "&Save",IDC_SAVE,"Button",BS_OWNERDRAW | WS_TABSTOP,143,244,52,17
+    CONTROL         "&Play",IDC_PLAY,"Button",BS_OWNERDRAW | WS_TABSTOP,211,244,52,17
+    CONTROL         "S&top",IDC_STOP,"Button",BS_OWNERDRAW | WS_TABSTOP,279,244,52,17
+    CONTROL         "&Up",IDC_UP,"Button",BS_OWNERDRAW | WS_TABSTOP,381,7,26,17
+    CONTROL         "&Down",IDC_DOWN,"Button",BS_OWNERDRAW | WS_TABSTOP,381,244,26,17
+    CONTROL         "Auto Arrange",IDC_ARRANGE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,169,7,121,12
+END
+
+IDD_PLAYLIST_PROPERTY DIALOGEX 0, 0, 376, 46
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Play List Property"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "OK",IDOK,"Button",BS_OWNERDRAW | WS_TABSTOP,319,25,50,14
+    EDITTEXT        IDC_FILENAME,7,7,362,12,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_TRACK_DETAIL DIALOGEX 0, 0, 299, 95
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Track Detail"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "OK",IDOK,"Button",BS_OWNERDRAW | WS_TABSTOP,242,54,50,14
+    CONTROL         "Cancel",IDCANCEL,"Button",BS_OWNERDRAW | WS_TABSTOP,242,74,50,14
+    LTEXT           "Number",IDC_STATIC,7,7,91,12
+    EDITTEXT        IDC_TRACK_NUMBER,111,7,90,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Size (in events)",IDC_STATIC,7,26,91,12
+    EDITTEXT        IDC_TRACK_SIZE,111,26,90,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+END
+
+IDD_CHANNELS DIALOG 0, 0, 311, 206
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "List1",IDC_CHANNELS,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,7,297,192
+END
+
+IDD_NOTES_VIEW DIALOG 0, 0, 429, 205
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "",IDC_RICHEDIT_TEXT,"RICHEDIT",TCS_HOTTRACK | TCS_VERTICAL | TCS_RAGGEDRIGHT | TCS_MULTISELECT | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP,7,7,415,191
+END
+
+IDD_PLAYER_DIALOG DIALOGEX 0, 0, 422, 193
+STYLE DS_SETFONT | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_ACCEPTFILES
+CAPTION "Midi Player"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_NUMBER,7,7,34,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    CONTROL         "Spin1",IDC_SPIN_NUMBER,"msctls_updown32",UDS_WRAP | UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,39,6,10,14
+    COMBOBOX        IDC_TUNE_COMBO,52,7,260,70,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Backward",IDC_BACKWARD,7,126,34,14,BS_BITMAP
+    PUSHBUTTON      "Play",IDC_PLAY,97,126,34,14,BS_BITMAP
+    PUSHBUTTON      "Pause",IDC_PAUSE,142,126,34,14,BS_BITMAP
+    PUSHBUTTON      "Stop",IDC_STOP,187,126,34,14,BS_BITMAP
+    PUSHBUTTON      "Forward",IDC_FORWARD,277,126,34,14,BS_BITMAP
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",WS_BORDER,15,38,290,8
+    EDITTEXT        IDC_TIME,7,102,40,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MAXIMUM,271,102,40,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_STATE,139,102,40,12,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Slider1",IDC_SLIDER,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,15,50,289,10
+    CONTROL         "Slider1",IDC_SLIDER_SPEED,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,15,79,292,9
+    GROUPBOX        "Position",IDC_STATIC,8,28,304,33
+    GROUPBOX        "Speed",IDC_STATIC,7,66,304,33
+    LTEXT           "1X",IDC_STATIC,19,88,23,8
+    LTEXT           "2X",IDC_STATIC,284,88,23,8,0,WS_EX_RIGHT
+    CONTROL         "List1",IDC_CHANNELS,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_NOCOLUMNHEADER | WS_BORDER,319,7,96,179
+    PUSHBUTTON      "Back",IDC_BACK,52,126,34,14,BS_BITMAP
+    PUSHBUTTON      "For",IDC_FORW,232,126,34,14,BS_BITMAP
+END
+
+IDD_FIND_EVENT DIALOGEX 0, 0, 300, 185
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Find An Event"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_EVENT_COMBO,7,7,176,80,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_V1_FROM,56,37,40,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN_V1_FROM,"msctls_updown32",UDS_WRAP | UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,98,37,11,11
+    EDITTEXT        IDC_V1_TO,119,37,40,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN_V1_TO,"msctls_updown32",UDS_WRAP | UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,161,37,11,11
+    COMBOBOX        IDC_PROGRAM_COMBO,7,91,176,73,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CONTROLLER_COMBO,7,118,175,60,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "OK",IDOK,"Button",BS_OWNERDRAW | WS_TABSTOP,243,149,50,14
+    CONTROL         "Cancel",IDCANCEL,"Button",BS_OWNERDRAW | WS_TABSTOP,243,164,50,14
+    EDITTEXT        IDC_V2_FROM,56,64,40,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN_V2_FROM,"msctls_updown32",UDS_WRAP | UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,98,64,11,11
+    EDITTEXT        IDC_V2_TO,119,63,40,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN_V2_TO,"msctls_updown32",UDS_WRAP | UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,161,63,11,11
+    LTEXT           "Value 1",IDC_STATIC,13,39,33,8
+    LTEXT           "Value 2",IDC_STATIC,14,66,33,8
+END
+
+IDD_RECORD_DIALOG DIALOGEX 0, 0, 339, 116
+STYLE DS_SETFONT | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Recording to Wave"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Start Recording",IDOK,"Button",BS_OWNERDRAW | WS_TABSTOP,7,95,61,14
+    CONTROL         "Save Recording",IDCANCEL,"Button",BS_OWNERDRAW | WS_TABSTOP,271,95,61,14
+    EDITTEXT        IDC_MIDIFILE,7,22,325,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Recording File",IDC_STATIC,7,7,182,9
+    EDITTEXT        IDC_WAVE_DIRECTORY,7,55,325,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "To Directory",IDC_STATIC,7,40,182,9
+    CONTROL         "Progress1",IDC_PROGRESS_BAR,"msctls_progress32",WS_BORDER,74,96,193,13
+    EDITTEXT        IDC_TEXT,7,73,325,12,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_MODIFY_THREAD DIALOG 0, 0, 344, 31
+STYLE DS_SETFONT | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Modifications"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_NUMBER,7,7,34,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_TUNE,69,7,268,17,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+END
+
+IDD_SYSEX DIALOGEX 0, 0, 337, 173
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "System Exclusive"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_SYSEX,7,7,123,54,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "List1",IDC_SYSEX_VALUES,"SysListView32",LVS_REPORT | LVS_EDITLABELS | WS_BORDER | WS_TABSTOP,7,23,266,126
+    CONTROL         "Start Receive",IDC_START_RECEIVE,"Button",BS_OWNERDRAW | WS_TABSTOP,279,26,51,12
+    CONTROL         "Received",IDC_CHECK_RECEIVE,"Button",BS_OWNERDRAW | WS_TABSTOP,279,72,51,12
+    CONTROL         "Stop Receive",IDC_STOP_RECEIVE,"Button",BS_OWNERDRAW | WS_TABSTOP,279,90,51,12
+    CONTROL         "Default Values",IDC_DEFAULT,"Button",BS_OWNERDRAW | WS_TABSTOP,275,118,55,14
+    CONTROL         "Done",IDOK,"Button",BS_OWNERDRAW | WS_TABSTOP,275,135,55,14
+    EDITTEXT        IDC_SIZE_RECEIVE,279,54,51,13,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Do not enter the leading code ( F0 ) and the length",IDC_STATIC,153,153,177,13
+    LTEXT           "To edit click at the begining of the field",IDC_STATIC,7,153,130,13
+    LTEXT           "Size Received",IDC_STATIC,279,43,51,8
+END
+
+IDD_MWFORMVIEW DIALOGEX 0, 0, 320, 200
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "Default Form View : Not Used",IDC_STATIC,24,42,280,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 4,0,02,019
+ PRODUCTVERSION 4,0,02,019
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x29L
+#else
+ FILEFLAGS 0x28L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "mailto:ian.macallan@gmail.com\0"
+            VALUE "CompanyName", "Macallan (c)\0"
+            VALUE "FileDescription", "MidiGlass - (MSVC)\0"
+            VALUE "FileVersion", "4.0.02.019\0"
+            VALUE "InternalName", "https://www.macallan.org/\0"
+            VALUE "LegalCopyright", "Copyright (C) Wed May 29 16:07, 2024\0"
+            VALUE "LegalTrademarks", "Author: Ian Macallan\0"
+            VALUE "OriginalFilename", ORIGINAL_FILENAME
+            VALUE "PrivateBuild", "184\0"
+            VALUE "ProductName", PRODUCT_NAME
+            VALUE "ProductVersion", "4.0.02.019\0"
+            VALUE "SpecialBuild", "184\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 355
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 183
+    END
+
+    IDD_GENERAL_VIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 301
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 233
+    END
+
+    IDD_TRACKS_VIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 472
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 264
+    END
+
+    IDD_TEXT_VIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 300
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 258
+    END
+
+    IDD_TRACK_EVENTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 422
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 279
+    END
+
+    IDD_EVENT_DETAIL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 400
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 233
+    END
+
+    IDD_MIDI_PLAYER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 211
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 127
+    END
+
+    IDD_CORRECT_OPTION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 300
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 202
+    END
+
+    IDD_ERRORTEXT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 375
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 189
+    END
+
+    IDD_PREFERENCES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 418
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 179
+    END
+
+    IDD_CONTROLER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 317
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 40
+    END
+
+    IDD_PLAYLIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 407
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 261
+    END
+
+    IDD_PLAYLIST_PROPERTY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 369
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 39
+    END
+
+    IDD_TRACK_DETAIL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 292
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_CHANNELS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 304
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 199
+    END
+
+    IDD_NOTES_VIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 422
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 198
+    END
+
+    IDD_PLAYER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 415
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 186
+    END
+
+    IDD_FIND_EVENT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_RECORD_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 332
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 109
+    END
+
+    IDD_MODIFY_THREAD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 337
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 24
+    END
+
+    IDD_SYSEX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 330
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDD_MWFORMVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_CORRECT_OPTION DLGINIT
+BEGIN
+    IDC_SYSEX, 0x403, 28, 0
+0x6f44, 0x4e20, 0x746f, 0x4120, 0x6464, 0x5320, 0x7379, 0x6574, 0x206d, 
+0x7845, 0x6c63, 0x7375, 0x7669, 0x0065, 
+    IDC_SYSEX, 0x403, 35, 0
+0x6441, 0x2064, 0x6547, 0x656e, 0x6172, 0x206c, 0x694d, 0x6964, 0x2020, 
+0x7953, 0x7473, 0x6d65, 0x4520, 0x6378, 0x756c, 0x6973, 0x6576, "\000" 
+    IDC_SYSEX, 0x403, 38, 0
+0x6441, 0x2064, 0x6547, 0x656e, 0x6172, 0x206c, 0x7453, 0x6e61, 0x6164, 
+0x6472, 0x5320, 0x7379, 0x6574, 0x206d, 0x7845, 0x6c63, 0x7375, 0x7669, 
+0x0065, 
+    IDC_SYSEX, 0x403, 31, 0
+0x6441, 0x2064, 0x6159, 0x616d, 0x6168, 0x5820, 0x2047, 0x7973, 0x7473, 
+0x6d65, 0x4520, 0x6378, 0x756c, 0x6973, 0x6576, "\000" 
+    0
+END
+
+IDD_PREFERENCES DLGINIT
+BEGIN
+    IDC_START_PLAYING, 0x403, 26, 0
+0x6f44, 0x4e20, 0x746f, 0x5320, 0x6174, 0x7472, 0x5020, 0x616c, 0x6979, 
+0x676e, 0x4d20, 0x6469, 0x0069, 
+    IDC_START_PLAYING, 0x403, 43, 0
+0x7453, 0x7261, 0x2074, 0x6c50, 0x7961, 0x6e69, 0x2067, 0x694d, 0x6964, 
+0x4620, 0x6c69, 0x2065, 0x7375, 0x6e69, 0x2067, 0x654d, 0x6964, 0x2061, 
+0x6c50, 0x7961, 0x7265, "\000" 
+    IDC_START_PLAYING, 0x403, 42, 0
+0x7453, 0x7261, 0x2074, 0x6c50, 0x7961, 0x6e69, 0x2067, 0x694d, 0x6964, 
+0x4620, 0x6c69, 0x2065, 0x7375, 0x6e69, 0x2067, 0x434d, 0x2049, 0x6f52, 
+0x7475, 0x6e69, 0x0065, 
+    IDC_START_PLAYING, 0x403, 41, 0
+0x7453, 0x7261, 0x2074, 0x6c50, 0x7961, 0x6e69, 0x2067, 0x694d, 0x6964, 
+0x7520, 0x6973, 0x676e, 0x4920, 0x746e, 0x7265, 0x616e, 0x206c, 0x6c50, 
+0x7961, 0x7265, "\000" 
+    0
+END
+
+IDD_PLAYLIST DLGINIT
+BEGIN
+    IDC_DISPLAY, 0x403, 12, 0
+0x614c, 0x6772, 0x2065, 0x6349, 0x6e6f, 0x0073, 
+    IDC_DISPLAY, 0x403, 12, 0
+0x6d53, 0x6c61, 0x206c, 0x6349, 0x6e6f, 0x0073, 
+    IDC_DISPLAY, 0x403, 5, 0
+0x694c, 0x7473, "\000" 
+    IDC_DISPLAY, 0x403, 7, 0
+0x6552, 0x6f70, 0x7472, "\000" 
+    0
+END
+
+IDD_SYSEX DLGINIT
+BEGIN
+    IDC_SYSEX, 0x403, 9, 0
+0x4d47, 0x5220, 0x7365, 0x7465, "\000" 
+    IDC_SYSEX, 0x403, 9, 0
+0x5347, 0x5220, 0x7365, 0x7465, "\000" 
+    IDC_SYSEX, 0x403, 9, 0
+0x4758, 0x5220, 0x7365, 0x7465, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// MIDIFILE
+//
+
+IDR_MIDIFILE1           MIDIFILE                "res\\midifile1.mid"
+IDR_MIDIFILE2           MIDIFILE                "res\\midifile2.mid"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// MIDIRTF
+//
+
+IDR_MIDIRTF1            MIDIRTF                 "res\\Midirtf.rtf"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_POINT_TO            CURSOR                  "res\\H_point.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "MidiGlass\n\nmidi\nMidi Files (*.mid)\n.mid\nMidi.Document\nMidi Document"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "MidiGlass"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+    ID_FILE_SEND_MAIL       "Send a File with Mail\nSend a File with Mail"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_UNTITLED        "Untitled"
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+STRINGTABLE
+BEGIN
+    ID_CONTENT_HEADER       "View Midi Header Information\nView Midi Header Information"
+    ID_CONTENT_TRACKS       "View Tracks Contents\nView Tracks Contents"
+END
+
+STRINGTABLE
+BEGIN
+    ID_CONTENT_EVENTS_SEQUENCE "View Text Sequence"
+    ID_CONTENT_EVENTS_TEXT  "View Text "
+    ID_CONTENT_EVENTS_COPYRIGHT "View Text Copyright"
+    ID_CONTENT_EVENTS_TRACKNAME "View Text Track Name"
+    ID_CONTENT_EVENTS_INSTRUMENTNAME "View Text Instrument Name"
+    ID_CONTENT_EVENTS_LYRICS "View Text Lyrics"
+    ID_CONTENT_EVENTS_MARKERS "View Text Markers"
+    ID_CONTENT_EVENTS_CUEPOINT "View Text Cue Point"
+    ID_CONTENT_EVENTS_SEQUENCER "View Text Sequencer"
+    ID_CONTENT_SYSTEMEXCLUSIVE "View the System Exclusive"
+    ID_FILE_PLAYMIDI        "Play Midi File"
+    ID_FILE_TRACE           "Trace Midi File in a Log File\nTrace"
+    ID_CORRECT_STARTOFTRACK "Add Start Of Track if Missing"
+    ID_CORRECT_ENDOFTRACK   "Add End Of Track If Missing"
+END
+
+STRINGTABLE
+BEGIN
+    ID_TRACKS_PROPERTY      "Track Property"
+    ID_TRACKS_DELETE        "Delete This Track"
+    ID_EVENTS_DETAIL        "Event Property"
+    ID_EVENTS_DELETE        "Delete An Event Adjust Time"
+    ID_EVENTS_MODIFY        "Modify This Event"
+    ID_EVENTS_HELP          "Display Help"
+    ID_TRACKS_HELP          "Display Help "
+    ID_FILE_SEQUENCER_PLAY  "Play Midi File\nPlay Midi File"
+    ID_FILE_SEQUENCER_PAUSE "Pause Midi File"
+    ID_FILE_SEQUENCER_STOP  "Stop Playing Midi File\nStop Playing Midi File"
+    ID_FILE_SEQUENCER_RESUME "Resume Midi File"
+END
+
+STRINGTABLE
+BEGIN
+    ID_SF2_TOOL_1           "Nothing"
+    ID_SF2_TOOL_2           "Nothing"
+    ID_EVENTS_INSERT_BEFORE "Insert A New Event Before"
+    ID_EVENTS_INSERT_AFTER  "Insert A New Event After"
+    ID_EVENTS_REMOVE        "Remove An Event (Not Adjusting Time)"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_MEDIAPLAYER     "Launch Media Player"
+    ID_FILE_SEQUENCER_PLAYANDLOOP 
+                            "Play Midi File And Loop\nPlay Midi File And Loop"
+    ID_FILE_SEQUENCER_PLAYLL "Start Playing of Midi Part\nPlay Midi"
+    ID_FILE_SEQUENCER_STOPLL "Stop Playing of Midi Part\nStop Playing"
+    ID_CONTENT_PLAYER       "View the Midi Player"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_MCITOOLBAR      "View MCI Tool Bar\nToggle MCI Toolbar"
+    ID_VIEW_MIDITOOLBAR     "Toggle Midi Toolbar\nToggle Midi Toolbar"
+    ID_VIEW_ARRANGETOOLBARS "Arrange Toolbars"
+    ID_CORRECT_FILTERTRACKS "Filter Events By Channels in Tracks\nFilter Tracks"
+    ID_CORRECT_ADD_GMRESET  "Add System Exclusive for GM Reset\nAdd GM Reset"
+    ID_CORRECT_ADD_GSRESET  "Add System Exclusive for GS Reset\nAdd GS Reset"
+    ID_CORRECT_ALL          "Correct All Events\nCorrect All Events"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_SEQUENCER_RESUMELL "Resume Playing of Midi Part\nResume"
+    ID_FILE_SEQUENCER_PAUSELL "Pause Playing of Midi Part\nPause"
+    ID_FILE_SEQUENCER_PLAYANDLOOPLL "Play Midi Part And Loop\nPlay And Loop"
+    ID_FILE_SEQUENCER_BACKWARDLL "Go Back in Midi Part\nBackward"
+    ID_FILE_SEQUENCER_FORWARDLL "Go Forward in Midi Part\nForward"
+END
+
+STRINGTABLE
+BEGIN
+    ID_CORRECT_REMOVE_CONTROLLERBANKSELECT "Remove Selection Of Banks"
+    ID_CORRECT_OPTIONS      "Options for Midi Correction when Correct All is Selected"
+    ID_CONTENT_ERRORMESSAGES "View the Error Messages encountered"
+    ID_FILE_PREFERENCES     "Set Preferences for MidiGlass\nSet Preferences for MidiGlass"
+END
+
+STRINGTABLE
+BEGIN
+    ID_TOOLS_EXPLORER       "Launch Windows Explorer in The Midi File Directory"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_MAINTOOLBAR     "View Main Tool Bar"
+    ID_CORRECT_TIMESIGNATURE 
+                            "Move Time Signature to Track 0\nMove Time Signature to Track 0"
+    ID_CORRECT_KEYSIGNATURE "Move Key Signature to Track 0\nMove Key Signature to Track 0"
+    ID_CORRECT_MOVE_ALL     "Move All Event to Track 0 (convert to Midi Format 0 )\nMidi Format 0"
+END
+
+STRINGTABLE
+BEGIN
+    ID_HOMEPAGE_URL         "http://www.macallan.org/"
+    ID_CONTENT_START_IE     "Start Microsoft Internet Explorer\nStart Microsoft Internet Explorer"
+    ID_CONTENT_STOP_IE      "Stop Microsoft Internet Explorer\nStop Microsoft Internet Explorer"
+    ID_VIEW_IETOOLBAR       "View Internet Explorer Tool Bar\nView Internet Explorer Tool Bar"
+    ID_CONTENT_STAFF        "Staff View\nStaff View"
+    ID_CORRECT_TRUNCATE_NOTE 
+                            "Truncate the Note On Events that do have a Note Off Event\nTruncate the Note On Events that do have a Note Off Event"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_ERROR      "Error Text"
+END
+
+STRINGTABLE
+BEGIN
+    ID_CONTENT_MIDIEXPLORER "Display an Explorer View\nDisplay an Explorer View"
+    ID_CONTENT_TRACKS_LIST  "Display Track List\nDisplay Track List"
+    ID_EXPLORER_REFRESH     "Refresh\nRefresh"
+    ID_EDIT_FINDAGAIN       "Find Again"
+    ID_CORRECT_ADD_XGRESET  "Add System Exclusive for XG Reset\nAdd XG Reset"
+END
+
+STRINGTABLE
+BEGIN
+    IDR_EXPLORER_VIEW       "MidiGlass\n\nmidi\nMidi Files (*.mid)\n.mid\nMidi.Document\nMidi Document"
+    IDR_TRACK_VIEW          "MidiGlass\n\nmidi\nMidi Files (*.mid)\n.mid\nMidi.Document\nMidi Document"
+END
+
+#endif    // Anglais (États-Unis) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Français (France) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Midi Works.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Français (France) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\Midi Works.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
