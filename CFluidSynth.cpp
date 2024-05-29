@@ -180,7 +180,10 @@ int CFluidSynth::InitDll(CMidiFile *pMidiFile)
 	HMODULE hModule = LoadLibrary ( "libfluidsynth-3.dll" );
 	if ( hModule == NULL )
 	{
-		pMidiFile->SetMidiErrorText ( "libfluidsynth-3.dll not found" );
+        if ( pMidiFile != NULL )
+        {
+		    pMidiFile->SetMidiErrorText ( "libfluidsynth-3.dll not found" );
+        }
 		return -1;
 	}
 

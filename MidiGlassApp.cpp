@@ -83,8 +83,14 @@ CMidiWorksApp theApp;
 BOOL CMidiWorksApp::InitInstance()
 {
     //
-    DebugMode   = true;
-    InvokeExceptionErrorHandler( );
+    if ( m_lpCmdLine != NULL )
+    {
+        if ( strncmp ( m_lpCmdLine, "-debug", strlen("-debug") ) == 0 )
+        {
+            DebugMode   = true;
+            InvokeExceptionErrorHandler( );
+        }
+    }
 
     //
 	AfxEnableControlContainer();
