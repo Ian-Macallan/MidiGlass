@@ -9,7 +9,7 @@ https://github.com/Ian-Macallan/MidiGlass/tree/main/fluidsynth-2.3.4-win10-x64/b
 or 
 
 https://github.com/Ian-Macallan/MidiGlass/tree/main/fluidsynth-2.3.4-winXP-x86/bin
-according to the version you use,
-and search Sound Font (.sf2) on the internet.
+
+according to the version you use, and search Sound Font (.sf2) on the internet.
 
 Macallan
