@@ -19,6 +19,6 @@ Second in the instrument column just enter the name of the Soundfont.
 ![Midiglass](https://github.com/Ian-Macallan/MidiGlass/blob/main/Pictures/MidiGlass.png)
 
 The Event In Track will show the Instrument.
-![Midiglass Event In Track](https://github.com/Ian-Macallan/MidiGlass/blob/main/Pictures/MidiGlass.Event.png)
+![Midiglass Event In Track](https://github.com/Ian-Macallan/MidiGlass/blob/main/Pictures/MidiGlass.Events.png)
 
 Macallan
