@@ -49,7 +49,7 @@ END_MESSAGE_MAP()
 ////////////////////////////////////////////////////////////////////////////
 HBRUSH CStaticUrl::CtlColor(CDC* pDC, UINT nCtlColor) 
 {
-	// TODO: Change any attributes of the DC here
+	// TODO
 
 	COLORREF bkColor = GetSysColor ( COLOR_MENU );
 	pDC->SetBkColor ( bkColor );
@@ -62,7 +62,7 @@ HBRUSH CStaticUrl::CtlColor(CDC* pDC, UINT nCtlColor)
 
 	return HBRUSH ( CBrush ( GetSysColor ( COLOR_MENU ) ) );
 
-	// TODO: Return a non-NULL brush if the parent's handler should not be called
+	// TODO
 	return NULL;
 }
 
@@ -72,7 +72,7 @@ HBRUSH CStaticUrl::CtlColor(CDC* pDC, UINT nCtlColor)
 ////////////////////////////////////////////////////////////////////////////
 void CStaticUrl::OnMouseMove(UINT nFlags, CPoint point) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	
 	if ( m_hCursor == NULL )
 	{

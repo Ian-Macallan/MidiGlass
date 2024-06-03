@@ -98,7 +98,7 @@ BOOL CRecordDialog::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	// TODO: Add extra initialization here
+	// TODO
 
 	//		Say we are not saving.
 	m_bSaved		= false;
@@ -128,7 +128,7 @@ BOOL CRecordDialog::OnInitDialog()
 ////////////////////////////////////////////////////////////////////////////////////////
 void CRecordDialog::OnOK() 
 {
-	// TODO: Add extra validation here
+	// TODO
     //  Stop Current Playing
 	m_Text.SetWindowText ( "Starting the recording. An internal loopback capture is at work" );
 	m_Ok.EnableWindow ( false );
@@ -239,17 +239,17 @@ LRESULT CRecordDialog::OnMciNotify(WPARAM wParam, LPARAM lParam)
 ////////////////////////////////////////////////////////////////////////////////////////
 HBRUSH CRecordDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
 {
-	// TODO: Change any attributes of the DC here
+	// TODO
 	
 	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -259,7 +259,7 @@ HBRUSH CRecordDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ////////////////////////////////////////////////////////////////////////////////////////
 BOOL CRecordDialog::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
@@ -276,7 +276,7 @@ BOOL CRecordDialog::OnEraseBkgnd(CDC* pDC)
 ////////////////////////////////////////////////////////////////////////////////////////
 void CRecordDialog::OnTimer(UINT_PTR nIDEvent) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	int iPos = m_Progress_Bar.GetPos ( );
 	iPos++;
 	if ( iPos >= 60 )

@@ -53,14 +53,14 @@ HBRUSH CMWSliderCtrl::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CSliderCtrl::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -72,7 +72,7 @@ void CMWSliderCtrl::OnKillFocus(CWnd* pNewWnd)
 {
 	CSliderCtrl::OnKillFocus(pNewWnd);
 	
-	// TODO: Add your message handler code here
+	// TODO
 	CWnd	*wndParent	= GetParent ();
 
 	if ( GetFocus ( ) != this && GetFocus ( ) != wndParent )

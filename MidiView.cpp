@@ -82,7 +82,7 @@ void CMidiView::OnInitialUpdate()
 {
 	CView::OnInitialUpdate();
 	
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	CMainFrame			*hMainFrame;
 
 	hMainFrame = dynamic_cast< CMainFrame * >( AfxGetMainWnd() );
@@ -115,7 +115,7 @@ void CMidiView::OnInitialUpdate()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMidiView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	
 	CView::OnActivateView(bActivate, pActivateView, pDeactiveView);
 }

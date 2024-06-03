@@ -59,7 +59,7 @@ HBRUSH CMWEdit::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CEdit::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	if ( m_foreground != m_background )
 	{
 		pDC->SetTextColor(m_foreground);
@@ -77,7 +77,7 @@ HBRUSH CMWEdit::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 		}
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -87,7 +87,7 @@ HBRUSH CMWEdit::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMWEdit::OnKillfocus() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	CWnd	*wndParent	= GetParent ();
 
 	if ( GetFocus ( ) != this && GetFocus ( ) != wndParent )
@@ -132,7 +132,7 @@ void CMWEdit::SetTextAttributes(COLORREF foreground, COLORREF background)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWEdit::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	if ( m_foreground != m_background )
 	{
 		pDC->SetBkColor(m_background);
@@ -166,7 +166,7 @@ void CMWEdit::SendNormalMessage()
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWEdit::PreTranslateMessage(MSG* pMsg)
 {
-	// TODO: ajoutez ici votre code spécialisé et/ou l'appel de la classe de base
+	// TODO
 
 	if ( false && pMsg != NULL && pMsg->message == WM_KEYDOWN && pMsg->wParam == VK_TAB )
 	{

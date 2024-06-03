@@ -28,7 +28,7 @@ CPlayDirThreadProc::~CPlayDirThreadProc()
 
 BOOL CPlayDirThreadProc::InitInstance()
 {
-	// TODO:  perform and per-thread initialization here
+	// TODO
 	m_pMainWnd = &theApp.m_dlgPlayerDialogDirectory;
 
 	theApp.m_dlgPlayerDialogDirectory.DoModal ();
@@ -38,7 +38,7 @@ BOOL CPlayDirThreadProc::InitInstance()
 
 int CPlayDirThreadProc::ExitInstance()
 {
-	// TODO:  perform any per-thread cleanup here
+	// TODO
 	return CWinThread::ExitInstance();
 }
 

@@ -188,7 +188,7 @@ void CEventView::DisplayValues()
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	if ( m_bFirstTime || ( lHint & RIGHT_MASK_EVENTS ) || lHint == 0 )
 	{
 		EnableScrollBarCtrl(SB_BOTH, FALSE);
@@ -217,7 +217,7 @@ void CEventView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnDblclkTrackEventList(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	ShowEventDetail();
 	
 	*pResult = 0;
@@ -265,7 +265,7 @@ CMidiList * CEventView::GetCurrentMidiEvent()
 void CEventView::OnKeydownTrackEventList(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	LV_KEYDOWN* pLVKeyDow = (LV_KEYDOWN*)pNMHDR;
-	// TODO: Add your control notification handler code here
+	// TODO
 
 	if ( pLVKeyDow->wVKey == VK_DELETE )
 	{
@@ -378,7 +378,7 @@ void CEventView::DeleteEvents(bool bRemove )
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnContextMenu(CWnd* pWnd, CPoint point) 
 {
-	// TODO: Add your message handler code here
+	// TODO
 	CRect		rect;
 	GetClientRect ( &rect );
 	ClientToScreen ( &rect );
@@ -402,7 +402,7 @@ void CEventView::OnContextMenu(CWnd* pWnd, CPoint point)
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnEventsDetail() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	ShowEventDetail();
 }
 
@@ -570,7 +570,7 @@ void CEventView::AskAndDeleteEvents(bool bRemove)
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnEventsInsertBefore() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	InsertEvents(true);
 }
 
@@ -580,7 +580,7 @@ void CEventView::OnEventsInsertBefore()
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnEventsInsertAfter() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	InsertEvents(false);
 }
 
@@ -590,7 +590,7 @@ void CEventView::OnEventsInsertAfter()
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnEventsModify() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	ModifyEvents();
 }
 
@@ -600,7 +600,7 @@ void CEventView::OnEventsModify()
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnEventsDelete() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	AskAndDeleteEvents( false );
 }
 
@@ -610,7 +610,7 @@ void CEventView::OnEventsDelete()
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnEventsRemove() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	AskAndDeleteEvents( true );
 }
 
@@ -620,7 +620,7 @@ void CEventView::OnEventsRemove()
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnEventsHelp() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CAboutDlg	dlg;
 	dlg.DoModal ();
 	
@@ -634,14 +634,14 @@ HBRUSH CEventView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CMWFormView::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -652,7 +652,7 @@ HBRUSH CEventView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 void CEventView::OnGetdispinfoTrackEventList(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	LV_DISPINFO* pDispInfo = (LV_DISPINFO*)pNMHDR;
-	// TODO: Add your control notification handler code here
+	// TODO
 
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
@@ -884,12 +884,12 @@ void CEventView::OnGetdispinfoTrackEventList(NMHDR* pNMHDR, LRESULT* pResult)
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnChangeTrackname() 
 {
-	// TODO: If this is a RICHEDIT control, the control will not
+	// TODO
 	// send this notification unless you override the CMWFormView::OnInitDialog()
 	// function and call CRichEditCtrl().SetEventMask()
 	// with the ENM_CHANGE flag ORed into the mask.
 
-	// TODO: Add your control notification handler code here
+	// TODO
 	
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
@@ -982,7 +982,7 @@ void CEventView::FillEventTableAddress()
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CEventView::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	
 	BOOL bRes = FriendEraseBkgndScrollView(this, pDC);
 	if ( bRes )
@@ -999,7 +999,7 @@ BOOL CEventView::OnEraseBkgnd(CDC* pDC)
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnClickTrackEventList(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	m_iCurrentIndice = m_TrackEvents.GetSelectionMark ( );
 
 	*pResult = 0;
@@ -1128,7 +1128,7 @@ void CEventView::OnInitialUpdate()
 {
 	CMWFormView::OnInitialUpdate();
 	
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	if ( ! theApp.m_bSplitterWindow )
 	{
 		GetParentFrame ( )->RecalcLayout ( );
@@ -1156,7 +1156,7 @@ void CEventView::IncrementCurrentIndice()
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	FriendActivate( bActivate, pActivateView, pDeactiveView, false);
 	
 	CMWFormView::OnActivateView(bActivate, pActivateView, pDeactiveView);

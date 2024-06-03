@@ -200,7 +200,7 @@ void CGeneralView::DisplayValues()
 /////////////////////////////////////////////////////////////////
 void CGeneralView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	if ( m_bFirstTime || ( lHint & RIGHT_MASK_HEADER ) || lHint == 0 )
 	{
 		m_bFirstTime = false;
@@ -224,12 +224,12 @@ unsigned CGeneralView::GetIDD()
 /////////////////////////////////////////////////////////////////
 void CGeneralView::OnChangeDivisionHi() 
 {
-	// TODO: If this is a RICHEDIT control, the control will not
+	// TODO
 	// send this notification unless you override the CMWFormView::OnInitDialog()
 	// function and call CRichEditCtrl().SetEventMask()
 	// with the ENM_CHANGE flag ORed into the mask.
 	
-	// TODO: Add your control notification handler code here
+	// TODO
 	char				szString [ MAX_INT_STRING ];
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
@@ -261,12 +261,12 @@ void CGeneralView::OnChangeDivisionHi()
 /////////////////////////////////////////////////////////////////
 void CGeneralView::OnChangeDivisionLo() 
 {
-	// TODO: If this is a RICHEDIT control, the control will not
+	// TODO
 	// send this notification unless you override the CMWFormView::OnInitDialog()
 	// function and call CRichEditCtrl().SetEventMask()
 	// with the ENM_CHANGE flag ORed into the mask.
 	
-	// TODO: Add your control notification handler code here
+	// TODO
 	char				szString [ MAX_INT_STRING ];
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
@@ -300,14 +300,14 @@ HBRUSH CGeneralView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CMWFormView::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -317,7 +317,7 @@ HBRUSH CGeneralView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 /////////////////////////////////////////////////////////////////
 BOOL CGeneralView::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	
 	BOOL bRes = FriendEraseBkgndScrollView(this, pDC);
 	if ( bRes )
@@ -336,7 +336,7 @@ void CGeneralView::OnInitialUpdate()
 {
 	CMWFormView::OnInitialUpdate();
 	
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	if ( ! theApp.m_bSplitterWindow )
 	{
 		GetParentFrame ( )->RecalcLayout ( );
@@ -355,7 +355,7 @@ void CGeneralView::OnInitialUpdate()
 /////////////////////////////////////////////////////////////////
 void CGeneralView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	FriendActivate( bActivate, pActivateView, pDeactiveView, false);
 	
 	CMWFormView::OnActivateView(bActivate, pActivateView, pDeactiveView);
@@ -367,7 +367,7 @@ void CGeneralView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* p
 /////////////////////////////////////////////////////////////////
 void CGeneralView::OnMail() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	
 	HINSTANCE			hInst;
 	CString				rString;
@@ -385,7 +385,7 @@ void CGeneralView::OnMail()
 /////////////////////////////////////////////////////////////////
 void CGeneralView::OnWeb() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	
 	HINSTANCE			hInst;
 	CString				rString;

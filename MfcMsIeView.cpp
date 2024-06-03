@@ -62,7 +62,7 @@ void CMfcMsIeView::Dump(CDumpContext& dc) const
 
 void CMfcMsIeView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	FriendActivate( bActivate, pActivateView, pDeactiveView, false);
 	
 	CHtmlView::OnActivateView(bActivate, pActivateView, pDeactiveView);

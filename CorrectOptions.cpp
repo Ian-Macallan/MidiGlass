@@ -71,7 +71,7 @@ BOOL CCorrectOptions::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	// TODO: Add extra initialization here
+	// TODO
 	m_SysEx.SetCurSel ( theApp.m_iSysEx	);
 	m_AddStartOfTrack.SetCheck ( theApp.m_bAddStartOfTrack );
 	m_AddEndOfTrack.SetCheck ( theApp.m_bAddEndOfTrack );
@@ -90,7 +90,7 @@ BOOL CCorrectOptions::OnInitDialog()
 ////////////////////////////////////////////////////////////////////////////////////
 void CCorrectOptions::OnOK() 
 {
-	// TODO: Add extra validation here
+	// TODO
 	theApp.m_iSysEx					= m_SysEx.GetCurSel ();
 	theApp.m_bAddStartOfTrack		= m_AddStartOfTrack.GetCheck ( );
 	theApp.m_bAddEndOfTrack			= m_AddEndOfTrack.GetCheck ( );
@@ -118,14 +118,14 @@ HBRUSH CCorrectOptions::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -135,7 +135,7 @@ HBRUSH CCorrectOptions::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ////////////////////////////////////////////////////////////////////////////////////
 BOOL CCorrectOptions::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
@@ -152,6 +152,6 @@ BOOL CCorrectOptions::OnEraseBkgnd(CDC* pDC)
 ////////////////////////////////////////////////////////////////////////////////////
 void CCorrectOptions::OnBnClickedOk()
 {
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	// TODO
 	CCorrectOptions::OnOK();
 }

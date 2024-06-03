@@ -68,14 +68,14 @@ HBRUSH CFindEvent::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -87,7 +87,7 @@ BOOL CFindEvent::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	// TODO: Add extra initialization here
+	// TODO
 	m_Event_Combo.ResetContent ( );
 
 	m_Program_Combo.ResetContent ( );
@@ -124,7 +124,7 @@ BOOL CFindEvent::OnInitDialog()
 ////////////////////////////////////////////////////////////////////////
 BOOL CFindEvent::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
@@ -141,7 +141,7 @@ BOOL CFindEvent::OnEraseBkgnd(CDC* pDC)
 ////////////////////////////////////////////////////////////////////////
 void CFindEvent::OnOK() 
 {
-	// TODO: Add extra validation here
+	// TODO
 
 	CMainFrame			*hMainFrame;
 	hMainFrame = dynamic_cast< CMainFrame * >( GetParent() );
@@ -201,7 +201,7 @@ void CFindEvent::OnOK()
 ////////////////////////////////////////////////////////////////////////
 void CFindEvent::OnSelchangeEventCombo() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	EnableDisable ( );
 }
 
@@ -211,7 +211,7 @@ void CFindEvent::OnSelchangeEventCombo()
 ////////////////////////////////////////////////////////////////////////
 void CFindEvent::OnSelendokEventCombo() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	EnableDisable ( );
 }
 

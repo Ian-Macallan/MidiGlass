@@ -194,7 +194,7 @@ void CMidiTextView::DisplayValues()
 
 void CMidiTextView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	if ( m_bFirstTime || ( lHint & RIGHT_MASK_TEXT ) || lHint == 0 )
 	{
 		m_bFirstTime = false;
@@ -212,21 +212,21 @@ HBRUSH CMidiTextView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CMWFormView::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
 void CMidiTextView::OnDeltaposSpinEvent(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	NM_UPDOWN* pNMUpDown = (NM_UPDOWN*)pNMHDR;
-	// TODO: Add your control notification handler code here
+	// TODO
 	CMidiDoc			*pMididoc;
 
 	pMididoc	= dynamic_cast< CMidiDoc * >( GetDocument () );
@@ -316,7 +316,7 @@ bool CMidiTextView::IsLineEmpty(char *pText)
 
 void CMidiTextView::OnCompact() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	if ( m_Compact.GetCheck ( ) )
 	{
 		theApp.WriteProfileInt ( "Settings", "Compact Text", 1 );
@@ -331,7 +331,7 @@ void CMidiTextView::OnCompact()
 
 BOOL CMidiTextView::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	
 	BOOL bRes = FriendEraseBkgndScrollView(this, pDC);
 	if ( bRes )
@@ -346,7 +346,7 @@ void CMidiTextView::OnInitialUpdate()
 {
 	CMWFormView::OnInitialUpdate();
 	
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	if ( ! theApp.m_bSplitterWindow )
 	{
 		GetParentFrame ( )->RecalcLayout ( );
@@ -361,7 +361,7 @@ void CMidiTextView::OnInitialUpdate()
 
 void CMidiTextView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	FriendActivate( bActivate, pActivateView, pDeactiveView, false);
 	
 	CMWFormView::OnActivateView(bActivate, pActivateView, pDeactiveView);

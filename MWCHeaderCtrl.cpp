@@ -33,10 +33,10 @@ END_MESSAGE_MAP()
 void CMWCHeaderCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMCUSTOMDRAW pNMCD = reinterpret_cast<LPNMCUSTOMDRAW>(pNMHDR);
-    // TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+    // TODO
     *pResult = 0;
 
-    // TODO : Add Here your Notification Handler
+    // TODO
 
     if ( pNMCD )
     {
@@ -162,7 +162,7 @@ void CMWCHeaderCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 /////////////////////////////////////////////////////////////////////////////////////////////
 BOOL CMWCHeaderCtrl::OnEraseBkgnd(CDC* pDC)
 {
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    // TODO
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{
@@ -180,8 +180,8 @@ HBRUSH CMWCHeaderCtrl::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
     HBRUSH hbr = CHeaderCtrl::OnCtlColor(pDC, pWnd, nCtlColor);
 
-    // TODO:  Modifier ici les attributs du DC
+    // TODO
 
-    // TODO:  Retourner un autre pinceau si le pinceau par défaut n'est pas souhaité
+    // TODO
     return hbr;
 }

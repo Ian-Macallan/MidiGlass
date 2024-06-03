@@ -80,9 +80,9 @@ HBRUSH CMWReBar::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
     HBRUSH hbr = CReBar::OnCtlColor(pDC, pWnd, nCtlColor);
 
-    // TODO:  Modifier ici les attributs du DC
+    // TODO
 
-    // TODO:  Retourner un autre pinceau si le pinceau par défaut n'est pas souhaité
+    // TODO
     return hbr;
 }
 
@@ -92,7 +92,7 @@ HBRUSH CMWReBar::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWReBar::OnEraseBkgnd(CDC* pDC)
 {
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    // TODO
 #if 0
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )

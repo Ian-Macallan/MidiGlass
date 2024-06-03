@@ -53,7 +53,7 @@ END_MESSAGE_MAP()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMWEditInList::OnKillfocus() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	CWnd	*wndParent	= GetParent ();
 
 	if ( GetFocus ( ) != this && GetFocus ( ) != wndParent )
@@ -91,14 +91,14 @@ HBRUSH CMWEditInList::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 	//	Call Directly CEdit
 	HBRUSH hbr = CEdit::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -108,7 +108,7 @@ HBRUSH CMWEditInList::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWEditInList::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{
@@ -125,7 +125,7 @@ BOOL CMWEditInList::OnEraseBkgnd(CDC* pDC)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWEditInList::PreTranslateMessage(MSG* pMsg)
 {
-	// TODO: ajoutez ici votre code spécialisé et/ou l'appel de la classe de base
+	// TODO
 
 	if ( false && pMsg != NULL && pMsg->message == WM_KEYDOWN && pMsg->wParam == VK_TAB )
 	{

@@ -58,7 +58,7 @@ BOOL CParameters::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	// TODO: Add extra initialization here
+	// TODO
 	CMidiClass		clTemp;
 
 	//		Initialise the combo box
@@ -109,18 +109,18 @@ void CParameters::DisplayValues()
 
 void CParameters::OnSelchangeControler() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	DisplayValues ();	
 }
 
 void CParameters::OnChangeSettings() 
 {
-	// TODO: If this is a RICHEDIT control, the control will not
+	// TODO
 	// send this notification unless you override the CDialog::OnInitDialog()
 	// function and call CRichEditCtrl().SetEventMask()
 	// with the ENM_CHANGE flag ORed into the mask.
 	
-	// TODO: Add your control notification handler code here
+	// TODO
 	int				iC;
 	CMidiClass		clTemp;
 	char			szString [ MAX_CONTROLER_STRING ];
@@ -136,7 +136,7 @@ void CParameters::OnChangeSettings()
 
 void CParameters::OnCheckSettings() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	int				iC;
 	CMidiClass		clTemp;
 	char			szString [ MAX_CONTROLER_STRING ];
@@ -162,20 +162,20 @@ HBRUSH CParameters::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
 BOOL CParameters::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )

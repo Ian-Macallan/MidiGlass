@@ -135,7 +135,7 @@ void CMidiExplorerView::Dump(CDumpContext& dc) const
 ////////////////////////////////////////////////////////////////////////////////////////
 void CMidiExplorerView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 }
 
 //
@@ -146,8 +146,8 @@ void CMidiExplorerView::OnInitialUpdate()
 {
 	CTreeView::OnInitialUpdate();
 	
-	// TODO: Add your specialized creation code here
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
+	// TODO
 	if ( m_bFirstTime )
 	{
 		ModifyStyle ( NULL, 
@@ -515,7 +515,7 @@ void CMidiExplorerView::FilterPathName(WIN32_FIND_DATA *tagFile)
 ////////////////////////////////////////////////////////////////////////////////////////
 void CMidiExplorerView::OnClick(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	if ( ! m_bFirstTime )
 	{
 		m_ToolTip.Activate ( FALSE );
@@ -533,7 +533,7 @@ void CMidiExplorerView::OnClick(NMHDR* pNMHDR, LRESULT* pResult)
 ////////////////////////////////////////////////////////////////////////////////////////
 void CMidiExplorerView::OnDblclk(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	CMidiClass		clForMidi;
 
 	KillTimer ( EXPLORER_VIEW_TIMER );
@@ -574,7 +574,7 @@ void CMidiExplorerView::OnDblclk(NMHDR* pNMHDR, LRESULT* pResult)
 void CMidiExplorerView::OnSelchanged(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	NM_TREEVIEW* pNMTreeView = (NM_TREEVIEW*)pNMHDR;
-	// TODO: Add your control notification handler code here
+	// TODO
 	if ( pNMTreeView != NULL )
 	{
 		if ( pNMTreeView->itemNew.hItem != pNMTreeView->itemOld.hItem )
@@ -602,7 +602,7 @@ void CMidiExplorerView::OnSelchanged(NMHDR* pNMHDR, LRESULT* pResult)
 
 void CMidiExplorerView::OnContextMenu(CWnd* pWnd, CPoint point) 
 {
-	// TODO: Add your message handler code here
+	// TODO
 	CRect		rect;
 	GetClientRect ( &rect );
 	ClientToScreen ( &rect );
@@ -623,14 +623,14 @@ void CMidiExplorerView::OnContextMenu(CWnd* pWnd, CPoint point)
 
 void CMidiExplorerView::OnExplorerHelp() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CAboutDlg	dlg;
 	dlg.DoModal ();
 }
 
 void CMidiExplorerView::OnExplorerRename() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	HTREEITEM hTreeItem = GetTreeCtrl ().GetSelectedItem ( );
 	if ( hTreeItem != NULL )
 	{
@@ -640,7 +640,7 @@ void CMidiExplorerView::OnExplorerRename()
 
 void CMidiExplorerView::OnExplorerOpen() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiClass		clForMidi;
 
 	HTREEITEM hTreeItem = GetTreeCtrl ().GetSelectedItem ( );
@@ -672,7 +672,7 @@ void CMidiExplorerView::OnExplorerOpen()
 
 void CMidiExplorerView::OnExplorerDelete() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	HTREEITEM			hSel;
 	TVITEM				tvItem;
 
@@ -705,7 +705,7 @@ void CMidiExplorerView::OnExplorerDelete()
 void CMidiExplorerView::OnBeginlabeledit(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	TV_DISPINFO* pTVDispInfo = (TV_DISPINFO*)pNMHDR;
-	// TODO: Add your control notification handler code here
+	// TODO
 	
 	*pResult = 0;
 }
@@ -713,7 +713,7 @@ void CMidiExplorerView::OnBeginlabeledit(NMHDR* pNMHDR, LRESULT* pResult)
 void CMidiExplorerView::OnEndlabeledit(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	TV_DISPINFO* pTVDispInfo = (TV_DISPINFO*)pNMHDR;
-	// TODO: Add your control notification handler code here
+	// TODO
 	TVITEM	tvItem;
 
 	tvItem = pTVDispInfo->item;
@@ -748,7 +748,7 @@ void CMidiExplorerView::OnEndlabeledit(NMHDR* pNMHDR, LRESULT* pResult)
 void CMidiExplorerView::OnKeydown(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	TV_KEYDOWN* pTVKeyDown = (TV_KEYDOWN*)pNMHDR;
-	// TODO: Add your control notification handler code here
+	// TODO
 	if ( pTVKeyDown->wVKey == VK_DELETE )
 	{
 		OnExplorerDelete ( );
@@ -939,7 +939,7 @@ HTREEITEM CMidiExplorerView::ExpandDirectory(HTREEITEM hTreeItem, char *pDirecto
 ///////////////////////////////////////////////////////////////////////////////////
 void CMidiExplorerView::OnRButtonDown(UINT nFlags, CPoint point) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	UINT		iFlags;
 	HTREEITEM hTreeItem = GetTreeCtrl ().HitTest( point, &iFlags );
 	if ( hTreeItem != NULL )
@@ -975,7 +975,7 @@ void CMidiExplorerView::OnExplorerPlaydir()
         }
     }
 
-	// TODO: Add your command handler code here
+	// TODO
 	if ( theApp.m_PlayDirThread == NULL && theApp.m_PlayListThread == NULL )
 	{
 		theApp.m_PlayDirThread = AfxBeginThread ( RUNTIME_CLASS ( CPlayDirThreadProc ) );
@@ -989,7 +989,7 @@ void CMidiExplorerView::OnExplorerPlaydir()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMidiExplorerView::OnExplorerModifyfiles() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	if ( theApp.m_ModifyThread == NULL )
 	{
 		theApp.m_ModifyThread = AfxBeginThread ( RUNTIME_CLASS ( CModifyThread ) );
@@ -999,7 +999,7 @@ void CMidiExplorerView::OnExplorerModifyfiles()
 
 void CMidiExplorerView::OnExplorerRefresh() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	HTREEITEM				hSel;
 	hSel = GetTreeCtrl ().GetSelectedItem ( );
 	if ( hSel != NULL )
@@ -1011,7 +1011,7 @@ void CMidiExplorerView::OnExplorerRefresh()
 void CMidiExplorerView::OnBegindrag(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	NM_TREEVIEW* pNMTreeView = (NM_TREEVIEW*)pNMHDR;
-	// TODO: Add your control notification handler code here
+	// TODO
 	CPoint      ptAction;
 	UINT        nFlags;
 
@@ -1053,7 +1053,7 @@ void CMidiExplorerView::OnBegindrag(NMHDR* pNMHDR, LRESULT* pResult)
 
 void CMidiExplorerView::OnMouseMove(UINT nFlags, CPoint point) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	HTREEITEM           hItem;
 	UINT                iFlags;
 	RECT				rectView;
@@ -1097,7 +1097,7 @@ void CMidiExplorerView::OnMouseMove(UINT nFlags, CPoint point)
 
 void CMidiExplorerView::OnLButtonUp(UINT nFlags, CPoint point) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	OnButtonUp();
 	
 	CTreeView::OnLButtonUp(nFlags, point);
@@ -1331,7 +1331,7 @@ HTREEITEM CMidiExplorerView::GetNextItem(HTREEITEM hItem)
 
 void CMidiExplorerView::OnTimer(UINT_PTR nIDEvent) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	CPoint      ptAction;
 	UINT        nFlags;
 
@@ -1403,7 +1403,7 @@ void CMidiExplorerView::DeleteItemTree(HTREEITEM hItem)
 ////////////////////////////////////////////////////////////////////////////////////////
 DROPEFFECT CMidiExplorerView::OnDragEnter(COleDataObject* pDataObject, DWORD dwKeyState, CPoint point) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	CMidiClass		clForMidi;
 
 	if ( m_prevDropEffectOle == DROPEFFECT_NONE)
@@ -1474,7 +1474,7 @@ void CMidiExplorerView::OnDragLeave()
 ////////////////////////////////////////////////////////////////////////////////////////
 DROPEFFECT CMidiExplorerView::OnDragOver(COleDataObject* pDataObject, DWORD dwKeyState, CPoint point) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	static		SYSTEMTIME		OldSystemTime;
 	static		CPoint			oldPoint (0, 0);
 
@@ -1565,7 +1565,7 @@ DROPEFFECT CMidiExplorerView::OnDragOver(COleDataObject* pDataObject, DWORD dwKe
 ////////////////////////////////////////////////////////////////////////////////////////
 BOOL CMidiExplorerView::OnDrop(COleDataObject* pDataObject, DROPEFFECT dropEffect, CPoint point) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	ASSERT_VALID(this);
 
 	//		Clean up focus rect
@@ -1683,7 +1683,7 @@ BOOL CMidiExplorerView::OnDrop(COleDataObject* pDataObject, DROPEFFECT dropEffec
 ////////////////////////////////////////////////////////////////////////////////////////
 BOOL CMidiExplorerView::OnScrollBy(CSize sizeScroll, BOOL bDoScroll) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	
 	return CTreeView::OnScrollBy(sizeScroll, bDoScroll);
 }
@@ -1697,7 +1697,7 @@ int CMidiExplorerView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CTreeView::OnCreate(lpCreateStruct) == -1)
 		return -1;
 	
-	// TODO: Add your specialized creation code here
+	// TODO
 	if ( m_ExplorerDropTarget.Register ( this ) )
 	{
 		DragAcceptFiles( TRUE );
@@ -1785,7 +1785,7 @@ DROPEFFECT CMidiExplorerView::SetDropEffect(COleDataObject *pDataObject, DWORD d
 ////////////////////////////////////////////////////////////////////////////////////////
 void CMidiExplorerView::OnDropFiles(HDROP hDropInfo) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	POINT			ptAction;
 	UINT		    nFlags;
 
@@ -1871,7 +1871,7 @@ void CMidiExplorerView::OnDropFiles(HDROP hDropInfo)
 ////////////////////////////////////////////////////////////////////////////////////////
 void CMidiExplorerView::DragClean()
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	m_prevDropEffectOle = DROPEFFECT_NONE;
 
 	//		Say we are dragging
@@ -1899,7 +1899,7 @@ void CMidiExplorerView::DragClean()
 ////////////////////////////////////////////////////////////////////////////////////////
 void CMidiExplorerView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	FriendActivate( bActivate, pActivateView, pDeactiveView, true);
 
 	CTreeView::OnActivateView(bActivate, pActivateView, pDeactiveView);
@@ -1911,7 +1911,7 @@ void CMidiExplorerView::OnActivateView(BOOL bActivate, CView* pActivateView, CVi
 ////////////////////////////////////////////////////////////////////////////////////////
 void CMidiExplorerView::PostNcDestroy() 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 
 	CTreeView::PostNcDestroy();
 }
@@ -1922,7 +1922,7 @@ void CMidiExplorerView::PostNcDestroy()
 ////////////////////////////////////////////////////////////////////////////////////////
 void CMidiExplorerView::OnExplorerRecord() 
 {
-	// TODO: Add your command handler code here
+	// TODO
     CMainFrame *pMainFrame = dynamic_cast<CMainFrame *> ( AfxGetMainWnd( ) );
     if ( pMainFrame != NULL )
     {
@@ -1969,7 +1969,7 @@ void CMidiExplorerView::OnExplorerRecord()
 ////////////////////////////////////////////////////////////////////////////////////////
 BOOL CMidiExplorerView::PreTranslateMessage(MSG* pMsg) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	m_ToolTip.RelayEvent ( pMsg );
 
 	return CTreeView::PreTranslateMessage(pMsg);

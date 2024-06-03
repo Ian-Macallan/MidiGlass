@@ -76,14 +76,14 @@ HBRUSH CMWComboBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CComboBox::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -93,7 +93,7 @@ HBRUSH CMWComboBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMWComboBox::OnKillfocus() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	CWnd	*wndParent	= GetParent ();
 
 	if ( GetFocus ( ) != this && GetFocus ( ) != wndParent )
@@ -108,7 +108,7 @@ void CMWComboBox::OnKillfocus()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMWComboBox::OnSelchange() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	CWnd	*wndParent		= GetParent ();
 	CWnd	*wndGrandParent	= NULL;
 	if ( wndParent != NULL )
@@ -164,7 +164,7 @@ void CMWComboBox::SetAnsiFixedFont()
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWComboBox::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{
@@ -180,7 +180,7 @@ BOOL CMWComboBox::OnEraseBkgnd(CDC* pDC)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWComboBox::PreTranslateMessage(MSG* pMsg)
 {
-	// TODO: ajoutez ici votre code spécialisé et/ou l'appel de la classe de base
+	// TODO
 	if ( pMsg != NULL && pMsg->message == WM_KEYDOWN && ( pMsg->wParam == VK_RETURN || pMsg->wParam == VK_TAB ) )
 	{
 		CWnd	*wndParent				= GetParent ();

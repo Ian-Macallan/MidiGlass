@@ -18,7 +18,7 @@ extern	CMidiWorksApp		theApp;
 ////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateContentStopIe(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	// pCmdUI->Enable ( m_RightBrowserView != NULL );		
 
 }
@@ -29,7 +29,7 @@ void CMainFrame::OnUpdateContentStopIe(CCmdUI* pCmdUI)
 ////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateFileSave(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 }
 
@@ -39,7 +39,7 @@ void CMainFrame::OnUpdateFileSave(CCmdUI* pCmdUI)
 ////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateFileSaveAs(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 }
 
@@ -49,7 +49,7 @@ void CMainFrame::OnUpdateFileSaveAs(CCmdUI* pCmdUI)
 ////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateFilePrint(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 }
 
@@ -59,7 +59,7 @@ void CMainFrame::OnUpdateFilePrint(CCmdUI* pCmdUI)
 ////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateFileTrace(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 }
 
@@ -78,7 +78,7 @@ void CMainFrame::OnUpdateFilePrintPreview(CCmdUI* pCmdUI)
 ////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateFileSendMail(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	pCmdUI->Enable ( FALSE );
 }
@@ -109,7 +109,7 @@ void CMainFrame::DisableMenuWhenNoMidifile(CCmdUI *pCmdUI)
 ////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateFileAddtotheplaylist(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 }
 
@@ -119,7 +119,7 @@ void CMainFrame::OnUpdateFileAddtotheplaylist(CCmdUI* pCmdUI)
 ////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateCorrectAddGmreset(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
@@ -130,7 +130,7 @@ void CMainFrame::OnUpdateCorrectAddGmreset(CCmdUI* pCmdUI)
 ////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateCorrectAddGsreset(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
@@ -141,7 +141,7 @@ void CMainFrame::OnUpdateCorrectAddGsreset(CCmdUI* pCmdUI)
 ////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateCorrectAll(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
@@ -152,140 +152,140 @@ void CMainFrame::OnUpdateCorrectAll(CCmdUI* pCmdUI)
 ////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateCorrectEndoftrack(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateCorrectFiltertracks(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateCorrectKeysignature(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateCorrectMoveAll(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateCorrectStartoftrack(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateCorrectTimesignature(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateRemoveControllerBankselecthigh(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateRemoveControllerBankselectlow(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateRemoveCopyright(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateRemoveCuepoint(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateRemoveInstrumentname(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateRemoveLyrics(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateRemoveMarkers(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateRemoveResetallcontrolers(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateRemoveSequence(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateRemoveSequencer(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateRemoveSystemexclusive(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateRemoveText(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateRemoveTrackname(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }
 
 void CMainFrame::OnUpdateViewStatusBar(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	pCmdUI->SetCheck ( m_wndStatusBar.GetStyle () & WS_VISIBLE ? 1 : 0 );
 }
 
@@ -328,7 +328,7 @@ void CMainFrame::OnUpdateIndicatorError(CCmdUI *pCmdUI)
 
 void CMainFrame::OnUpdateFileSequencerPlayll(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -345,7 +345,7 @@ void CMainFrame::OnUpdateFileSequencerPlayll(CCmdUI* pCmdUI)
 
 void CMainFrame::OnUpdateFileSequencerStopll(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -363,7 +363,7 @@ void CMainFrame::OnUpdateFileSequencerStopll(CCmdUI* pCmdUI)
 
 void CMainFrame::OnUpdateFileSequencerForwardll(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -380,7 +380,7 @@ void CMainFrame::OnUpdateFileSequencerForwardll(CCmdUI* pCmdUI)
 
 void CMainFrame::OnUpdateFileSequencerBackwardll(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -397,7 +397,7 @@ void CMainFrame::OnUpdateFileSequencerBackwardll(CCmdUI* pCmdUI)
 
 void CMainFrame::OnUpdateFileSequencerPausell(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -414,7 +414,7 @@ void CMainFrame::OnUpdateFileSequencerPausell(CCmdUI* pCmdUI)
 
 void CMainFrame::OnUpdateFileSequencerPlayandloopll(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -431,7 +431,7 @@ void CMainFrame::OnUpdateFileSequencerPlayandloopll(CCmdUI* pCmdUI)
 
 void CMainFrame::OnUpdateFileSequencerPlay(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -448,7 +448,7 @@ void CMainFrame::OnUpdateFileSequencerPlay(CCmdUI* pCmdUI)
 
 void CMainFrame::OnUpdateFileSequencerPlayandloop(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -465,7 +465,7 @@ void CMainFrame::OnUpdateFileSequencerPlayandloop(CCmdUI* pCmdUI)
 
 void CMainFrame::OnUpdateFileSequencerStop(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -482,7 +482,7 @@ void CMainFrame::OnUpdateFileSequencerStop(CCmdUI* pCmdUI)
 
 void CMainFrame::OnUpdateFileSequencerResumell(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -510,50 +510,50 @@ void CMainFrame::OnUpdateViewMidiToolBar(CCmdUI *pCmdUI)
 
 void CMainFrame::OnUpdateViewMaintoolbar(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	pCmdUI->SetCheck ( IsMainBarVisible ( )  );
 }
 
 void CMainFrame::OnUpdateViewIetoolbar(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	pCmdUI->SetCheck ( IsIeBarVisible ( ) );
 }
 
 void CMainFrame::OnUpdateCorrectTruncateNote(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 }
 
 void CMainFrame::OnUpdateContentTracksList(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	pCmdUI->SetCheck ( IsViewPresentAndVisible ( pCmdUI, m_LeftTrackView) );
 }
 
 void CMainFrame::OnUpdateContentMidiexplorer(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	pCmdUI->SetCheck ( IsViewPresentAndVisible ( pCmdUI, m_LeftExplorerView ) );
 }
 
 void CMainFrame::OnUpdateContentChannels(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	pCmdUI->SetCheck ( IsViewPresentAndVisible ( pCmdUI, m_RightChannelView ) );
 }
 
 void CMainFrame::OnUpdateContentHeader(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	pCmdUI->SetCheck ( IsViewPresentAndVisible ( pCmdUI, m_RightGeneralView ) );
 	
 }
 
 void CMainFrame::OnUpdateContentNotes(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	pCmdUI->SetCheck ( IsViewPresentAndVisible ( pCmdUI, m_RightNotesView ) );
 	
 }
@@ -564,7 +564,7 @@ void CMainFrame::OnUpdateContentNotes(CCmdUI* pCmdUI)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateContentPlayer(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	pCmdUI->SetCheck ( IsViewPresentAndVisible ( pCmdUI, m_RightPlayerView ) );
 	
 }
@@ -575,7 +575,7 @@ void CMainFrame::OnUpdateContentPlayer(CCmdUI* pCmdUI)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateContentPlaylist(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	pCmdUI->SetCheck ( IsViewPresentAndVisible ( pCmdUI, m_RightPlayListView ) );
 	
 }
@@ -586,19 +586,19 @@ void CMainFrame::OnUpdateContentPlaylist(CCmdUI* pCmdUI)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateContentStaff(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	pCmdUI->SetCheck ( IsViewPresentAndVisible ( pCmdUI, m_RightStaffView ) );
 }
 
 void CMainFrame::OnUpdateContentTracks(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	pCmdUI->SetCheck ( IsViewPresentAndVisible ( pCmdUI, m_RightEventView ) );
 }
 
 void CMainFrame::OnUpdateContentErrormessages(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	pCmdUI->SetCheck ( IsViewPresentAndVisible ( pCmdUI, m_RightErrorView ) );
 }
 
@@ -608,7 +608,7 @@ void CMainFrame::OnUpdateContentErrormessages(CCmdUI* pCmdUI)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateContentEventsShowhide(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	pCmdUI->Enable ( m_RightTextView != NULL && ! theApp.m_bSplitterWindow );	
 }
 
@@ -618,7 +618,7 @@ void CMainFrame::OnUpdateContentEventsShowhide(CCmdUI* pCmdUI)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateCorrectAddXgreset(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	DisableMenuWhenNoMidifile(pCmdUI);
 }
 
@@ -628,7 +628,7 @@ void CMainFrame::OnUpdateCorrectAddXgreset(CCmdUI* pCmdUI)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateEditFindagain(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	pCmdUI->Enable ( IsViewPresentAndVisible ( pCmdUI, m_RightEventView ) );
 }
 
@@ -638,7 +638,7 @@ void CMainFrame::OnUpdateEditFindagain(CCmdUI* pCmdUI)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateEditFind(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	pCmdUI->Enable ( IsViewPresentAndVisible ( pCmdUI, m_RightEventView ) );
 }
 
@@ -648,7 +648,7 @@ void CMainFrame::OnUpdateEditFind(CCmdUI* pCmdUI)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateFileSavegeometry(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	pCmdUI->Enable ( ! theApp.m_bSplitterWindow );
 	
 }
@@ -674,7 +674,7 @@ bool CMainFrame::IsViewPresentAndVisible(CCmdUI *pCmdUI, CView *pView)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateFileRecord(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	
 	DisableMenuWhenNoMidifile(pCmdUI);
 	

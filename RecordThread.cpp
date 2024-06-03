@@ -43,7 +43,7 @@ CRecordThread::~CRecordThread()
 ////////////////////////////////////////////////////////////////////////////////////////
 BOOL CRecordThread::InitInstance()
 {
-	// TODO:  perform and per-thread initialization here
+	// TODO
 	m_pMainWnd = &theApp.m_dlgRecordDialog;
 
 	theApp.m_dlgRecordDialog.DoModal ();
@@ -57,7 +57,7 @@ BOOL CRecordThread::InitInstance()
 ////////////////////////////////////////////////////////////////////////////////////////
 int CRecordThread::ExitInstance()
 {
-	// TODO:  perform any per-thread cleanup here
+	// TODO
 	return CWinThread::ExitInstance();
 }
 

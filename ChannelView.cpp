@@ -244,14 +244,14 @@ HBRUSH CChannelView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CMWFormView::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -261,7 +261,7 @@ HBRUSH CChannelView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	if ( m_bFirstTime || ( lHint & RIGHT_MASK_CHANNELS ) || lHint == 0 )
 	{
 		m_bFirstTime = false;
@@ -289,7 +289,7 @@ void CChannelView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnContextMenu(CWnd* pWnd, CPoint point) 
 {
-	// TODO: Add your message handler code here
+	// TODO
 	CRect		rect;
 	GetClientRect ( &rect );
 	ClientToScreen ( &rect );
@@ -311,7 +311,7 @@ void CChannelView::OnContextMenu(CWnd* pWnd, CPoint point)
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnChannelsHelp() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CAboutDlg	dlg;
 	dlg.DoModal ();
 }
@@ -322,7 +322,7 @@ void CChannelView::OnChannelsHelp()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnChannelsAudible() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
 
@@ -347,7 +347,7 @@ void CChannelView::OnChannelsAudible()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnChannelsMute() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
 
@@ -372,7 +372,7 @@ void CChannelView::OnChannelsMute()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnChannelsMuteall() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
 	int					iX;
@@ -400,7 +400,7 @@ void CChannelView::OnChannelsMuteall()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnChannelsAudibleall() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
 	int					iX;
@@ -428,7 +428,7 @@ void CChannelView::OnChannelsAudibleall()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnChannelsSolo() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
 
@@ -459,7 +459,7 @@ void CChannelView::OnChannelsSolo()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnClickChannels(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	NMLISTVIEW			*nmListView = ( NMLISTVIEW * ) pNMHDR;
 
 	m_Channels.EditColumn ( nmListView->iSubItem );
@@ -473,7 +473,7 @@ void CChannelView::OnClickChannels(NMHDR* pNMHDR, LRESULT* pResult)
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnDblclkChannels(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	
 	*pResult = 0;
 }
@@ -683,7 +683,7 @@ LRESULT CChannelView::OnEditSelect(WPARAM wParam, LPARAM lParam)
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnTimer(UINT_PTR nIDEvent) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 
 	//	Update images for the view
 	CMidiDoc			*pMididoc;
@@ -750,7 +750,7 @@ void CChannelView::OnTimer(UINT_PTR nIDEvent)
 ///////////////////////////////////////////////////////////////////////////////////////////
 BOOL CChannelView::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	
 	BOOL bRes = FriendEraseBkgndScrollView(this, pDC);
 	if ( bRes )
@@ -769,7 +769,7 @@ void CChannelView::OnInitialUpdate()
 {
 	CMWFormView::OnInitialUpdate();
 	
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	if ( ! theApp.m_bSplitterWindow )
 	{
 		GetParentFrame ( )->RecalcLayout ( );
@@ -787,7 +787,7 @@ void CChannelView::OnInitialUpdate()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	FriendActivate( bActivate, pActivateView, pDeactiveView, false);
 	
 	CMWFormView::OnActivateView(bActivate, pActivateView, pDeactiveView);

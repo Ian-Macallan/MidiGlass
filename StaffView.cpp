@@ -77,7 +77,7 @@ void CStaffView::OnDraw(CDC* pDC)
 {
 	CMidiDoc *pMididoc	= dynamic_cast< CMidiDoc * >( GetDocument () );
 
-	// TODO: add draw code here
+	// TODO
 	DrawAll(pDC, NULL, &m_ScreenParms );
 
 }
@@ -121,7 +121,7 @@ void CStaffView::Dump(CDumpContext& dc) const
 ///////////////////////////////////////////////////////////////////////////////////////
 void CStaffView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 
 	SetViewParameters ( );
 
@@ -144,7 +144,7 @@ void CStaffView::OnInitialUpdate()
 {
 	CScrollView::OnInitialUpdate();
 	
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	SetViewParameters ();
 
 }
@@ -1882,7 +1882,7 @@ void CStaffView::Round ( CDC *pDC, long iCx1, long iCy1, long iCx2, long iCy2 )
 ///////////////////////////////////////////////////////////////////////////////////////
 void CStaffView::OnContextMenu(CWnd* pWnd, CPoint point) 
 {
-	// TODO: Add your message handler code here
+	// TODO
 	CRect		rect;
 	GetClientRect ( &rect );
 	ClientToScreen ( &rect );
@@ -1907,7 +1907,7 @@ void CStaffView::OnContextMenu(CWnd* pWnd, CPoint point)
 ///////////////////////////////////////////////////////////////////////////////////////
 void CStaffView::OnStaffHelp() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CAboutDlg	dlg;
 	dlg.DoModal ();
 }
@@ -1940,7 +1940,7 @@ void CStaffView::SetViewParameters()
 ///////////////////////////////////////////////////////////////////////////////////////
 void CStaffView::OnStaffScale() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CSize sizeTotal;
 
 	m_bScale = ! m_bScale;
@@ -2028,7 +2028,7 @@ void CStaffView::DrawAdditionalFrame(CDC *pDC, CPrintInfo *pInfo, CStaffViewParm
 ///////////////////////////////////////////////////////////////////////////////////////
 void CStaffView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	FriendActivate( bActivate, pActivateView, pDeactiveView, true);
 	
 	CScrollView::OnActivateView(bActivate, pActivateView, pDeactiveView);

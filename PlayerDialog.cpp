@@ -94,7 +94,7 @@ BOOL CPlayerDialog::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	// TODO: Add extra initialization here
+	// TODO
 	BOOL			bRes;
 
 	m_bInitializing		= true;
@@ -173,7 +173,7 @@ void CPlayerDialog::OnDestroy()
 	
 	KillTimer ( PLAY_THREAD_TIMER );
 
-	// TODO: Add your message handler code here
+	// TODO
 	switch ( m_iPlayer )
 	{
 		case PLAYER_PLAY_DIR :
@@ -221,7 +221,7 @@ LRESULT CPlayerDialog::OnMciNotify(WPARAM wParam, LPARAM lParam)
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnPlay() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	switch ( m_iPlayer )
 	{
 		case PLAYER_PLAY_DIR :
@@ -244,7 +244,7 @@ void CPlayerDialog::OnPlay()
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnBackward() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	switch ( m_iPlayer )
 	{
 		case PLAYER_PLAY_DIR :
@@ -267,7 +267,7 @@ void CPlayerDialog::OnBackward()
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnPause() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	switch ( m_iPlayer )
 	{
 		case PLAYER_PLAY_DIR :
@@ -290,7 +290,7 @@ void CPlayerDialog::OnPause()
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnStop() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	switch ( m_iPlayer )
 	{
 		case PLAYER_PLAY_DIR :
@@ -313,7 +313,7 @@ void CPlayerDialog::OnStop()
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnForward() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	switch ( m_iPlayer )
 	{
 		case PLAYER_PLAY_DIR :
@@ -338,14 +338,14 @@ HBRUSH CPlayerDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -1056,7 +1056,7 @@ void CPlayerDialog::OnForwardList( )
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnTimer(UINT_PTR nIDEvent) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 
 	//		Here we will do some refresh
 	DisplayMidiCounters();
@@ -1231,12 +1231,12 @@ void CPlayerDialog::DisplayMidiCounters()
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnChangeNumber() 
 {
-	// TODO: If this is a RICHEDIT control, the control will not
+	// TODO
 	// send this notification unless you override the CDialog::OnInitDialog()
 	// function and call CRichEditCtrl().SetEventMask()
 	// with the ENM_CHANGE flag ORed into the mask.
 	
-	// TODO: Add your control notification handler code here
+	// TODO
 	if ( ! m_bInitializing && m_Tune_Combo.m_hWnd != NULL && m_Spin_Number.m_hWnd != NULL )
 	{
 		m_iTune =  m_Spin_Number.GetPos ( );
@@ -1257,7 +1257,7 @@ void CPlayerDialog::OnChangeNumber()
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnSelchangeTuneCombo() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	if ( ! m_bInitializing && m_Tune_Combo.m_hWnd != NULL && m_Spin_Number.m_hWnd != NULL )
 	{
 		m_iTune = m_Tune_Combo.GetCurSel ( );
@@ -1352,7 +1352,7 @@ void CPlayerDialog::DisplayInstruments()
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnReleasedcaptureSlider(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	if ( m_pMidiFile != NULL )
 	{
 		m_pMidiFile->LLSlide ( m_Slider.GetPos () );
@@ -1367,7 +1367,7 @@ void CPlayerDialog::OnReleasedcaptureSlider(NMHDR* pNMHDR, LRESULT* pResult)
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnReleasedcaptureSliderSpeed(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	if ( m_pMidiFile != NULL )
 	{
 		m_pMidiFile->LLSetSpeed ( m_Slider_Speed.GetPos () );
@@ -1382,7 +1382,7 @@ void CPlayerDialog::OnReleasedcaptureSliderSpeed(NMHDR* pNMHDR, LRESULT* pResult
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnBack() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	if ( m_pMidiFile != NULL )
 	{
 		long iSeconds = ( m_pMidiFile->LLGetTime () / 1000 );
@@ -1404,7 +1404,7 @@ void CPlayerDialog::OnBack()
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnForw() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	if ( m_pMidiFile != NULL )
 	{
 		long iSeconds = ( m_pMidiFile->LLGetTime () / 1000 );
@@ -1436,7 +1436,7 @@ void CPlayerDialog::StopAndDelete( bool bNotify )
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnDropFiles(HDROP hDropInfo) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	char			szFilename [ MAX_PATHNAME_STRING ];
 
 	//		First get the count of files
@@ -1542,7 +1542,7 @@ void CPlayerDialog::ResizeButtons(CBitmap *pBitmap, CMWButton *pButton)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CPlayerDialog::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )

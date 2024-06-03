@@ -241,7 +241,7 @@ static UINT indicators[] =
 ///////////////////////////////////////////////////////////////////////////////////
 CMainFrame::CMainFrame()
 {
-	// TODO: add member initialization code here
+	// TODO
 	m_pMidiView		= NULL;
 	m_bClosing		= false;
 
@@ -453,7 +453,7 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 {
 	if( !CFrameWnd::PreCreateWindow(cs) )
 		return FALSE;
-	// TODO: Modify the Window class or styles here by modifying
+	// TODO
 	//  the CREATESTRUCT cs
 
 	return TRUE;
@@ -488,7 +488,7 @@ void CMainFrame::Dump(CDumpContext& dc) const
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 
 	if ( theApp.m_bSplitterWindow )
 	{
@@ -510,7 +510,7 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsText() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -529,7 +529,7 @@ void CMainFrame::OnContentEventsText()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentHeader() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -586,7 +586,7 @@ void CMainFrame::OnContentEvents( int iView )
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsCopyright() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -601,7 +601,7 @@ void CMainFrame::OnContentEventsCopyright()
 
 void CMainFrame::OnContentEventsCuepoint() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -616,7 +616,7 @@ void CMainFrame::OnContentEventsCuepoint()
 
 void CMainFrame::OnContentEventsInstrumentname() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -631,7 +631,7 @@ void CMainFrame::OnContentEventsInstrumentname()
 
 void CMainFrame::OnContentEventsLyrics() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -646,7 +646,7 @@ void CMainFrame::OnContentEventsLyrics()
 
 void CMainFrame::OnContentEventsMarkers() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -661,7 +661,7 @@ void CMainFrame::OnContentEventsMarkers()
 
 void CMainFrame::OnContentEventsSequence() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -676,7 +676,7 @@ void CMainFrame::OnContentEventsSequence()
 
 void CMainFrame::OnContentEventsSequencer() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -691,7 +691,7 @@ void CMainFrame::OnContentEventsSequencer()
 
 void CMainFrame::OnContentEventsTrackname() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -706,7 +706,7 @@ void CMainFrame::OnContentEventsTrackname()
 
 void CMainFrame::OnContentTracks() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 
 	if ( pMididoc == NULL )
@@ -731,7 +731,7 @@ void CMainFrame::OnContentTracks()
 
 void CMainFrame::OnFileTrace() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 
@@ -843,7 +843,7 @@ void CMainFrame::GetDialogBoxSize(unsigned iD, LPRECT rect)
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectEndoftrack() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 
@@ -867,7 +867,7 @@ void CMainFrame::OnCorrectEndoftrack()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectStartoftrack() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 
@@ -923,7 +923,7 @@ LRESULT CMainFrame::OnMciNotify(WPARAM wParam, LPARAM lParam)
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerPlay() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -942,7 +942,7 @@ void CMainFrame::OnFileSequencerPlay()
 ////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerStop() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 
@@ -962,7 +962,7 @@ void CMainFrame::OnFileSequencerStop()
 ////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileMediaplayer() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	HINSTANCE			hInst;
 
@@ -982,7 +982,7 @@ void CMainFrame::OnFileMediaplayer()
 ////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerPlayandloop() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 
@@ -1001,7 +1001,7 @@ void CMainFrame::OnFileSequencerPlayandloop()
 ////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerPlayll() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1040,7 +1040,7 @@ void CMainFrame::OnFileSequencerPlayll()
 ////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerStopll() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 
@@ -1068,7 +1068,7 @@ void CMainFrame::OnFileSequencerStopll()
 ////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentPlayer() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	if ( theApp.m_bSplitterWindow )
 	{
 		if ( ! CreateColViewFull ( 1, ( CView ** ) & m_RightPlayerView, 
@@ -1089,7 +1089,7 @@ void CMainFrame::OnContentPlayer()
 ////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerPlayandloopll() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1128,7 +1128,7 @@ void CMainFrame::OnFileSequencerPlayandloopll()
 ////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerPausell() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1157,7 +1157,7 @@ void CMainFrame::OnFileSequencerPausell()
 
 void CMainFrame::OnFileSequencerBackwardll() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1188,7 +1188,7 @@ void CMainFrame::OnFileSequencerBackwardll()
 
 void CMainFrame::OnFileSequencerForwardll() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1213,7 +1213,7 @@ void CMainFrame::OnFileSequencerForwardll()
 
 void CMainFrame::OnFileSequencerResumell() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1242,7 +1242,7 @@ void CMainFrame::OnFileSequencerResumell()
 
 void CMainFrame::OnViewMcitoolbar() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	int		bShow = IsMciBarVisible ();
 
 	ShowOwnToolBar ( &m_wndMciToolBar, &m_wndMciLargeToolBar, ! bShow );
@@ -1257,7 +1257,7 @@ void CMainFrame::OnViewMcitoolbar()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewMiditoolbar() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	int		bShow = IsMidiBarVisible ();
 
 	ShowOwnToolBar ( &m_wndMidiToolBar, &m_wndMidiLargeToolBar, ! bShow );
@@ -1273,7 +1273,7 @@ void CMainFrame::OnViewMiditoolbar()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectFiltertracks() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1300,7 +1300,7 @@ void CMainFrame::OnCorrectFiltertracks()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectAddGmreset() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1327,7 +1327,7 @@ void CMainFrame::OnCorrectAddGmreset()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectAddGsreset() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1354,7 +1354,7 @@ void CMainFrame::OnCorrectAddGsreset()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectAll() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1387,7 +1387,7 @@ void CMainFrame::OnCorrectAll()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectOptions() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CCorrectOptions	dlgOptions;
 	
 	dlgOptions.DoModal ();
@@ -1400,7 +1400,7 @@ void CMainFrame::OnCorrectOptions()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentSystemexclusive() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CSysExDialog	dlgSysEx;
 
 	dlgSysEx.DoModal ( );
@@ -1414,7 +1414,7 @@ void CMainFrame::OnContentSystemexclusive()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentErrormessages() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -1441,7 +1441,7 @@ void CMainFrame::OnContentErrormessages()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFilePreferences() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CPreferences		dlgPref;
 	
 	SaveOwnToolBar ( );
@@ -1482,7 +1482,7 @@ void CMainFrame::OnFilePreferences()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnClose() 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	RECT		rectWindow;
 
 	m_bClosing = true;
@@ -1536,7 +1536,7 @@ void CMainFrame::OnShowWindow(BOOL bShow, UINT nStatus)
 {
 	CFrameWnd::OnShowWindow(bShow, nStatus);
 	
-	// TODO: Add your message handler code here
+	// TODO
 }
 
 //
@@ -1569,7 +1569,7 @@ void CMainFrame::SizeAndPlaceWindow()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentParameters() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CParameters			dlgParam;
 	char				szString [ MAX_CONTROLER_STRING ];
 	int					iX;
@@ -1622,7 +1622,7 @@ void CMainFrame::OnContentParameters()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveControllerBankselecthigh() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1646,7 +1646,7 @@ void CMainFrame::OnRemoveControllerBankselecthigh()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveControllerBankselectlow() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 
@@ -1670,7 +1670,7 @@ void CMainFrame::OnRemoveControllerBankselectlow()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveCopyright() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1694,7 +1694,7 @@ void CMainFrame::OnRemoveCopyright()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveCuepoint() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1718,7 +1718,7 @@ void CMainFrame::OnRemoveCuepoint()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveInstrumentname() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1742,7 +1742,7 @@ void CMainFrame::OnRemoveInstrumentname()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveLyrics() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1766,7 +1766,7 @@ void CMainFrame::OnRemoveLyrics()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveMarkers() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1790,7 +1790,7 @@ void CMainFrame::OnRemoveMarkers()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveSequence() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1814,7 +1814,7 @@ void CMainFrame::OnRemoveSequence()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveSequencer() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 
@@ -1838,7 +1838,7 @@ void CMainFrame::OnRemoveSequencer()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveSystemexclusive() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1862,7 +1862,7 @@ void CMainFrame::OnRemoveSystemexclusive()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveText() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1886,7 +1886,7 @@ void CMainFrame::OnRemoveText()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveTrackname() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1910,7 +1910,7 @@ void CMainFrame::OnRemoveTrackname()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentPlaylist() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 
 	if ( pMididoc == NULL )
@@ -1941,7 +1941,7 @@ void CMainFrame::OnDestroy()
 {
 	CFrameWnd::OnDestroy();
 	
-	// TODO: Add your message handler code here
+	// TODO
 	if ( theApp.m_PlayListThread != NULL )
 	{
 		theApp.m_dlgPlayerDialogList.EndDialog ( 0 );
@@ -1970,7 +1970,7 @@ void CMainFrame::OnDestroy()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileAddtotheplaylist() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	int					iCount;
 	char				szPathname [ MAX_PATHNAME_STRING ];
 	char				szString [ MAX_TUNE_STRING ];
@@ -2033,7 +2033,7 @@ char * CMainFrame::GetCurrentPlaylistFilename()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewMaintoolbar() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	int		bShow = IsMainBarVisible ();
 
 	ShowOwnToolBar ( &m_wndMainToolBar, &m_wndMainLargeToolBar, ! bShow );
@@ -2048,7 +2048,7 @@ void CMainFrame::OnViewMaintoolbar()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectTimesignature() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -2075,7 +2075,7 @@ void CMainFrame::OnCorrectTimesignature()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectKeysignature() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -2102,7 +2102,7 @@ void CMainFrame::OnCorrectKeysignature()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectMoveAll() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -2192,7 +2192,7 @@ CMidiTrack *CMainFrame::GetCurrentTrack()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentChannels() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 
 	if ( pMididoc == NULL )
@@ -2233,7 +2233,7 @@ void CMainFrame::SetActiveCWndAsView(CWnd *wnd)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewRightview() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CRect				rectFrame;
 	CRect				rectDialog;
 	CSize				size;
@@ -2263,7 +2263,7 @@ void CMainFrame::OnViewRightview()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewLeftview() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CRect				rectFrame;
 	CRect				rectDialog;
 	CSize				size;
@@ -2294,7 +2294,7 @@ void CMainFrame::OnViewLeftview()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewTwoviews() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CRect				rectFrame;
 	CRect				rectDialog;
 	CSize				size;
@@ -2327,7 +2327,7 @@ void CMainFrame::OnViewTwoviews()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveControllersResetallcontrolers() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -2351,7 +2351,7 @@ void CMainFrame::OnRemoveControllersResetallcontrolers()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentStartIe() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -2392,7 +2392,7 @@ void CMainFrame::OnContentStartIe()
 void CMainFrame::OnContentStopIe() 
 {
 #if 0
-	// TODO: Add your command handler code here
+	// TODO
 	if ( m_RightBrowserView != NULL )
 	{
 		m_RightBrowserView->Stop ();
@@ -2413,7 +2413,7 @@ void CMainFrame::OnContentStopIe()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewIetoolbar() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	int		bShow = IsIeBarVisible ();
 
 	ShowOwnToolBar ( &m_wndIeToolBar, &m_wndIeLargeToolBar, ! bShow );
@@ -2429,7 +2429,7 @@ void CMainFrame::OnViewIetoolbar()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewSF2toolbar() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	int		bShow = IsSF2BarVisible ();
 
 	ShowOwnToolBar ( &m_wndSF2ToolBar, &m_wndSF2LargeToolBar, ! bShow );
@@ -2445,7 +2445,7 @@ void CMainFrame::OnViewSF2toolbar()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContextMenu(CWnd* pWnd, CPoint point) 
 {
-	// TODO: Add your message handler code here
+	// TODO
 	CRect		rect;
 	GetClientRect ( &rect );
 	ClientToScreen ( &rect );
@@ -2501,7 +2501,7 @@ void CMainFrame::OnContextMenu(CWnd* pWnd, CPoint point)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewStatusBar() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	ShowControlBar ( &m_wndStatusBar, 
 						( m_wndStatusBar.GetStyle () & WS_VISIBLE ) == 0,
 						FALSE );
@@ -2545,7 +2545,7 @@ CMidiFile * CMainFrame::GetMidiFile()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentStaff() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 
 	if ( pMididoc == NULL )
@@ -2573,7 +2573,7 @@ void CMainFrame::OnContentStaff()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectTruncateNote() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -2601,7 +2601,7 @@ void CMainFrame::OnCorrectTruncateNote()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentNotes() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 
 	if ( theApp.m_bSplitterWindow )
 	{
@@ -2623,7 +2623,7 @@ void CMainFrame::OnContentNotes()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentTracksList() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 
 	if ( pMididoc == NULL )
@@ -2655,7 +2655,7 @@ void CMainFrame::OnContentTracksList()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentMidiexplorer() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 
 	if ( pMididoc == NULL )
@@ -2688,14 +2688,14 @@ HBRUSH CMainFrame::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CFrameWnd::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -2705,7 +2705,7 @@ HBRUSH CMainFrame::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMainFrame::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	return CFrameWnd::OnEraseBkgnd ( pDC );
 
 /*
@@ -2761,7 +2761,7 @@ void CMainFrame::SetSearchInfo(	const CString strEvent,
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectAddXgreset() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -4032,7 +4032,7 @@ void CMainFrame::DestroyViewWindows()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnEditFind() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	if ( m_RightEventView != NULL )
 	{
 		CFindEvent		dlgFind;
@@ -4050,7 +4050,7 @@ void CMainFrame::OnEditFind()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnEditFindagain() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	if ( m_RightEventView != NULL )
 	{
 		m_RightEventView->IncrementCurrentIndice();
@@ -4205,7 +4205,7 @@ void CMainFrame::RestoreFrameGeometry( CWnd *pWnd )
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSavegeometry() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	if ( ! theApp.m_bSplitterWindow )
 	{
 		//		Get the parent view
@@ -4447,7 +4447,7 @@ void CMainFrame::ActivateOrHideView(CView *pView, const char *pText)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsShowhide() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	ActivateOrHideView(m_RightTextView, "Text Frame Geometry" );
 }
 
@@ -4500,7 +4500,7 @@ void CMainFrame::SetModified ( BOOL bFlag )
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnSetPreviewMode(BOOL bPreview, CPrintPreviewState* pState) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	m_bPreview = ( bPreview != 0 );
 	CFrameWnd::OnSetPreviewMode(bPreview, pState);
 }
@@ -4511,7 +4511,7 @@ void CMainFrame::OnSetPreviewMode(BOOL bPreview, CPrintPreviewState* pState)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileRecord() 
 {
-	// TODO: Add your command handler code here
+	// TODO
     CMainFrame *pMainFrame = dynamic_cast<CMainFrame *> ( AfxGetMainWnd( ) );
     if ( pMainFrame != NULL )
     {

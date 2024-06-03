@@ -66,7 +66,7 @@ BOOL CModifyThreadDialog::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	// TODO: Add extra initialization here
+	// TODO
 	HICON hDlgIcon = theApp.LoadIcon ( IDR_MAINFRAME );
 	SetIcon( hDlgIcon, FALSE );
 
@@ -146,7 +146,7 @@ void CModifyThreadDialog::OnDestroy()
 {
 	CDialog::OnDestroy();
 	
-	// TODO: Add your message handler code here
+	// TODO
 
 	//		Say a Stop action is required
 	m_iFilenames	= 0;
@@ -198,10 +198,10 @@ HBRUSH CModifyThreadDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	hbr = ( HBRUSH ) theApp.m_brBackEmpty;
 	pDC->SetBkMode ( TRANSPARENT );
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -211,7 +211,7 @@ HBRUSH CModifyThreadDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 void CModifyThreadDialog::OnTimer(UINT_PTR nIDEvent) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	KillTimer ( CORRECT_THREAD_TIMER );
 
 	if ( m_iFilenames > 0 && m_iFileNumber < m_iFilenames )

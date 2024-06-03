@@ -57,14 +57,14 @@ HBRUSH CMWProgressCtrl::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CProgressCtrl::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -76,7 +76,7 @@ void CMWProgressCtrl::OnKillFocus(CWnd* pNewWnd)
 {
 	CProgressCtrl::OnKillFocus(pNewWnd);
 	
-	// TODO: Add your message handler code here
+	// TODO
 	CWnd	*wndParent	= GetParent ();
 
 	if ( GetFocus ( ) != this && GetFocus ( ) != wndParent )
@@ -112,7 +112,7 @@ void CMWProgressCtrl::SetAnsiFixedFont()
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWProgressCtrl::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{

@@ -115,7 +115,7 @@ void CPlayList::Dump(CDumpContext& dc) const
 
 void CPlayList::OnAdd() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	static char BASED_CODE szFilter[] = 
 		"Midi Files|*.mid|KAR Files|*.kar|RMI Files|*.rmi|All Files (*.*)|*.*||";
 
@@ -144,7 +144,7 @@ void CPlayList::OnAdd()
 
 void CPlayList::OnRemove() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	int			iX;
 
 	iX = m_PlayList.GetCurSel ( );
@@ -171,7 +171,7 @@ void CPlayList::OnRemove()
 
 void CPlayList::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	if ( m_bFirstTime || ( lHint & RIGHT_MASK_PLAYLIST ) || lHint == 0 )
 	{
 		m_bFirstTime = false;
@@ -225,14 +225,14 @@ void CPlayList::DisplayValues()
 
 void CPlayList::OnSave() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	SaveTheList ( );
 	DisplayButtons ();
 }
 
 void CPlayList::OnUp() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	int			iX;
 	char		szPathname [ MAX_PATHNAME_STRING ];
 
@@ -250,7 +250,7 @@ void CPlayList::OnUp()
 
 void CPlayList::OnDown() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	int			iX;
 	char		szPathname [ MAX_PATHNAME_STRING ];
 
@@ -286,7 +286,7 @@ void CPlayList::OnPlay()
         }
     }
 
-	// TODO: Add your control notification handler code here
+	// TODO
 	if ( theApp.m_PlayListThread == NULL && theApp.m_PlayDirThread == NULL )
 	{
 		theApp.m_PlayListThread = AfxBeginThread ( RUNTIME_CLASS ( CPlayTuneThread ) );
@@ -296,7 +296,7 @@ void CPlayList::OnPlay()
 
 void CPlayList::OnStop() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	if ( theApp.m_PlayListThread != NULL )
 	{
 		theApp.m_dlgPlayerDialogList.EndDialog ( 0 );
@@ -309,7 +309,7 @@ int CPlayList::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CMWFormView::OnCreate(lpCreateStruct) == -1)
 		return -1;
 	
-	// TODO: Add your specialized creation code here
+	// TODO
 	m_bPlayListModified = false;
 	
 	return 0;
@@ -411,7 +411,7 @@ void CPlayList::OnDestroy()
 {
 	CMWFormView::OnDestroy();
 	
-	// TODO: Add your message handler code here
+	// TODO
 	if ( m_bPlayListModified )
 	{
 		if ( MessageBox ( "Save the Playing List", "Playing List", MB_YESNO ) == IDYES )
@@ -432,14 +432,14 @@ HBRUSH CPlayList::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CMWFormView::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -449,7 +449,7 @@ HBRUSH CPlayList::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayList::OnDblclkPlaylist(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 
 	//		Ask for saving the list
 	if ( m_bPlayListModified )
@@ -495,7 +495,7 @@ void CPlayList::OnDblclkPlaylist(NMHDR* pNMHDR, LRESULT* pResult)
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayList::OnKillfocusPlaylist(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	DisplayButtons ();
 	*pResult = 0;
 }
@@ -507,7 +507,7 @@ void CPlayList::OnKillfocusPlaylist(NMHDR* pNMHDR, LRESULT* pResult)
 void CPlayList::OnItemchangedPlaylist(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	NM_LISTVIEW* pNMListView = (NM_LISTVIEW*)pNMHDR;
-	// TODO: Add your control notification handler code here
+	// TODO
 	DisplayButtons ();
 	*pResult = 0;
 }
@@ -519,7 +519,7 @@ void CPlayList::OnItemchangedPlaylist(NMHDR* pNMHDR, LRESULT* pResult)
 void CPlayList::OnBegindragPlaylist(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	NM_LISTVIEW* pNMListView = (NM_LISTVIEW*)pNMHDR;
-	// TODO: Add your control notification handler code here
+	// TODO
 	CPoint      ptAction;
 	UINT        nFlags;
 
@@ -582,7 +582,7 @@ void CPlayList::OnBegindragPlaylist(NMHDR* pNMHDR, LRESULT* pResult)
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayList::OnSelchangeDisplay() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	int iSelected = m_Display.GetCurSel ();
 	
 	switch ( iSelected )
@@ -622,7 +622,7 @@ void CPlayList::OnSelchangeDisplay()
 
 void CPlayList::OnContextMenu(CWnd* pWnd, CPoint point) 
 {
-	// TODO: Add your message handler code here
+	// TODO
 	CRect		rect;
 	GetClientRect ( &rect );
 	ClientToScreen ( &rect );
@@ -643,7 +643,7 @@ void CPlayList::OnContextMenu(CWnd* pWnd, CPoint point)
 
 void CPlayList::OnPlaylistOpenfile() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CMidiDoc			*pMididoc;
 
 	// check that one item gets the focus
@@ -671,7 +671,7 @@ void CPlayList::OnPlaylistOpenfile()
 
 void CPlayList::OnPlaylistHelp() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CAboutDlg	dlg;
 	dlg.DoModal ();
 	
@@ -679,7 +679,7 @@ void CPlayList::OnPlaylistHelp()
 
 void CPlayList::OnPlaylistProperty() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CPlayListProperty	dlgProp;
 
 	int iSelected = m_PlayList.GetCurSel ();
@@ -698,7 +698,7 @@ char * CPlayList::GetCurrentPlaylistFilename()
 
 void CPlayList::OnArrange() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	if ( m_Arrange.GetCheck () )
 	{
 		m_PlayList.Arrange ( LVA_ALIGNTOP );
@@ -707,41 +707,41 @@ void CPlayList::OnArrange()
 
 void CPlayList::OnList() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	m_PlayList.ModifyStyle ( LVS_TYPEMASK, LVS_LIST );
 	
 }
 
 void CPlayList::OnLargeicons() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	m_PlayList.ModifyStyle ( LVS_TYPEMASK, LVS_ICON );
 	
 }
 
 void CPlayList::OnSmallicons() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	m_PlayList.ModifyStyle ( LVS_TYPEMASK, LVS_SMALLICON );
 	
 }
 
 void CPlayList::OnReport() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	m_PlayList.ModifyStyle ( LVS_TYPEMASK, LVS_REPORT );
 	
 }
 
 void CPlayList::OnMenuArrange() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	m_PlayList.Arrange ( LVA_ALIGNTOP );
 }
 
 BOOL CPlayList::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	
 	BOOL bRes = FriendEraseBkgndScrollView(this, pDC);
 	if ( bRes )
@@ -754,7 +754,7 @@ BOOL CPlayList::OnEraseBkgnd(CDC* pDC)
 
 void CPlayList::OnLButtonUp(UINT nFlags, CPoint point) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	OnButtonUp();
 	
 	CMWFormView::OnLButtonUp(nFlags, point);
@@ -762,7 +762,7 @@ void CPlayList::OnLButtonUp(UINT nFlags, CPoint point)
 
 void CPlayList::OnMouseMove(UINT nFlags, CPoint point) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	
 	if ( m_bDragging )
 	{
@@ -891,7 +891,7 @@ void CPlayList::OnInitialUpdate()
 {
 	CMWFormView::OnInitialUpdate();
 	
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	if ( ! theApp.m_bSplitterWindow )
 	{
 		GetParentFrame ( )->RecalcLayout ( );
@@ -906,7 +906,7 @@ void CPlayList::OnInitialUpdate()
 
 void CPlayList::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	FriendActivate( bActivate, pActivateView, pDeactiveView, false);
 	
 	CMWFormView::OnActivateView(bActivate, pActivateView, pDeactiveView);

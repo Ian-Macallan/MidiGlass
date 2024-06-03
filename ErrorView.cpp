@@ -108,14 +108,14 @@ HBRUSH CErrorView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 			return pEdit->OnCtlColor( pDC, pWnd, nCtlColor );
 		}
 	}
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -125,7 +125,7 @@ HBRUSH CErrorView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ////////////////////////////////////////////////////////////////////////
 void CErrorView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	if ( m_bFirstTime || ( lHint & RIGHT_MASK_ERRORS ) || lHint == 0 )
 	{
 		// m_ErrorMessage.SetTextAttributes ( white, black );
@@ -192,7 +192,7 @@ void CErrorView::DisplayValues()
 ////////////////////////////////////////////////////////////////////////
 BOOL CErrorView::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	
 	BOOL bRes = FriendEraseBkgndScrollView(this, pDC);
 	if ( bRes )
@@ -211,7 +211,7 @@ void CErrorView::OnInitialUpdate()
 {
 	CMWFormView::OnInitialUpdate();
 	
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	if ( ! theApp.m_bSplitterWindow )
 	{
 		GetParentFrame ( )->RecalcLayout ( );
@@ -230,7 +230,7 @@ void CErrorView::OnInitialUpdate()
 ////////////////////////////////////////////////////////////////////////
 void CErrorView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	FriendActivate( bActivate, pActivateView, pDeactiveView, false);
 	
 	CMWFormView::OnActivateView(bActivate, pActivateView, pDeactiveView);

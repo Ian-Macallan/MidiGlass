@@ -60,14 +60,14 @@ HBRUSH CMWListCtrl::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CListCtrl::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -298,7 +298,7 @@ char * CMWListCtrl::GetShort(const char *pString)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMWListCtrl::OnKillfocus(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	CWnd	*wndParent	= GetParent ();
 
 	LONG  id		= GetWindowLong ( this->m_hWnd, GWL_ID  );
@@ -333,7 +333,7 @@ void CMWListCtrl::SetAnsiFixedFont()
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWListCtrl::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{
@@ -359,10 +359,10 @@ void CMWListCtrl::SendNormalMessage()
 void CMWListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMCUSTOMDRAW pNMCD = reinterpret_cast<LPNMCUSTOMDRAW>(pNMHDR);
-    // TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+    // TODO
     *pResult = 0;
 
-    // TODO: Add Code Here
+    // TODO
     if( GetHeaderCtrl ( ) && m_bHeaderControlSubclassed == false )
     {
         m_HeaderCtrl.SubclassWindow(GetHeaderCtrl()->m_hWnd);
@@ -393,8 +393,10 @@ void CMWListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
     
             case CDDS_ITEMPREPAINT | CDDS_SUBITEM :
             {
-                CRect rectLabel;
-
+                CRect rectLabel (0,0,0,0);
+                CRect rectIcon (0,0,0,0);
+                
+                //
                 int iCol        = pLVCD->iSubItem;
                 int iRow        = ( int ) pNMCD->dwItemSpec;
                 CString strItem = GetItemText ( iRow, iCol );
@@ -402,7 +404,7 @@ void CMWListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                 BOOL bSelected  = GetItemState ( iRow, LVIS_SELECTED ) & LVIS_SELECTED;
 
                 //
-                if ( iCol == 0 )
+                if ( true || iCol == 0 )
                 {
                     LVITEM lvItem;
                     ZeroMemory ( &lvItem, sizeof(lvItem) );
@@ -412,33 +414,43 @@ void CMWListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                     BOOL bImage         = GetItem ( &lvItem );
                     if ( bImage )
                     {
+                        bResult    = GetSubItemRect ( iRow, iCol, LVIR_ICON, rectIcon );
                         CImageList *pImageList = GetImageList ( LVSIL_NORMAL );
                         if ( pImageList != NULL )
                         {
-                            *pResult = CDRF_DODEFAULT;
-                            break;
+                            CDC *pDC= CDC::FromHandle ( pNMCD->hdc );
+                            POINT pt; pt.x = rectIcon.left; pt.y = rectIcon.top;
+                            SIZE sz; sz.cx = rectIcon.Width(); sz.cy = rectIcon.Height();
+                            pImageList->DrawEx( pDC, lvItem.iImage, pt, sz, 0, 0, ILD_NORMAL );
+
+                            // *pResult = CDRF_DODEFAULT;
+                            // break;
                         }
+
                         pImageList = GetImageList ( LVSIL_SMALL );
                         if ( pImageList != NULL )
                         {
-                            *pResult = CDRF_DODEFAULT;
-                            break;
+                            CDC *pDC= CDC::FromHandle ( pNMCD->hdc );
+                            POINT pt; pt.x = rectIcon.left; pt.y = rectIcon.top;
+                            SIZE sz; sz.cx = rectIcon.Width(); sz.cy = rectIcon.Height();
+                            pImageList->DrawEx( pDC, lvItem.iImage, pt, sz, 0, 0, ILD_NORMAL );
+
+                            // *pResult = CDRF_DODEFAULT;
+                            // break;
                         }
+
                         pImageList = GetImageList ( LVSIL_STATE );
                         if ( pImageList != NULL )
                         {
-                            *pResult = CDRF_DODEFAULT;
-                            break;
+                            CDC *pDC= CDC::FromHandle ( pNMCD->hdc );
+                            POINT pt; pt.x = rectIcon.left; pt.y = rectIcon.top;
+                            SIZE sz; sz.cx = rectIcon.Width(); sz.cy = rectIcon.Height();
+                            pImageList->DrawEx( pDC, lvItem.iImage, pt, sz, 0, 0, ILD_NORMAL );
+
+                            // *pResult = CDRF_DODEFAULT;
+                            // break;
                         }
                     }
-#if 0
-                    CDC *pDC= CDC::FromHandle ( pNMCD->hdc );
-                    pDC->SetTextColor ( white0xff );
-                    pDC->SetBkColor ( black0x00 );
-                    pDC->SetBkMode ( TRANSPARENT );
-                    *pResult = CDRF_DODEFAULT;
-                    break;
-#endif
                 }
 
                 //
@@ -479,8 +491,8 @@ void CMWListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 
                 //
                 //  Paint The Text
-                rectLabel.left  += 2;
-                rectLabel.right -= 2;
+                rectLabel.left  += 1;
+                rectLabel.right -= 1;
                 UINT nFormat = DT_SINGLELINE|DT_VCENTER;
                 if ( tagHeaderInfo.fmt  & HDF_LEFT )
                 {

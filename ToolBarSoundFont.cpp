@@ -110,7 +110,7 @@ BOOL CToolBarSoundFont::ReLoadComboBox()
 /////////////////////////////////////////////////////////////////////////////////////////
 BOOL CToolBarSoundFont::OnCommand(WPARAM wParam, LPARAM lParam)
 {
-	// TODO: ajoutez ici votre code spécialisé et/ou l'appel de la classe de base
+	// TODO
 	return CMWToolBar::OnCommand(wParam, lParam);
 }
 

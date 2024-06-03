@@ -53,7 +53,7 @@ END_MESSAGE_MAP()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMWListEditBox::OnKillfocus() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	CWnd	*wndParent	= GetParent ();
 
 	LONG  id		= GetWindowLong ( this->m_hWnd, GWL_ID  );
@@ -89,14 +89,14 @@ HBRUSH CMWListEditBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CListBox::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -106,7 +106,7 @@ HBRUSH CMWListEditBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWListEditBox::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{

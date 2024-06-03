@@ -62,14 +62,14 @@ HBRUSH CMWButton::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CButton::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -81,7 +81,7 @@ void CMWButton::OnKillFocus(CWnd* pNewWnd)
 {
 	CButton::OnKillFocus(pNewWnd);
 	
-	// TODO: Add your message handler code here
+	// TODO
 	CWnd	*wndParent	= GetParent ();
 
 	if ( GetFocus ( ) != this && GetFocus ( ) != wndParent )
@@ -117,7 +117,7 @@ void CMWButton::SetAnsiFixedFont()
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWButton::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{
@@ -142,7 +142,7 @@ void CMWButton::SendNormalMessage()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMWButton::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 {
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    // TODO
     UINT uStyle = DFCS_BUTTONPUSH;
 
     static char szText [ MAX_PATH ];

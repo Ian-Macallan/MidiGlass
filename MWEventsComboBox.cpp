@@ -79,7 +79,7 @@ void CMWEventsComboBox::ResetContent()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMWEventsComboBox::OnSelchange() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	CMWComboBox::OnSelchange();
 }
 
@@ -109,14 +109,14 @@ HBRUSH CMWEventsComboBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CComboBox::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -126,7 +126,7 @@ HBRUSH CMWEventsComboBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWEventsComboBox::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{

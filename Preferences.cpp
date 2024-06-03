@@ -76,7 +76,7 @@ BOOL CPreferences::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	// TODO: Add extra initialization here
+	// TODO
 	DisplayValues ( );
 
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -229,7 +229,7 @@ void CPreferences::DisplayValues()
 //////////////////////////////////////////////////////////////////////////
 void CPreferences::OnOK() 
 {
-	// TODO: Add extra validation here
+	// TODO
 	theApp.m_iStart_Playing = m_Start_Playing.GetCurSel ();
 	theApp.m_iMidiDevice	= m_Device.GetCurSel ( );
 	theApp.m_iMidiInDevice	= m_In_Device.GetCurSel ( );
@@ -318,7 +318,7 @@ void CPreferences::OnOK()
 //////////////////////////////////////////////////////////////////////////
 void CPreferences::OnSkipToNote() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 }
 
 //
@@ -329,14 +329,14 @@ HBRUSH CPreferences::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -346,7 +346,7 @@ HBRUSH CPreferences::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 //////////////////////////////////////////////////////////////////////////
 BOOL CPreferences::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
@@ -363,7 +363,7 @@ BOOL CPreferences::OnEraseBkgnd(CDC* pDC)
 //////////////////////////////////////////////////////////////////////////
 void CPreferences::OnBnClickedBrowse()
 {
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	// TODO
 	OPENFILENAME ofn		;			// common dialog box structure
 	ZeroMemory ( &ofn, sizeof(ofn) );
 

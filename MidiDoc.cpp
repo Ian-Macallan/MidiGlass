@@ -46,7 +46,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////////
 CMidiDoc::CMidiDoc()
 {
-	// TODO: add one-time construction code here
+	// TODO
 	CString			strReturned;
 
 	m_pMidiFile		= NULL;
@@ -97,7 +97,7 @@ BOOL CMidiDoc::OnNewDocument()
 	if (!CDocument::OnNewDocument())
 		return FALSE;
 
-	// TODO: add reinitialization code here
+	// TODO
 	// (SDI documents will reuse this document)
 	if ( m_pMidiFile != NULL )
 	{
@@ -118,11 +118,11 @@ void CMidiDoc::Serialize(CArchive& ar)
 {
 	if (ar.IsStoring())
 	{
-		// TODO: add storing code here
+		// TODO
 	}
 	else
 	{
-		// TODO: add loading code here
+		// TODO
 	}
 }
 
@@ -157,7 +157,7 @@ BOOL CMidiDoc::OnOpenDocument(LPCTSTR lpszPathName)
 	if (!CDocument::OnOpenDocument(lpszPathName))
 		return FALSE;
 	
-	// TODO: Add your specialized creation code here
+	// TODO
 	CWaitTreatment::BeginWait();
 
 	//
@@ -265,7 +265,7 @@ BOOL CMidiDoc::OnOpenDocument(LPCTSTR lpszPathName)
 /////////////////////////////////////////////////////////////////////////////////
 void CMidiDoc::OnCloseDocument() 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	if ( m_pMidiFile != NULL )
 	{
 		delete m_pMidiFile;
@@ -327,7 +327,7 @@ void CMidiDoc::SetCurrentTrack(unsigned short iTrack)
 /////////////////////////////////////////////////////////////////////////////////
 BOOL CMidiDoc::OnSaveDocument(LPCTSTR lpszPathName) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	if ( m_pMidiFile != NULL )
 	{
 		m_pMidiFile->Save ( ( char * ) lpszPathName );
@@ -344,7 +344,7 @@ BOOL CMidiDoc::OnSaveDocument(LPCTSTR lpszPathName)
 /////////////////////////////////////////////////////////////////////////////////
 void CMidiDoc::OnFileSendMail() 
 {
-	// TODO: Add your command handler code here
+	// TODO
 	CDocument::OnFileSendMail ();
 }
 
@@ -354,7 +354,7 @@ void CMidiDoc::OnFileSendMail()
 /////////////////////////////////////////////////////////////////////////////////
 void CMidiDoc::OnUpdateFileSendMail(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
+	// TODO
 	CDocument::OnUpdateFileSendMail (pCmdUI);
 	pCmdUI->Enable ( FALSE );
 }
@@ -365,7 +365,7 @@ void CMidiDoc::OnUpdateFileSendMail(CCmdUI* pCmdUI)
 /////////////////////////////////////////////////////////////////////////////////
 void CMidiDoc::SetTitle(LPCTSTR lpszTitle) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	
 	CDocument::SetTitle(lpszTitle);
 }
@@ -376,7 +376,7 @@ void CMidiDoc::SetTitle(LPCTSTR lpszTitle)
 /////////////////////////////////////////////////////////////////////////////////
 void CMidiDoc::SetPathName(LPCTSTR lpszPathName, BOOL bAddToMRU) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	char		szPathname [ MAX_PATHNAME_STRING ];
 
 	strcpy_s ( szPathname, sizeof ( szPathname ), lpszPathName );

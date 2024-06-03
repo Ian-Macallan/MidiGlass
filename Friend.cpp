@@ -92,7 +92,7 @@ HBRUSH FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 /////////////////////////////////////////////////////////////////
 BOOL FriendEraseBkgnd(CWnd* pWnd, CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	CRect				rectFrame;
 	CRect				rectBitmap;
 	CSize				sizeBitmap;
@@ -148,7 +148,7 @@ BOOL FriendEraseBkgnd(CWnd* pWnd, CDC* pDC)
 /////////////////////////////////////////////////////////////////
 BOOL FriendEraseBkgndScrollView(CScrollView *pWnd, CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	CRect				rectFrame;
 	CRect				rectBitmap;
 	CSize				sizeBitmap;

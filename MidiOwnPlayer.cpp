@@ -100,7 +100,7 @@ void CMidiOwnPlayer::Dump(CDumpContext& dc) const
 ///////////////////////////////////////////////////////////////////////////////////
 void CMidiOwnPlayer::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	if ( m_bFirstTime || ( lHint & RIGHT_MASK_PLAYER ) || lHint == 0 )
 	{
 		m_bFirstTime = false;
@@ -260,7 +260,7 @@ void CMidiOwnPlayer::DisplayValues()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMidiOwnPlayer::OnTimer(UINT_PTR nIDEvent) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	DisplayValues ();
 
 	CMWFormView::OnTimer(nIDEvent);
@@ -272,7 +272,7 @@ void CMidiOwnPlayer::OnTimer(UINT_PTR nIDEvent)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMidiOwnPlayer::OnReleasedcaptureSlider(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
 
@@ -302,7 +302,7 @@ void CMidiOwnPlayer::OnReleasedcaptureSlider(NMHDR* pNMHDR, LRESULT* pResult)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMidiOwnPlayer::OnReleasedcaptureSliderSpeed(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
@@ -330,14 +330,14 @@ HBRUSH CMidiOwnPlayer::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CMWFormView::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -347,7 +347,7 @@ HBRUSH CMidiOwnPlayer::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMidiOwnPlayer::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	
 	BOOL bRes = FriendEraseBkgndScrollView(this, pDC);
 	if ( bRes )
@@ -366,7 +366,7 @@ void CMidiOwnPlayer::OnInitialUpdate()
 {
 	CMWFormView::OnInitialUpdate();
 	
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	if ( ! theApp.m_bSplitterWindow )
 	{
 		GetParentFrame ( )->RecalcLayout ( );
@@ -385,7 +385,7 @@ void CMidiOwnPlayer::OnInitialUpdate()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMidiOwnPlayer::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO
 	FriendActivate( bActivate, pActivateView, pDeactiveView, false);
 	
 	CMWFormView::OnActivateView(bActivate, pActivateView, pDeactiveView);

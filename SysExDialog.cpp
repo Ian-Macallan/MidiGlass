@@ -79,7 +79,7 @@ END_MESSAGE_MAP()
 
 BOOL CSysExDialog::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
@@ -98,13 +98,13 @@ HBRUSH CSysExDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -116,7 +116,7 @@ BOOL CSysExDialog::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	// TODO: Add extra initialization here
+	// TODO
 	if ( m_bFirstTime )
 	{
 		m_SysEx_Values.InsertColumn ( 0, "Hexadecimal Value", LVCFMT_LEFT, 384 );
@@ -225,7 +225,7 @@ void CSysExDialog::OnEndlabeleditSysexValues(NMHDR* pNMHDR, LRESULT* pResult)
 {
 	LV_DISPINFO* pDispInfo = (LV_DISPINFO*)pNMHDR;
 
-	// TODO: Add your control notification handler code here
+	// TODO
 	CString		strAscii;
 
     if(pDispInfo->item.mask & LVIF_TEXT )
@@ -252,7 +252,7 @@ void CSysExDialog::OnEndlabeleditSysexValues(NMHDR* pNMHDR, LRESULT* pResult)
 /////////////////////////////////////////////////////////////////////////////
 void CSysExDialog::OnSelendokSysex() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	if ( ! m_bFirstTime )
 	{
 		ReadSysEx ( );
@@ -336,7 +336,7 @@ void CSysExDialog::CheckSysEx(CString &strSysEx)
 /////////////////////////////////////////////////////////////////////////////
 void CSysExDialog::OnDefaultValues() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	char		szAscii [ MAX_LONG_STRING ];
 	CMidiClass	clForConversion;
 	int			iCurSel;
@@ -477,7 +477,7 @@ void CSysExDialog::OnDefaultValues()
 /////////////////////////////////////////////////////////////////////////////
 void CSysExDialog::OnStartReceive() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	theApp.m_iMidiInDevice = theApp.GetProfileInt ( "Settings", "Midi Input Device", 0 );
 
 	m_Size_Received.SetWindowText ( "Undefined" );
@@ -494,7 +494,7 @@ void CSysExDialog::OnStartReceive()
 /////////////////////////////////////////////////////////////////////////////
 void CSysExDialog::OnStopReceive() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	OnCheckReceive();
 
 	m_MidiFile.LLInpStop();
@@ -527,7 +527,7 @@ void CSysExDialog::OnStopReceive()
 /////////////////////////////////////////////////////////////////////////////
 void CSysExDialog::OnCheckReceive() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	int iNumber = m_MidiFile.GetNumberOfInputChunk ();
 	char		szText [ MAX_LONG_STRING ];
 	sprintf_s ( szText, sizeof ( szText ), "%d", iNumber );
@@ -541,7 +541,7 @@ void CSysExDialog::OnCheckReceive()
 /////////////////////////////////////////////////////////////////////////////
 void CSysExDialog::OnTimer(UINT_PTR nIDEvent) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	OnCheckReceive();
 	CDialog::OnTimer(nIDEvent);
 }
@@ -552,7 +552,7 @@ void CSysExDialog::OnTimer(UINT_PTR nIDEvent)
 /////////////////////////////////////////////////////////////////////////////
 void CSysExDialog::OnOK() 
 {
-	// TODO: Add extra validation here
+	// TODO
 	KillTimer ( INPUT_DIALOG_TIMER );
 	
 	CDialog::OnOK();
@@ -564,7 +564,7 @@ void CSysExDialog::OnOK()
 /////////////////////////////////////////////////////////////////////////////
 void CSysExDialog::OnClose() 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	KillTimer ( INPUT_DIALOG_TIMER );
 
 	CDialog::OnClose();

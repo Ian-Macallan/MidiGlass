@@ -52,7 +52,7 @@ END_MESSAGE_MAP()
 ////////////////////////////////////////////////////////////////////////////////////////////
 CMidiWorksApp::CMidiWorksApp()
 {
-	// TODO: add construction code here,
+	// TODO
 	// Place all significant initialization in InitInstance
 	m_RecordThread				= NULL;
 
@@ -113,7 +113,7 @@ BOOL CMidiWorksApp::InitInstance()
 	BOOL bRes = AfxInitRichEdit( );
 
 	// Change the registry key under which our settings are stored.
-	// TODO: You should modify this string to be something appropriate
+	// TODO
 	// such as the name of your company or organization.
 	SetRegistryKey(_T(PROGRAM_REGKEY));
 
@@ -160,7 +160,32 @@ BOOL CMidiWorksApp::InitInstance()
 
 	// Dispatch commands specified on the command line
 	if (!ProcessShellCommand(cmdInfo))
+    {
 		return FALSE;
+    }
+
+    //
+#if 0
+	WORD wLanguageID = MAKELANGID(
+		LANG_ENGLISH,		//	USHORT usPrimaryLanguage,  // primary language identifier
+		SUBLANG_ENGLISH_US	//	USHORT usSubLanguage       // sublanguage identifier
+	);
+
+	//
+	DWORD	dwLCID = MAKELCID(
+	  wLanguageID,			//	WORD wLanguageID,  // language identifier
+	  SORT_DEFAULT			//	WORD wSortID       // sorting identifier
+	);
+
+	//
+	BOOL bSetted = SetThreadLocale ( 
+		dwLCID		//	LCID Locale   // locale identifier
+	);
+
+    //
+    LANGID oldLang =  SetThreadUILanguage( wLanguageID );
+#endif
+
 
 	//	We can say we accept files from drag and drop
 	//	This will be enough to open file when drag it in my window

@@ -77,14 +77,14 @@ HBRUSH CAboutDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO: Change any attributes of the DC here
+	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO: Return a different brush if the default is not desired
+	// TODO
 	return hbr;
 }
 
@@ -96,7 +96,7 @@ BOOL CAboutDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	// TODO: Add extra initialization here
+	// TODO
 	DWORD			dwLength;
 	DWORD			dwHandle;
 	char			szFilename [ MAX_PATHNAME_STRING ];
@@ -199,7 +199,7 @@ BOOL CAboutDlg::OnInitDialog()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CAboutDlg::OnInternalName() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	HINSTANCE			hInst;
 	CString				strUrl;
 
@@ -214,7 +214,7 @@ void CAboutDlg::OnInternalName()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CAboutDlg::OnOK() 
 {
-	// TODO: Add extra validation here
+	// TODO
 	CDialog::OnOK();
 }
 
@@ -226,7 +226,7 @@ void CAboutDlg::OnDestroy()
 {
 	CDialog::OnDestroy();
 	
-	// TODO: Add your message handler code here
+	// TODO
 	if ( m_pMidiFile != NULL )
 	{
 		m_pMidiFile->LLStop ();
@@ -242,7 +242,7 @@ void CAboutDlg::OnDestroy()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CAboutDlg::OnTune() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 
     //  Stop Current Playing
     CMainFrame *pMainFrame = dynamic_cast<CMainFrame *> ( AfxGetMainWnd( ) );
@@ -314,7 +314,7 @@ void CAboutDlg::OnTune()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CAboutDlg::OnDropFiles(HDROP hDropInfo) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	char			szFilename [ MAX_PATHNAME_STRING ];
 
 	//		First get the count of files
@@ -351,7 +351,7 @@ void CAboutDlg::OnDropFiles(HDROP hDropInfo)
 /////////////////////////////////////////////////////////////////////////////////////////////
 BOOL CAboutDlg::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODO
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{
@@ -367,7 +367,7 @@ BOOL CAboutDlg::OnEraseBkgnd(CDC* pDC)
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CAboutDlg::OnComments() 
 {
-	// TODO: Add your control notification handler code here
+	// TODO
 	HINSTANCE			hInst;
 	CString				strUrl;
 
