@@ -52,6 +52,7 @@ CMidiExplorerView::CMidiExplorerView()
 	m_bDraggingOle		= false;
 	m_prevDropEffectOle	= DROPEFFECT_NONE;
 
+    m_pContextMenu      = NULL;
 }
 
 //
@@ -92,9 +93,11 @@ BEGIN_MESSAGE_MAP(CMidiExplorerView, CTreeView)
 	ON_WM_DROPFILES()
 	ON_COMMAND(ID_EXPLORER_RECORD, OnExplorerRecord)
 	ON_NOTIFY_EX( TTN_NEEDTEXT, 0, OnToolTipNotify )
-
+    ON_WM_DRAWITEM()
+    ON_WM_MEASUREITEM()
 
    	//}}AFX_MSG_MAP
+    ON_NOTIFY_REFLECT(NM_CUSTOMDRAW, &CMidiExplorerView::OnNMCustomdraw)
 END_MESSAGE_MAP()
 
 //
@@ -600,6 +603,10 @@ void CMidiExplorerView::OnSelchanged(NMHDR* pNMHDR, LRESULT* pResult)
 	*pResult = 0;
 }
 
+//
+////////////////////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////////////////////
 void CMidiExplorerView::OnContextMenu(CWnd* pWnd, CPoint point) 
 {
 	// TODO
@@ -609,10 +616,10 @@ void CMidiExplorerView::OnContextMenu(CWnd* pWnd, CPoint point)
 
 	if ( rect.PtInRect ( point ) )
 	{
-		CMenu		menu;
+		CMWMenu		menu;
 		menu.LoadMenu ( IDR_MENU_EXPLORER );
-		CMenu	*pContextMenu = menu.GetSubMenu ( 0 );
-		pContextMenu->TrackPopupMenu (
+		m_pContextMenu = menu.GetSubMenu ( 0 );
+		m_pContextMenu->TrackPopupMenu (
 			TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON, 
 			point.x, point.y, this );
 		return;
@@ -621,6 +628,10 @@ void CMidiExplorerView::OnContextMenu(CWnd* pWnd, CPoint point)
 	
 }
 
+//
+////////////////////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////////////////////
 void CMidiExplorerView::OnExplorerHelp() 
 {
 	// TODO
@@ -628,6 +639,10 @@ void CMidiExplorerView::OnExplorerHelp()
 	dlg.DoModal ();
 }
 
+//
+////////////////////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////////////////////
 void CMidiExplorerView::OnExplorerRename() 
 {
 	// TODO
@@ -638,6 +653,10 @@ void CMidiExplorerView::OnExplorerRename()
 	}
 }
 
+//
+////////////////////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////////////////////
 void CMidiExplorerView::OnExplorerOpen() 
 {
 	// TODO
@@ -670,6 +689,10 @@ void CMidiExplorerView::OnExplorerOpen()
 	}
 }
 
+//
+////////////////////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////////////////////
 void CMidiExplorerView::OnExplorerDelete() 
 {
 	// TODO
@@ -702,6 +725,10 @@ void CMidiExplorerView::OnExplorerDelete()
 	
 }
 
+//
+////////////////////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////////////////////
 void CMidiExplorerView::OnBeginlabeledit(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	TV_DISPINFO* pTVDispInfo = (TV_DISPINFO*)pNMHDR;
@@ -710,6 +737,10 @@ void CMidiExplorerView::OnBeginlabeledit(NMHDR* pNMHDR, LRESULT* pResult)
 	*pResult = 0;
 }
 
+//
+////////////////////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////////////////////
 void CMidiExplorerView::OnEndlabeledit(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	TV_DISPINFO* pTVDispInfo = (TV_DISPINFO*)pNMHDR;
@@ -2013,4 +2044,59 @@ BOOL CMidiExplorerView::OnToolTipNotify(UINT id, NMHDR *pNMH, LRESULT *pResult)
 	}
 
 	return FALSE;
+}
+
+//
+////////////////////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////////////////////
+void CMidiExplorerView::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
+{
+    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+	if ( nIDCtl == 0 )
+	{
+		if ( lpDrawItemStruct->CtlType == ODT_MENU )
+		{
+            if ( m_pContextMenu != NULL )
+            {
+			    m_pContextMenu->DrawItem ( lpDrawItemStruct, TRUE );
+    			return;
+            }
+		}
+	}
+
+    CTreeView::OnDrawItem(nIDCtl, lpDrawItemStruct);
+}
+
+//
+////////////////////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////////////////////
+void CMidiExplorerView::OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStruct)
+{
+    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+	if ( nIDCtl == 0 )
+	{
+		if ( lpMeasureItemStruct->CtlType == ODT_MENU )
+		{
+            if ( m_pContextMenu != NULL )
+            {
+			    m_pContextMenu->MeasureItem ( lpMeasureItemStruct, TRUE );
+    			return;
+            }
+		}
+	}
+
+    CTreeView::OnMeasureItem(nIDCtl, lpMeasureItemStruct);
+}
+
+//
+////////////////////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////////////////////
+void CMidiExplorerView::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    LPNMCUSTOMDRAW pNMCD = reinterpret_cast<LPNMCUSTOMDRAW>(pNMHDR);
+    // TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+    *pResult = 0;
 }

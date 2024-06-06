@@ -52,19 +52,26 @@ class CMidiWorksApp : public CWinApp
 
 		CBrush				m_brBackGround;
 		CBrush				m_brBackEmpty;
-		CBrush				m_brBackWhite;
+
+		CBrush				m_brWhitexff;
+        CBrush				m_brWhitexee;
+        CBrush				m_brWhitexdd;
+
+        CBrush				m_brBlackx00;
+        CBrush				m_brBlackx10;
+        CBrush				m_brBlackx20;
 
 		CRecordDialog		m_dlgRecordDialog;
-		CWinThread			* m_RecordThread;
+		CWinThread			*m_RecordThread;
 
 		CPlayerDialog		m_dlgPlayerDialogList;
-		CWinThread			* m_PlayListThread;
+		CWinThread			*m_PlayListThread;
 
 		CPlayerDialog		m_dlgPlayerDialogDirectory;
-		CWinThread			* m_PlayDirThread;
+		CWinThread			*m_PlayDirThread;
 
 		CModifyThreadDialog	m_ModifyThreadDialog;
-		CWinThread			* m_ModifyThread;
+		CWinThread			*m_ModifyThread;
 
 		CString				m_MidiFileName;
 		CString				m_WaveDirectory;

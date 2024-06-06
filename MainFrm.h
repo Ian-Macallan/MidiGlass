@@ -33,6 +33,7 @@
 #include "MidiDoc.h"
 #include "MidiView.h"
 #include "ToolBarSoundFont.h"
+#include "MWMenu.h"
 
 
 class CMainFrame : public CFrameWnd
@@ -158,6 +159,10 @@ class CMainFrame : public CFrameWnd
 
 		CMWReBar			m_wndReBar;
 		CMWReBar			m_wndLargeReBar;
+
+        CMWMenu             m_Menu;
+        CMWMenu             *m_pContextMenu;
+        CMWMenu             *m_pSysMenu;
 
 	// Generated message map functions
 	protected:
@@ -352,8 +357,15 @@ class CMainFrame : public CFrameWnd
 		afx_msg void OnFileRecord();
 		afx_msg void OnUpdateFileRecord(CCmdUI* pCmdUI);
 		afx_msg void OnUpdateViewSF2Toolbar(CCmdUI *pCmdUI);
+        afx_msg void OnInitMenu(CMenu* pMenu);
+        afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
+        afx_msg void OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct);
+        afx_msg void OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStruct);
 		//}}AFX_MSG
 		DECLARE_MESSAGE_MAP()
+
+    public:
+        virtual void OnUpdateFrameMenu(HMENU hMenuAlt);
 };
 
 /////////////////////////////////////////////////////////////////////////////

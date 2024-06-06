@@ -286,6 +286,7 @@
     <ClCompile Include="MWListCtrl.cpp" />
     <ClCompile Include="MWListEditBox.cpp" />
     <ClCompile Include="MWListEditCtrl.cpp" />
+    <ClCompile Include="MWMenu.cpp" />
     <ClCompile Include="MWProgramsComboBox.cpp" />
     <ClCompile Include="MWProgressCtrl.cpp" />
     <ClCompile Include="MWReBar.cpp" />
@@ -387,6 +388,7 @@
     <ClInclude Include="MWListCtrl.h" />
     <ClInclude Include="MWListEditBox.h" />
     <ClInclude Include="MWListEditCtrl.h" />
+    <ClInclude Include="MWMenu.h" />
     <ClInclude Include="MWObjects.h" />
     <ClInclude Include="MWProgramsComboBox.h" />
     <ClInclude Include="MWProgressCtrl.h" />
@@ -461,6 +463,7 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\CheckWhite.ico" />
     <Image Include="res\Pictogrammers-Material-Midi.ico" />
     <Image Include="res\Simpleicons-Team-Simple-Midi.ico" />
     <Image Include="res\toolbar1.bmp" />

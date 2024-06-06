@@ -223,8 +223,12 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_UPDATE_COMMAND_UI ( ID_VIEW_MIDITOOLBAR, OnUpdateViewMidiToolBar )
 	ON_COMMAND(ID_FILE_RECORD, OnFileRecord)
 	ON_UPDATE_COMMAND_UI(ID_FILE_RECORD, OnUpdateFileRecord)
+    ON_WM_INITMENU()
+    ON_WM_INITMENUPOPUP()
+    ON_WM_DRAWITEM()
+    ON_WM_MEASUREITEM()
+    END_MESSAGE_MAP()
 	//}}AFX_MSG_MAP
-	END_MESSAGE_MAP()
 
 static UINT indicators[] =
 {
@@ -245,6 +249,10 @@ CMainFrame::CMainFrame()
 	m_pMidiView		= NULL;
 	m_bClosing		= false;
 
+    m_pContextMenu  = NULL;
+    m_pSysMenu      = NULL;
+
+    //
 	ResetViewHandles();
 
 	//	Now read the registry for value for corrections
@@ -442,6 +450,10 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	//	Display Bars now
 	DisplayOwnToolBars ( );
 
+    //
+    CMenu *pMenu = GetMenu();
+    m_Menu.SetApplicationMenu ( this, pMenu );
+
 	return 0;
 }
 
@@ -599,6 +611,10 @@ void CMainFrame::OnContentEventsCopyright()
 	
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsCuepoint() 
 {
 	// TODO
@@ -614,6 +630,10 @@ void CMainFrame::OnContentEventsCuepoint()
 	
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsInstrumentname() 
 {
 	// TODO
@@ -629,6 +649,10 @@ void CMainFrame::OnContentEventsInstrumentname()
 	
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsLyrics() 
 {
 	// TODO
@@ -644,6 +668,10 @@ void CMainFrame::OnContentEventsLyrics()
 	
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsMarkers() 
 {
 	// TODO
@@ -659,6 +687,10 @@ void CMainFrame::OnContentEventsMarkers()
 	
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsSequence() 
 {
 	// TODO
@@ -674,6 +706,10 @@ void CMainFrame::OnContentEventsSequence()
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsSequencer() 
 {
 	// TODO
@@ -689,6 +725,10 @@ void CMainFrame::OnContentEventsSequencer()
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsTrackname() 
 {
 	// TODO
@@ -704,6 +744,10 @@ void CMainFrame::OnContentEventsTrackname()
 	
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentTracks() 
 {
 	// TODO
@@ -729,6 +773,10 @@ void CMainFrame::OnContentTracks()
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileTrace() 
 {
 	// TODO
@@ -758,6 +806,10 @@ void CMainFrame::OnFileTrace()
 	}	
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 CMidiList * CMainFrame::GetCurrentMidiEvent()
 {
 	if ( m_RightEventView != NULL )
@@ -770,6 +822,10 @@ CMidiList * CMainFrame::GetCurrentMidiEvent()
 	}
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::RefreshFrame()
 {
 	//		Just to see the new window
@@ -802,6 +858,10 @@ void CMainFrame::RefreshFrame()
 	}
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::GetDialogBoxSize(unsigned iD, LPRECT rect)
 {
 	DLGTEMPLATE		*pDlgTemplate;
@@ -1155,6 +1215,10 @@ void CMainFrame::OnFileSequencerPausell()
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerBackwardll() 
 {
 	// TODO
@@ -1186,6 +1250,10 @@ void CMainFrame::OnFileSequencerBackwardll()
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerForwardll() 
 {
 	// TODO
@@ -1211,6 +1279,10 @@ void CMainFrame::OnFileSequencerForwardll()
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerResumell() 
 {
 	// TODO
@@ -1240,6 +1312,10 @@ void CMainFrame::OnFileSequencerResumell()
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewMcitoolbar() 
 {
 	// TODO
@@ -2468,31 +2544,20 @@ void CMainFrame::OnContextMenu(CWnd* pWnd, CPoint point)
 
 		m_LeftExplorerView->GetClientRect ( &rectLeft );
 		m_LeftExplorerView->ClientToScreen ( &rectLeft );
-		if ( rectLeft.PtInRect ( point ) )
-		{
-			CMenu		menu;
-			menu.LoadMenu ( IDR_MENU_EXPLORER );
-			CMenu	*pContextMenu = menu.GetSubMenu ( 0 );
-			pContextMenu->TrackPopupMenu (
-				TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON, 
-				point.x, point.y, this );
-			return;
-		}
-	
+        m_LeftExplorerView->OnContextMenu( pWnd, point );
+		return;
 	}
 
 	if ( rect.PtInRect ( point ) )
 	{
-		CMenu		menu;
+		CMWMenu		menu;
 		menu.LoadMenu ( IDR_MENU_VIEWS );
-		CMenu	*pContextMenu = menu.GetSubMenu ( 0 );
-		pContextMenu->TrackPopupMenu (
+		m_pContextMenu = menu.GetSubMenu ( 0 );
+		m_pContextMenu->TrackPopupMenu (
 			TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON, 
 			point.x, point.y, this );
 		return;
 	}
-	
-	
 }
 
 //
@@ -2895,8 +2960,7 @@ int CMainFrame::CreateOwnToolBars()
 	tbStyle		=	WS_CHILD | CBRS_TOP | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC;
 
 	//	Create the first toolbar	
-	if (! m_wndMainReBar.CreateEx(this, tbCtrlStyle, tbStyle )
-		||
+	if (! m_wndMainReBar.CreateEx(this, tbCtrlStyle, tbStyle ) ||
 		! m_wndMainReBar.LoadToolBar(IDR_MAINFRAME))
 	{
 		TRACE0("Failed to create toolbar\n");
@@ -2926,7 +2990,7 @@ int CMainFrame::CreateOwnToolBars()
 		return -1;      // fail to create
 	}
 
-	//		Create the Midi Toolbar
+    //		Create the Midi Toolbar
 	if ( ! m_wndMidiReBar.CreateEx(this, tbCtrlStyle, tbStyle, CRect(0,0,0,0),IDR_MIDI_TOOLBAR ) ||
 		 ! m_wndMidiReBar.LoadToolBar(IDR_MIDI_TOOLBAR))
 	{
@@ -4278,16 +4342,28 @@ BOOL CMainFrame::CreateOneView (
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::SetMidiView(CMidiView *pView)
 {
 	m_pMidiView	= pView;
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 CMidiView * CMainFrame::GetMidiView()
 {
 	return m_pMidiView;
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::RestoreViewGeometry(CWnd *pWnd, CView *pView, const char *pText)
 {
 	RECT		rectFrame;
@@ -4324,6 +4400,10 @@ void CMainFrame::RestoreViewGeometry(CWnd *pWnd, CView *pView, const char *pText
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::SaveViewGeometry(CWnd *pWnd, CView *pView, const char *pText)
 {
 	RECT		rectFrame;
@@ -4413,7 +4493,6 @@ BOOL CMainFrame::CreateColViewFull ( int iCol, CView **pView,
 
 	return true;
 }
-
 
 //
 ///////////////////////////////////////////////////////////////////////////////////
@@ -4540,3 +4619,91 @@ void CMainFrame::OnFileRecord()
 	
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnInitMenu(CMenu* pMenu)
+{
+    CFrameWnd::OnInitMenu(pMenu);
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
+{
+    CFrameWnd::OnInitMenuPopup(pPopupMenu, nIndex, bSysMenu);
+
+    if ( bSysMenu )
+    {
+        static CMWMenu     sysMenu;
+        //  Conflicts with Menu
+        // m_pSysMenu = sysMenu.SetSystemMenu ( this, pPopupMenu );
+    }
+    else
+    {
+        m_pSysMenu  = NULL;
+    }
+
+    // TODO: ajoutez ici le code de votre gestionnaire de messages
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
+{
+    // TODO
+	if ( lpDrawItemStruct != NULL && lpDrawItemStruct->CtlType == ODT_MENU )
+	{
+        if ( m_pSysMenu != NULL )
+        {
+            m_pSysMenu->DrawItem ( lpDrawItemStruct, TRUE );
+            return;
+        }
+        else 
+        {
+            m_Menu.DrawItem ( lpDrawItemStruct );
+            return;
+        }
+	}
+
+    CFrameWnd::OnDrawItem(nIDCtl, lpDrawItemStruct);
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStruct)
+{
+    // TODO
+	if ( lpMeasureItemStruct != NULL && lpMeasureItemStruct->CtlType == ODT_MENU )
+	{
+        if ( m_pSysMenu != NULL )
+        {
+            m_pSysMenu->MeasureItem ( lpMeasureItemStruct, TRUE );
+            return;
+        }
+        else 
+        {
+            m_Menu.MeasureItem ( lpMeasureItemStruct );
+            return;
+        }
+	}
+
+    CFrameWnd::OnMeasureItem(nIDCtl, lpMeasureItemStruct);
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnUpdateFrameMenu(HMENU hMenuAlt)
+{
+    // TODO
+    CFrameWnd::OnUpdateFrameMenu(hMenuAlt);
+}

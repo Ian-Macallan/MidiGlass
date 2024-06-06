@@ -14,16 +14,17 @@ static char THIS_FILE[]=__FILE__;
 
 IMPLEMENT_DYNAMIC(CMWReBar, CReBar)
 
+extern CMidiWorksApp theApp;
+
 //
 /////////////////////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //
 /////////////////////////////////////////////////////////////////////////////////////
 BEGIN_MESSAGE_MAP(CMWReBar, CReBar)
-	//{{AFX_MSG_MAP(CMWReBar)
-	//}}AFX_MSG_MAP
     ON_WM_CTLCOLOR()
     ON_WM_ERASEBKGND()
+    ON_NOTIFY_REFLECT(NM_CUSTOMDRAW, &CMWReBar::OnNMCustomdraw)
 END_MESSAGE_MAP()
 
 
@@ -93,12 +94,55 @@ HBRUSH CMWReBar::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 BOOL CMWReBar::OnEraseBkgnd(CDC* pDC)
 {
     // TODO
-#if 0
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{
 		return bRes;
 	}
-#endif
     return CReBar::OnEraseBkgnd(pDC);
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+BOOL CMWReBar::Create(CWnd* pParentWnd, DWORD dwCtrlStyle , DWORD dwStyle , UINT nID)
+{
+    // TODO
+
+    return CReBar::Create(pParentWnd, dwCtrlStyle, dwStyle, nID);
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMWReBar::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    LPNMCUSTOMDRAW pNMCD = reinterpret_cast<LPNMCUSTOMDRAW>(pNMHDR);
+
+    //
+    NMCUSTOMDRAW* pcd = (NMCUSTOMDRAW*)pNMHDR;
+
+    switch (pcd->dwDrawStage)
+    {
+        case CDDS_PREPAINT :
+        {
+            *pResult = CDRF_NOTIFYITEMDRAW;
+            return;
+        }
+
+        case CDDS_ITEMPREPAINT :
+        {
+            //  pcd->dwItemSpec Seems To be The IDB
+            pcd->dwItemSpec;
+            // FillRect(pcd->hdc, &pcd->rc, theApp.m_brBackGround);
+            // *pResult = CDRF_SKIPDEFAULT;
+            // return;
+            *pResult = CDRF_DODEFAULT;
+            return;
+        }
+    }
+
+    *pResult = CDRF_DODEFAULT;
 }

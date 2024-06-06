@@ -47,6 +47,7 @@ CToolBarSoundFont::~CToolBarSoundFont()
 /////////////////////////////////////////////////////////////////////////////////////////
 BEGIN_MESSAGE_MAP(CToolBarSoundFont, CToolBar)
 ON_MESSAGE(WM_MW_EDIT_SELECT,OnEditSelect)
+ON_WM_ERASEBKGND()
 END_MESSAGE_MAP()
 
 
@@ -135,4 +136,20 @@ LRESULT CToolBarSoundFont::OnEditSelect(WPARAM wParam, LPARAM lParam)
 	}
 
 	return 0;
+}
+
+//
+/////////////////////////////////////////////////////////////////////////////////////////
+//
+/////////////////////////////////////////////////////////////////////////////////////////
+BOOL CToolBarSoundFont::OnEraseBkgnd(CDC* pDC)
+{
+    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+	BOOL bRes = FriendEraseBkgnd(this, pDC);
+	if ( bRes )
+	{
+		return bRes;
+	}
+
+    return CMWToolBar::OnEraseBkgnd(pDC);
 }

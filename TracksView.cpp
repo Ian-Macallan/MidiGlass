@@ -307,10 +307,10 @@ void CTracksView::OnContextMenu(CWnd* pWnd, CPoint point)
 
 	if ( rect.PtInRect ( point ) )
 	{
-		CMenu		menu;
+		CMWMenu		menu;
 		menu.LoadMenu ( IDR_MENU_TRACKS );
-		CMenu	*pContextMenu = menu.GetSubMenu ( 0 );
-		pContextMenu->TrackPopupMenu (
+		m_pContextMenu = menu.GetSubMenu ( 0 );
+		m_pContextMenu->TrackPopupMenu (
 			TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON, 
 			point.x, point.y, this );
 		return;

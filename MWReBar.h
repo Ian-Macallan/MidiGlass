@@ -33,6 +33,8 @@ class CMWReBar : public CReBar
 public:
     afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
     afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+    virtual BOOL Create(CWnd* pParentWnd, DWORD dwCtrlStyle = RBS_BANDBORDERS, DWORD dwStyle = WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | CBRS_TOP, UINT nID = AFX_IDW_REBAR);
+    afx_msg void OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 #endif // !defined(AFX_MWREBAR_H__B7ED55C1_E2DD_11D2_8147_444553540000__INCLUDED_)

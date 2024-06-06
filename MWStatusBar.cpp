@@ -7,6 +7,7 @@
 #include "stdafx.h"
 #include "MidiGlassApp.h"
 #include "MWStatusBar.h"
+#include "Friend.h"
 
 #ifdef _DEBUG
 #undef THIS_FILE
@@ -30,6 +31,9 @@ IMPLEMENT_DYNAMIC(CMWStatusBar, CStatusBar)
 BEGIN_MESSAGE_MAP(CMWStatusBar, CStatusBar)
 	//{{AFX_MSG_MAP(CMWStatusBar)
 	//}}AFX_MSG_MAP
+    ON_WM_ERASEBKGND()
+    ON_WM_CTLCOLOR()
+    ON_WM_DRAWITEM()
 END_MESSAGE_MAP()
 
 //
@@ -77,3 +81,53 @@ void CMWStatusBar::SendNormalMessage()
 	m_bSendNormal	= true;
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+BOOL CMWStatusBar::OnEraseBkgnd(CDC* pDC)
+{
+    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+	BOOL bRes = FriendEraseBkgnd(this, pDC);
+	if ( bRes )
+	{
+		return bRes;
+	}
+
+    return CStatusBar::OnEraseBkgnd(pDC);
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+HBRUSH CMWStatusBar::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+    HBRUSH hbr = CStatusBar::OnCtlColor(pDC, pWnd, nCtlColor);
+
+    // TODO
+	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
+	if ( hBrush != NULL )
+	{
+		return hBrush;
+	}
+
+    // TODO:  Retourner un autre pinceau si le pinceau par défaut n'est pas souhaité
+    return hbr;
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMWStatusBar::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
+{
+    // TODO
+    CDC *pDC = CDC::FromHandle(lpDrawItemStruct->hDC);
+    if ( pDC )
+    {
+        pDC->SetTextColor ( white0xff );
+        pDC->SetBkColor ( black0x00 );
+    }
+    CStatusBar::OnDrawItem(nIDCtl, lpDrawItemStruct);
+}

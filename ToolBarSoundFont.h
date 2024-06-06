@@ -32,6 +32,8 @@ class CToolBarSoundFont : public CMWToolBar
 	protected:
 		DECLARE_MESSAGE_MAP()
 		virtual BOOL OnCommand(WPARAM wParam, LPARAM lParam);
+public:
+    afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 };
 
 

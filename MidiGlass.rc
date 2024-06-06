@@ -31,6 +31,7 @@ IDR_MAINFRAME           ICON                    "res\\MidiGlass.ico"
 IDI_MIDI1               ICON                    "res\\Pictogrammers-Material-Midi.ico"
 IDI_MIDI2               ICON                    "res\\Simpleicons-Team-Simple-Midi.ico"
 IDI_MIDI3               ICON                    "res\\Trayse101-Basic-Filetypes-1-Midi.ico"
+IDI_CHECK_WHITE         ICON                    "res\\CheckWhite.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -805,8 +806,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 4,0,03,005
- PRODUCTVERSION 4,0,03,005
+ FILEVERSION 4,0,03,007
+ PRODUCTVERSION 4,0,03,007
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x29L
@@ -824,15 +825,15 @@ BEGIN
             VALUE "Comments", "mailto:ian.macallan@gmail.com\0"
             VALUE "CompanyName", "Macallan (c)\0"
             VALUE "FileDescription", "MidiGlass - (MSVC)\0"
-            VALUE "FileVersion", "4.0.03.005\0"
+            VALUE "FileVersion", "4.0.03.007\0"
             VALUE "InternalName", "https://www.macallan.org/\0"
-            VALUE "LegalCopyright", "Copyright (C) Mon Jun 03 11:36, 2024\0"
+            VALUE "LegalCopyright", "Copyright (C) Thu Jun 06 18:26, 2024\0"
             VALUE "LegalTrademarks", "Author: Ian Macallan\0"
             VALUE "OriginalFilename", ORIGINAL_FILENAME
-            VALUE "PrivateBuild", "189\0"
+            VALUE "PrivateBuild", "191\0"
             VALUE "ProductName", PRODUCT_NAME
-            VALUE "ProductVersion", "4.0.03.005\0"
-            VALUE "SpecialBuild", "189\0"
+            VALUE "ProductVersion", "4.0.03.007\0"
+            VALUE "SpecialBuild", "191\0"
         END
     END
     BLOCK "VarFileInfo"

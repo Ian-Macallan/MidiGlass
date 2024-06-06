@@ -118,6 +118,8 @@
 #define IDR_MENU_EMPTY                  226
 #define IDD_MWFORMVIEW                  227
 #define IDR_MIDIFILE2                   227
+#define IDI_ICON1                       228
+#define IDI_CHECK_WHITE                 228
 #define IDC_EVENTNAME                   1001
 #define IDC_TRACKS_LIST                 1002
 #define IDC_TRACK_EVENT_LIST            1003
@@ -390,7 +392,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        228
+#define _APS_NEXT_RESOURCE_VALUE        229
 #define _APS_NEXT_COMMAND_VALUE         32976
 #define _APS_NEXT_CONTROL_VALUE         1115
 #define _APS_NEXT_SYMED_VALUE           228

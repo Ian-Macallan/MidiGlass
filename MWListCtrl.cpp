@@ -404,52 +404,49 @@ void CMWListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                 BOOL bSelected  = GetItemState ( iRow, LVIS_SELECTED ) & LVIS_SELECTED;
 
                 //
-                if ( true || iCol == 0 )
+                LVITEM lvItem;
+                ZeroMemory ( &lvItem, sizeof(lvItem) );
+                lvItem.iItem        = iRow;
+                lvItem.iSubItem     = iCol;
+                lvItem.mask         = LVIF_IMAGE;
+                BOOL bImage         = GetItem ( &lvItem );
+                if ( bImage )
                 {
-                    LVITEM lvItem;
-                    ZeroMemory ( &lvItem, sizeof(lvItem) );
-                    lvItem.iItem        = iRow;
-                    lvItem.iSubItem     = iCol;
-                    lvItem.mask         = LVIF_IMAGE;
-                    BOOL bImage         = GetItem ( &lvItem );
-                    if ( bImage )
+                    bResult    = GetSubItemRect ( iRow, iCol, LVIR_ICON, rectIcon );
+                    CImageList *pImageList = GetImageList ( LVSIL_NORMAL );
+                    if ( pImageList != NULL )
                     {
-                        bResult    = GetSubItemRect ( iRow, iCol, LVIR_ICON, rectIcon );
-                        CImageList *pImageList = GetImageList ( LVSIL_NORMAL );
-                        if ( pImageList != NULL )
-                        {
-                            CDC *pDC= CDC::FromHandle ( pNMCD->hdc );
-                            POINT pt; pt.x = rectIcon.left; pt.y = rectIcon.top;
-                            SIZE sz; sz.cx = rectIcon.Width(); sz.cy = rectIcon.Height();
-                            pImageList->DrawEx( pDC, lvItem.iImage, pt, sz, 0, 0, ILD_NORMAL );
+                        CDC *pDC= CDC::FromHandle ( pNMCD->hdc );
+                        POINT pt; pt.x = rectIcon.left; pt.y = rectIcon.top;
+                        SIZE sz; sz.cx = rectIcon.Width(); sz.cy = rectIcon.Height();
+                        pImageList->DrawEx( pDC, lvItem.iImage, pt, sz, 0, 0, ILD_NORMAL );
 
-                            // *pResult = CDRF_DODEFAULT;
-                            // break;
-                        }
+                        // *pResult = CDRF_DODEFAULT;
+                        // break;
+                    }
 
-                        pImageList = GetImageList ( LVSIL_SMALL );
-                        if ( pImageList != NULL )
-                        {
-                            CDC *pDC= CDC::FromHandle ( pNMCD->hdc );
-                            POINT pt; pt.x = rectIcon.left; pt.y = rectIcon.top;
-                            SIZE sz; sz.cx = rectIcon.Width(); sz.cy = rectIcon.Height();
-                            pImageList->DrawEx( pDC, lvItem.iImage, pt, sz, 0, 0, ILD_NORMAL );
+                    pImageList = GetImageList ( LVSIL_SMALL );
+                    if ( pImageList != NULL )
+                    {
+                        CDC *pDC= CDC::FromHandle ( pNMCD->hdc );
+                        POINT pt; pt.x = rectIcon.left; pt.y = rectIcon.top;
+                        SIZE sz; sz.cx = rectIcon.Width(); sz.cy = rectIcon.Height();
+                        pImageList->DrawEx( pDC, lvItem.iImage, pt, sz, 0, 0, ILD_NORMAL );
 
-                            // *pResult = CDRF_DODEFAULT;
-                            // break;
-                        }
+                        // *pResult = CDRF_DODEFAULT;
+                        // break;
+                    }
 
-                        pImageList = GetImageList ( LVSIL_STATE );
-                        if ( pImageList != NULL )
-                        {
-                            CDC *pDC= CDC::FromHandle ( pNMCD->hdc );
-                            POINT pt; pt.x = rectIcon.left; pt.y = rectIcon.top;
-                            SIZE sz; sz.cx = rectIcon.Width(); sz.cy = rectIcon.Height();
-                            pImageList->DrawEx( pDC, lvItem.iImage, pt, sz, 0, 0, ILD_NORMAL );
+                    pImageList = GetImageList ( LVSIL_STATE );
+                    if ( pImageList != NULL )
+                    {
+                        CDC *pDC= CDC::FromHandle ( pNMCD->hdc );
+                        POINT pt; pt.x = rectIcon.left; pt.y = rectIcon.top;
+                        SIZE sz; sz.cx = rectIcon.Width(); sz.cy = rectIcon.Height();
+                        pImageList->DrawEx( pDC, lvItem.iImage, pt, sz, 0, 0, ILD_NORMAL );
 
-                            // *pResult = CDRF_DODEFAULT;
-                            // break;
-                        }
+                        // *pResult = CDRF_DODEFAULT;
+                        // break;
                     }
                 }
 

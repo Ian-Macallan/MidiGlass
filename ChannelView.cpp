@@ -11,6 +11,7 @@
 #include "MidiFile.h"
 
 #include "WaitTreatment.h"
+#include "MWMenu.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -296,10 +297,10 @@ void CChannelView::OnContextMenu(CWnd* pWnd, CPoint point)
 
 	if ( rect.PtInRect ( point ) )
 	{
-		CMenu		menu;
+		CMWMenu		menu;
 		menu.LoadMenu ( IDR_MENU_CHANNELS );
-		CMenu	*pContextMenu = menu.GetSubMenu ( 0 );
-		pContextMenu->TrackPopupMenu ( TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON, point.x, point.y, this );
+		m_pContextMenu = menu.GetSubMenu ( 0 );
+		m_pContextMenu->TrackPopupMenu ( TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON, point.x, point.y, this );
 		return;
 	}
 	

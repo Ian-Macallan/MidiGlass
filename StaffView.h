@@ -135,6 +135,8 @@ class CStaffView : public CScrollView
 		char				m_cMesureHiTable [ MAX_INSIDE_MESURE ];
 		char				m_cMesureLoTable [ MAX_INSIDE_MESURE ];
 
+        CMWMenu             *m_pContextMenu;
+
 		//{{AFX_MSG(CStaffView)
 		afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 		afx_msg void OnStaffHelp();
@@ -147,6 +149,8 @@ class CStaffView : public CScrollView
 	public:
 		afx_msg void OnMove(int x, int y);
 		afx_msg void OnSize(UINT nType, int cx, int cy);
+        afx_msg void OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct);
+        afx_msg void OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStruct);
 };
 
 /////////////////////////////////////////////////////////////////////////////

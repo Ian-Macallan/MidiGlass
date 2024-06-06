@@ -1,6 +1,6 @@
 #pragma once
 
-
+#include "MWMenu.h"
 
 //
 /////////////////////////////////////////////////////////////////
@@ -15,6 +15,8 @@ class CMWFormView : public CFormView
 		CMWFormView();           // constructeur protégé utilisé par la création dynamique
 		CMWFormView(UINT nIDTemplate);
 		virtual ~CMWFormView();
+
+        CMWMenu     *m_pContextMenu;
 
 	public:
 		enum { IDD = IDD_MWFORMVIEW };
@@ -32,6 +34,9 @@ class CMWFormView : public CFormView
 		virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
 
 		DECLARE_MESSAGE_MAP()
+    public:
+        afx_msg void OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct);
+        afx_msg void OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStruct);
 };
 
 

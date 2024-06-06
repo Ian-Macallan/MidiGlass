@@ -33,6 +33,9 @@ class CMWToolBar : public CToolBar
 	private :
 		boolean		m_bSendNormal;
 
+public:
+    afx_msg void OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 };
 
 #endif // !defined(AFX_MWTOOLBAR_H__453A25C5_D61D_11D2_8147_444553540000__INCLUDED_)

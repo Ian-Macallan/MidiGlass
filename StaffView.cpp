@@ -38,6 +38,8 @@ CStaffView::CStaffView()
 	m_iLastMesure		= 0;
 	m_bScale			= false;
 
+    m_pContextMenu      = NULL;
+
 	//		Initialize all other values
 	ComputeSizeForScreen ( NULL, NULL, &m_ScreenParms );
 	ComputeSizeForPrinter ( NULL, NULL, &m_PrinterParms );
@@ -65,6 +67,8 @@ BEGIN_MESSAGE_MAP(CStaffView, CScrollView)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, OnFilePrintPreview)
 	ON_WM_MOVE()
 	ON_WM_SIZE()
+    ON_WM_DRAWITEM()
+    ON_WM_MEASUREITEM()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1889,10 +1893,10 @@ void CStaffView::OnContextMenu(CWnd* pWnd, CPoint point)
 
 	if ( rect.PtInRect ( point ) )
 	{
-		CMenu		menu;
+		CMWMenu		menu;
 		menu.LoadMenu ( IDR_MENU_STAFF );
-		CMenu	*pContextMenu = menu.GetSubMenu ( 0 );
-		pContextMenu->TrackPopupMenu (
+		m_pContextMenu = menu.GetSubMenu ( 0 );
+		m_pContextMenu->TrackPopupMenu (
 			TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON, 
 			point.x, point.y, this );
 		return;
@@ -2052,4 +2056,48 @@ void CStaffView::OnSize(UINT nType, int cx, int cy)
 {
 	CScrollView::OnSize(nType, cx, cy);
 
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////////
+void CStaffView::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
+{
+    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+	if ( nIDCtl == 0 )
+	{
+		if ( lpDrawItemStruct->CtlType == ODT_MENU )
+		{
+            if ( m_pContextMenu != NULL )
+            {
+			    m_pContextMenu->DrawItem ( lpDrawItemStruct, TRUE );
+    			return;
+            }
+		}
+	}
+
+    CScrollView::OnDrawItem(nIDCtl, lpDrawItemStruct);
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////////
+void CStaffView::OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStruct)
+{
+    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+	if ( nIDCtl == 0 )
+	{
+		if ( lpMeasureItemStruct->CtlType == ODT_MENU )
+		{
+            if ( m_pContextMenu != NULL )
+            {
+			    m_pContextMenu->MeasureItem ( lpMeasureItemStruct, TRUE );
+    			return;
+            }
+		}
+	}
+
+    CScrollView::OnMeasureItem(nIDCtl, lpMeasureItemStruct);
 }

@@ -31,6 +31,10 @@ class CMWStatusBar : public CStatusBar
 
 	private :
 		boolean		m_bSendNormal;
+public:
+    afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+    afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+    afx_msg void OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct);
 };
 
 #endif // !defined(AFX_MWSTATUSBAR_H__453A25CC_D61D_11D2_8147_444553540000__INCLUDED_)
