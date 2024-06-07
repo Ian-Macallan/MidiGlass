@@ -47,19 +47,6 @@ class CMidiWorksApp : public CWinApp
 
 		CImageList			m_imgImageListChannel16x14;
 
-		CBitmap				m_bmBackGround;
-		CBitmap				m_bmBackEmpty;
-
-		CBrush				m_brBackGround;
-		CBrush				m_brBackEmpty;
-
-		CBrush				m_brWhitexff;
-        CBrush				m_brWhitexee;
-        CBrush				m_brWhitexdd;
-
-        CBrush				m_brBlackx00;
-        CBrush				m_brBlackx10;
-        CBrush				m_brBlackx20;
 
 		CRecordDialog		m_dlgRecordDialog;
 		CWinThread			*m_RecordThread;
@@ -105,9 +92,7 @@ class CMidiWorksApp : public CWinApp
 		int					m_bLargeBar;
 		int					m_bReBar;
 
-		int					m_bOwnBackground;
-		int					m_bOwnControlColor;
-		int					m_iSplitterWindow;
+    	int					m_iSplitterWindow;
 		bool				m_bSplitterWindow;
 		int					m_bUse_Sound_Font;
 

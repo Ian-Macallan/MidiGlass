@@ -2,6 +2,7 @@
 #include "AfxWin.h"
 #include "MidiGlassApp.h"
 #include "Friend.h"
+#include "MWColors.h"
 
 extern CMidiWorksApp theApp;
 
@@ -11,6 +12,8 @@ extern CMidiWorksApp theApp;
 /////////////////////////////////////////////////////////////////
 HBRUSH FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
 {
+    return CMWColors::OnCtlColor ( pDC, pWnd, nCtlColor );
+#if 0
 	HBRUSH hbr;
 
 	if ( ! theApp.m_bOwnControlColor )
@@ -82,8 +85,8 @@ HBRUSH FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 			break;
 		}
 	}
-
 	return hbr;
+#endif
 }
 
 //
@@ -92,6 +95,8 @@ HBRUSH FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 /////////////////////////////////////////////////////////////////
 BOOL FriendEraseBkgnd(CWnd* pWnd, CDC* pDC) 
 {
+    return CMWColors::OnEraseBkgnd ( pDC, pWnd );
+#if 0
 	// TODO
 	CRect				rectFrame;
 	CRect				rectBitmap;
@@ -139,7 +144,7 @@ BOOL FriendEraseBkgnd(CWnd* pWnd, CDC* pDC)
 	memDC.DeleteDC ( );
 
 	return TRUE;
-	
+#endif
 }
 
 //
@@ -148,6 +153,8 @@ BOOL FriendEraseBkgnd(CWnd* pWnd, CDC* pDC)
 /////////////////////////////////////////////////////////////////
 BOOL FriendEraseBkgndScrollView(CScrollView *pWnd, CDC* pDC) 
 {
+    return CMWColors::OnEraseBkgnd ( pDC, pWnd );
+#if 0
 	// TODO
 	CRect				rectFrame;
 	CRect				rectBitmap;
@@ -232,7 +239,7 @@ BOOL FriendEraseBkgndScrollView(CScrollView *pWnd, CDC* pDC)
 	memDCView.DeleteDC ();
 
 	return TRUE;
-	
+#endif
 }
 
 //

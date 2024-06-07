@@ -181,29 +181,29 @@ void CMWToolBar::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                 {
                     uStyle |= DFCS_FLAT;
                     pDC->SetBkMode ( TRANSPARENT );
-                    pDC->SetBkColor ( black0x20 );
-                    pDC->SetTextColor ( white0xff );
+                    pDC->SetBkColor ( CMWColors::GetBKHeaderCR(CMWColors::m_iDarkTheme != 0) );
+                    pDC->SetTextColor ( CMWColors::GetFGHeaderCR(CMWColors::m_iDarkTheme != 0) );
                 }
                 else if ( uState & ODS_DISABLED || uState & ODS_GRAYED )
                 {
                     uStyle |= DFCS_INACTIVE;
                     pDC->SetBkMode ( TRANSPARENT );
-                    pDC->SetBkColor ( black0x40 );
-                    pDC->SetTextColor ( grey0x80 );
+                    pDC->SetBkColor ( CMWColors::GetBKHeaderCR(CMWColors::m_iDarkTheme != 0) );
+                    pDC->SetTextColor (  CMWColors::GetFGDisabledCR(CMWColors::m_iDarkTheme != 0) );
                 }
                 else if ( uState & ODS_HOTLIGHT )
                 {
                     uStyle |= DFCS_PUSHED;
                     pDC->SetBkMode ( TRANSPARENT );
-                    pDC->SetBkColor ( black0x00 );
-                    pDC->SetTextColor ( white0xff );
+                    pDC->SetBkColor ( CMWColors::GetBKHeaderCR(CMWColors::m_iDarkTheme != 0) );
+                    pDC->SetTextColor ( CMWColors::GetFGSelectedCR(CMWColors::m_iDarkTheme != 0) );
                 }
                 else
                 {
                     uStyle |= DFCS_FLAT;
                     pDC->SetBkMode ( TRANSPARENT );
-                    pDC->SetBkColor ( black0x20 );
-                    pDC->SetTextColor ( white0xff );
+                    pDC->SetBkColor ( CMWColors::GetBKHeaderCR(CMWColors::m_iDarkTheme != 0) );
+                    pDC->SetTextColor ( CMWColors::GetFGHeaderCR(CMWColors::m_iDarkTheme != 0) );
                 }
 
                 //
@@ -222,7 +222,7 @@ void CMWToolBar::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                     rectTool.bottom     = rectTool.bottom - space;
                 }
 
-                FillRect( pDC->GetSafeHdc(), &rectTool, theApp.m_brBackGround );
+                FillRect( pDC->GetSafeHdc(), &rectTool, CMWColors::GetBKHeaderBrush(CMWColors::m_iDarkTheme != 0) );
 
                 //
                 int width       = rectTool.right - rectTool.left;

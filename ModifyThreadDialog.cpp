@@ -5,6 +5,7 @@
 #include "MidiGlassApp.h"
 #include "ModifyThreadDialog.h"
 #include "WaitTreatment.h"
+#include "MWColors.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -52,9 +53,9 @@ BEGIN_MESSAGE_MAP(CModifyThreadDialog, CDialog)
 	//{{AFX_MSG_MAP(CModifyThreadDialog)
 	ON_WM_DESTROY()
 	ON_WM_CTLCOLOR()
-	ON_MESSAGE(WM_ERASEBKGND,OnEraseBkgnd)
 	ON_WM_TIMER()
 	//}}AFX_MSG_MAP
+    ON_WM_ERASEBKGND()
 END_MESSAGE_MAP()
 
 //
@@ -170,25 +171,6 @@ void CModifyThreadDialog::OnDestroy()
 	theApp.m_ModifyThread = NULL;
 }
 
-//
-///////////////////////////////////////////////////////////////////////////////////
-//
-///////////////////////////////////////////////////////////////////////////////////
-LRESULT CModifyThreadDialog::OnEraseBkgnd(WPARAM wParam, LPARAM lParam)
-{
-	HDC		hDC;
-	CDC		cDC;
-	
-	hDC			= (HDC) wParam; 
-	cDC.Attach ( hDC );
-
-	CRect				rectFrame;
-
-	GetClientRect(&rectFrame);
-	cDC.FillRect ( &rectFrame, &theApp.m_brBackGround );
-
-	return 1;
-}
 
 //
 ///////////////////////////////////////////////////////////////////////////////////
@@ -198,10 +180,12 @@ HBRUSH CModifyThreadDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO
-	hbr = ( HBRUSH ) theApp.m_brBackEmpty;
-	pDC->SetBkMode ( TRANSPARENT );
-	// TODO
+	HBRUSH hbrush = FriendCtlColor(pDC, pWnd, nCtlColor );
+	if ( hbrush )
+	{
+		return hbrush;
+	}
+
 	return hbr;
 }
 
@@ -253,4 +237,21 @@ void CModifyThreadDialog::OnTimer(UINT_PTR nIDEvent)
 	}
 
 	CDialog::OnTimer(nIDEvent);
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+BOOL CModifyThreadDialog::OnEraseBkgnd(CDC* pDC)
+{
+    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+	// TODO
+	BOOL bRes = FriendEraseBkgnd(this, pDC);
+	if ( bRes )
+	{
+		return bRes;
+	}
+
+    return CDialog::OnEraseBkgnd(pDC);
 }

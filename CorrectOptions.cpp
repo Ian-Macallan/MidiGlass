@@ -136,7 +136,6 @@ HBRUSH CCorrectOptions::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 BOOL CCorrectOptions::OnEraseBkgnd(CDC* pDC) 
 {
 	// TODO
-	
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{

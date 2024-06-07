@@ -16,7 +16,6 @@ class CModifyThreadDialog : public CDialog
 {
 // Construction
 public:
-	LRESULT OnEraseBkgnd (WPARAM wParam, LPARAM lParam);
 	CModifyThreadDialog(CWnd* pParent = NULL);   // standard constructor
 
 // Dialog Data
@@ -52,6 +51,8 @@ protected:
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+    afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 };
 
 //{{AFX_INSERT_LOCATION}}

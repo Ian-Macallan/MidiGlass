@@ -169,9 +169,8 @@ void CMWButton::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
         rect.bottom     = rect.bottom - 2;
         rect.right      = rect.right - 2;
 
-        CTRXBrush brush;
-        brush.CreateSolidBrush ( black0x20 );
-        pDC->FillRect ( &rect, &brush );
+        CBrush *brush = CMWColors::GetBKNormalCBrush( CMWColors::m_iDarkTheme != 0 );
+        pDC->FillRect ( &rect, brush );
 
         // Get the button's text.
         GetWindowText ( szText, sizeof(szText) );
@@ -180,11 +179,11 @@ void CMWButton::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
         COLORREF crOldColor;
         if ( lpDrawItemStruct->itemState & ODS_DISABLED )
         {
-            crOldColor = pDC->SetTextColor (grey0x80 );
+            crOldColor = pDC->SetTextColor ( CMWColors::GetFGDisabledCR(CMWColors::m_iDarkTheme != 0) );
         }
         else
         {
-            crOldColor = pDC->SetTextColor ( white0xff );
+            crOldColor = pDC->SetTextColor ( CMWColors::GetFGNormalCR(CMWColors::m_iDarkTheme != 0)  );
         }
 
         pDC->DrawText ( szText, &lpDrawItemStruct->rcItem, DT_SINGLELINE|DT_VCENTER|DT_CENTER );

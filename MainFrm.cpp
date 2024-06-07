@@ -3,6 +3,7 @@
 
 #include "StdAfx.h"
 #include "MidiGlassApp.h"
+#include "MWColors.h"
 
 #include "MainFrm.h"
 
@@ -45,6 +46,15 @@ extern	CMidiSysEx			clSysExXGReset [ MAX_SYSEX_LINES ];
 #define	MAX_VIEWS			12
 
 extern "C" int _chdir ( const char * );
+
+#define BLACK_APPMENU    1
+#define BLACK_SYSMENU    1
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//  Used To recognize syetm Menu
+///////////////////////////////////////////////////////////////////////////////////
+static  UINT systemMenuID [] = { SC_RESTORE, SC_MOVE, SC_SIZE, SC_MINIMIZE, SC_MAXIMIZE, SC_CLOSE };
 
 //
 ///////////////////////////////////////////////////////////////////////////////////
@@ -276,8 +286,7 @@ CMainFrame::CMainFrame()
 	theApp.m_bCorrectStartOfTrack	= theApp.GetProfileInt ( "Correction", "Correct Start Of Track", 1 );
 
 	//	The Colors
-	theApp.m_bOwnBackground		= theApp.GetProfileInt ( "Settings", "Background Color", 1 );
-	theApp.m_bOwnControlColor	= theApp.GetProfileInt ( "Settings", "Control Color", 1 );
+	CMWColors::m_iDarkTheme 	= theApp.GetProfileInt ( "Settings", "Control Color", 1 );
 
 	theApp.m_iSplitterWindow	= theApp.GetProfileInt ( "Settings", "Split Window", 1 );
 	theApp.m_bSplitterWindow	= ( theApp.m_iSplitterWindow != 0 );
@@ -451,8 +460,10 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	DisplayOwnToolBars ( );
 
     //
+#if BLACK_APPMENU
     CMenu *pMenu = GetMenu();
     m_Menu.SetApplicationMenu ( this, pMenu );
+#endif // BLACK_APPMENU
 
 	return 0;
 }
@@ -1534,8 +1545,7 @@ void CMainFrame::OnFilePreferences()
 		theApp.WriteProfileInt ( "Settings", "Large Bar", theApp.m_bLargeBar );
 		theApp.WriteProfileInt ( "Settings", "Re Bar", theApp.m_bReBar );
 
-		theApp.WriteProfileInt ( "Settings", "Background Color", theApp.m_bOwnBackground );
-		theApp.WriteProfileInt ( "Settings", "Control Color", theApp.m_bOwnControlColor );
+		theApp.WriteProfileInt ( "Settings", "Control Color", CMWColors::m_iDarkTheme );
 
 		theApp.WriteProfileInt ( "Settings", "Split Window", theApp.m_iSplitterWindow );
 
@@ -4638,9 +4648,12 @@ void CMainFrame::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
 
     if ( bSysMenu )
     {
-        static CMWMenu     sysMenu;
         //  Conflicts with Menu
-        // m_pSysMenu = sysMenu.SetSystemMenu ( this, pPopupMenu );
+#if BLACK_SYSMENU
+        static CMWMenu     sysMenu;
+        CMenu *pSysMenu = GetSystemMenu ( FALSE );
+        m_pSysMenu = sysMenu.SetSystemMenu ( this, pSysMenu );
+#endif
     }
     else
     {
@@ -4654,12 +4667,29 @@ void CMainFrame::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
 ///////////////////////////////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////////////////////////////
+static BOOL IsSysMenuID ( UINT id )
+{
+    for ( int i = 0; i < sizeof(systemMenuID)/sizeof(UINT); i++ )
+    {
+        if ( id == systemMenuID [ i ] )
+        {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
 {
     // TODO
 	if ( lpDrawItemStruct != NULL && lpDrawItemStruct->CtlType == ODT_MENU )
 	{
-        if ( m_pSysMenu != NULL )
+        if ( m_pSysMenu != NULL && IsSysMenuID ( lpDrawItemStruct->itemID ) )
         {
             m_pSysMenu->DrawItem ( lpDrawItemStruct, TRUE );
             return;
@@ -4683,7 +4713,7 @@ void CMainFrame::OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStru
     // TODO
 	if ( lpMeasureItemStruct != NULL && lpMeasureItemStruct->CtlType == ODT_MENU )
 	{
-        if ( m_pSysMenu != NULL )
+        if ( m_pSysMenu != NULL && IsSysMenuID ( lpMeasureItemStruct->itemID ) )
         {
             m_pSysMenu->MeasureItem ( lpMeasureItemStruct, TRUE );
             return;

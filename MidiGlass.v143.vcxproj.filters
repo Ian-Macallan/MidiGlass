@@ -336,6 +336,12 @@
     <ClCompile Include="MWMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MWColors.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MWNCColor.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AutomaticVersionHeader.h">
@@ -614,6 +620,15 @@
     <ClInclude Include="MWMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MWGDI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MWColors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MWNCColor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\back.bmp">
@@ -734,6 +749,21 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\CheckWhite.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Close.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Mininize.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Windowed.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\CheckBlack.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Maximize.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

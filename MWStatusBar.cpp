@@ -126,8 +126,8 @@ void CMWStatusBar::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
     CDC *pDC = CDC::FromHandle(lpDrawItemStruct->hDC);
     if ( pDC )
     {
-        pDC->SetTextColor ( white0xff );
-        pDC->SetBkColor ( black0x00 );
+        pDC->SetTextColor ( CMWColors::GetFGNormalCR(CMWColors::m_iDarkTheme != 0) );
+        pDC->SetBkColor ( CMWColors::GetBKNormalCR(CMWColors::m_iDarkTheme != 0) );
     }
     CStatusBar::OnDrawItem(nIDCtl, lpDrawItemStruct);
 }

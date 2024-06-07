@@ -5,6 +5,7 @@
 #include "MidiGlassApp.h"
 #include "Preferences.h"
 #include "CFluidSynth.h"
+#include "MWColors.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -37,8 +38,6 @@ void CPreferences::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_IN_DEVICES, m_In_Device);
 	DDX_Control(pDX, IDC_WAVE_DIRECTORY, m_WaveDirectory);
 	DDX_Control(pDX, IDC_SPLITTER, m_Splitter);
-	DDX_Control(pDX, IDC_CONTROL_COLOR, m_Control_Color);
-	DDX_Control(pDX, IDC_BACKGROUND, m_Background);
 	DDX_Control(pDX, IDC_LARGE_BAR, m_Large_Bar);
 	DDX_Control(pDX, IDC_REBAR, m_ReBar);
 	DDX_Control(pDX, IDC_PLAY_TUNE, m_Play_Tune);
@@ -107,12 +106,6 @@ void CPreferences::DisplayValues()
 
 	theApp.m_bReBar	= theApp.GetProfileInt ( "Settings", "Re Bar", 1 );
 	m_ReBar.SetCheck ( theApp.m_bReBar );
-
-	theApp.m_bOwnBackground	= theApp.GetProfileInt ( "Settings", "Background Color", 1 );
-	m_Background.SetCheck ( theApp.m_bOwnBackground );
-
-	theApp.m_bOwnControlColor	= theApp.GetProfileInt ( "Settings", "Control Color", 1 );
-	m_Control_Color.SetCheck ( theApp.m_bOwnControlColor );
 
 	theApp.m_iSplitterWindow	= theApp.GetProfileInt ( "Settings", "Split Window", 1 );
 	m_Splitter.SetCheck ( theApp.m_iSplitterWindow );
@@ -268,24 +261,6 @@ void CPreferences::OnOK()
 	else
 	{
 		theApp.m_bReBar	= 0;
-	}
-
-	if ( m_Background.GetCheck ( ) )
-	{
-		theApp.m_bOwnBackground = 1;
-	}
-	else
-	{
-		theApp.m_bOwnBackground = 0;
-	}
-
-	if ( m_Control_Color.GetCheck ( ) )
-	{
-		theApp.m_bOwnControlColor = 1;
-	}
-	else
-	{
-		theApp.m_bOwnControlColor = 0;
 	}
 
 	if ( m_Use_Sound_Font.GetCheck ( ) )

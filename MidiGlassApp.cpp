@@ -24,6 +24,7 @@ static char THIS_FILE[] = __FILE__;
 #include "strstr.h"
 
 #include "CFluidSynth.h"
+#include "MWColors.h"
 
 extern CMidiWorksApp theApp;
 
@@ -121,26 +122,18 @@ BOOL CMidiWorksApp::InitInstance()
 	//	To Write Settings
 	GetModule ();
 
+    //
 	LoadStdProfileSettings( 8 );  // Load standard INI file options (including MRU)
+
+    //
+    CMWColors::Instanciate();
 
 	//
 	int iLoaded = CFluidSynth::InitDll(NULL);
 
-	//		Load the background bitmap once
-	m_bmBackGround.LoadBitmap ( IDB_BACKGROUND );
-	m_bmBackEmpty.LoadBitmap ( IDB_BACK_EMPTY );
+    CMWColors::m_iDarkTheme = 1;
 
-	m_brBackGround.CreatePatternBrush ( &m_bmBackGround );
-	m_brBackEmpty.CreatePatternBrush ( &m_bmBackEmpty );
-
-	m_brWhitexff.CreateSolidBrush ( 0xffffff );
-    m_brWhitexee.CreateSolidBrush ( 0xeeeeee );
-    m_brWhitexdd.CreateSolidBrush ( 0xdddddd );
-
-	m_brBlackx00.CreateSolidBrush ( 0x000000 );
-	m_brBlackx10.CreateSolidBrush ( 0x101010 );
-	m_brBlackx20.CreateSolidBrush ( 0x202020 );
-
+    //
 	m_imgExplorerIcons16x14.Create ( IDB_EXPLORER_ICONS, 16, 14, CLR_NONE );
 	m_imgImageListChannel16x14.Create ( IDB_CHANNEL_STATE, 16, 14, CLR_NONE );
 

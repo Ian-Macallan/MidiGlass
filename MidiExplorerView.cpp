@@ -173,9 +173,9 @@ void CMidiExplorerView::OnInitialUpdate()
 		// Reset first time
 		m_bFirstTime = false;
 
-        GetTreeCtrl ( ).SetTextColor ( white0xff );
-        GetTreeCtrl ( ).SetBkColor ( black0x20 );
-        GetTreeCtrl ( ).SetLineColor ( white0xdd );
+        GetTreeCtrl ( ).SetTextColor ( CMWColors::GetFGNormalCR(CMWColors::m_iDarkTheme != 0) );
+        GetTreeCtrl ( ).SetBkColor ( CMWColors::GetBKNormalCR(CMWColors::m_iDarkTheme != 0) );
+        GetTreeCtrl ( ).SetLineColor ( CMWColors::GetFGNormalCR(CMWColors::m_iDarkTheme != 0) );
 	}
 }
 

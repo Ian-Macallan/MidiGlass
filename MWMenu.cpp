@@ -503,7 +503,7 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByP
     ZeroMemory ( &menuItemInfo, sizeof ( menuItemInfo ) );
     menuItemInfo.cbSize  = sizeof (menuItemInfo);
 
-    menuItemInfo.fMask          = MIIM_STRING;
+    menuItemInfo.fMask          = MIIM_STRING | MIIM_STATE | MIIM_FTYPE | MIIM_SUBMENU | MIIM_ID  | MIIM_DATA;
     menuItemInfo.cch            = sizeof ( szText );
     menuItemInfo.dwTypeData     = szText;
     UINT uItem  = ( UINT ) lpMeasureItemStruct->itemData;
@@ -521,9 +521,9 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByP
             CDC *pDC    = m_pWnd->GetDC ( );
             if ( pDC )
             {
-                if ( menuItemInfo.wID != 0 )
+                if ( fByPos || strchr(szText,'\t') != NULL )
                 {
-                    strcat_s  ( szText, sizeof(szText), "" );
+                    strcat_s  ( szText, sizeof(szText), "ALT+99" );
                 }
                 MeasureMenuItem ( pDC, szText, &size );
                 size.cx     = size.cx + 1;
@@ -532,9 +532,9 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByP
             }
         }
 
-        OutputDebugString ( "MeasureMenuItem" );
-        OutputDebugString ( szText );
-        OutputDebugString ( "\n" );
+        static char szDebug [ MAX_PATH ];
+        sprintf_s ( szDebug, sizeof(szDebug), "%s %s %d 0x%x \n", "MeasureMenuItem", szText, menuItemInfo.wID, menuItemInfo.fType );
+        OutputDebugString ( szDebug );
     }
     else
     {
@@ -569,16 +569,16 @@ void CMWMenu::DrawMenuItem (   LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC,
     ZeroMemory ( szText, sizeof(szText) );
 
     //
-    HBRUSH      hForeground     = theApp.m_brWhitexdd;
-    HBRUSH      hFGSelected     = theApp.m_brWhitexff;
+    HBRUSH      hForeground     = CMWColors::GetFGNormalBrush(CMWColors::m_iDarkTheme != 0);
+    HBRUSH      hFGSelected     = CMWColors::GetFGSelectedBrush(CMWColors::m_iDarkTheme != 0);
 
-    CBrush      *brBKNormal     = &theApp.m_brBlackx20;
-    CBrush      *brBKSelected   = &theApp.m_brBlackx00;
+    CBrush      *brBKNormal     = CMWColors::GetBKNormalCBrush(CMWColors::m_iDarkTheme != 0);
+    CBrush      *brBKSelected   = CMWColors::GetBKSelectedCBrush(CMWColors::m_iDarkTheme != 0);
 
-    COLORREF    crForeground    = white0xdd;
-    COLORREF    crFGSelected    = white0xff;
+    COLORREF    crForeground    = CMWColors::GetFGNormalCR(CMWColors::m_iDarkTheme != 0);;
+    COLORREF    crFGSelected    = CMWColors::GetFGSelectedCR(CMWColors::m_iDarkTheme != 0);
 
-    COLORREF    crDisabled      = grey0x80;
+    COLORREF    crDisabled      = CMWColors::GetFGDisabledCR(CMWColors::m_iDarkTheme != 0);
 
     //  The entire control needs to be drawn
     //  This is called line by line
@@ -692,8 +692,8 @@ void CMWMenu::DrawMenuItem (   LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC,
         bkMode          = pDC->SetBkMode ( TRANSPARENT );
 
         int penSize = 1;
-        CTRXPen penBlack;
-        penBlack.CreatePen(PS_SOLID, penSize, white0xdd );
+        CMWPen penBlack;
+        penBlack.CreatePen(PS_SOLID, penSize, CMWColors::GetFGNormalCR(CMWColors::m_iDarkTheme != 0) );
         CPen* pOldPen = pDC->SelectObject(&penBlack);
 
         pRect->left     += EXTRA_PIXELS_WIDTH / 2;

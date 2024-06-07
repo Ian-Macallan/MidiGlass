@@ -274,6 +274,7 @@
     <ClCompile Include="MWBase.cpp" />
     <ClCompile Include="MWButton.cpp" />
     <ClCompile Include="MWCHeaderCtrl.cpp" />
+    <ClCompile Include="MWColors.cpp" />
     <ClCompile Include="MWComboBox.cpp" />
     <ClCompile Include="MWControllersComboBox.cpp" />
     <ClCompile Include="MWCReBarCtrl.cpp" />
@@ -287,6 +288,7 @@
     <ClCompile Include="MWListEditBox.cpp" />
     <ClCompile Include="MWListEditCtrl.cpp" />
     <ClCompile Include="MWMenu.cpp" />
+    <ClCompile Include="MWNCColor.cpp" />
     <ClCompile Include="MWProgramsComboBox.cpp" />
     <ClCompile Include="MWProgressCtrl.cpp" />
     <ClCompile Include="MWReBar.cpp" />
@@ -376,6 +378,7 @@
     <ClInclude Include="MWBase.h" />
     <ClInclude Include="MWButton.h" />
     <ClInclude Include="MWCHeaderCtrl.h" />
+    <ClInclude Include="MWColors.h" />
     <ClInclude Include="MWComboBox.h" />
     <ClInclude Include="MWControllersComboBox.h" />
     <ClInclude Include="MWCReBarCtrl.h" />
@@ -384,11 +387,13 @@
     <ClInclude Include="MWEventsComboBox.h" />
     <ClInclude Include="MWFormView.h" />
     <ClInclude Include="MWFrameWnd.h" />
+    <ClInclude Include="MWGDI.h" />
     <ClInclude Include="MWListBox.h" />
     <ClInclude Include="MWListCtrl.h" />
     <ClInclude Include="MWListEditBox.h" />
     <ClInclude Include="MWListEditCtrl.h" />
     <ClInclude Include="MWMenu.h" />
+    <ClInclude Include="MWNCColor.h" />
     <ClInclude Include="MWObjects.h" />
     <ClInclude Include="MWProgramsComboBox.h" />
     <ClInclude Include="MWProgressCtrl.h" />
@@ -463,11 +468,16 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\CheckBlack.ico" />
     <Image Include="res\CheckWhite.ico" />
+    <Image Include="res\Close.ico" />
+    <Image Include="res\Maximize.ico" />
+    <Image Include="res\Mininize.ico" />
     <Image Include="res\Pictogrammers-Material-Midi.ico" />
     <Image Include="res\Simpleicons-Team-Simple-Midi.ico" />
     <Image Include="res\toolbar1.bmp" />
     <Image Include="res\Trayse101-Basic-Filetypes-1-Midi.ico" />
+    <Image Include="res\Windowed.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -79,28 +79,25 @@ void CMWCHeaderCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                 CDC *pDC= CDC::FromHandle ( pNMCD->hdc );
 
                 pDC->SetBkMode ( TRANSPARENT );
-                pDC->SetTextColor ( white0xff );
+                pDC->SetTextColor ( CMWColors::GetFGNormalCR(CMWColors::m_iDarkTheme != 0) );
                 if ( tagHeaderInfo.iImage == 0 )
                 {
-                    CTRXBrush brush;
-                    brush.CreateSolidBrush ( black0x20 );
-                    pDC->FillRect ( &rectLabel, &brush );
+                    CBrush *brush = CMWColors::GetBKNormalCBrush(CMWColors::m_iDarkTheme != 0);
+                    pDC->FillRect ( &rectLabel, brush );
                     // EraseRectWithGrade0 ( &rectLabel, pDC );
                     // DrawBitmap ( pDC->m_hDC, &rectLabel );
                 }
                 else if ( tagHeaderInfo.iImage == 1 )
                 {
-                    CTRXBrush brush;
-                    brush.CreateSolidBrush ( black0x20 );
-                    pDC->FillRect ( &rectLabel, &brush );
+                    CBrush *brush = CMWColors::GetBKNormalCBrush(CMWColors::m_iDarkTheme != 0);
+                    pDC->FillRect ( &rectLabel, brush );
                     // EraseRectWithGrade1 ( &rectLabel, pDC );
                     // DrawBitmapDes ( pDC->m_hDC, &rectLabel );
                 }
                 else if ( tagHeaderInfo.iImage == 2 )
                 {
-                    CTRXBrush brush;
-                    brush.CreateSolidBrush ( black0x20 );
-                    pDC->FillRect ( &rectLabel, &brush );
+                    CBrush *brush = CMWColors::GetBKNormalCBrush(CMWColors::m_iDarkTheme != 0);
+                    pDC->FillRect ( &rectLabel, brush );
                     // EraseRectWithGrade2 ( &rectLabel, pDC );
                     // DrawBitmapAsc ( pDC->m_hDC, &rectLabel );
                 }
@@ -108,15 +105,13 @@ void CMWCHeaderCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                 {
                     if ( iCol % 2 == 0 )
                     {
-                        CTRXBrush brush;
-                        brush.CreateSolidBrush ( black0x20 );
-                        pDC->FillRect ( &rectLabel, &brush );
+                        CBrush *brush = CMWColors::GetBKNormalCBrush(CMWColors::m_iDarkTheme != 0);
+                        pDC->FillRect ( &rectLabel, brush );
                     }
                     else
                     {
-                        CTRXBrush brush;
-                        brush.CreateSolidBrush ( black0x30 );
-                        pDC->FillRect ( &rectLabel, &brush );
+                        CBrush *brush = CMWColors::GetBKNormalCBrush(CMWColors::m_iDarkTheme != 0);
+                        pDC->FillRect ( &rectLabel, brush );
                     }
 
                     //DrawBitmap ( pDC->m_hDC, &rectLabel );

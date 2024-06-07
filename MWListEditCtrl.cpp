@@ -569,26 +569,23 @@ void CMWListEditCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                 //  Test If line is selected
                 if ( bSelected )
                 {
-                    CTRXBrush brush;
-                    brush.CreateSolidBrush ( black0x20 );
-                    pDC->FillRect ( &rectLabel, &brush );
-                    pDC->SetTextColor ( white0xff );
+                    CBrush *brush = CMWColors::GetBKSelectedCBrush(CMWColors::m_iDarkTheme != 0);
+                    pDC->FillRect ( &rectLabel, brush );
+                    pDC->SetTextColor ( CMWColors::GetFGSelectedCR(CMWColors::m_iDarkTheme != 0) );
                 }
                 else
                 {
                     if ( iCol % 1 == 0 )
                     {
-                        CTRXBrush brush;
-                        brush.CreateSolidBrush ( black0x40 );
-                        pDC->FillRect ( &rectLabel, &brush );
-                        pDC->SetTextColor ( white0xee );
+                        CBrush *brush = CMWColors::GetBKNormalCBrush(CMWColors::m_iDarkTheme != 0);
+                        pDC->FillRect ( &rectLabel, brush );
+                        pDC->SetTextColor ( CMWColors::GetFGNormalCR(CMWColors::m_iDarkTheme != 0) );
                     }
                     else
                     {
-                        CTRXBrush brush;
-                        brush.CreateSolidBrush ( black0x30 );
-                        pDC->FillRect ( &rectLabel, &brush );
-                        pDC->SetTextColor ( white0xdd );
+                        CBrush *brush = CMWColors::GetBKNormalCBrush(CMWColors::m_iDarkTheme != 0);
+                        pDC->FillRect ( &rectLabel, brush );
+                        pDC->SetTextColor ( CMWColors::GetFGNormalCR(CMWColors::m_iDarkTheme != 0) );
                     }
                 }
 

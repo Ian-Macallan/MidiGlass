@@ -28,8 +28,6 @@ public:
 	CMWComboBox	m_In_Device;
 	CMWEdit			m_WaveDirectory;
 	CMWButton		m_Splitter;
-	CMWButton		m_Control_Color;
-	CMWButton		m_Background;
 	CMWButton		m_Large_Bar;
 	CMWButton		m_ReBar;
 	CMWButton		m_Play_Tune;
