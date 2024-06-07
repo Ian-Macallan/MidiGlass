@@ -8,11 +8,12 @@
 //
 
 #include "MWObjects.h"
+#include "MWDialog.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CTrackDetail dialog
 
-class CTrackDetail : public CDialog
+class CTrackDetail : public CMWDialog
 {
 	friend	HBRUSH	FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	friend	BOOL	FriendEraseBkgnd(CWnd* pWnd, CDC* pDC);
@@ -43,9 +44,7 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CTrackDetail)
-	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	virtual BOOL OnInitDialog();
-	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

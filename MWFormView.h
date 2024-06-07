@@ -37,6 +37,8 @@ class CMWFormView : public CFormView
     public:
         afx_msg void OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct);
         afx_msg void OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStruct);
+        afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+        afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 };
 
 

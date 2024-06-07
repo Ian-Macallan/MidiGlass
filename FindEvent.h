@@ -7,10 +7,12 @@
 // FindEvent.h : header file
 //
 
+#include "MWDialog.h"
+
 /////////////////////////////////////////////////////////////////////////////
 // CFindEvent dialog
 
-class CFindEvent : public CDialog
+class CFindEvent : public CMWDialog
 {
 	friend	HBRUSH	FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	friend	BOOL	FriendEraseBkgnd(CWnd* pWnd, CDC* pDC);
@@ -49,9 +51,7 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CFindEvent)
-	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	virtual BOOL OnInitDialog();
-	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	virtual void OnOK();
 	afx_msg void OnSelchangeEventCombo();
 	afx_msg void OnSelendokEventCombo();

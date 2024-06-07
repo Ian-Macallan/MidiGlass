@@ -19,8 +19,7 @@ extern CMidiWorksApp theApp;
 // CPlayListProperty dialog
 
 
-CPlayListProperty::CPlayListProperty(CWnd* pParent /*=NULL*/)
-	: CDialog(CPlayListProperty::IDD, pParent)
+CPlayListProperty::CPlayListProperty(CWnd* pParent /*=NULL*/) : CMWDialog(CPlayListProperty::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CPlayListProperty)
 		// NOTE: the ClassWizard will add member initialization here
@@ -30,7 +29,7 @@ CPlayListProperty::CPlayListProperty(CWnd* pParent /*=NULL*/)
 
 void CPlayListProperty::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CMWDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CPlayListProperty)
 	DDX_Control(pDX, IDOK, m_Ok);
 	DDX_Control(pDX, IDC_FILENAME, m_Filename);
@@ -38,7 +37,7 @@ void CPlayListProperty::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CPlayListProperty, CDialog)
+BEGIN_MESSAGE_MAP(CPlayListProperty, CMWDialog)
 	//{{AFX_MSG_MAP(CPlayListProperty)
 	ON_WM_CTLCOLOR()
 	ON_WM_ERASEBKGND()
@@ -50,7 +49,7 @@ END_MESSAGE_MAP()
 
 HBRUSH CPlayListProperty::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
 {
-	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
+	HBRUSH hbr = CMWDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 	
 	// TODO
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
@@ -65,7 +64,7 @@ HBRUSH CPlayListProperty::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 
 BOOL CPlayListProperty::OnInitDialog() 
 {
-	CDialog::OnInitDialog();
+	CMWDialog::OnInitDialog();
 	
 	// TODO
 	CMainFrame			*hMainFrame;
@@ -95,5 +94,5 @@ BOOL CPlayListProperty::OnEraseBkgnd(CDC* pDC)
 		return bRes;
 	}
 
-	return CDialog::OnEraseBkgnd ( pDC );
+	return CMWDialog::OnEraseBkgnd ( pDC );
 }

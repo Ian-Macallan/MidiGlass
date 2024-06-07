@@ -13,18 +13,19 @@ static char THIS_FILE[] = __FILE__;
 
 extern	CMidiWorksApp	theApp;
 
+
 //
 ////////////////////////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////////////////////////
 // CCorrectOptions dialog
-
+IMPLEMENT_DYNAMIC(CCorrectOptions, CMWDialog)
 
 //
 ////////////////////////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////////////////////////
-CCorrectOptions::CCorrectOptions(CWnd* pParent /*=NULL*/) : CDialog(CCorrectOptions::IDD, pParent)
+CCorrectOptions::CCorrectOptions(CWnd* pParent /*=NULL*/) : CMWDialog(CCorrectOptions::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CCorrectOptions)
 	//}}AFX_DATA_INIT
@@ -36,7 +37,7 @@ CCorrectOptions::CCorrectOptions(CWnd* pParent /*=NULL*/) : CDialog(CCorrectOpti
 ////////////////////////////////////////////////////////////////////////////////////
 void CCorrectOptions::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CMWDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CCorrectOptions)
 	DDX_Control(pDX, IDC_SYSEX, m_SysEx);
 	DDX_Control(pDX, IDOK, m_Ok);
@@ -54,10 +55,8 @@ void CCorrectOptions::DoDataExchange(CDataExchange* pDX)
 ////////////////////////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////////////////////////
-BEGIN_MESSAGE_MAP(CCorrectOptions, CDialog)
+BEGIN_MESSAGE_MAP(CCorrectOptions, CMWDialog)
 	//{{AFX_MSG_MAP(CCorrectOptions)
-	ON_WM_CTLCOLOR()
-	ON_WM_ERASEBKGND()
 	ON_BN_CLICKED(IDOK, &CCorrectOptions::OnBnClickedOk)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
@@ -69,7 +68,7 @@ END_MESSAGE_MAP()
 ////////////////////////////////////////////////////////////////////////////////////
 BOOL CCorrectOptions::OnInitDialog() 
 {
-	CDialog::OnInitDialog();
+	CMWDialog::OnInitDialog();
 	
 	// TODO
 	m_SysEx.SetCurSel ( theApp.m_iSysEx	);
@@ -107,42 +106,7 @@ void CCorrectOptions::OnOK()
 	theApp.WriteProfileInt ( "Correction", "Filter Tracks By Channel", theApp.m_bFilter );
 	theApp.WriteProfileInt ( "Correction", "Correct Start Of Track", theApp.m_bCorrectStartOfTrack );
 
-	CDialog::OnOK();
-}
-
-//
-////////////////////////////////////////////////////////////////////////////////////
-//
-////////////////////////////////////////////////////////////////////////////////////
-HBRUSH CCorrectOptions::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
-{
-	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
-	
-	// TODO
-	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
-	if ( hBrush != NULL )
-	{
-		return hBrush;
-	}
-
-	// TODO
-	return hbr;
-}
-
-//
-////////////////////////////////////////////////////////////////////////////////////
-//
-////////////////////////////////////////////////////////////////////////////////////
-BOOL CCorrectOptions::OnEraseBkgnd(CDC* pDC) 
-{
-	// TODO
-	BOOL bRes = FriendEraseBkgnd(this, pDC);
-	if ( bRes )
-	{
-		return bRes;
-	}
-
-	return CDialog::OnEraseBkgnd ( pDC );
+	CMWDialog::OnOK();
 }
 
 //

@@ -23,8 +23,7 @@ extern CMidiWorksApp	theApp;
 // CModifyThreadDialog dialog
 //
 ///////////////////////////////////////////////////////////////////////////////////
-CModifyThreadDialog::CModifyThreadDialog(CWnd* pParent /*=NULL*/)
-	: CDialog(CModifyThreadDialog::IDD, pParent)
+CModifyThreadDialog::CModifyThreadDialog(CWnd* pParent /*=NULL*/) : CMWDialog(CModifyThreadDialog::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CModifyThreadDialog)
 		// NOTE: the ClassWizard will add member initialization here
@@ -37,7 +36,7 @@ CModifyThreadDialog::CModifyThreadDialog(CWnd* pParent /*=NULL*/)
 ///////////////////////////////////////////////////////////////////////////////////
 void CModifyThreadDialog::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CMWDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CModifyThreadDialog)
 	DDX_Control(pDX, IDC_NUMBER, m_Number);
 	DDX_Control(pDX, IDC_TUNE, m_Tune);
@@ -49,13 +48,11 @@ void CModifyThreadDialog::DoDataExchange(CDataExchange* pDX)
 ///////////////////////////////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////////////////////////////
-BEGIN_MESSAGE_MAP(CModifyThreadDialog, CDialog)
+BEGIN_MESSAGE_MAP(CModifyThreadDialog, CMWDialog)
 	//{{AFX_MSG_MAP(CModifyThreadDialog)
 	ON_WM_DESTROY()
-	ON_WM_CTLCOLOR()
 	ON_WM_TIMER()
 	//}}AFX_MSG_MAP
-    ON_WM_ERASEBKGND()
 END_MESSAGE_MAP()
 
 //
@@ -65,7 +62,7 @@ END_MESSAGE_MAP()
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CModifyThreadDialog::OnInitDialog() 
 {
-	CDialog::OnInitDialog();
+	CMWDialog::OnInitDialog();
 	
 	// TODO
 	HICON hDlgIcon = theApp.LoadIcon ( IDR_MAINFRAME );
@@ -145,7 +142,7 @@ BOOL CModifyThreadDialog::OnInitDialog()
 ///////////////////////////////////////////////////////////////////////////////////
 void CModifyThreadDialog::OnDestroy() 
 {
-	CDialog::OnDestroy();
+	CMWDialog::OnDestroy();
 	
 	// TODO
 
@@ -172,22 +169,6 @@ void CModifyThreadDialog::OnDestroy()
 }
 
 
-//
-///////////////////////////////////////////////////////////////////////////////////
-//
-///////////////////////////////////////////////////////////////////////////////////
-HBRUSH CModifyThreadDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
-{
-	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
-	
-	HBRUSH hbrush = FriendCtlColor(pDC, pWnd, nCtlColor );
-	if ( hbrush )
-	{
-		return hbrush;
-	}
-
-	return hbr;
-}
 
 //
 ///////////////////////////////////////////////////////////////////////////////////
@@ -233,25 +214,9 @@ void CModifyThreadDialog::OnTimer(UINT_PTR nIDEvent)
 	}
 	else
 	{
-		CDialog::OnCancel();
+		CMWDialog::OnCancel();
 	}
 
-	CDialog::OnTimer(nIDEvent);
+	CMWDialog::OnTimer(nIDEvent);
 }
 
-//
-///////////////////////////////////////////////////////////////////////////////////
-//
-///////////////////////////////////////////////////////////////////////////////////
-BOOL CModifyThreadDialog::OnEraseBkgnd(CDC* pDC)
-{
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
-	// TODO
-	BOOL bRes = FriendEraseBkgnd(this, pDC);
-	if ( bRes )
-	{
-		return bRes;
-	}
-
-    return CDialog::OnEraseBkgnd(pDC);
-}

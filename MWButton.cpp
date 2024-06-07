@@ -30,7 +30,7 @@ IMPLEMENT_DYNAMIC(CMWButton, CButton)
 ///////////////////////////////////////////////////////////////////////////////////
 CMWButton::CMWButton()
 {
-	m_bSendNormal = false;
+	m_bSendNormal   = false;
 }
 
 //
@@ -175,21 +175,44 @@ void CMWButton::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
         // Get the button's text.
         GetWindowText ( szText, sizeof(szText) );
 
+        //
+	    CFont		*pFont;
+        CMWFont		boldFont;
+	    LOGFONT		logFont;
+
+	    pFont = GetFont ( );
+	    pFont->GetLogFont ( & logFont );
+
+	    logFont.lfWeight = FW_BOLD;
+	    boldFont.CreateFontIndirect ( &logFont );
+
+        //
+        CFont *pOldFont     = NULL;
+        pOldFont = ( CFont * ) pDC->SelectObject ( &boldFont );
+
         // Draw the button text using the text color white.
         COLORREF crOldColor;
         if ( lpDrawItemStruct->itemState & ODS_DISABLED )
         {
             crOldColor = pDC->SetTextColor ( CMWColors::GetFGDisabledCR(CMWColors::m_iDarkTheme != 0) );
         }
+        else if ( lpDrawItemStruct->itemState & ODS_FOCUS )
+        {
+            crOldColor = pDC->SetTextColor ( CMWColors::GetFGSelectedCR( CMWColors::m_iDarkTheme != 0 ) );
+        }
         else
         {
-            crOldColor = pDC->SetTextColor ( CMWColors::GetFGNormalCR(CMWColors::m_iDarkTheme != 0)  );
+            crOldColor = pDC->SetTextColor ( CMWColors::GetFGNormalCR( CMWColors::m_iDarkTheme != 0 ) );
         }
 
         pDC->DrawText ( szText, &lpDrawItemStruct->rcItem, DT_SINGLELINE|DT_VCENTER|DT_CENTER );
 
         pDC->SetTextColor( crOldColor);
-    }
 
-    // CButton::OnDrawItem(nIDCtl, lpDrawItemStruct);
+        if ( pOldFont )
+        {
+            pDC->SelectObject ( pOldFont );
+        }
+
+    }
 }

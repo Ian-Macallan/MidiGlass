@@ -278,6 +278,7 @@
     <ClCompile Include="MWComboBox.cpp" />
     <ClCompile Include="MWControllersComboBox.cpp" />
     <ClCompile Include="MWCReBarCtrl.cpp" />
+    <ClCompile Include="MWDialog.cpp" />
     <ClCompile Include="MWEdit.cpp" />
     <ClCompile Include="MWEditInList.cpp" />
     <ClCompile Include="MWEventsComboBox.cpp" />
@@ -382,6 +383,7 @@
     <ClInclude Include="MWComboBox.h" />
     <ClInclude Include="MWControllersComboBox.h" />
     <ClInclude Include="MWCReBarCtrl.h" />
+    <ClInclude Include="MWDialog.h" />
     <ClInclude Include="MWEdit.h" />
     <ClInclude Include="MWEditInList.h" />
     <ClInclude Include="MWEventsComboBox.h" />

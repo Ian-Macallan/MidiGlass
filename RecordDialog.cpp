@@ -20,8 +20,7 @@ extern CMidiWorksApp	theApp;
 // CRecordDialog dialog
 //
 ////////////////////////////////////////////////////////////////////////////////////////
-CRecordDialog::CRecordDialog(CWnd* pParent /*=NULL*/)
-	: CDialog(CRecordDialog::IDD, pParent)
+CRecordDialog::CRecordDialog(CWnd* pParent /*=NULL*/) : CMWDialog(CRecordDialog::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CRecordDialog)
 	//}}AFX_DATA_INIT
@@ -33,7 +32,7 @@ CRecordDialog::CRecordDialog(CWnd* pParent /*=NULL*/)
 ////////////////////////////////////////////////////////////////////////////////////////
 void CRecordDialog::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CMWDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CRecordDialog)
 	DDX_Control(pDX, IDC_TEXT, m_Text);
 	DDX_Control(pDX, IDC_PROGRESS_BAR, m_Progress_Bar);
@@ -48,11 +47,9 @@ void CRecordDialog::DoDataExchange(CDataExchange* pDX)
 ////////////////////////////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////////////////////////////
-BEGIN_MESSAGE_MAP(CRecordDialog, CDialog)
+BEGIN_MESSAGE_MAP(CRecordDialog, CMWDialog)
 	//{{AFX_MSG_MAP(CRecordDialog)
 	ON_WM_DESTROY()
-	ON_WM_CTLCOLOR()
-	ON_WM_ERASEBKGND()
 	ON_MESSAGE(MM_MCINOTIFY,OnMciNotify)
 	ON_WM_TIMER()
 	//}}AFX_MSG_MAP
@@ -65,7 +62,7 @@ END_MESSAGE_MAP()
 ////////////////////////////////////////////////////////////////////////////////////////
 void CRecordDialog::OnDestroy() 
 {
-	CDialog::OnDestroy();
+	CMWDialog::OnDestroy();
 	
 	//
 	setLoopBackDone();
@@ -96,7 +93,7 @@ void CRecordDialog::OnDestroy()
 ////////////////////////////////////////////////////////////////////////////////////////
 BOOL CRecordDialog::OnInitDialog() 
 {
-	CDialog::OnInitDialog();
+	CMWDialog::OnInitDialog();
 	
 	// TODO
 
@@ -198,7 +195,7 @@ void CRecordDialog::OnCancel()
 	}
 
 	//
-	CDialog::OnCancel();
+	CMWDialog::OnCancel();
 }
 
 //
@@ -227,47 +224,10 @@ LRESULT CRecordDialog::OnMciNotify(WPARAM wParam, LPARAM lParam)
 
 		m_bClosing = true;
 
-		CDialog::OnCancel ( );
+		CMWDialog::OnCancel ( );
 	}
 
 	return 0;
-}
-
-//
-////////////////////////////////////////////////////////////////////////////////////////
-//
-////////////////////////////////////////////////////////////////////////////////////////
-HBRUSH CRecordDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
-{
-	// TODO
-	
-	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
-	
-	// TODO
-	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
-	if ( hBrush != NULL )
-	{
-		return hBrush;
-	}
-	// TODO
-	return hbr;
-}
-
-//
-////////////////////////////////////////////////////////////////////////////////////////
-//
-////////////////////////////////////////////////////////////////////////////////////////
-BOOL CRecordDialog::OnEraseBkgnd(CDC* pDC) 
-{
-	// TODO
-	
-	BOOL bRes = FriendEraseBkgnd(this, pDC);
-	if ( bRes )
-	{
-		return bRes;
-	}
-
-	return CDialog::OnEraseBkgnd ( pDC );
 }
 
 //
@@ -285,5 +245,5 @@ void CRecordDialog::OnTimer(UINT_PTR nIDEvent)
 	}
 	m_Progress_Bar.SetPos ( iPos );
 
-	CDialog::OnTimer(nIDEvent);
+	CMWDialog::OnTimer(nIDEvent);
 }

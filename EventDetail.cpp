@@ -17,14 +17,14 @@ static char THIS_FILE[] = __FILE__;
 
 extern CMidiWorksApp theApp;
 
-IMPLEMENT_DYNAMIC(CEventDetail,CDialog)
+IMPLEMENT_DYNAMIC(CEventDetail,CMWDialog)
 
 //
 ////////////////////////////////////////////////////////////////////////
 // CEventDetail dialog
 //
 ////////////////////////////////////////////////////////////////////////
-CEventDetail::CEventDetail(CWnd* pParent /*=NULL*/) : CDialog(CEventDetail::IDD, pParent)
+CEventDetail::CEventDetail(CWnd* pParent /*=NULL*/) : CMWDialog(CEventDetail::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CEventDetail)
 	//}}AFX_DATA_INIT
@@ -111,7 +111,7 @@ CMidiList *CEventDetail::getNewMidiList()
 ////////////////////////////////////////////////////////////////////////
 void CEventDetail::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CMWDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CEventDetail)
 	DDX_Control(pDX, IDC_MESURE, m_Mesure);
 	DDX_Control(pDX, IDC_DELTA_TIME, m_DeltaTime);
@@ -148,10 +148,8 @@ void CEventDetail::DoDataExchange(CDataExchange* pDX)
 ////////////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////////////
-BEGIN_MESSAGE_MAP(CEventDetail, CDialog)
+BEGIN_MESSAGE_MAP(CEventDetail, CMWDialog)
 	//{{AFX_MSG_MAP(CEventDetail)
-	ON_WM_CTLCOLOR()
-	ON_WM_ERASEBKGND()
 	ON_MESSAGE(WM_MW_EDIT_SELECT,OnEditSelect)
 	ON_CBN_SELCHANGE(IDC_EVENT_COMBO, &CEventDetail::OnCbnSelchangeEventCombo)
 	//}}AFX_MSG_MAP
@@ -164,7 +162,7 @@ END_MESSAGE_MAP()
 ////////////////////////////////////////////////////////////////////////
 BOOL CEventDetail::OnInitDialog() 
 {
-	CDialog::OnInitDialog();
+	CMWDialog::OnInitDialog();
 	
 	// TODO
 	CMainFrame			*pMainFrame;
@@ -517,7 +515,7 @@ void CEventDetail::OnOK()
 		}
 	}
 
-	CDialog::OnOK();
+	CMWDialog::OnOK();
 }
 
 //
@@ -528,43 +526,7 @@ void CEventDetail::OnCancel()
 {
 	// TODO
 	Free();
-	CDialog::OnCancel();
-}
-
-//
-////////////////////////////////////////////////////////////////////////
-//
-////////////////////////////////////////////////////////////////////////
-HBRUSH CEventDetail::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
-{
-	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
-	
-	// TODO
-	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
-	if ( hBrush != NULL )
-	{
-		return hBrush;
-	}
-
-	// TODO
-	return hbr;
-}
-
-//
-////////////////////////////////////////////////////////////////////////
-//
-////////////////////////////////////////////////////////////////////////
-BOOL CEventDetail::OnEraseBkgnd(CDC* pDC) 
-{
-	// TODO
-	
-	BOOL bRes = FriendEraseBkgnd(this, pDC);
-	if ( bRes )
-	{
-		return bRes;
-	}
-
-	return CDialog::OnEraseBkgnd ( pDC );
+	CMWDialog::OnCancel();
 }
 
 //

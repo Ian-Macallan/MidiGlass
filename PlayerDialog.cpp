@@ -21,8 +21,7 @@ extern CMidiWorksApp	theApp;
 // CPlayerDialog dialog
 //
 ///////////////////////////////////////////////////////////////////////////////////
-CPlayerDialog::CPlayerDialog(CWnd* pParent /*=NULL*/)
-	: CDialog(CPlayerDialog::IDD, pParent)
+CPlayerDialog::CPlayerDialog(CWnd* pParent /*=NULL*/) : CMWDialog(CPlayerDialog::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CPlayerDialog)
 	//}}AFX_DATA_INIT
@@ -37,7 +36,7 @@ CPlayerDialog::CPlayerDialog(CWnd* pParent /*=NULL*/)
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CMWDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CPlayerDialog)
 	DDX_Control(pDX, IDC_BACK, m_Back);
 	DDX_Control(pDX, IDC_FORW, m_Forw);
@@ -63,7 +62,7 @@ void CPlayerDialog::DoDataExchange(CDataExchange* pDX)
 ///////////////////////////////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////////////////////////////
-BEGIN_MESSAGE_MAP(CPlayerDialog, CDialog)
+BEGIN_MESSAGE_MAP(CPlayerDialog, CMWDialog)
 	//{{AFX_MSG_MAP(CPlayerDialog)
 	ON_WM_DESTROY()
 	ON_BN_CLICKED(IDC_PLAY, OnPlay)
@@ -71,7 +70,6 @@ BEGIN_MESSAGE_MAP(CPlayerDialog, CDialog)
 	ON_BN_CLICKED(IDC_PAUSE, OnPause)
 	ON_BN_CLICKED(IDC_STOP, OnStop)
 	ON_BN_CLICKED(IDC_FORWARD, OnForward)
-	ON_WM_CTLCOLOR()
 	ON_WM_TIMER()
 	ON_EN_CHANGE(IDC_NUMBER, OnChangeNumber)
 	ON_CBN_SELCHANGE(IDC_TUNE_COMBO, OnSelchangeTuneCombo)
@@ -81,7 +79,6 @@ BEGIN_MESSAGE_MAP(CPlayerDialog, CDialog)
 	ON_BN_CLICKED(IDC_FORW, OnForw)
 	ON_WM_DROPFILES()
 	ON_MESSAGE(MM_MCINOTIFY,OnMciNotify)
-	ON_WM_ERASEBKGND()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -92,7 +89,7 @@ END_MESSAGE_MAP()
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CPlayerDialog::OnInitDialog() 
 {
-	CDialog::OnInitDialog();
+	CMWDialog::OnInitDialog();
 	
 	// TODO
 	BOOL			bRes;
@@ -169,7 +166,7 @@ void CPlayerDialog::PlayTune()
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnDestroy() 
 {
-	CDialog::OnDestroy();
+	CMWDialog::OnDestroy();
 	
 	KillTimer ( PLAY_THREAD_TIMER );
 
@@ -330,24 +327,6 @@ void CPlayerDialog::OnForward()
 	}
 }
 
-//
-///////////////////////////////////////////////////////////////////////////////////
-//
-///////////////////////////////////////////////////////////////////////////////////
-HBRUSH CPlayerDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
-{
-	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
-	
-	// TODO
-	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
-	if ( hBrush != NULL )
-	{
-		return hBrush;
-	}
-
-	// TODO
-	return hbr;
-}
 
 //
 ///////////////////////////////////////////////////////////////////////////////////
@@ -1061,7 +1040,7 @@ void CPlayerDialog::OnTimer(UINT_PTR nIDEvent)
 	//		Here we will do some refresh
 	DisplayMidiCounters();
 
-	CDialog::OnTimer(nIDEvent);
+	CMWDialog::OnTimer(nIDEvent);
 }
 
 //
@@ -1232,7 +1211,7 @@ void CPlayerDialog::DisplayMidiCounters()
 void CPlayerDialog::OnChangeNumber() 
 {
 	// TODO
-	// send this notification unless you override the CDialog::OnInitDialog()
+	// send this notification unless you override the CMWDialog::OnInitDialog()
 	// function and call CRichEditCtrl().SetEventMask()
 	// with the ENM_CHANGE flag ORed into the mask.
 	
@@ -1466,7 +1445,7 @@ void CPlayerDialog::OnDropFiles(HDROP hDropInfo)
 		m_Spin_Number.SetRange ( 0, m_iFilenames - 1 );
 	}
 
-	CDialog::OnDropFiles(hDropInfo);
+	CMWDialog::OnDropFiles(hDropInfo);
 }
 
 //
@@ -1536,19 +1515,3 @@ void CPlayerDialog::ResizeButtons(CBitmap *pBitmap, CMWButton *pButton)
 
 }
 
-//
-///////////////////////////////////////////////////////////////////////////////////
-//
-///////////////////////////////////////////////////////////////////////////////////
-BOOL CPlayerDialog::OnEraseBkgnd(CDC* pDC) 
-{
-	// TODO
-	
-	BOOL bRes = FriendEraseBkgnd(this, pDC);
-	if ( bRes )
-	{
-		return bRes;
-	}
-
-	return CDialog::OnEraseBkgnd ( pDC );
-}

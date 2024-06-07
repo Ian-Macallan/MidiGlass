@@ -15,6 +15,18 @@ class CMWPen : public CPen
         }
 };
 
+class CMWFont : public CFont
+{
+    public :
+        virtual ~CMWFont()
+        {
+            if ( this->m_hObject != NULL )
+            {
+                DeleteObject ();
+            }
+        }
+};
+
 class CMWBrush : public CBrush
 {
     public :

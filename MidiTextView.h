@@ -69,10 +69,8 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CMidiTextView)
-	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	afx_msg void OnDeltaposSpinEvent(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnCompact();
-	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:

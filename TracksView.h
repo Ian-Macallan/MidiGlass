@@ -9,6 +9,7 @@
 
 #include "MWObjects.h"
 #include "MWFormView.h"
+#include "MidiTrack.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CTracksView form view

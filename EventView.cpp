@@ -84,10 +84,8 @@ BEGIN_MESSAGE_MAP(CEventView, CMWFormView)
 	ON_COMMAND(ID_EVENTS_INSERT_AFTER, OnEventsInsertAfter)
 	ON_COMMAND(ID_EVENTS_MODIFY, OnEventsModify)
 	ON_COMMAND(ID_EVENTS_HELP, OnEventsHelp)
-	ON_WM_CTLCOLOR()
 	ON_NOTIFY(LVN_GETDISPINFO, IDC_TRACK_EVENT_LIST, OnGetdispinfoTrackEventList)
 	ON_EN_CHANGE(IDC_TRACKNAME, OnChangeTrackname)
-	ON_WM_ERASEBKGND()
 	ON_NOTIFY(NM_CLICK, IDC_TRACK_EVENT_LIST, OnClickTrackEventList)
 	ON_WM_MOVE()
 	ON_WM_SIZE()
@@ -631,25 +629,6 @@ void CEventView::OnEventsHelp()
 ///////////////////////////////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////////////////////////////
-HBRUSH CEventView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
-{
-	HBRUSH hbr = CMWFormView::OnCtlColor(pDC, pWnd, nCtlColor);
-	
-	// TODO
-	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
-	if ( hBrush != NULL )
-	{
-		return hBrush;
-	}
-
-	// TODO
-	return hbr;
-}
-
-//
-///////////////////////////////////////////////////////////////////////////////////
-//
-///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnGetdispinfoTrackEventList(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	LV_DISPINFO* pDispInfo = (LV_DISPINFO*)pNMHDR;
@@ -975,23 +954,6 @@ void CEventView::FillEventTableAddress()
 			iX++;
 		}
 	}
-}
-
-//
-///////////////////////////////////////////////////////////////////////////////////
-//
-///////////////////////////////////////////////////////////////////////////////////
-BOOL CEventView::OnEraseBkgnd(CDC* pDC) 
-{
-	// TODO
-	
-	BOOL bRes = FriendEraseBkgndScrollView(this, pDC);
-	if ( bRes )
-	{
-		return bRes;
-	}
-
-	return CMWFormView::OnEraseBkgnd ( pDC );
 }
 
 //

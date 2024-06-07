@@ -79,7 +79,7 @@ CBrush CMWColors::WhiteEFBrush;
 //  0 Default Color
 //  1 Dark Client Area
 //  2 Dark Client Area and Caption
-int             CMWColors::m_iDarkTheme        = 0;
+int             CMWColors::m_iDarkTheme        = 1;
 
 
 //
@@ -655,7 +655,7 @@ COLORREF CMWColors::GetFGNormalCR ( bool bDark )
     }
     else
     {
-        return GetBlack30CR();
+        return GetBlack20CR();
     }
 }
 
@@ -692,7 +692,7 @@ COLORREF CMWColors::GetFGMenuCR ( bool bDark )
     }
     else
     {
-        return GetBlack40CR();
+        return GetBlack20CR();
     }
 }
 
@@ -761,7 +761,7 @@ CBrush * CMWColors::GetFGNormalCBrush ( bool bDark )
     }
     else
     {
-        return GetBlack30CBrush();
+        return GetBlack20CBrush();
     }
 }
 
@@ -797,7 +797,7 @@ CBrush * CMWColors::GetFGMenuCBrush ( bool bDark )
     }
     else
     {
-        return GetBlack40CBrush();
+        return GetBlack20CBrush();
     }
 }
 
@@ -865,7 +865,7 @@ HBRUSH CMWColors::GetFGNormalBrush ( bool bDark )
     }
     else
     {
-        return GetBlack30Brush();
+        return GetBlack20Brush();
     }
 }
 
@@ -901,7 +901,7 @@ HBRUSH CMWColors::GetFGMenuBrush ( bool bDark )
     }
     else
     {
-        return GetBlack40Brush();
+        return GetBlack20Brush();
     }
 }
 
@@ -972,7 +972,7 @@ COLORREF CMWColors::GetFGTipColor(bool bDark)
     }
     else
     {
-        return FALSE;
+        return NULL;
     }
 }
 
@@ -988,7 +988,7 @@ COLORREF CMWColors::GetBKTipColor(bool bDark)
     }
     else
     {
-        return FALSE;
+        return NULL;
     }
 }
 

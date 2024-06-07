@@ -34,7 +34,7 @@
 #include "MidiView.h"
 #include "ToolBarSoundFont.h"
 #include "MWMenu.h"
-
+#include "MWNCColor.h"
 
 class CMainFrame : public CFrameWnd
 {
@@ -44,6 +44,8 @@ class CMainFrame : public CFrameWnd
 	protected: // create from serialization only
 		CMainFrame();
 		DECLARE_DYNCREATE(CMainFrame)
+
+        CMWNCColor  m_NC;
 
 	// Attributes
 	public:
@@ -366,6 +368,13 @@ class CMainFrame : public CFrameWnd
 
     public:
         virtual void OnUpdateFrameMenu(HMENU hMenuAlt);
+        afx_msg BOOL OnNcActivate(BOOL bActive);
+        afx_msg void OnNcPaint();
+        afx_msg void OnNcMouseMove(UINT nHitTest, CPoint point);
+        afx_msg void OnNcMouseLeave();
+        afx_msg void OnNcMouseHover(UINT nFlags, CPoint point);
+        afx_msg void OnNcLButtonUp(UINT nHitTest, CPoint point);
+        afx_msg void OnNcLButtonDown(UINT nHitTest, CPoint point);
 };
 
 /////////////////////////////////////////////////////////////////////////////

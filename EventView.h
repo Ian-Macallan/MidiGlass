@@ -116,10 +116,8 @@ protected:
 	afx_msg void OnEventsModify();
 
 	afx_msg void OnEventsHelp();
-	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	afx_msg void OnGetdispinfoTrackEventList(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnChangeTrackname();
-	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	afx_msg void OnClickTrackEventList(NMHDR* pNMHDR, LRESULT* pResult);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()

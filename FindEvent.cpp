@@ -16,8 +16,7 @@ static char THIS_FILE[] = __FILE__;
 // CFindEvent dialog
 //
 ////////////////////////////////////////////////////////////////////////
-CFindEvent::CFindEvent(CWnd* pParent /*=NULL*/)
-	: CDialog(CFindEvent::IDD, pParent)
+CFindEvent::CFindEvent(CWnd* pParent /*=NULL*/) : CMWDialog(CFindEvent::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CFindEvent)
 		// NOTE: the ClassWizard will add member initialization here
@@ -30,7 +29,7 @@ CFindEvent::CFindEvent(CWnd* pParent /*=NULL*/)
 ////////////////////////////////////////////////////////////////////////
 void CFindEvent::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CMWDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CFindEvent)
 	DDX_Control(pDX, IDC_V2_TO, m_V2_To);
 	DDX_Control(pDX, IDC_V2_FROM, m_V2_From);
@@ -50,10 +49,8 @@ void CFindEvent::DoDataExchange(CDataExchange* pDX)
 ////////////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////////////
-BEGIN_MESSAGE_MAP(CFindEvent, CDialog)
+BEGIN_MESSAGE_MAP(CFindEvent, CMWDialog)
 	//{{AFX_MSG_MAP(CFindEvent)
-	ON_WM_CTLCOLOR()
-	ON_WM_ERASEBKGND()
 	ON_CBN_SELCHANGE(IDC_EVENT_COMBO, OnSelchangeEventCombo)
 	ON_CBN_SELENDOK(IDC_EVENT_COMBO, OnSelendokEventCombo)
 	//}}AFX_MSG_MAP
@@ -61,31 +58,11 @@ END_MESSAGE_MAP()
 
 //
 ////////////////////////////////////////////////////////////////////////
-// CFindEvent message handlers
-//
-////////////////////////////////////////////////////////////////////////
-HBRUSH CFindEvent::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
-{
-	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
-	
-	// TODO
-	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
-	if ( hBrush != NULL )
-	{
-		return hBrush;
-	}
-
-	// TODO
-	return hbr;
-}
-
-//
-////////////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////////////
 BOOL CFindEvent::OnInitDialog() 
 {
-	CDialog::OnInitDialog();
+	CMWDialog::OnInitDialog();
 	
 	// TODO
 	m_Event_Combo.ResetContent ( );
@@ -122,23 +99,6 @@ BOOL CFindEvent::OnInitDialog()
 ////////////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////////////
-BOOL CFindEvent::OnEraseBkgnd(CDC* pDC) 
-{
-	// TODO
-	
-	BOOL bRes = FriendEraseBkgnd(this, pDC);
-	if ( bRes )
-	{
-		return bRes;
-	}
-
-	return CDialog::OnEraseBkgnd ( pDC );
-}
-
-//
-////////////////////////////////////////////////////////////////////////
-//
-////////////////////////////////////////////////////////////////////////
 void CFindEvent::OnOK() 
 {
 	// TODO
@@ -149,7 +109,7 @@ void CFindEvent::OnOK()
 
 	if ( hMainFrame == NULL )
 	{
-		CDialog::OnOK();
+		CMWDialog::OnOK();
 		return;
 	}
 
@@ -192,7 +152,7 @@ void CFindEvent::OnOK()
 
 	hMainFrame->SetSearchInfo ( strEvent, strProgram, strController, V1_From, V1_To, V2_From, V2_To );
 
-	CDialog::OnOK();
+	CMWDialog::OnOK();
 }
 
 //

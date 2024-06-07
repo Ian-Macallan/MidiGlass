@@ -7,6 +7,7 @@
 
 #include "MidiTrack.h"
 #include "MainFrm.h"
+#include "Friend.h"
 
 //
 /////////////////////////////////////////////////////////////////
@@ -55,6 +56,8 @@ void CMWFormView::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CMWFormView, CFormView)
     ON_WM_DRAWITEM()
     ON_WM_MEASUREITEM()
+    ON_WM_ERASEBKGND()
+    ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
 
@@ -130,4 +133,40 @@ void CMWFormView::OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStr
 	}
 
     CFormView::OnMeasureItem(nIDCtl, lpMeasureItemStruct);
+}
+
+//
+/////////////////////////////////////////////////////////////////
+//
+/////////////////////////////////////////////////////////////////
+BOOL CMWFormView::OnEraseBkgnd(CDC* pDC)
+{
+    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+	BOOL bRes = FriendEraseBkgndScrollView(this, pDC);
+	if ( bRes )
+	{
+		return bRes;
+	}
+
+    return CFormView::OnEraseBkgnd(pDC);
+}
+
+//
+/////////////////////////////////////////////////////////////////
+//
+/////////////////////////////////////////////////////////////////
+HBRUSH CMWFormView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+    HBRUSH hbr = CFormView::OnCtlColor(pDC, pWnd, nCtlColor);
+
+    // TODO:  Modifier ici les attributs du DC
+	// TODO
+	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
+	if ( hBrush != NULL )
+	{
+		return hBrush;
+	}
+
+    // TODO:  Retourner un autre pinceau si le pinceau par défaut n'est pas souhaité
+    return hbr;
 }

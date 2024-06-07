@@ -19,8 +19,7 @@ extern CMidiWorksApp theApp;
 // CParameters dialog
 
 
-CParameters::CParameters(CWnd* pParent /*=NULL*/)
-	: CDialog(CParameters::IDD, pParent)
+CParameters::CParameters(CWnd* pParent /*=NULL*/) : CMWDialog(CParameters::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CParameters)
 		// NOTE: the ClassWizard will add member initialization here
@@ -30,7 +29,7 @@ CParameters::CParameters(CWnd* pParent /*=NULL*/)
 
 void CParameters::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CMWDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CParameters)
 	DDX_Control(pDX, IDC_CHECK_SETTINGS, m_Check_Settings);
 	DDX_Control(pDX, IDOK, m_Ok);
@@ -41,13 +40,11 @@ void CParameters::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CParameters, CDialog)
+BEGIN_MESSAGE_MAP(CParameters, CMWDialog)
 	//{{AFX_MSG_MAP(CParameters)
 	ON_CBN_SELCHANGE(IDC_CONTROLER, OnSelchangeControler)
 	ON_EN_CHANGE(IDC_SETTINGS, OnChangeSettings)
 	ON_BN_CLICKED(IDC_CHECK_SETTINGS, OnCheckSettings)
-	ON_WM_CTLCOLOR()
-	ON_WM_ERASEBKGND()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -56,7 +53,7 @@ END_MESSAGE_MAP()
 
 BOOL CParameters::OnInitDialog() 
 {
-	CDialog::OnInitDialog();
+	CMWDialog::OnInitDialog();
 	
 	// TODO
 	CMidiClass		clTemp;
@@ -116,7 +113,7 @@ void CParameters::OnSelchangeControler()
 void CParameters::OnChangeSettings() 
 {
 	// TODO
-	// send this notification unless you override the CDialog::OnInitDialog()
+	// send this notification unless you override the CMWDialog::OnInitDialog()
 	// function and call CRichEditCtrl().SetEventMask()
 	// with the ENM_CHANGE flag ORed into the mask.
 	
@@ -155,33 +152,4 @@ void CParameters::OnCheckSettings()
 		m_Settings.EnableWindow ( FALSE );
 	}
 
-}
-
-
-HBRUSH CParameters::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
-{
-	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
-	
-	// TODO
-	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
-	if ( hBrush != NULL )
-	{
-		return hBrush;
-	}
-
-	// TODO
-	return hbr;
-}
-
-BOOL CParameters::OnEraseBkgnd(CDC* pDC) 
-{
-	// TODO
-	
-	BOOL bRes = FriendEraseBkgnd(this, pDC);
-	if ( bRes )
-	{
-		return bRes;
-	}
-
-	return CDialog::OnEraseBkgnd ( pDC );
 }

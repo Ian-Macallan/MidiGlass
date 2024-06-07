@@ -8,14 +8,17 @@
 //
 #include "MWObjects.h"
 #include "afxwin.h"
+#include "MWDialog.h"
 
 //
 ////////////////////////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////////////////////////
 // CCorrectOptions dialog
-class CCorrectOptions : public CDialog
+class CCorrectOptions : public CMWDialog
 {
+        DECLARE_DYNAMIC(CCorrectOptions)
+
 		friend	HBRUSH	FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 		friend	BOOL	FriendEraseBkgnd(CWnd* pWnd,CDC* pDC);
 
@@ -53,8 +56,6 @@ class CCorrectOptions : public CDialog
 		//{{AFX_MSG(CCorrectOptions)
 		virtual BOOL OnInitDialog();
 		virtual void OnOK();
-		afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
-		afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 		//}}AFX_MSG
 		DECLARE_MESSAGE_MAP()
 	public:

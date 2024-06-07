@@ -8,11 +8,12 @@
 //
 
 #include "ModifyThread.h"
+#include "MWDialog.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CModifyThreadDialog dialog
 
-class CModifyThreadDialog : public CDialog
+class CModifyThreadDialog : public CMWDialog
 {
 // Construction
 public:
@@ -47,12 +48,10 @@ protected:
 	//{{AFX_MSG(CModifyThreadDialog)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnDestroy();
-	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:
-    afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 };
 
 //{{AFX_INSERT_LOCATION}}

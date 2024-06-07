@@ -26,9 +26,7 @@ CMWMenu::CMWMenu(void)
     m_pWnd              = NULL;
     m_pSubMenu          = NULL;
     m_hCheckWhiteIcon   = AfxGetApp()->LoadIcon(IDI_CHECK_WHITE);
-
 }
-
 
 //
 ////////////////////////////////////////////////////////////////////////
@@ -118,12 +116,12 @@ CMWMenu *CMWMenu::SetSystemMenu(CWnd* pWnd, CMenu* pSysMenu)
     if ( pSysMenu != NULL )
     {
         m_pSubMenu = pSysMenu;
-        SetOwnDraw ( m_pSubMenu->m_hMenu );
+        SetOwnDraw ( m_pSubMenu->m_hMenu, CMWColors::m_iDarkTheme != 0  );
     }
     else
     {
         m_pSubMenu = pSysMenu;
-        SetOwnDraw ( m_hMenu );
+        SetOwnDraw ( m_hMenu, CMWColors::m_iDarkTheme != 0  );
     }
 
     return this;
@@ -144,11 +142,11 @@ CMWMenu *CMWMenu::SetApplicationMenu(CWnd* pWnd, CMenu *pMenu )
 
     //
     LoadMenu ( IDR_MAINFRAME );
-    SetOwnDraw ( m_hMenu );
+    SetOwnDraw ( m_hMenu, CMWColors::m_iDarkTheme != 0  );
     pWnd->SetMenu ( this );
 #else
     Attach ( pMenu->m_hMenu );
-    SetOwnDraw ( m_hMenu );
+    SetOwnDraw ( m_hMenu, CMWColors::m_iDarkTheme != 0 );
 #endif
     return this;
 }
@@ -276,13 +274,20 @@ CMenu *CMWMenu::GetSubMenu ()
 /////////////////////////////////////////////////////////////////////////////
 void CMWMenu::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos )
 {
-    if ( m_pSubMenu != NULL )
+    if ( CMWColors::m_iDarkTheme != 0 )
     {
-        DrawMenuItem( lpDrawItemStruct, fByPos );
-    }
-    else if ( m_hMenu != NULL ) 
-    {
-        DrawMenuItem( lpDrawItemStruct, fByPos );
+        if ( m_pSubMenu != NULL )
+        {
+            DrawMenuItem( lpDrawItemStruct, fByPos );
+        }
+        else if ( m_hMenu != NULL ) 
+        {
+            DrawMenuItem( lpDrawItemStruct, fByPos );
+        }
+        else
+        {
+            CMenu::DrawItem(lpDrawItemStruct);
+        }
     }
     else
     {
@@ -296,13 +301,20 @@ void CMWMenu::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos )
 /////////////////////////////////////////////////////////////////////////////
 void CMWMenu::MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByPos )
 {
-    if ( m_pSubMenu != NULL )
+    if ( CMWColors::m_iDarkTheme != 0 )
     {
-        MeasureMenuItem(lpMeasureItemStruct, fByPos );
-    }
-    else if ( m_hMenu != NULL ) 
-    {
-        MeasureMenuItem(lpMeasureItemStruct, fByPos);
+        if ( m_pSubMenu != NULL )
+        {
+            MeasureMenuItem(lpMeasureItemStruct, fByPos );
+        }
+        else if ( m_hMenu != NULL ) 
+        {
+            MeasureMenuItem(lpMeasureItemStruct, fByPos);
+        }
+        else
+        {
+            CMenu::MeasureItem(lpMeasureItemStruct);
+        }
     }
     else
     {
@@ -320,12 +332,12 @@ BOOL CMWMenu::TrackPopupMenu(UINT nFlags, int x, int y, CWnd* pWnd, LPCRECT lpRe
 
     if ( m_pSubMenu != NULL )
     {
-        SetOwnDraw(m_pSubMenu->m_hMenu);
+        SetOwnDraw(m_pSubMenu->m_hMenu, CMWColors::m_iDarkTheme != 0 );
         return  m_pSubMenu->TrackPopupMenu( nFlags,  x,  y, pWnd, lpRect );
     }
     else
     {
-        SetOwnDraw(m_hMenu);
+        SetOwnDraw(m_hMenu, CMWColors::m_iDarkTheme != 0 );
         return  CMenu::TrackPopupMenu( nFlags,  x,  y, pWnd, lpRect );
     }
 }

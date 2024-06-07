@@ -67,8 +67,6 @@ BEGIN_MESSAGE_MAP(CMidiOwnPlayer, CMWFormView)
 	ON_WM_TIMER()
 	ON_NOTIFY(NM_RELEASEDCAPTURE, IDC_SLIDER, OnReleasedcaptureSlider)
 	ON_NOTIFY(NM_RELEASEDCAPTURE, IDC_SLIDER_SPEED, OnReleasedcaptureSliderSpeed)
-	ON_WM_CTLCOLOR()
-	ON_WM_ERASEBKGND()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -320,42 +318,6 @@ void CMidiOwnPlayer::OnReleasedcaptureSliderSpeed(NMHDR* pNMHDR, LRESULT* pResul
 	}
 
 	*pResult = 0;
-}
-
-//
-///////////////////////////////////////////////////////////////////////////////////
-//
-///////////////////////////////////////////////////////////////////////////////////
-HBRUSH CMidiOwnPlayer::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
-{
-	HBRUSH hbr = CMWFormView::OnCtlColor(pDC, pWnd, nCtlColor);
-	
-	// TODO
-	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
-	if ( hBrush != NULL )
-	{
-		return hBrush;
-	}
-
-	// TODO
-	return hbr;
-}
-
-//
-///////////////////////////////////////////////////////////////////////////////////
-//
-///////////////////////////////////////////////////////////////////////////////////
-BOOL CMidiOwnPlayer::OnEraseBkgnd(CDC* pDC) 
-{
-	// TODO
-	
-	BOOL bRes = FriendEraseBkgndScrollView(this, pDC);
-	if ( bRes )
-	{
-		return bRes;
-	}
-
-	return CMWFormView::OnEraseBkgnd ( pDC );
 }
 
 //

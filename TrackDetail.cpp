@@ -17,8 +17,7 @@ extern CMidiWorksApp theApp;
 // CTrackDetail dialog
 
 
-CTrackDetail::CTrackDetail(CWnd* pParent /*=NULL*/)
-	: CDialog(CTrackDetail::IDD, pParent)
+CTrackDetail::CTrackDetail(CWnd* pParent /*=NULL*/) : CMWDialog(CTrackDetail::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CTrackDetail)
 		// NOTE: the ClassWizard will add member initialization here
@@ -28,7 +27,7 @@ CTrackDetail::CTrackDetail(CWnd* pParent /*=NULL*/)
 
 void CTrackDetail::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CMWDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CTrackDetail)
 	DDX_Control(pDX, IDOK, m_Ok);
 	DDX_Control(pDX, IDCANCEL, m_Cancel);
@@ -38,34 +37,25 @@ void CTrackDetail::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CTrackDetail, CDialog)
+BEGIN_MESSAGE_MAP(CTrackDetail, CMWDialog)
 	//{{AFX_MSG_MAP(CTrackDetail)
-	ON_WM_CTLCOLOR()
-	ON_WM_ERASEBKGND()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
+//
 /////////////////////////////////////////////////////////////////////////////
 // CTrackDetail message handlers
+//
+/////////////////////////////////////////////////////////////////////////////
 
-HBRUSH CTrackDetail::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
-{
-	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
-	
-	// TODO
-	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
-	if ( hBrush != NULL )
-	{
-		return hBrush;
-	}
 
-	// TODO
-	return hbr;
-}
-
+//
+/////////////////////////////////////////////////////////////////////////////
+//
+/////////////////////////////////////////////////////////////////////////////
 BOOL CTrackDetail::OnInitDialog() 
 {
-	CDialog::OnInitDialog();
+	CMWDialog::OnInitDialog();
 	
 	// TODO
 	CMainFrame			*pMainFrame;
@@ -90,15 +80,3 @@ BOOL CTrackDetail::OnInitDialog()
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
 
-BOOL CTrackDetail::OnEraseBkgnd(CDC* pDC) 
-{
-	// TODO
-	
-	BOOL bRes = FriendEraseBkgnd(this, pDC);
-	if ( bRes )
-	{
-		return bRes;
-	}
-
-	return CDialog::OnEraseBkgnd ( pDC );
-}

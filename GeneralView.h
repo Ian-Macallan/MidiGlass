@@ -79,8 +79,6 @@ class CGeneralView : public CMWFormView
 		//{{AFX_MSG(CGeneralView)
 		afx_msg void OnChangeDivisionHi();
 		afx_msg void OnChangeDivisionLo();
-		afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
-		afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 		afx_msg void OnMail();
 		afx_msg void OnWeb();
 		//}}AFX_MSG

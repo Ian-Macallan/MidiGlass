@@ -6,6 +6,7 @@
 #endif // _MSC_VER > 1000
 // PlayerDialog.h : header file
 //
+#include "MWDialog.h"
 
 #define		PLAYER_PLAY_LIST		0
 #define		PLAYER_PLAY_DIR			1
@@ -13,7 +14,7 @@
 /////////////////////////////////////////////////////////////////////////////
 // CPlayerDialog dialog
 
-class CPlayerDialog : public CDialog
+class CPlayerDialog : public CMWDialog
 {
 	friend	HBRUSH	FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	friend	BOOL	FriendEraseBkgnd(CWnd* pWnd, CDC* pDC);
@@ -132,7 +133,6 @@ protected:
 	afx_msg void OnPause();
 	afx_msg void OnStop();
 	afx_msg void OnForward();
-	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void OnChangeNumber();
 	afx_msg void OnSelchangeTuneCombo();
@@ -141,7 +141,6 @@ protected:
 	afx_msg void OnBack();
 	afx_msg void OnForw();
 	afx_msg void OnDropFiles(HDROP hDropInfo);
-	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

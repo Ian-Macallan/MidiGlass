@@ -26,7 +26,7 @@ static int iMidiFileIndex = 1;
 // CAboutDlg dialog used for App About
 //
 /////////////////////////////////////////////////////////////////////////////////////////////
-CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)
+CAboutDlg::CAboutDlg() : CMWDialog(CAboutDlg::IDD)
 {
 	//{{AFX_DATA_INIT(CAboutDlg)
 	//}}AFX_DATA_INIT
@@ -40,7 +40,7 @@ CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CMWDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CAboutDlg)
 	DDX_Control(pDX, IDC_INTERNAL_NAME, m_Internal_Name);
 	DDX_Control(pDX, IDC_COMMENTS, m_Comments);
@@ -57,14 +57,12 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 /////////////////////////////////////////////////////////////////////////////////////////////
 //
 /////////////////////////////////////////////////////////////////////////////////////////////
-BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
+BEGIN_MESSAGE_MAP(CAboutDlg, CMWDialog)
 	//{{AFX_MSG_MAP(CAboutDlg)
-	ON_WM_CTLCOLOR()
 	ON_BN_CLICKED(IDC_INTERNAL_NAME, OnInternalName)
 	ON_WM_DESTROY()
 	ON_BN_CLICKED(IDC_TUNE, OnTune)
 	ON_WM_DROPFILES()
-	ON_WM_ERASEBKGND()
 	ON_BN_CLICKED(IDC_COMMENTS, OnComments)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
@@ -73,28 +71,9 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////////////////////
 //
 /////////////////////////////////////////////////////////////////////////////////////////////
-HBRUSH CAboutDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
-{
-	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
-	
-	// TODO
-	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
-	if ( hBrush != NULL )
-	{
-		return hBrush;
-	}
-
-	// TODO
-	return hbr;
-}
-
-//
-/////////////////////////////////////////////////////////////////////////////////////////////
-//
-/////////////////////////////////////////////////////////////////////////////////////////////
 BOOL CAboutDlg::OnInitDialog() 
 {
-	CDialog::OnInitDialog();
+	CMWDialog::OnInitDialog();
 	
 	// TODO
 	DWORD			dwLength;
@@ -215,7 +194,7 @@ void CAboutDlg::OnInternalName()
 void CAboutDlg::OnOK() 
 {
 	// TODO
-	CDialog::OnOK();
+	CMWDialog::OnOK();
 }
 
 //
@@ -224,7 +203,7 @@ void CAboutDlg::OnOK()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CAboutDlg::OnDestroy() 
 {
-	CDialog::OnDestroy();
+	CMWDialog::OnDestroy();
 	
 	// TODO
 	if ( m_pMidiFile != NULL )
@@ -342,23 +321,7 @@ void CAboutDlg::OnDropFiles(HDROP hDropInfo)
 		m_pMidiFile->LLPlay ( );
 	}
 
-	CDialog::OnDropFiles(hDropInfo);
-}
-
-//
-/////////////////////////////////////////////////////////////////////////////////////////////
-//
-/////////////////////////////////////////////////////////////////////////////////////////////
-BOOL CAboutDlg::OnEraseBkgnd(CDC* pDC) 
-{
-	// TODO
-	BOOL bRes = FriendEraseBkgnd(this, pDC);
-	if ( bRes )
-	{
-		return bRes;
-	}
-
-	return CDialog::OnEraseBkgnd ( pDC );
+	CMWDialog::OnDropFiles(hDropInfo);
 }
 
 //

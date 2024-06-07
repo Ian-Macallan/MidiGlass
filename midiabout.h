@@ -22,12 +22,13 @@
 
 #include "ModifyThreadDialog.h"	// Added by ClassView
 #include "MainFrm.h"
+#include "MWDialog.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CMidiWorksApp:
 // See Midi Works.cpp for the implementation of this class
 //
-class CAboutDlg : public CDialog
+class CAboutDlg : public CMWDialog
 {
 	friend	HBRUSH	FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	friend	BOOL	FriendEraseBkgnd(CWnd* pWnd, CDC* pDC);
@@ -58,14 +59,12 @@ public:
 protected:
 	CMidiFile * m_pMidiFile;
 	//{{AFX_MSG(CAboutDlg)
-	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	virtual BOOL OnInitDialog();
 	afx_msg void OnInternalName();
 	virtual void OnOK();
 	afx_msg void OnDestroy();
 	afx_msg void OnTune();
 	afx_msg void OnDropFiles(HDROP hDropInfo);
-	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	afx_msg void OnComments();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()

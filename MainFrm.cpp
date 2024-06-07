@@ -4,6 +4,7 @@
 #include "StdAfx.h"
 #include "MidiGlassApp.h"
 #include "MWColors.h"
+#include "MWNCColor.h"
 
 #include "MainFrm.h"
 
@@ -64,8 +65,8 @@ IMPLEMENT_DYNCREATE(CMainFrame, CFrameWnd)
 
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	//{{AFX_MSG_MAP(CMainFrame)
-	ON_UPDATE_COMMAND_UI(ID_INDICATOR_ERROR, OnUpdateIndicatorError)
 	ON_WM_CREATE()
+	ON_UPDATE_COMMAND_UI(ID_INDICATOR_ERROR, OnUpdateIndicatorError)
 	ON_COMMAND(ID_CONTENT_EVENTS_TEXT, OnContentEventsText)
 	ON_COMMAND(ID_CONTENT_HEADER, OnContentHeader)
 	ON_COMMAND(ID_CONTENT_EVENTS_COPYRIGHT, OnContentEventsCopyright)
@@ -237,9 +238,17 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
     ON_WM_INITMENUPOPUP()
     ON_WM_DRAWITEM()
     ON_WM_MEASUREITEM()
+    ON_WM_NCACTIVATE()
+    ON_WM_NCPAINT()
+    ON_WM_NCMOUSEMOVE()
+    ON_WM_NCMOUSELEAVE()
+    ON_WM_NCMOUSEHOVER()
+    ON_WM_NCLBUTTONUP()
+    ON_WM_NCLBUTTONDOWN()
     END_MESSAGE_MAP()
 	//}}AFX_MSG_MAP
 
+//
 static UINT indicators[] =
 {
 	ID_SEPARATOR,           // status line indicator
@@ -287,6 +296,7 @@ CMainFrame::CMainFrame()
 
 	//	The Colors
 	CMWColors::m_iDarkTheme 	= theApp.GetProfileInt ( "Settings", "Control Color", 1 );
+    theApp.WriteProfileInt ( "Settings", "Control Color", CMWColors::m_iDarkTheme );
 
 	theApp.m_iSplitterWindow	= theApp.GetProfileInt ( "Settings", "Split Window", 1 );
 	theApp.m_bSplitterWindow	= ( theApp.m_iSplitterWindow != 0 );
@@ -458,6 +468,9 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	//	Display Bars now
 	DisplayOwnToolBars ( );
+
+    //
+    
 
     //
 #if BLACK_APPMENU
@@ -2563,9 +2576,7 @@ void CMainFrame::OnContextMenu(CWnd* pWnd, CPoint point)
 		CMWMenu		menu;
 		menu.LoadMenu ( IDR_MENU_VIEWS );
 		m_pContextMenu = menu.GetSubMenu ( 0 );
-		m_pContextMenu->TrackPopupMenu (
-			TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON, 
-			point.x, point.y, this );
+		m_pContextMenu->TrackPopupMenu ( TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON,  point.x, point.y, this );
 		return;
 	}
 }
@@ -2577,9 +2588,7 @@ void CMainFrame::OnContextMenu(CWnd* pWnd, CPoint point)
 void CMainFrame::OnViewStatusBar() 
 {
 	// TODO
-	ShowControlBar ( &m_wndStatusBar, 
-						( m_wndStatusBar.GetStyle () & WS_VISIBLE ) == 0,
-						FALSE );
+	ShowControlBar ( &m_wndStatusBar, ( m_wndStatusBar.GetStyle () & WS_VISIBLE ) == 0, FALSE );
 	theApp.m_bStatusBar = ( ( m_wndStatusBar.GetStyle () & WS_VISIBLE ) != 0 );
 	theApp.WriteProfileInt ( "Settings", "Status Bar", theApp.m_bStatusBar );
 	
@@ -2593,7 +2602,6 @@ CMidiDoc *CMainFrame::GetMidiDoc()
 {
 	//		Then start the midi file playing
 	return dynamic_cast< CMidiDoc * >( GetActiveDocument() );
-
 }
 
 //
@@ -3068,6 +3076,13 @@ int CMainFrame::CreateOwnStatusBar()
 		return -1;      // fail to create
 	}
 
+    UINT added  = SBPS_OWNERDRAW;
+    if ( CMWColors::m_iDarkTheme == 0 )
+    {
+        added = NULL;
+    }
+    m_wndStatusBar.ModifyStyle ( NULL, added );
+
 	//		Set size of the ID_INDICATOR_ERROR
 	RECT				rectFrame;
 	UINT				nID;
@@ -3078,27 +3093,37 @@ int CMainFrame::CreateOwnStatusBar()
 	GetClientRect ( &rectFrame );
 
 	//		Get and reduce the size of the display text in the status bar
+    // added       = NULL;
 	m_wndStatusBar.GetPaneInfo ( 0, nID, nStyle, cxWidth );
+    nStyle |= added;
 	m_wndStatusBar.SetPaneInfo ( 0, nID, nStyle, 80 );
-
 	m_wndStatusBar.GetPaneInfo ( 0, nID, nStyle, cxWidth );
+    m_wndStatusBar.SetPaneText ( 0, "Ready" );
 	rectFrame.right -= cxWidth;
 
 	//		Get the CAP size
 	m_wndStatusBar.GetPaneInfo ( 2, nID, nStyle, cxWidth );
+    nStyle |= added;
+    m_wndStatusBar.SetPaneInfo ( 2, nID, nStyle, cxWidth );
 	rectFrame.right -= cxWidth;
 
 	//		Get the NUM size
 	m_wndStatusBar.GetPaneInfo ( 3, nID, nStyle, cxWidth );
+    nStyle |= added;
+    m_wndStatusBar.SetPaneInfo ( 3, nID, nStyle, cxWidth );
 	rectFrame.right -= cxWidth;
 
 	//		Get The Lock Size
 	m_wndStatusBar.GetPaneInfo ( 4, nID, nStyle, cxWidth );
+    nStyle |= added;
+    m_wndStatusBar.SetPaneInfo ( 4, nID, nStyle, cxWidth );
 	rectFrame.right -= cxWidth;
 
 	//		Set the width for our error text
-	m_wndStatusBar.SetPaneInfo( 1, ID_INDICATOR_ERROR, 0, rectFrame.right - 80 );
-
+    m_wndStatusBar.GetPaneInfo ( 1, nID, nStyle, cxWidth );
+    nStyle |= added;
+	m_wndStatusBar.SetPaneInfo ( 1, nID /* ID_INDICATOR_ERROR */, nStyle, rectFrame.right - 80 );
+    m_wndStatusBar.SetPaneText ( 1, "" );
 	if ( ! theApp.m_bStatusBar )
 	{
 		ShowControlBar ( &m_wndStatusBar, ( m_wndStatusBar.GetStyle () & WS_VISIBLE ) == 0, FALSE );
@@ -3384,8 +3409,7 @@ void CMainFrame::LoadOwnToolBar()
 ///////////////////////////////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////////////////////////////
-void CMainFrame::ShowOwnToolBar(CMWToolBar *pToolBar, 
-								CMWToolBar *pLargeToolBar, int bShow)
+void CMainFrame::ShowOwnToolBar(CMWToolBar *pToolBar, CMWToolBar *pLargeToolBar, int bShow)
 {
 	if ( theApp.m_bReBar )
 	{
@@ -3439,8 +3463,7 @@ void CMainFrame::ShowOwnToolBar(CMWToolBar *pToolBar,
 ///////////////////////////////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////////////////////////////
-void CMainFrame::ShowOwnReBar(	CMWToolBar *pToolBar, 
-								CMWToolBar *pLargeToolBar, int bShow)
+void CMainFrame::ShowOwnReBar(	CMWToolBar *pToolBar, CMWToolBar *pLargeToolBar, int bShow)
 {
 
 	if ( ! theApp.m_bReBar )
@@ -3634,8 +3657,8 @@ BOOL CMainFrame::CreateSplitterWindows(LPCREATESTRUCT lpcs, CCreateContext *pCon
 		return false;
 	}
 
-	int iLeftView = theApp.GetProfileInt ( "Settings", "Left View", LEFT_VIEW_TRACKS );
-	int iRightView = theApp.GetProfileInt ( "Settings", "Right View", RIGHT_VIEW_HEADER );
+	int iLeftView   = theApp.GetProfileInt ( "Settings", "Left View", LEFT_VIEW_TRACKS );
+	int iRightView  = theApp.GetProfileInt ( "Settings", "Right View", RIGHT_VIEW_HEADER );
 
 	switch ( iLeftView )
 	{
@@ -4736,4 +4759,119 @@ void CMainFrame::OnUpdateFrameMenu(HMENU hMenuAlt)
 {
     // TODO
     CFrameWnd::OnUpdateFrameMenu(hMenuAlt);
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+BOOL CMainFrame::OnNcActivate(BOOL bActive)
+{
+    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    BOOL bTreated = m_NC.Activate (  this, bActive );
+    if ( bTreated )
+    {
+        return TRUE;
+    }
+    return CFrameWnd::OnNcActivate(bActive);
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnNcPaint()
+{
+    // TODO: ajoutez ici le code de votre gestionnaire de messages
+    // N'appelez pas CFrameWnd::OnNcPaint() pour la peinture des messages
+    BOOL bTreated = m_NC.PaintWindow ( this );
+    if ( bTreated )
+    {
+        return;
+    }
+
+    CFrameWnd::OnNcPaint();
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnNcMouseMove(UINT nHitTest, CPoint point)
+{
+    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    BOOL bTreated = m_NC.OnNcMouseMove ( this, nHitTest, point );
+    if ( bTreated )
+    {
+        return;
+    }
+    CFrameWnd::OnNcMouseMove(nHitTest, point);
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnNcMouseLeave()
+{
+    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
+    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
+    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    BOOL bTreated = m_NC.OnNcMouseLeave ( this );
+    if ( bTreated )
+    {
+        return;
+    }
+
+    CFrameWnd::OnNcMouseLeave();
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnNcMouseHover(UINT nFlags, CPoint point)
+{
+    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
+    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
+    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    BOOL bTreated = m_NC.OnNcMouseHover ( this, nFlags, point );
+    if ( bTreated )
+    {
+        return;
+    }
+
+    CFrameWnd::OnNcMouseHover(nFlags, point);
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnNcLButtonUp(UINT nHitTest, CPoint point)
+{
+    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    BOOL bTreated = m_NC.OnNcLButtonUp ( this, nHitTest, point );
+    if ( bTreated )
+    {
+        return;
+    }
+
+    CFrameWnd::OnNcLButtonUp(nHitTest, point);
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnNcLButtonDown(UINT nHitTest, CPoint point)
+{
+    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    BOOL bTreated = m_NC.OnNcLButtonDown ( this, nHitTest, point );
+    if ( bTreated )
+    {
+        return;
+    }
+
+    CFrameWnd::OnNcLButtonDown(nHitTest, point);
 }

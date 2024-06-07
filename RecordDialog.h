@@ -5,6 +5,8 @@
 
 // #include "MidiWave.h"	// Added by ClassView
 #include "AudioLoopbackThread.h"
+#include "MWDialog.h"
+
 //
 
 //
@@ -12,7 +14,7 @@
 // CRecordDialog dialog
 //
 ////////////////////////////////////////////////////////////////////////////////////////
-class CRecordDialog : public CDialog
+class CRecordDialog : public CMWDialog
 {
 	// Construction
 	public:
@@ -52,8 +54,6 @@ class CRecordDialog : public CDialog
 		virtual BOOL OnInitDialog();
 		virtual void OnOK();
 		virtual void OnCancel();
-		afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
-		afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 		afx_msg void OnTimer(UINT_PTR nIDEvent);
 		//}}AFX_MSG
 		DECLARE_MESSAGE_MAP()

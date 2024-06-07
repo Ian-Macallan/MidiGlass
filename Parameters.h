@@ -7,11 +7,12 @@
 // Parameters.h : header file
 //
 #include "MWObjects.h"
+#include "MWDialog.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CParameters dialog
 
-class CParameters : public CDialog
+class CParameters : public CMWDialog
 {
 	friend	HBRUSH	FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	friend	BOOL	FriendEraseBkgnd(CWnd* pWnd, CDC* pDC);
@@ -48,8 +49,6 @@ protected:
 	afx_msg void OnSelchangeControler();
 	afx_msg void OnChangeSettings();
 	afx_msg void OnCheckSettings();
-	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
-	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

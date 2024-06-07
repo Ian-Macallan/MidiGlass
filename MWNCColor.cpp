@@ -6,6 +6,7 @@
 #include "MWColors.h"
 #include "MWMenu.h"
 #include "MWGDI.h"
+#include "MainFrm.h"
 
 //
 /////////////////////////////////////////////////////////////////////////////
@@ -502,6 +503,7 @@ BOOL CMWNCColor::PaintWindow( CWnd *pWnd, BOOL bActive )
         pWnd->GetClientRect( &clientRect );
         pWnd->InvalidateRect ( &clientRect );
     }
+
     return TRUE;
 }
 

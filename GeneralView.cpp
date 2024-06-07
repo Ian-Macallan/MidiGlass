@@ -69,8 +69,6 @@ BEGIN_MESSAGE_MAP(CGeneralView, CMWFormView)
 	//{{AFX_MSG_MAP(CGeneralView)
 	ON_EN_CHANGE(IDC_DIVISION_HI, OnChangeDivisionHi)
 	ON_EN_CHANGE(IDC_DIVISION_LO, OnChangeDivisionLo)
-	ON_WM_CTLCOLOR()
-	ON_WM_ERASEBKGND()
 	ON_BN_CLICKED(IDC_MAIL, OnMail)
 	ON_BN_CLICKED(IDC_WEB, OnWeb)
 	//}}AFX_MSG_MAP
@@ -290,42 +288,6 @@ void CGeneralView::OnChangeDivisionLo()
 		}
 	}
 	
-}
-
-//
-/////////////////////////////////////////////////////////////////
-//
-/////////////////////////////////////////////////////////////////
-HBRUSH CGeneralView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
-{
-	HBRUSH hbr = CMWFormView::OnCtlColor(pDC, pWnd, nCtlColor);
-	
-	// TODO
-	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
-	if ( hBrush != NULL )
-	{
-		return hBrush;
-	}
-
-	// TODO
-	return hbr;
-}
-
-//
-/////////////////////////////////////////////////////////////////
-//
-/////////////////////////////////////////////////////////////////
-BOOL CGeneralView::OnEraseBkgnd(CDC* pDC) 
-{
-	// TODO
-	
-	BOOL bRes = FriendEraseBkgndScrollView(this, pDC);
-	if ( bRes )
-	{
-		return bRes;
-	}
-
-	return CMWFormView::OnEraseBkgnd ( pDC );
 }
 
 //

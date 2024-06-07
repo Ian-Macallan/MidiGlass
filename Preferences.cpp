@@ -15,12 +15,12 @@ static char THIS_FILE[] = __FILE__;
 
 extern CMidiWorksApp theApp;
 
+//
 /////////////////////////////////////////////////////////////////////////////
 // CPreferences dialog
 //
 //////////////////////////////////////////////////////////////////////////
-CPreferences::CPreferences(CWnd* pParent /*=NULL*/)
-	: CDialog(CPreferences::IDD, pParent)
+CPreferences::CPreferences(CWnd* pParent /*=NULL*/) : CMWDialog(CPreferences::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CPreferences)
 		// NOTE: the ClassWizard will add member initialization here
@@ -33,7 +33,7 @@ CPreferences::CPreferences(CWnd* pParent /*=NULL*/)
 //////////////////////////////////////////////////////////////////////////
 void CPreferences::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CMWDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CPreferences)
 	DDX_Control(pDX, IDC_IN_DEVICES, m_In_Device);
 	DDX_Control(pDX, IDC_WAVE_DIRECTORY, m_WaveDirectory);
@@ -57,11 +57,9 @@ void CPreferences::DoDataExchange(CDataExchange* pDX)
 //////////////////////////////////////////////////////////////////////////
 //
 //////////////////////////////////////////////////////////////////////////
-BEGIN_MESSAGE_MAP(CPreferences, CDialog)
+BEGIN_MESSAGE_MAP(CPreferences, CMWDialog)
 	//{{AFX_MSG_MAP(CPreferences)
 	ON_BN_CLICKED(IDC_SKIP_TO_NOTE, OnSkipToNote)
-	ON_WM_CTLCOLOR()
-	ON_WM_ERASEBKGND()
 	ON_BN_CLICKED(ID_BROWSE, &CPreferences::OnBnClickedBrowse)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
@@ -73,7 +71,7 @@ END_MESSAGE_MAP()
 //////////////////////////////////////////////////////////////////////////
 BOOL CPreferences::OnInitDialog() 
 {
-	CDialog::OnInitDialog();
+	CMWDialog::OnInitDialog();
 	
 	// TODO
 	DisplayValues ( );
@@ -284,7 +282,7 @@ void CPreferences::OnOK()
 	m_WaveDirectory.GetWindowText ( theApp.m_WaveDirectory );
 	m_SoundFontFile.GetWindowText ( theApp.m_SoundFontFile );
 
-	CDialog::OnOK();
+	CMWDialog::OnOK();
 }
 
 //
@@ -294,42 +292,6 @@ void CPreferences::OnOK()
 void CPreferences::OnSkipToNote() 
 {
 	// TODO
-}
-
-//
-//////////////////////////////////////////////////////////////////////////
-//
-//////////////////////////////////////////////////////////////////////////
-HBRUSH CPreferences::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
-{
-	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
-	
-	// TODO
-	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
-	if ( hBrush != NULL )
-	{
-		return hBrush;
-	}
-
-	// TODO
-	return hbr;
-}
-
-//
-//////////////////////////////////////////////////////////////////////////
-//
-//////////////////////////////////////////////////////////////////////////
-BOOL CPreferences::OnEraseBkgnd(CDC* pDC) 
-{
-	// TODO
-	
-	BOOL bRes = FriendEraseBkgnd(this, pDC);
-	if ( bRes )
-	{
-		return bRes;
-	}
-
-	return CDialog::OnEraseBkgnd ( pDC );
 }
 
 //

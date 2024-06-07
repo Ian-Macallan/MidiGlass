@@ -8,13 +8,14 @@
 //
 #include "MWObjects.h"
 #include "afxwin.h"
+#include "MWDialog.h"
 
 //
 ////////////////////////////////////////////////////////////////////////
 // CEventDetail dialog
 //
 ////////////////////////////////////////////////////////////////////////
-class CEventDetail : public CDialog
+class CEventDetail : public CMWDialog
 {
 	DECLARE_DYNAMIC(CEventDetail)
 
@@ -92,8 +93,6 @@ class CEventDetail : public CDialog
 		//{{AFX_MSG(CEventDetail)
 		virtual BOOL OnInitDialog();
 		virtual void OnOK();
-		afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
-		afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 		afx_msg void OnCbnSelchangeEventCombo();
 		//}}AFX_MSG
 		DECLARE_MESSAGE_MAP()

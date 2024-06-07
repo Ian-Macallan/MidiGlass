@@ -8,11 +8,12 @@
 //
 #include "MWObjects.h"
 #include "afxwin.h"
+#include "MWDialog.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CPreferences dialog
 
-class CPreferences : public CDialog
+class CPreferences : public CMWDialog
 {
 	friend	HBRUSH	FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	friend	BOOL	FriendEraseBkgnd(CWnd* pWnd, CDC* pDC);
@@ -58,8 +59,6 @@ protected:
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 	afx_msg void OnSkipToNote();
-	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
-	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:
