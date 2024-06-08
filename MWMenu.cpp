@@ -445,7 +445,7 @@ UINT CMWMenu::EnableMenuItem ( UINT nIDEnableItem, UINT nEnable )
 /////////////////////////////////////////////////////////////////////////////
 //
 /////////////////////////////////////////////////////////////////////////////
-void CMWMenu::MeasureMenuItem ( CDC *pDC, const char *pText, CSize *pSize )
+void CMWMenu::MeasureMenuItem ( CDC *pDC, const char *pText, CSize *pSize, MENUITEMINFO *menuInfo )
 {
     //
     //      Initial Size
@@ -477,7 +477,10 @@ void CMWMenu::MeasureMenuItem ( CDC *pDC, const char *pText, CSize *pSize )
             pSize->cy       = SEPARATOR_HEIGHT;
         }
 
-        pSize->cx           += (EXTRA_PIXELS_WIDTH * 2 );
+        if ( menuInfo != NULL && menuInfo->hSubMenu == NULL )
+        {
+            pSize->cx           += (EXTRA_PIXELS_WIDTH * 2 );
+        }
     }
 
     return;
@@ -515,7 +518,7 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByP
     ZeroMemory ( &menuItemInfo, sizeof ( menuItemInfo ) );
     menuItemInfo.cbSize  = sizeof (menuItemInfo);
 
-    menuItemInfo.fMask          = MIIM_STRING | MIIM_STATE | MIIM_FTYPE | MIIM_SUBMENU | MIIM_ID  | MIIM_DATA;
+    menuItemInfo.fMask          = MIIM_STRING | MIIM_STATE | MIIM_FTYPE | MIIM_SUBMENU | MIIM_ID  | MIIM_DATA | MIIM_BITMAP;
     menuItemInfo.cch            = sizeof ( szText );
     menuItemInfo.dwTypeData     = szText;
     UINT uItem  = ( UINT ) lpMeasureItemStruct->itemData;
@@ -537,7 +540,7 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByP
                 {
                     strcat_s  ( szText, sizeof(szText), "ALT+99" );
                 }
-                MeasureMenuItem ( pDC, szText, &size );
+                MeasureMenuItem ( pDC, szText, &size, &menuItemInfo );
                 size.cx     = size.cx + 1;
                 size.cy     = size.cy + 1;
                 int iRes    = m_pWnd->ReleaseDC ( pDC );
@@ -563,7 +566,7 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByP
 //      Draw an Item
 //====================================================================================
 void CMWMenu::DrawMenuItem (   LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC,
-                               CRect *pRect, const char *pText )
+                               CRect *pRect, const char *pText, MENUITEMINFO *menuInfo )
 {
     int xCheckIcon  = GetSystemMetrics(SM_CXMENUCHECK);
     int yCheckIcon  = GetSystemMetrics(SM_CYMENUCHECK);
@@ -605,18 +608,52 @@ void CMWMenu::DrawMenuItem (   LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC,
         pDC->FillRect ( pRect, brBKNormal);
     }
 
+    int xIconSmall  = GetSystemMetrics(SM_CXSMICON);
+    int yIconSmall  = GetSystemMetrics(SM_CYSMICON);
+
     //
     if ( lpDrawItemStruct->itemState & ODS_CHECKED )
     {
         // We Will Have to Draw a Bitmap
         hOldBrush       = ( HBRUSH ) pDC->SelectObject ( hForeground );
-        int xIconSmall  = GetSystemMetrics(SM_CXSMICON);
-        int yIconSmall  = GetSystemMetrics(SM_CYSMICON);
 
         //
         DrawIconEx ( pDC->m_hDC, lpDrawItemStruct->rcItem.left, lpDrawItemStruct->rcItem.top, 
-            m_hCheckWhiteIcon, xIconSmall, yIconSmall, 0, NULL, DI_NORMAL );
+                    m_hCheckWhiteIcon, xIconSmall, yIconSmall, 0, NULL, DI_NORMAL );
 
+        //
+        pDC->SelectObject ( hOldBrush );
+    }
+    else if ( menuInfo->hbmpItem != NULL )
+    {
+        hOldBrush       = ( HBRUSH ) pDC->SelectObject ( hForeground );
+
+        RECT iconRect   = lpDrawItemStruct->rcItem;
+        iconRect.top++;
+        iconRect.left++;
+        iconRect.bottom++;
+        iconRect.right++;
+        if ( menuInfo->hbmpItem == HBMMENU_POPUP_RESTORE )
+        {
+            //
+            HICON hIcon   = AfxGetApp()->LoadIcon(IDI_WINDOWED);
+            DrawIconEx ( pDC->m_hDC, iconRect.left, iconRect.top, hIcon, xIconSmall, yIconSmall, 0, NULL, DI_NORMAL );
+        }
+        else if ( menuInfo->hbmpItem == HBMMENU_POPUP_MINIMIZE )
+        {
+            HICON hIcon   = AfxGetApp()->LoadIcon(IDI_MINIMIZE);
+            DrawIconEx ( pDC->m_hDC, iconRect.left, iconRect.top, hIcon, xIconSmall, yIconSmall, 0, NULL, DI_NORMAL );
+        }
+        else if ( menuInfo->hbmpItem == HBMMENU_POPUP_MAXIMIZE )
+        {
+            HICON hIcon   = AfxGetApp()->LoadIcon(IDI_MAXIMIZE);
+            DrawIconEx ( pDC->m_hDC, iconRect.left, iconRect.top, hIcon, xIconSmall, yIconSmall, 0, NULL, DI_NORMAL );
+        }
+        else if ( menuInfo->hbmpItem == HBMMENU_POPUP_CLOSE  )
+        {
+            HICON hIcon   = AfxGetApp()->LoadIcon(IDI_CLOSE);
+            DrawIconEx ( pDC->m_hDC, iconRect.left, iconRect.top, hIcon, xIconSmall, yIconSmall, 0, NULL, DI_NORMAL );
+        }
         //
         pDC->SelectObject ( hOldBrush );
     }
@@ -748,7 +785,8 @@ void CMWMenu::DrawMenuItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos )
     menuItemInfo.cbSize  = sizeof ( menuItemInfo );
 
     //
-    menuItemInfo.fMask      =  MIIM_STRING;
+    menuItemInfo.fMask      = MIIM_STRING;
+    menuItemInfo.fMask      = MIIM_STRING | MIIM_STATE | MIIM_FTYPE | MIIM_SUBMENU | MIIM_ID  | MIIM_DATA | MIIM_BITMAP;
     menuItemInfo.cch        = sizeof ( szText ) - 1;
     menuItemInfo.dwTypeData = szText;
     UINT id   = ( UINT ) lpDrawItemStruct->itemData;
@@ -756,6 +794,8 @@ void CMWMenu::DrawMenuItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos )
     {
         id   = ( UINT ) lpDrawItemStruct->itemID;
     }
+
+    //
     BOOL bRes = GetMenuItemInfo ( id, &menuItemInfo, fByPos );
     if ( bRes )
     {
@@ -766,7 +806,7 @@ void CMWMenu::DrawMenuItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos )
         CDC *pDC = CDC::FromHandle(lpDrawItemStruct->hDC);
         if ( pDC )
         {
-            DrawMenuItem( lpDrawItemStruct, pDC, &rectMenu, szText );
+            DrawMenuItem ( lpDrawItemStruct, pDC, &rectMenu, szText, &menuItemInfo );
         }
     }
 
@@ -865,13 +905,12 @@ void CMWMenu::DrawBitmap(CDC *pDC, CBitmap *pBitmap, CRect *pRect)
     //      Select the Bitmap
     if ( memDC.m_hDC )
     {
-        CBitmap *pOldBitmap = memDC.SelectObject( pBitmap );
-        
-        *pRect -= CRect ( 1, 1, 2, 2 );             // shrink
-
+        CBitmap *pOldBitmap = memDC.SelectObject ( pBitmap );
+        BITMAP bm;
+        pBitmap->GetBitmap(&bm);
         // blast bits to screen
-        pDC->BitBlt ( pRect->left, pRect->top,
-            pRect->Width(), pRect->Height(), &memDC, 0, 0, SRCCOPY );
+        pDC->FillRect ( pRect, CMWColors::GetBKMenuCBrush(CMWColors::m_iDarkTheme != 0 ) );
+        pDC->BitBlt ( pRect->left, pRect->top, pRect->Width(), pRect->Height(), &memDC, 0, 0, SRCCOPY);
 
         memDC.SelectObject ( pOldBitmap );          // restore DC
     }

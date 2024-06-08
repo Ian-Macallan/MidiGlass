@@ -59,9 +59,9 @@ class CMWMenu : public CMenu
 
         virtual UINT EnableMenuItem ( UINT nIDEnableItem, UINT nEnable );
 
-        void        MeasureMenuItem ( CDC *pDC, const char *pText, CSize *pSize );
+        void        MeasureMenuItem ( CDC *pDC, const char *pText, CSize *pSize, MENUITEMINFO *menuInfo );
         void        MeasureMenuItem ( LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByPos = FALSE );
-        void        DrawMenuItem (  LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC, CRect *pRect, const char *pText );
+        void        DrawMenuItem (  LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC, CRect *pRect, const char *pText, MENUITEMINFO *menuInfo );
         void        DrawMenuItem ( LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos = FALSE );
 
         void        ComputeBitmapMaxSize ( );
