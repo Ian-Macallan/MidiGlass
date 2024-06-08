@@ -111,7 +111,7 @@ BOOL CToolBarSoundFont::ReLoadComboBox()
 /////////////////////////////////////////////////////////////////////////////////////////
 BOOL CToolBarSoundFont::OnCommand(WPARAM wParam, LPARAM lParam)
 {
-	// TODO
+	//
 	return CMWToolBar::OnCommand(wParam, lParam);
 }
 
@@ -144,7 +144,7 @@ LRESULT CToolBarSoundFont::OnEditSelect(WPARAM wParam, LPARAM lParam)
 /////////////////////////////////////////////////////////////////////////////////////////
 BOOL CToolBarSoundFont::OnEraseBkgnd(CDC* pDC)
 {
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    //
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{

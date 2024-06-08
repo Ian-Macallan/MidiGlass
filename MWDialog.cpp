@@ -31,7 +31,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 BOOL CMWDialog::OnEraseBkgnd(CDC* pDC)
 {
-	// TODO
+	//
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{
@@ -49,13 +49,13 @@ HBRUSH CMWDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
     HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 
-	// TODO
+	//
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-    // TODO:  Retourner un autre pinceau si le pinceau par défaut n'est pas souhaité
+    //
     return hbr;
 }

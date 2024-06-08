@@ -33,10 +33,10 @@ END_MESSAGE_MAP()
 void CMWCHeaderCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMCUSTOMDRAW pNMCD = reinterpret_cast<LPNMCUSTOMDRAW>(pNMHDR);
-    // TODO
+    //
     *pResult = 0;
 
-    // TODO
+    //
 
     if ( pNMCD )
     {
@@ -157,7 +157,7 @@ void CMWCHeaderCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 /////////////////////////////////////////////////////////////////////////////////////////////
 BOOL CMWCHeaderCtrl::OnEraseBkgnd(CDC* pDC)
 {
-    // TODO
+    //
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{
@@ -175,8 +175,8 @@ HBRUSH CMWCHeaderCtrl::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
     HBRUSH hbr = CHeaderCtrl::OnCtlColor(pDC, pWnd, nCtlColor);
 
-    // TODO
+    //
 
-    // TODO
+    //
     return hbr;
 }

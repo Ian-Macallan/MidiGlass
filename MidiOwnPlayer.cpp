@@ -98,7 +98,7 @@ void CMidiOwnPlayer::Dump(CDumpContext& dc) const
 ///////////////////////////////////////////////////////////////////////////////////
 void CMidiOwnPlayer::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
 {
-	// TODO
+	//
 	if ( m_bFirstTime || ( lHint & RIGHT_MASK_PLAYER ) || lHint == 0 )
 	{
 		m_bFirstTime = false;
@@ -258,7 +258,7 @@ void CMidiOwnPlayer::DisplayValues()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMidiOwnPlayer::OnTimer(UINT_PTR nIDEvent) 
 {
-	// TODO
+	//
 	DisplayValues ();
 
 	CMWFormView::OnTimer(nIDEvent);
@@ -270,7 +270,7 @@ void CMidiOwnPlayer::OnTimer(UINT_PTR nIDEvent)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMidiOwnPlayer::OnReleasedcaptureSlider(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
 
@@ -300,7 +300,7 @@ void CMidiOwnPlayer::OnReleasedcaptureSlider(NMHDR* pNMHDR, LRESULT* pResult)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMidiOwnPlayer::OnReleasedcaptureSliderSpeed(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO
+	//
 	
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
@@ -328,7 +328,7 @@ void CMidiOwnPlayer::OnInitialUpdate()
 {
 	CMWFormView::OnInitialUpdate();
 	
-	// TODO
+	//
 	if ( ! theApp.m_bSplitterWindow )
 	{
 		GetParentFrame ( )->RecalcLayout ( );
@@ -347,7 +347,7 @@ void CMidiOwnPlayer::OnInitialUpdate()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMidiOwnPlayer::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO
+	//
 	FriendActivate( bActivate, pActivateView, pDeactiveView, false);
 	
 	CMWFormView::OnActivateView(bActivate, pActivateView, pDeactiveView);

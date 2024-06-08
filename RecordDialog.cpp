@@ -95,7 +95,7 @@ BOOL CRecordDialog::OnInitDialog()
 {
 	CMWDialog::OnInitDialog();
 	
-	// TODO
+	//
 
 	//		Say we are not saving.
 	m_bSaved		= false;
@@ -125,7 +125,7 @@ BOOL CRecordDialog::OnInitDialog()
 ////////////////////////////////////////////////////////////////////////////////////////
 void CRecordDialog::OnOK() 
 {
-	// TODO
+	//
     //  Stop Current Playing
 	m_Text.SetWindowText ( "Starting the recording. An internal loopback capture is at work" );
 	m_Ok.EnableWindow ( false );
@@ -236,7 +236,7 @@ LRESULT CRecordDialog::OnMciNotify(WPARAM wParam, LPARAM lParam)
 ////////////////////////////////////////////////////////////////////////////////////////
 void CRecordDialog::OnTimer(UINT_PTR nIDEvent) 
 {
-	// TODO
+	//
 	int iPos = m_Progress_Bar.GetPos ( );
 	iPos++;
 	if ( iPos >= 60 )

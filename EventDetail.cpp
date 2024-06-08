@@ -164,7 +164,7 @@ BOOL CEventDetail::OnInitDialog()
 {
 	CMWDialog::OnInitDialog();
 	
-	// TODO
+	//
 	CMainFrame			*pMainFrame;
 	char				szString [ 64 ];
 
@@ -524,7 +524,7 @@ void CEventDetail::OnOK()
 ////////////////////////////////////////////////////////////////////////
 void CEventDetail::OnCancel()
 {
-	// TODO
+	//
 	Free();
 	CMWDialog::OnCancel();
 }

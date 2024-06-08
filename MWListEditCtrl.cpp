@@ -258,7 +258,7 @@ CWnd * CMWListEditCtrl::CreateSubItemControl(int iItem, int iSubItem, CRect rect
 /////////////////////////////////////////////////////////////////
 void CMWListEditCtrl::OnKillfocus(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO
+	//
 	CWnd	*wndParent	= GetParent ();
 
 	LONG  id		= GetWindowLong ( this->m_hWnd, GWL_ID  );
@@ -421,14 +421,14 @@ HBRUSH CMWListEditCtrl::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CListCtrl::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO
+	//
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO
+	//
 	return hbr;
 }
 
@@ -438,7 +438,7 @@ HBRUSH CMWListEditCtrl::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 /////////////////////////////////////////////////////////////////
 BOOL CMWListEditCtrl::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO
+	//
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{
@@ -464,10 +464,10 @@ void CMWListEditCtrl::SendNormalMessage()
 void CMWListEditCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMCUSTOMDRAW pNMCD = reinterpret_cast<LPNMCUSTOMDRAW>(pNMHDR);
-    // TODO
+    //
     *pResult = 0;
 
-    // TODO
+    //
     if( GetHeaderCtrl ( ) && m_bHeaderControlSubclassed == false )
     {
         m_HeaderCtrl.SubclassWindow(GetHeaderCtrl()->m_hWnd);

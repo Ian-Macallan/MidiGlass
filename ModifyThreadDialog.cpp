@@ -64,7 +64,7 @@ BOOL CModifyThreadDialog::OnInitDialog()
 {
 	CMWDialog::OnInitDialog();
 	
-	// TODO
+	//
 	HICON hDlgIcon = theApp.LoadIcon ( IDR_MAINFRAME );
 	SetIcon( hDlgIcon, FALSE );
 
@@ -144,7 +144,7 @@ void CModifyThreadDialog::OnDestroy()
 {
 	CMWDialog::OnDestroy();
 	
-	// TODO
+	//
 
 	//		Say a Stop action is required
 	m_iFilenames	= 0;
@@ -176,7 +176,7 @@ void CModifyThreadDialog::OnDestroy()
 ///////////////////////////////////////////////////////////////////////////////////
 void CModifyThreadDialog::OnTimer(UINT_PTR nIDEvent) 
 {
-	// TODO
+	//
 	KillTimer ( CORRECT_THREAD_TIMER );
 
 	if ( m_iFilenames > 0 && m_iFileNumber < m_iFilenames )

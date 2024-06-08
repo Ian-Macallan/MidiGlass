@@ -97,7 +97,7 @@ BOOL FriendEraseBkgnd(CWnd* pWnd, CDC* pDC)
 {
     return CMWColors::OnEraseBkgnd ( pDC, pWnd );
 #if 0
-	// TODO
+	//
 	CRect				rectFrame;
 	CRect				rectBitmap;
 	CSize				sizeBitmap;
@@ -155,7 +155,7 @@ BOOL FriendEraseBkgndScrollView(CScrollView *pWnd, CDC* pDC)
 {
     return CMWColors::OnEraseBkgnd ( pDC, pWnd );
 #if 0
-	// TODO
+	//
 	CRect				rectFrame;
 	CRect				rectBitmap;
 	CSize				sizeBitmap;

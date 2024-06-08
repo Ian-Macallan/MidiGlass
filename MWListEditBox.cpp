@@ -53,7 +53,7 @@ END_MESSAGE_MAP()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMWListEditBox::OnKillfocus() 
 {
-	// TODO
+	//
 	CWnd	*wndParent	= GetParent ();
 
 	LONG  id		= GetWindowLong ( this->m_hWnd, GWL_ID  );
@@ -89,14 +89,14 @@ HBRUSH CMWListEditBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CListBox::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO
+	//
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO
+	//
 	return hbr;
 }
 
@@ -106,7 +106,7 @@ HBRUSH CMWListEditBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWListEditBox::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO
+	//
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{

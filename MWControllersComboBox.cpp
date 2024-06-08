@@ -102,14 +102,14 @@ HBRUSH CMWControllersComboBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CComboBox::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO
+	//
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO
+	//
 	return hbr;
 }
 
@@ -119,7 +119,7 @@ HBRUSH CMWControllersComboBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ////////////////////////////////////////////////////////////////////////
 BOOL CMWControllersComboBox::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO
+	//
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{

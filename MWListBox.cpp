@@ -57,14 +57,14 @@ HBRUSH CMWListBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CListBox::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO
+	//
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO
+	//
 	return hbr;
 }
 
@@ -74,7 +74,7 @@ HBRUSH CMWListBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMWListBox::OnKillfocus() 
 {
-	// TODO
+	//
 	CWnd	*wndParent	= GetParent ();
 
 	LONG  id		= GetWindowLong ( this->m_hWnd, GWL_ID );
@@ -107,7 +107,7 @@ void CMWListBox::SetAnsiFixedFont()
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWListBox::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO
+	//
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{

@@ -62,14 +62,14 @@ HBRUSH CMWButton::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CButton::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO
+	//
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO
+	//
 	return hbr;
 }
 
@@ -81,7 +81,7 @@ void CMWButton::OnKillFocus(CWnd* pNewWnd)
 {
 	CButton::OnKillFocus(pNewWnd);
 	
-	// TODO
+	//
 	CWnd	*wndParent	= GetParent ();
 
 	if ( GetFocus ( ) != this && GetFocus ( ) != wndParent )
@@ -117,7 +117,7 @@ void CMWButton::SetAnsiFixedFont()
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWButton::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO
+	//
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{
@@ -142,7 +142,7 @@ void CMWButton::SendNormalMessage()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMWButton::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 {
-    // TODO
+    //
     UINT uStyle = DFCS_BUTTONPUSH;
 
     static char szText [ MAX_PATH ];

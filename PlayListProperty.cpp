@@ -51,14 +51,14 @@ HBRUSH CPlayListProperty::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CMWDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO
+	//
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO
+	//
 	return hbr;
 }
 
@@ -66,7 +66,7 @@ BOOL CPlayListProperty::OnInitDialog()
 {
 	CMWDialog::OnInitDialog();
 	
-	// TODO
+	//
 	CMainFrame			*hMainFrame;
 	char				*pFilename;
 
@@ -86,7 +86,7 @@ BOOL CPlayListProperty::OnInitDialog()
 
 BOOL CPlayListProperty::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO
+	//
 	
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )

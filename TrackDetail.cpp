@@ -57,7 +57,7 @@ BOOL CTrackDetail::OnInitDialog()
 {
 	CMWDialog::OnInitDialog();
 	
-	// TODO
+	//
 	CMainFrame			*pMainFrame;
 	char				szString [ MAX_INT_STRING ];
 	CMidiTrack			*pTrack;

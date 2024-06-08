@@ -28,7 +28,7 @@ CPlayTuneThread::~CPlayTuneThread()
 
 BOOL CPlayTuneThread::InitInstance()
 {
-	// TODO
+	//
 
 	//		Start the associated dialog box
 	m_pMainWnd = &theApp.m_dlgPlayerDialogList;
@@ -40,7 +40,7 @@ BOOL CPlayTuneThread::InitInstance()
 
 int CPlayTuneThread::ExitInstance()
 {
-	// TODO
+	//
 	return CWinThread::ExitInstance();
 }
 

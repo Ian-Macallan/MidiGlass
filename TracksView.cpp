@@ -135,7 +135,7 @@ void CTracksView::Dump(CDumpContext& dc) const
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
 {
-	// TODO
+	//
 	if ( m_bFirstTime || ( lHint & LEFT_MASK_TRACKS ) || lHint == 0 )
 	{
 		m_bFirstTime = false;
@@ -160,7 +160,7 @@ void CTracksView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnClickTracksList(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO
+	//
 	int					iX;
 	BOOL				bOk;
 	int					iTrack;
@@ -224,7 +224,7 @@ unsigned CTracksView::GetIDD()
 void CTracksView::OnKeydownTracksList(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	LV_KEYDOWN* pLVKeyDow = (LV_KEYDOWN*)pNMHDR;
-	// TODO
+	//
 
 	if ( pLVKeyDow->wVKey == VK_DELETE )
 	{
@@ -300,7 +300,7 @@ void CTracksView::DeleteTracks()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnContextMenu(CWnd* pWnd, CPoint point) 
 {
-	// TODO
+	//
 	CRect		rect;
 	GetClientRect ( &rect );
 	ClientToScreen ( &rect );
@@ -323,7 +323,7 @@ void CTracksView::OnContextMenu(CWnd* pWnd, CPoint point)
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnTracksDelete() 
 {
-	// TODO
+	//
 	AskAndDeleteTracks();
 }
 
@@ -352,7 +352,7 @@ void CTracksView::AskAndDeleteTracks()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnTracksHelp() 
 {
-	// TODO
+	//
 	CAboutDlg	dlg;
 	dlg.DoModal ();
 }
@@ -366,14 +366,14 @@ HBRUSH CTracksView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CMWFormView::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO
+	//
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO
+	//
 	return hbr;
 }
 
@@ -528,7 +528,7 @@ void CTracksView::DisplayValues()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnTracksPlaysolo() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
 	int					iX;
@@ -588,7 +588,7 @@ CMidiTrack *CTracksView::GetCurrentTrack()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnTracksProperty() 
 {
-	// TODO
+	//
 	ShowTrackDetail ( );
 	
 }
@@ -599,7 +599,7 @@ void CTracksView::OnTracksProperty()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnDblclkTracksList(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO
+	//
 	ShowTrackDetail ( );
 	*pResult = 0;
 }
@@ -638,7 +638,7 @@ void CTracksView::ShowTrackDetail()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnTracksMute() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
 
@@ -673,7 +673,7 @@ void CTracksView::OnTracksMute()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnTracksAudible() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
 
@@ -707,7 +707,7 @@ void CTracksView::OnTracksAudible()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnTracksMuteall() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
 	int					iX;
@@ -740,7 +740,7 @@ void CTracksView::OnTracksMuteall()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnTracksAudibleall() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
 	int					iX;
@@ -1277,7 +1277,7 @@ LRESULT CTracksView::OnEditSelect(WPARAM wParam, LPARAM lParam)
 //////////////////////////////////////////////////////////////////////////////////
 BOOL CTracksView::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO
+	//
 	BOOL bRes = FriendEraseBkgndScrollView(this, pDC);
 	if ( bRes )
 	{
@@ -1297,7 +1297,7 @@ void CTracksView::OnBegindragTracksList(NMHDR* pNMHDR, LRESULT* pResult)
 	CMidiDoc *pMididoc = dynamic_cast< CMidiDoc * >( GetDocument () );
 
 	NM_LISTVIEW* pNMListView = (NM_LISTVIEW*)pNMHDR;
-	// TODO
+	//
 	CPoint      ptAction;
 	UINT        nFlags;
 
@@ -1368,7 +1368,7 @@ void CTracksView::OnBegindragTracksList(NMHDR* pNMHDR, LRESULT* pResult)
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnMouseMove(UINT nFlags, CPoint point) 
 {
-	// TODO
+	//
 	if ( m_bDragging )
 	{
 		m_hItemDrop = m_Tracks_List.HitTest(point, &nFlags);
@@ -1393,7 +1393,7 @@ void CTracksView::OnMouseMove(UINT nFlags, CPoint point)
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnLButtonUp(UINT nFlags, CPoint point) 
 {
-	// TODO
+	//
 	OnButtonUp();
 	
 	CMWFormView::OnLButtonUp(nFlags, point);
@@ -1519,7 +1519,7 @@ void CTracksView::OnInitialUpdate()
 {
 	CMWFormView::OnInitialUpdate();
 	
-	// TODO
+	//
 	if ( ! theApp.m_bSplitterWindow )
 	{
 		GetParentFrame ( )->RecalcLayout ( );
@@ -1538,7 +1538,7 @@ void CTracksView::OnInitialUpdate()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO
+	//
 	FriendActivate( bActivate, pActivateView, pDeactiveView, false);
 	
 	CMWFormView::OnActivateView(bActivate, pActivateView, pDeactiveView);
@@ -1550,7 +1550,7 @@ void CTracksView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pD
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnEditCut() 
 {
-	// TODO
+	//
 	if ( m_Tracks_List.GetSelectedCount () == 1 )
 	{
 		m_hItemDrag = m_Tracks_List.GetCurSel ( );
@@ -1565,7 +1565,7 @@ void CTracksView::OnEditPaste()
 {
 	CMidiDoc			*pMididoc = dynamic_cast< CMidiDoc * >( GetDocument () );
 
-	// TODO
+	//
 	if ( m_hItemDrag >= 0 )
 	{
 		m_hItemDrop = m_Tracks_List.GetCurSel ( );
@@ -1620,7 +1620,7 @@ void CTracksView::OnEditPaste()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnUpdateEditPaste(CCmdUI* pCmdUI) 
 {
-	// TODO
+	//
 	pCmdUI->Enable ( m_hItemDrag >= 0 );	
 }
 
@@ -1630,7 +1630,7 @@ void CTracksView::OnUpdateEditPaste(CCmdUI* pCmdUI)
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CTracksView::OnUpdateEditCut(CCmdUI* pCmdUI) 
 {
-	// TODO
+	//
 	pCmdUI->Enable ( m_Tracks_List.GetSelectedCount () == 1	);
 }
 

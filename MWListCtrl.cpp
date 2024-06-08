@@ -60,14 +60,14 @@ HBRUSH CMWListCtrl::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CListCtrl::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO
+	//
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO
+	//
 	return hbr;
 }
 
@@ -298,7 +298,7 @@ char * CMWListCtrl::GetShort(const char *pString)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMWListCtrl::OnKillfocus(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO
+	//
 	CWnd	*wndParent	= GetParent ();
 
 	LONG  id		= GetWindowLong ( this->m_hWnd, GWL_ID  );
@@ -333,7 +333,7 @@ void CMWListCtrl::SetAnsiFixedFont()
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWListCtrl::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO
+	//
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{
@@ -359,10 +359,10 @@ void CMWListCtrl::SendNormalMessage()
 void CMWListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMCUSTOMDRAW pNMCD = reinterpret_cast<LPNMCUSTOMDRAW>(pNMHDR);
-    // TODO
+    //
     *pResult = 0;
 
-    // TODO
+    //
     if( GetHeaderCtrl ( ) && m_bHeaderControlSubclassed == false )
     {
         m_HeaderCtrl.SubclassWindow(GetHeaderCtrl()->m_hWnd);

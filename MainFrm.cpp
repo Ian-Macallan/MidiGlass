@@ -264,7 +264,7 @@ static UINT indicators[] =
 ///////////////////////////////////////////////////////////////////////////////////
 CMainFrame::CMainFrame()
 {
-	// TODO
+	//
 	m_pMidiView		= NULL;
 	m_bClosing		= false;
 
@@ -489,7 +489,7 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 {
 	if( !CFrameWnd::PreCreateWindow(cs) )
 		return FALSE;
-	// TODO
+	//
 	//  the CREATESTRUCT cs
 
 	return TRUE;
@@ -524,7 +524,7 @@ void CMainFrame::Dump(CDumpContext& dc) const
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext) 
 {
-	// TODO
+	//
 
 	if ( theApp.m_bSplitterWindow )
 	{
@@ -546,7 +546,7 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsText() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -565,7 +565,7 @@ void CMainFrame::OnContentEventsText()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentHeader() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -622,7 +622,7 @@ void CMainFrame::OnContentEvents( int iView )
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsCopyright() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -641,7 +641,7 @@ void CMainFrame::OnContentEventsCopyright()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsCuepoint() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -660,7 +660,7 @@ void CMainFrame::OnContentEventsCuepoint()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsInstrumentname() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -679,7 +679,7 @@ void CMainFrame::OnContentEventsInstrumentname()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsLyrics() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -698,7 +698,7 @@ void CMainFrame::OnContentEventsLyrics()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsMarkers() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -717,7 +717,7 @@ void CMainFrame::OnContentEventsMarkers()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsSequence() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -736,7 +736,7 @@ void CMainFrame::OnContentEventsSequence()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsSequencer() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -755,7 +755,7 @@ void CMainFrame::OnContentEventsSequencer()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsTrackname() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -774,7 +774,7 @@ void CMainFrame::OnContentEventsTrackname()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentTracks() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 
 	if ( pMididoc == NULL )
@@ -803,7 +803,7 @@ void CMainFrame::OnContentTracks()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileTrace() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 
@@ -927,7 +927,7 @@ void CMainFrame::GetDialogBoxSize(unsigned iD, LPRECT rect)
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectEndoftrack() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 
@@ -951,7 +951,7 @@ void CMainFrame::OnCorrectEndoftrack()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectStartoftrack() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 
@@ -1007,7 +1007,7 @@ LRESULT CMainFrame::OnMciNotify(WPARAM wParam, LPARAM lParam)
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerPlay() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1026,7 +1026,7 @@ void CMainFrame::OnFileSequencerPlay()
 ////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerStop() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 
@@ -1046,7 +1046,7 @@ void CMainFrame::OnFileSequencerStop()
 ////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileMediaplayer() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	HINSTANCE			hInst;
 
@@ -1066,7 +1066,7 @@ void CMainFrame::OnFileMediaplayer()
 ////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerPlayandloop() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 
@@ -1085,7 +1085,7 @@ void CMainFrame::OnFileSequencerPlayandloop()
 ////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerPlayll() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1124,7 +1124,7 @@ void CMainFrame::OnFileSequencerPlayll()
 ////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerStopll() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 
@@ -1152,7 +1152,7 @@ void CMainFrame::OnFileSequencerStopll()
 ////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentPlayer() 
 {
-	// TODO
+	//
 	if ( theApp.m_bSplitterWindow )
 	{
 		if ( ! CreateColViewFull ( 1, ( CView ** ) & m_RightPlayerView, 
@@ -1173,7 +1173,7 @@ void CMainFrame::OnContentPlayer()
 ////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerPlayandloopll() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1212,7 +1212,7 @@ void CMainFrame::OnFileSequencerPlayandloopll()
 ////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerPausell() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1245,7 +1245,7 @@ void CMainFrame::OnFileSequencerPausell()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerBackwardll() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1280,7 +1280,7 @@ void CMainFrame::OnFileSequencerBackwardll()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerForwardll() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1309,7 +1309,7 @@ void CMainFrame::OnFileSequencerForwardll()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSequencerResumell() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1342,7 +1342,7 @@ void CMainFrame::OnFileSequencerResumell()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewMcitoolbar() 
 {
-	// TODO
+	//
 	int		bShow = IsMciBarVisible ();
 
 	ShowOwnToolBar ( &m_wndMciToolBar, &m_wndMciLargeToolBar, ! bShow );
@@ -1357,7 +1357,7 @@ void CMainFrame::OnViewMcitoolbar()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewMiditoolbar() 
 {
-	// TODO
+	//
 	int		bShow = IsMidiBarVisible ();
 
 	ShowOwnToolBar ( &m_wndMidiToolBar, &m_wndMidiLargeToolBar, ! bShow );
@@ -1373,7 +1373,7 @@ void CMainFrame::OnViewMiditoolbar()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectFiltertracks() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1400,7 +1400,7 @@ void CMainFrame::OnCorrectFiltertracks()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectAddGmreset() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1427,7 +1427,7 @@ void CMainFrame::OnCorrectAddGmreset()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectAddGsreset() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1454,7 +1454,7 @@ void CMainFrame::OnCorrectAddGsreset()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectAll() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1487,7 +1487,7 @@ void CMainFrame::OnCorrectAll()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectOptions() 
 {
-	// TODO
+	//
 	CCorrectOptions	dlgOptions;
 	
 	dlgOptions.DoModal ();
@@ -1500,7 +1500,7 @@ void CMainFrame::OnCorrectOptions()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentSystemexclusive() 
 {
-	// TODO
+	//
 	CSysExDialog	dlgSysEx;
 
 	dlgSysEx.DoModal ( );
@@ -1514,7 +1514,7 @@ void CMainFrame::OnContentSystemexclusive()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentErrormessages() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -1541,7 +1541,7 @@ void CMainFrame::OnContentErrormessages()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFilePreferences() 
 {
-	// TODO
+	//
 	CPreferences		dlgPref;
 	
 	SaveOwnToolBar ( );
@@ -1581,7 +1581,7 @@ void CMainFrame::OnFilePreferences()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnClose() 
 {
-	// TODO
+	//
 	RECT		rectWindow;
 
 	m_bClosing = true;
@@ -1635,7 +1635,7 @@ void CMainFrame::OnShowWindow(BOOL bShow, UINT nStatus)
 {
 	CFrameWnd::OnShowWindow(bShow, nStatus);
 	
-	// TODO
+	//
 }
 
 //
@@ -1668,7 +1668,7 @@ void CMainFrame::SizeAndPlaceWindow()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentParameters() 
 {
-	// TODO
+	//
 	CParameters			dlgParam;
 	char				szString [ MAX_CONTROLER_STRING ];
 	int					iX;
@@ -1721,7 +1721,7 @@ void CMainFrame::OnContentParameters()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveControllerBankselecthigh() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1745,7 +1745,7 @@ void CMainFrame::OnRemoveControllerBankselecthigh()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveControllerBankselectlow() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 
@@ -1769,7 +1769,7 @@ void CMainFrame::OnRemoveControllerBankselectlow()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveCopyright() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1793,7 +1793,7 @@ void CMainFrame::OnRemoveCopyright()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveCuepoint() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1817,7 +1817,7 @@ void CMainFrame::OnRemoveCuepoint()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveInstrumentname() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1841,7 +1841,7 @@ void CMainFrame::OnRemoveInstrumentname()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveLyrics() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1865,7 +1865,7 @@ void CMainFrame::OnRemoveLyrics()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveMarkers() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1889,7 +1889,7 @@ void CMainFrame::OnRemoveMarkers()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveSequence() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1913,7 +1913,7 @@ void CMainFrame::OnRemoveSequence()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveSequencer() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 
@@ -1937,7 +1937,7 @@ void CMainFrame::OnRemoveSequencer()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveSystemexclusive() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1961,7 +1961,7 @@ void CMainFrame::OnRemoveSystemexclusive()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveText() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -1985,7 +1985,7 @@ void CMainFrame::OnRemoveText()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveTrackname() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -2009,7 +2009,7 @@ void CMainFrame::OnRemoveTrackname()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentPlaylist() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 
 	if ( pMididoc == NULL )
@@ -2040,7 +2040,7 @@ void CMainFrame::OnDestroy()
 {
 	CFrameWnd::OnDestroy();
 	
-	// TODO
+	//
 	if ( theApp.m_PlayListThread != NULL )
 	{
 		theApp.m_dlgPlayerDialogList.EndDialog ( 0 );
@@ -2069,7 +2069,7 @@ void CMainFrame::OnDestroy()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileAddtotheplaylist() 
 {
-	// TODO
+	//
 	int					iCount;
 	char				szPathname [ MAX_PATHNAME_STRING ];
 	char				szString [ MAX_TUNE_STRING ];
@@ -2132,7 +2132,7 @@ char * CMainFrame::GetCurrentPlaylistFilename()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewMaintoolbar() 
 {
-	// TODO
+	//
 	int		bShow = IsMainBarVisible ();
 
 	ShowOwnToolBar ( &m_wndMainToolBar, &m_wndMainLargeToolBar, ! bShow );
@@ -2147,7 +2147,7 @@ void CMainFrame::OnViewMaintoolbar()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectTimesignature() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -2174,7 +2174,7 @@ void CMainFrame::OnCorrectTimesignature()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectKeysignature() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -2201,7 +2201,7 @@ void CMainFrame::OnCorrectKeysignature()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectMoveAll() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -2291,7 +2291,7 @@ CMidiTrack *CMainFrame::GetCurrentTrack()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentChannels() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 
 	if ( pMididoc == NULL )
@@ -2332,7 +2332,7 @@ void CMainFrame::SetActiveCWndAsView(CWnd *wnd)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewRightview() 
 {
-	// TODO
+	//
 	CRect				rectFrame;
 	CRect				rectDialog;
 	CSize				size;
@@ -2362,7 +2362,7 @@ void CMainFrame::OnViewRightview()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewLeftview() 
 {
-	// TODO
+	//
 	CRect				rectFrame;
 	CRect				rectDialog;
 	CSize				size;
@@ -2393,7 +2393,7 @@ void CMainFrame::OnViewLeftview()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewTwoviews() 
 {
-	// TODO
+	//
 	CRect				rectFrame;
 	CRect				rectDialog;
 	CSize				size;
@@ -2426,7 +2426,7 @@ void CMainFrame::OnViewTwoviews()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnRemoveControllersResetallcontrolers() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -2450,7 +2450,7 @@ void CMainFrame::OnRemoveControllersResetallcontrolers()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentStartIe() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	if ( pMididoc == NULL )
 	{
@@ -2491,7 +2491,7 @@ void CMainFrame::OnContentStartIe()
 void CMainFrame::OnContentStopIe() 
 {
 #if 0
-	// TODO
+	//
 	if ( m_RightBrowserView != NULL )
 	{
 		m_RightBrowserView->Stop ();
@@ -2512,7 +2512,7 @@ void CMainFrame::OnContentStopIe()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewIetoolbar() 
 {
-	// TODO
+	//
 	int		bShow = IsIeBarVisible ();
 
 	ShowOwnToolBar ( &m_wndIeToolBar, &m_wndIeLargeToolBar, ! bShow );
@@ -2528,7 +2528,7 @@ void CMainFrame::OnViewIetoolbar()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewSF2toolbar() 
 {
-	// TODO
+	//
 	int		bShow = IsSF2BarVisible ();
 
 	ShowOwnToolBar ( &m_wndSF2ToolBar, &m_wndSF2LargeToolBar, ! bShow );
@@ -2544,7 +2544,7 @@ void CMainFrame::OnViewSF2toolbar()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContextMenu(CWnd* pWnd, CPoint point) 
 {
-	// TODO
+	//
 	CRect		rect;
 	GetClientRect ( &rect );
 	ClientToScreen ( &rect );
@@ -2587,7 +2587,7 @@ void CMainFrame::OnContextMenu(CWnd* pWnd, CPoint point)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnViewStatusBar() 
 {
-	// TODO
+	//
 	ShowControlBar ( &m_wndStatusBar, ( m_wndStatusBar.GetStyle () & WS_VISIBLE ) == 0, FALSE );
 	theApp.m_bStatusBar = ( ( m_wndStatusBar.GetStyle () & WS_VISIBLE ) != 0 );
 	theApp.WriteProfileInt ( "Settings", "Status Bar", theApp.m_bStatusBar );
@@ -2628,7 +2628,7 @@ CMidiFile * CMainFrame::GetMidiFile()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentStaff() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 
 	if ( pMididoc == NULL )
@@ -2656,7 +2656,7 @@ void CMainFrame::OnContentStaff()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectTruncateNote() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -2684,7 +2684,7 @@ void CMainFrame::OnCorrectTruncateNote()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentNotes() 
 {
-	// TODO
+	//
 
 	if ( theApp.m_bSplitterWindow )
 	{
@@ -2706,7 +2706,7 @@ void CMainFrame::OnContentNotes()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentTracksList() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 
 	if ( pMididoc == NULL )
@@ -2738,7 +2738,7 @@ void CMainFrame::OnContentTracksList()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentMidiexplorer() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 
 	if ( pMididoc == NULL )
@@ -2771,14 +2771,14 @@ HBRUSH CMainFrame::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CFrameWnd::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO
+	//
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO
+	//
 	return hbr;
 }
 
@@ -2788,7 +2788,7 @@ HBRUSH CMainFrame::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMainFrame::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO
+	//
 	return CFrameWnd::OnEraseBkgnd ( pDC );
 
 /*
@@ -2844,7 +2844,7 @@ void CMainFrame::SetSearchInfo(	const CString strEvent,
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnCorrectAddXgreset() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 	CMidiFile			*pMidifile	= GetMidiFile ( );
 	
@@ -3096,7 +3096,7 @@ int CMainFrame::CreateOwnStatusBar()
     // added       = NULL;
 	m_wndStatusBar.GetPaneInfo ( 0, nID, nStyle, cxWidth );
     nStyle |= added;
-	m_wndStatusBar.SetPaneInfo ( 0, nID, nStyle, 80 );
+	m_wndStatusBar.SetPaneInfo ( 0, nID, nStyle, 160 );
 	m_wndStatusBar.GetPaneInfo ( 0, nID, nStyle, cxWidth );
     m_wndStatusBar.SetPaneText ( 0, "Ready" );
 	rectFrame.right -= cxWidth;
@@ -4129,7 +4129,7 @@ void CMainFrame::DestroyViewWindows()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnEditFind() 
 {
-	// TODO
+	//
 	if ( m_RightEventView != NULL )
 	{
 		CFindEvent		dlgFind;
@@ -4147,7 +4147,7 @@ void CMainFrame::OnEditFind()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnEditFindagain() 
 {
-	// TODO
+	//
 	if ( m_RightEventView != NULL )
 	{
 		m_RightEventView->IncrementCurrentIndice();
@@ -4302,7 +4302,7 @@ void CMainFrame::RestoreFrameGeometry( CWnd *pWnd )
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileSavegeometry() 
 {
-	// TODO
+	//
 	if ( ! theApp.m_bSplitterWindow )
 	{
 		//		Get the parent view
@@ -4559,7 +4559,7 @@ void CMainFrame::ActivateOrHideView(CView *pView, const char *pText)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnContentEventsShowhide() 
 {
-	// TODO
+	//
 	ActivateOrHideView(m_RightTextView, "Text Frame Geometry" );
 }
 
@@ -4612,7 +4612,7 @@ void CMainFrame::SetModified ( BOOL bFlag )
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnSetPreviewMode(BOOL bPreview, CPrintPreviewState* pState) 
 {
-	// TODO
+	//
 	m_bPreview = ( bPreview != 0 );
 	CFrameWnd::OnSetPreviewMode(bPreview, pState);
 }
@@ -4623,7 +4623,7 @@ void CMainFrame::OnSetPreviewMode(BOOL bPreview, CPrintPreviewState* pState)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnFileRecord() 
 {
-	// TODO
+	//
     CMainFrame *pMainFrame = dynamic_cast<CMainFrame *> ( AfxGetMainWnd( ) );
     if ( pMainFrame != NULL )
     {
@@ -4683,7 +4683,7 @@ void CMainFrame::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
         m_pSysMenu  = NULL;
     }
 
-    // TODO: ajoutez ici le code de votre gestionnaire de messages
+    //
 }
 
 //
@@ -4709,7 +4709,7 @@ static BOOL IsSysMenuID ( UINT id )
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
 {
-    // TODO
+    //
 	if ( lpDrawItemStruct != NULL && lpDrawItemStruct->CtlType == ODT_MENU )
 	{
         if ( m_pSysMenu != NULL && IsSysMenuID ( lpDrawItemStruct->itemID ) )
@@ -4733,7 +4733,7 @@ void CMainFrame::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStruct)
 {
-    // TODO
+    //
 	if ( lpMeasureItemStruct != NULL && lpMeasureItemStruct->CtlType == ODT_MENU )
 	{
         if ( m_pSysMenu != NULL && IsSysMenuID ( lpMeasureItemStruct->itemID ) )
@@ -4757,7 +4757,7 @@ void CMainFrame::OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStru
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateFrameMenu(HMENU hMenuAlt)
 {
-    // TODO
+    //
     CFrameWnd::OnUpdateFrameMenu(hMenuAlt);
 }
 
@@ -4767,7 +4767,7 @@ void CMainFrame::OnUpdateFrameMenu(HMENU hMenuAlt)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMainFrame::OnNcActivate(BOOL bActive)
 {
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    //
     BOOL bTreated = m_NC.Activate (  this, bActive );
     if ( bTreated )
     {
@@ -4782,8 +4782,7 @@ BOOL CMainFrame::OnNcActivate(BOOL bActive)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnNcPaint()
 {
-    // TODO: ajoutez ici le code de votre gestionnaire de messages
-    // N'appelez pas CFrameWnd::OnNcPaint() pour la peinture des messages
+    //
     BOOL bTreated = m_NC.PaintWindow ( this );
     if ( bTreated )
     {
@@ -4799,7 +4798,7 @@ void CMainFrame::OnNcPaint()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnNcMouseMove(UINT nHitTest, CPoint point)
 {
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    //
     BOOL bTreated = m_NC.OnNcMouseMove ( this, nHitTest, point );
     if ( bTreated )
     {
@@ -4814,9 +4813,7 @@ void CMainFrame::OnNcMouseMove(UINT nHitTest, CPoint point)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnNcMouseLeave()
 {
-    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
-    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    //
     BOOL bTreated = m_NC.OnNcMouseLeave ( this );
     if ( bTreated )
     {
@@ -4832,9 +4829,7 @@ void CMainFrame::OnNcMouseLeave()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnNcMouseHover(UINT nFlags, CPoint point)
 {
-    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
-    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    //
     BOOL bTreated = m_NC.OnNcMouseHover ( this, nFlags, point );
     if ( bTreated )
     {
@@ -4850,7 +4845,7 @@ void CMainFrame::OnNcMouseHover(UINT nFlags, CPoint point)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnNcLButtonUp(UINT nHitTest, CPoint point)
 {
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    //
     BOOL bTreated = m_NC.OnNcLButtonUp ( this, nHitTest, point );
     if ( bTreated )
     {
@@ -4866,7 +4861,7 @@ void CMainFrame::OnNcLButtonUp(UINT nHitTest, CPoint point)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnNcLButtonDown(UINT nHitTest, CPoint point)
 {
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    //
     BOOL bTreated = m_NC.OnNcLButtonDown ( this, nHitTest, point );
     if ( bTreated )
     {

@@ -49,7 +49,7 @@ END_MESSAGE_MAP()
 ////////////////////////////////////////////////////////////////////////////
 HBRUSH CStaticUrl::CtlColor(CDC* pDC, UINT nCtlColor) 
 {
-	// TODO
+	//
 
 	COLORREF bkColor = GetSysColor ( COLOR_MENU );
 	pDC->SetBkColor ( bkColor );
@@ -62,7 +62,7 @@ HBRUSH CStaticUrl::CtlColor(CDC* pDC, UINT nCtlColor)
 
 	return HBRUSH ( CBrush ( GetSysColor ( COLOR_MENU ) ) );
 
-	// TODO
+	//
 	return NULL;
 }
 
@@ -72,7 +72,7 @@ HBRUSH CStaticUrl::CtlColor(CDC* pDC, UINT nCtlColor)
 ////////////////////////////////////////////////////////////////////////////
 void CStaticUrl::OnMouseMove(UINT nFlags, CPoint point) 
 {
-	// TODO
+	//
 	
 	if ( m_hCursor == NULL )
 	{

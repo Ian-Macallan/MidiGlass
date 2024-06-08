@@ -46,7 +46,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////////
 CMidiDoc::CMidiDoc()
 {
-	// TODO
+	//
 	CString			strReturned;
 
 	m_pMidiFile		= NULL;
@@ -97,7 +97,7 @@ BOOL CMidiDoc::OnNewDocument()
 	if (!CDocument::OnNewDocument())
 		return FALSE;
 
-	// TODO
+	//
 	// (SDI documents will reuse this document)
 	if ( m_pMidiFile != NULL )
 	{
@@ -118,11 +118,11 @@ void CMidiDoc::Serialize(CArchive& ar)
 {
 	if (ar.IsStoring())
 	{
-		// TODO
+		//
 	}
 	else
 	{
-		// TODO
+		//
 	}
 }
 
@@ -157,7 +157,7 @@ BOOL CMidiDoc::OnOpenDocument(LPCTSTR lpszPathName)
 	if (!CDocument::OnOpenDocument(lpszPathName))
 		return FALSE;
 	
-	// TODO
+	//
 	CWaitTreatment::BeginWait();
 
 	//
@@ -265,7 +265,7 @@ BOOL CMidiDoc::OnOpenDocument(LPCTSTR lpszPathName)
 /////////////////////////////////////////////////////////////////////////////////
 void CMidiDoc::OnCloseDocument() 
 {
-	// TODO
+	//
 	if ( m_pMidiFile != NULL )
 	{
 		delete m_pMidiFile;
@@ -327,7 +327,7 @@ void CMidiDoc::SetCurrentTrack(unsigned short iTrack)
 /////////////////////////////////////////////////////////////////////////////////
 BOOL CMidiDoc::OnSaveDocument(LPCTSTR lpszPathName) 
 {
-	// TODO
+	//
 	if ( m_pMidiFile != NULL )
 	{
 		m_pMidiFile->Save ( ( char * ) lpszPathName );
@@ -344,7 +344,7 @@ BOOL CMidiDoc::OnSaveDocument(LPCTSTR lpszPathName)
 /////////////////////////////////////////////////////////////////////////////////
 void CMidiDoc::OnFileSendMail() 
 {
-	// TODO
+	//
 	CDocument::OnFileSendMail ();
 }
 
@@ -354,7 +354,7 @@ void CMidiDoc::OnFileSendMail()
 /////////////////////////////////////////////////////////////////////////////////
 void CMidiDoc::OnUpdateFileSendMail(CCmdUI* pCmdUI) 
 {
-	// TODO
+	//
 	CDocument::OnUpdateFileSendMail (pCmdUI);
 	pCmdUI->Enable ( FALSE );
 }
@@ -365,7 +365,7 @@ void CMidiDoc::OnUpdateFileSendMail(CCmdUI* pCmdUI)
 /////////////////////////////////////////////////////////////////////////////////
 void CMidiDoc::SetTitle(LPCTSTR lpszTitle) 
 {
-	// TODO
+	//
 	
 	CDocument::SetTitle(lpszTitle);
 }
@@ -376,7 +376,7 @@ void CMidiDoc::SetTitle(LPCTSTR lpszTitle)
 /////////////////////////////////////////////////////////////////////////////////
 void CMidiDoc::SetPathName(LPCTSTR lpszPathName, BOOL bAddToMRU) 
 {
-	// TODO
+	//
 	char		szPathname [ MAX_PATHNAME_STRING ];
 
 	strcpy_s ( szPathname, sizeof ( szPathname ), lpszPathName );

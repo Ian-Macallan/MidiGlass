@@ -55,7 +55,7 @@ BOOL CParameters::OnInitDialog()
 {
 	CMWDialog::OnInitDialog();
 	
-	// TODO
+	//
 	CMidiClass		clTemp;
 
 	//		Initialise the combo box
@@ -106,18 +106,18 @@ void CParameters::DisplayValues()
 
 void CParameters::OnSelchangeControler() 
 {
-	// TODO
+	//
 	DisplayValues ();	
 }
 
 void CParameters::OnChangeSettings() 
 {
-	// TODO
+	//
 	// send this notification unless you override the CMWDialog::OnInitDialog()
 	// function and call CRichEditCtrl().SetEventMask()
 	// with the ENM_CHANGE flag ORed into the mask.
 	
-	// TODO
+	//
 	int				iC;
 	CMidiClass		clTemp;
 	char			szString [ MAX_CONTROLER_STRING ];
@@ -133,7 +133,7 @@ void CParameters::OnChangeSettings()
 
 void CParameters::OnCheckSettings() 
 {
-	// TODO
+	//
 	int				iC;
 	CMidiClass		clTemp;
 	char			szString [ MAX_CONTROLER_STRING ];

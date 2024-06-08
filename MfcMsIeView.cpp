@@ -62,7 +62,7 @@ void CMfcMsIeView::Dump(CDumpContext& dc) const
 
 void CMfcMsIeView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO
+	//
 	FriendActivate( bActivate, pActivateView, pDeactiveView, false);
 	
 	CHtmlView::OnActivateView(bActivate, pActivateView, pDeactiveView);

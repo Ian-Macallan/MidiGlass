@@ -64,7 +64,7 @@ BOOL CFindEvent::OnInitDialog()
 {
 	CMWDialog::OnInitDialog();
 	
-	// TODO
+	//
 	m_Event_Combo.ResetContent ( );
 
 	m_Program_Combo.ResetContent ( );
@@ -101,7 +101,7 @@ BOOL CFindEvent::OnInitDialog()
 ////////////////////////////////////////////////////////////////////////
 void CFindEvent::OnOK() 
 {
-	// TODO
+	//
 
 	CMainFrame			*hMainFrame;
 	hMainFrame = dynamic_cast< CMainFrame * >( GetParent() );
@@ -161,7 +161,7 @@ void CFindEvent::OnOK()
 ////////////////////////////////////////////////////////////////////////
 void CFindEvent::OnSelchangeEventCombo() 
 {
-	// TODO
+	//
 	EnableDisable ( );
 }
 
@@ -171,7 +171,7 @@ void CFindEvent::OnSelchangeEventCombo()
 ////////////////////////////////////////////////////////////////////////
 void CFindEvent::OnSelendokEventCombo() 
 {
-	// TODO
+	//
 	EnableDisable ( );
 }
 

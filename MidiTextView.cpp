@@ -214,7 +214,7 @@ void CMidiTextView::DisplayValues()
 /////////////////////////////////////////////////////////////////////////////
 void CMidiTextView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
 {
-	// TODO
+	//
 	if ( m_bFirstTime || ( lHint & RIGHT_MASK_TEXT ) || lHint == 0 )
 	{
 		m_bFirstTime = false;
@@ -239,7 +239,7 @@ unsigned CMidiTextView::GetIDD()
 void CMidiTextView::OnDeltaposSpinEvent(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	NM_UPDOWN* pNMUpDown = (NM_UPDOWN*)pNMHDR;
-	// TODO
+	//
 	CMidiDoc			*pMididoc;
 
 	pMididoc	= dynamic_cast< CMidiDoc * >( GetDocument () );
@@ -337,7 +337,7 @@ bool CMidiTextView::IsLineEmpty(char *pText)
 /////////////////////////////////////////////////////////////////////////////
 void CMidiTextView::OnCompact() 
 {
-	// TODO
+	//
 	if ( m_Compact.GetCheck ( ) )
 	{
 		theApp.WriteProfileInt ( "Settings", "Compact Text", 1 );
@@ -358,7 +358,7 @@ void CMidiTextView::OnInitialUpdate()
 {
 	CMWFormView::OnInitialUpdate();
 	
-	// TODO
+	//
 	if ( ! theApp.m_bSplitterWindow )
 	{
 		GetParentFrame ( )->RecalcLayout ( );
@@ -377,7 +377,7 @@ void CMidiTextView::OnInitialUpdate()
 /////////////////////////////////////////////////////////////////////////////
 void CMidiTextView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO
+	//
 	FriendActivate( bActivate, pActivateView, pDeactiveView, false);
 	
 	CMWFormView::OnActivateView(bActivate, pActivateView, pDeactiveView);

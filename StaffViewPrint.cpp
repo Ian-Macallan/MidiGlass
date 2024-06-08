@@ -32,7 +32,7 @@ void CStaffView::OnFilePrintPreview()
 ///////////////////////////////////////////////////////////////////////////////////////
 void CStaffView::OnPrint(CDC* pDC, CPrintInfo* pInfo) 
 {
-	// TODO
+	//
 	ComputeSizeForPrinter ( pDC, pInfo, &m_PrinterParms );
 
 	DrawAll ( pDC, pInfo, &m_PrinterParms );
@@ -44,7 +44,7 @@ void CStaffView::OnPrint(CDC* pDC, CPrintInfo* pInfo)
 ///////////////////////////////////////////////////////////////////////////////////////
 void CStaffView::OnPrepareDC(CDC* pDC, CPrintInfo* pInfo) 
 {
-	// TODO
+	//
 	if ( pInfo != NULL )
 	{
 		if ( pInfo->m_bPreview )
@@ -63,7 +63,7 @@ void CStaffView::OnPrepareDC(CDC* pDC, CPrintInfo* pInfo)
 ///////////////////////////////////////////////////////////////////////////////////////
 void CStaffView::OnEndPrintPreview(CDC* pDC, CPrintInfo* pInfo, POINT point, CPreviewView* pView) 
 {
-	// TODO
+	//
 	CScrollView::OnEndPrintPreview(pDC, pInfo, point, pView);
 }
 
@@ -73,7 +73,7 @@ void CStaffView::OnEndPrintPreview(CDC* pDC, CPrintInfo* pInfo, POINT point, CPr
 ///////////////////////////////////////////////////////////////////////////////////////
 void CStaffView::OnEndPrinting(CDC* pDC, CPrintInfo* pInfo) 
 {
-	// TODO
+	//
 
 
 	CScrollView::OnEndPrinting(pDC, pInfo);
@@ -85,7 +85,7 @@ void CStaffView::OnEndPrinting(CDC* pDC, CPrintInfo* pInfo)
 ///////////////////////////////////////////////////////////////////////////////////////
 void CStaffView::OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo) 
 {
-	// TODO
+	//
 
 	CScrollView::OnBeginPrinting(pDC, pInfo);
 }
@@ -96,7 +96,7 @@ void CStaffView::OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo)
 ///////////////////////////////////////////////////////////////////////////////////////
 BOOL CStaffView::OnPreparePrinting(CPrintInfo* pInfo) 
 {
-	// TODO
+	//
 
 
 	BOOL bRet = CScrollView::DoPreparePrinting ( pInfo );

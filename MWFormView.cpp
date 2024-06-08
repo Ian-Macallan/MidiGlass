@@ -97,7 +97,7 @@ void CMWFormView::SetModified ( BOOL bModified )
 /////////////////////////////////////////////////////////////////
 void CMWFormView::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
 {
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    //
 	if ( nIDCtl == 0 )
 	{
 		if ( lpDrawItemStruct->CtlType == ODT_MENU )
@@ -119,7 +119,7 @@ void CMWFormView::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
 /////////////////////////////////////////////////////////////////
 void CMWFormView::OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStruct)
 {
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    //
 	if ( nIDCtl == 0 )
 	{
 		if ( lpMeasureItemStruct->CtlType == ODT_MENU )
@@ -141,7 +141,7 @@ void CMWFormView::OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStr
 /////////////////////////////////////////////////////////////////
 BOOL CMWFormView::OnEraseBkgnd(CDC* pDC)
 {
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    //
 	BOOL bRes = FriendEraseBkgndScrollView(this, pDC);
 	if ( bRes )
 	{
@@ -159,14 +159,14 @@ HBRUSH CMWFormView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
     HBRUSH hbr = CFormView::OnCtlColor(pDC, pWnd, nCtlColor);
 
-    // TODO:  Modifier ici les attributs du DC
-	// TODO
+    //
+	//
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-    // TODO:  Retourner un autre pinceau si le pinceau par défaut n'est pas souhaité
+    //
     return hbr;
 }

@@ -28,7 +28,7 @@ CModifyThread::~CModifyThread()
 
 BOOL CModifyThread::InitInstance()
 {
-	// TODO
+	//
 	m_pMainWnd = &theApp.m_ModifyThreadDialog;
 
 	theApp.m_ModifyThreadDialog.DoModal ();
@@ -38,7 +38,7 @@ BOOL CModifyThread::InitInstance()
 
 int CModifyThread::ExitInstance()
 {
-	// TODO
+	//
 	return CWinThread::ExitInstance();
 }
 

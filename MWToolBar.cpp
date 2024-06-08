@@ -122,7 +122,7 @@ void CMWToolBar::SendNormalMessage()
 void CMWToolBar::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMCUSTOMDRAW pNMCD = reinterpret_cast<LPNMCUSTOMDRAW>(pNMHDR);
-    // TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+    //
 
     NMCUSTOMDRAW* pCD = (NMCUSTOMDRAW*)pNMHDR;
 
@@ -269,7 +269,7 @@ void CMWToolBar::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWToolBar::OnEraseBkgnd(CDC* pDC)
 {
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    //
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{

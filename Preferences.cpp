@@ -73,7 +73,7 @@ BOOL CPreferences::OnInitDialog()
 {
 	CMWDialog::OnInitDialog();
 	
-	// TODO
+	//
 	DisplayValues ( );
 
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -220,7 +220,7 @@ void CPreferences::DisplayValues()
 //////////////////////////////////////////////////////////////////////////
 void CPreferences::OnOK() 
 {
-	// TODO
+	//
 	theApp.m_iStart_Playing = m_Start_Playing.GetCurSel ();
 	theApp.m_iMidiDevice	= m_Device.GetCurSel ( );
 	theApp.m_iMidiInDevice	= m_In_Device.GetCurSel ( );
@@ -291,7 +291,7 @@ void CPreferences::OnOK()
 //////////////////////////////////////////////////////////////////////////
 void CPreferences::OnSkipToNote() 
 {
-	// TODO
+	//
 }
 
 //
@@ -300,7 +300,7 @@ void CPreferences::OnSkipToNote()
 //////////////////////////////////////////////////////////////////////////
 void CPreferences::OnBnClickedBrowse()
 {
-	// TODO
+	//
 	OPENFILENAME ofn		;			// common dialog box structure
 	ZeroMemory ( &ofn, sizeof(ofn) );
 

@@ -492,7 +492,7 @@ void CMWMenu::MeasureMenuItem ( CDC *pDC, const char *pText, CSize *pSize, MENUI
 /////////////////////////////////////////////////////////////////////////////
 void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByPos )
 {
-    // TODO
+    //
     if ( lpMeasureItemStruct == NULL )
     {
         return;
@@ -538,11 +538,11 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByP
             {
                 if ( fByPos || strchr(szText,'\t') != NULL )
                 {
-                    strcat_s  ( szText, sizeof(szText), "ALT+99" );
+                    strcat_s  ( szText, sizeof(szText), "SHIFT+F1" );
                 }
                 MeasureMenuItem ( pDC, szText, &size, &menuItemInfo );
                 size.cx     = size.cx + 1;
-                size.cy     = size.cy + 1;
+                size.cy     = size.cy + 2;
                 int iRes    = m_pWnd->ReleaseDC ( pDC );
             }
         }
@@ -746,8 +746,9 @@ void CMWMenu::DrawMenuItem (   LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC,
         CPen* pOldPen = pDC->SelectObject(&penBlack);
 
         pRect->left     += EXTRA_PIXELS_WIDTH / 2;
-        pDC->MoveTo ( pRect->left, pRect->top + SEPARATOR_HEIGHT / 2 );
-        pDC->LineTo ( pRect->right - EXTRA_PIXELS_WIDTH / 2, pRect->top + SEPARATOR_HEIGHT / 2 );
+        int middle = ( pRect->bottom  - pRect->top ) / 2;
+        pDC->MoveTo ( pRect->left, pRect->top + middle );
+        pDC->LineTo ( pRect->right - EXTRA_PIXELS_WIDTH / 2, pRect->top + middle );
 
         pDC->SelectObject(pOldPen);
         penBlack.DeleteObject();
@@ -768,7 +769,7 @@ void CMWMenu::DrawMenuItem (   LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC,
 //====================================================================================
 void CMWMenu::DrawMenuItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos )
 {
-    // TODO
+    //
     if ( lpDrawItemStruct == NULL )
     {
         return;

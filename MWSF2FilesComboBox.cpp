@@ -140,14 +140,14 @@ HBRUSH CMWSF2FilesComboBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CMWComboBox::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO
+	//
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO
+	//
 	return hbr;
 }
 
@@ -157,7 +157,7 @@ HBRUSH CMWSF2FilesComboBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////////////
 BOOL CMWSF2FilesComboBox::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO
+	//
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{
@@ -173,6 +173,6 @@ BOOL CMWSF2FilesComboBox::OnEraseBkgnd(CDC* pDC)
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CMWSF2FilesComboBox::OnCbnDropdown()
 {
-	// TODO
+	//
 	ReLoad();
 }

@@ -198,7 +198,7 @@ void CGeneralView::DisplayValues()
 /////////////////////////////////////////////////////////////////
 void CGeneralView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
 {
-	// TODO
+	//
 	if ( m_bFirstTime || ( lHint & RIGHT_MASK_HEADER ) || lHint == 0 )
 	{
 		m_bFirstTime = false;
@@ -222,12 +222,12 @@ unsigned CGeneralView::GetIDD()
 /////////////////////////////////////////////////////////////////
 void CGeneralView::OnChangeDivisionHi() 
 {
-	// TODO
+	//
 	// send this notification unless you override the CMWFormView::OnInitDialog()
 	// function and call CRichEditCtrl().SetEventMask()
 	// with the ENM_CHANGE flag ORed into the mask.
 	
-	// TODO
+	//
 	char				szString [ MAX_INT_STRING ];
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
@@ -259,12 +259,12 @@ void CGeneralView::OnChangeDivisionHi()
 /////////////////////////////////////////////////////////////////
 void CGeneralView::OnChangeDivisionLo() 
 {
-	// TODO
+	//
 	// send this notification unless you override the CMWFormView::OnInitDialog()
 	// function and call CRichEditCtrl().SetEventMask()
 	// with the ENM_CHANGE flag ORed into the mask.
 	
-	// TODO
+	//
 	char				szString [ MAX_INT_STRING ];
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
@@ -298,7 +298,7 @@ void CGeneralView::OnInitialUpdate()
 {
 	CMWFormView::OnInitialUpdate();
 	
-	// TODO
+	//
 	if ( ! theApp.m_bSplitterWindow )
 	{
 		GetParentFrame ( )->RecalcLayout ( );
@@ -317,7 +317,7 @@ void CGeneralView::OnInitialUpdate()
 /////////////////////////////////////////////////////////////////
 void CGeneralView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO
+	//
 	FriendActivate( bActivate, pActivateView, pDeactiveView, false);
 	
 	CMWFormView::OnActivateView(bActivate, pActivateView, pDeactiveView);
@@ -329,7 +329,7 @@ void CGeneralView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* p
 /////////////////////////////////////////////////////////////////
 void CGeneralView::OnMail() 
 {
-	// TODO
+	//
 	
 	HINSTANCE			hInst;
 	CString				rString;
@@ -347,7 +347,7 @@ void CGeneralView::OnMail()
 /////////////////////////////////////////////////////////////////
 void CGeneralView::OnWeb() 
 {
-	// TODO
+	//
 	
 	HINSTANCE			hInst;
 	CString				rString;

@@ -7,6 +7,7 @@
 #include "stdafx.h"
 #include "MidiGlassApp.h"
 #include "NotesView.h"
+#include "Friend.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -130,8 +131,6 @@ void CNotesView::DoDataExchange(CDataExchange* pDX)
 ///////////////////////////////////////////////////////////////////////////////////
 BEGIN_MESSAGE_MAP(CNotesView, CMWFormView)
 	//{{AFX_MSG_MAP(CNotesView)
-	ON_WM_ERASEBKGND()
-	ON_WM_CTLCOLOR()
 	ON_WM_MOVE()
 	ON_WM_SIZE()
 	//}}AFX_MSG_MAP
@@ -160,30 +159,13 @@ void CNotesView::Dump(CDumpContext& dc) const
 
 //
 ///////////////////////////////////////////////////////////////////////////////////
-// CNotesView message handlers
-//
-///////////////////////////////////////////////////////////////////////////////////
-BOOL CNotesView::OnEraseBkgnd(CDC* pDC) 
-{
-	// TODO
-	BOOL bRes = FriendEraseBkgndScrollView(this, pDC);
-	if ( bRes )
-	{
-		return bRes;
-	}
-
-	return CMWFormView::OnEraseBkgnd ( pDC );
-}
-
-//
-///////////////////////////////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////////////////////////////
 void CNotesView::OnInitialUpdate() 
 {
 	CMWFormView::OnInitialUpdate();
 	
-	// TODO
+	//
 	if ( ! theApp.m_bSplitterWindow )
 	{
 		GetParentFrame ( )->RecalcLayout ( );
@@ -194,6 +176,13 @@ void CNotesView::OnInitialUpdate()
 		}
 	}
 
+    //
+    RECT clientRect;
+    GetClientRect ( &clientRect );
+    m_Rich_Edit.SetWindowPos ( NULL, clientRect.left, clientRect.top, 
+        clientRect.right - clientRect.left, clientRect.bottom - clientRect.top, SWP_NOZORDER );
+
+    //
 	EDITSTREAM		editStream;
 
 	editStream.dwCookie		= 0;
@@ -206,7 +195,18 @@ void CNotesView::OnInitialUpdate()
 
 	long iNbBytes = m_Rich_Edit.StreamIn ( SF_RTF | SFF_SELECTION , editStream );
 
-	m_Rich_Edit.SetSel( 0, 0 );
+    //
+    m_Rich_Edit.SetBackgroundColor ( FALSE, CMWColors::GetBKNormalCR (  CMWColors::m_iDarkTheme != 0 ) );
+
+    CHARFORMAT2A cf2a;
+    ZeroMemory ( &cf2a, sizeof(cf2a) );
+    cf2a.cbSize = sizeof(cf2a);
+    cf2a.dwMask = CFM_BACKCOLOR | CFM_COLOR;
+    cf2a.crTextColor    = CMWColors::GetFGNormalCR (  CMWColors::m_iDarkTheme != 0 );
+    cf2a.crBackColor    = CMWColors::GetBKNormalCR (  CMWColors::m_iDarkTheme != 0 );
+    BOOL bSet = m_Rich_Edit.SetDefaultCharFormat ( cf2a );
+
+	m_Rich_Edit.SetSel ( 0, 0 );
 
 }
 
@@ -216,40 +216,32 @@ void CNotesView::OnInitialUpdate()
 ///////////////////////////////////////////////////////////////////////////////////
 void CNotesView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
 {
-	// TODO
+	//
 	EDITSTREAM		editStream;
 
 	editStream.dwCookie		= 0;
 	editStream.dwError		= 0; 
     editStream.pfnCallback	= NotesStreamCallback;
 
-	m_Rich_Edit.SetSel( 0, -1 );
+    m_Rich_Edit.SetSel( 0, -1 );
 
 	iPosInBuffer = 0;
 
 	long iNbBytes = m_Rich_Edit.StreamIn ( SF_RTF | SFF_SELECTION , editStream );
 
-	m_Rich_Edit.SetSel( 0, 0 );
+    //
+    m_Rich_Edit.SetBackgroundColor ( FALSE, CMWColors::GetBKNormalCR (  CMWColors::m_iDarkTheme != 0 ) );
 
-}
+    CHARFORMAT2A cf2a;
+    ZeroMemory ( &cf2a, sizeof(cf2a) );
+    cf2a.cbSize = sizeof(cf2a);
+    cf2a.dwMask = CFM_BACKCOLOR | CFM_COLOR;
+    cf2a.crTextColor    = CMWColors::GetFGNormalCR (  CMWColors::m_iDarkTheme != 0 );
+    cf2a.crBackColor    = CMWColors::GetBKNormalCR (  CMWColors::m_iDarkTheme != 0 );
+    BOOL bSet = m_Rich_Edit.SetDefaultCharFormat ( cf2a );
+    
+	m_Rich_Edit.SetSel ( 0, 0 );
 
-//
-///////////////////////////////////////////////////////////////////////////////////
-//
-///////////////////////////////////////////////////////////////////////////////////
-HBRUSH CNotesView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
-{
-	HBRUSH hbr = CMWFormView::OnCtlColor(pDC, pWnd, nCtlColor);
-	
-	// TODO
-	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
-	if ( hBrush != NULL )
-	{
-		return hBrush;
-	}
-
-	// TODO
-	return hbr;
 }
 
 //
@@ -258,7 +250,7 @@ HBRUSH CNotesView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 void CNotesView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO
+	//
 	FriendActivate( bActivate, pActivateView, pDeactiveView, false);
 	
 	CMWFormView::OnActivateView(bActivate, pActivateView, pDeactiveView);

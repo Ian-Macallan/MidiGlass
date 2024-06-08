@@ -88,7 +88,7 @@ void CMWStatusBar::SendNormalMessage()
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWStatusBar::OnEraseBkgnd(CDC* pDC)
 {
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    //
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{
@@ -106,14 +106,14 @@ HBRUSH CMWStatusBar::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
     HBRUSH hbr = CStatusBar::OnCtlColor(pDC, pWnd, nCtlColor);
 
-    // TODO
+    //
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-    // TODO:  Retourner un autre pinceau si le pinceau par défaut n'est pas souhaité
+    //
     return hbr;
 }
 
@@ -123,7 +123,7 @@ HBRUSH CMWStatusBar::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMWStatusBar::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
 {
-    // TODO
+    //
     CDC *pDC = CDC::FromHandle(lpDrawItemStruct->hDC);
     if ( pDC )
     {
@@ -139,15 +139,15 @@ void CMWStatusBar::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
 ///////////////////////////////////////////////////////////////////////////////////
 HBRUSH CMWStatusBar::CtlColor(CDC* pDC, UINT nCtlColor)
 {
-    // TODO:  Modifier ici les attributs du DC
-    // TODO
+    //
+    //
 	HBRUSH hBrush = FriendCtlColor(pDC, this, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-    // TODO:  Retourner un pinceau non NULL si le gestionnaire du parent ne doit pas être appelé
+    //
     return NULL;
 }
 
@@ -159,7 +159,7 @@ void CMWStatusBar::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct )
 {
     static char szText [ MAX_PATH ];
 
-    // TODO:  Ajoutez votre code pour dessiner l'élément spécifié
+    //
     // CStatusBar::DrawItem ( lpDrawItemStruct );
     CDC *pDC = CDC::FromHandle ( lpDrawItemStruct->hDC );
     if ( lpDrawItemStruct != NULL && pDC )

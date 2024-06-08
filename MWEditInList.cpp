@@ -53,7 +53,7 @@ END_MESSAGE_MAP()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMWEditInList::OnKillfocus() 
 {
-	// TODO
+	//
 	CWnd	*wndParent	= GetParent ();
 
 	if ( GetFocus ( ) != this && GetFocus ( ) != wndParent )
@@ -91,14 +91,14 @@ HBRUSH CMWEditInList::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 	//	Call Directly CEdit
 	HBRUSH hbr = CEdit::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO
+	//
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO
+	//
 	return hbr;
 }
 
@@ -108,7 +108,7 @@ HBRUSH CMWEditInList::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWEditInList::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO
+	//
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{
@@ -125,7 +125,7 @@ BOOL CMWEditInList::OnEraseBkgnd(CDC* pDC)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWEditInList::PreTranslateMessage(MSG* pMsg)
 {
-	// TODO
+	//
 
 	if ( false && pMsg != NULL && pMsg->message == WM_KEYDOWN && pMsg->wParam == VK_TAB )
 	{

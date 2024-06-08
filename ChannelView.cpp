@@ -245,14 +245,14 @@ HBRUSH CChannelView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CMWFormView::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO
+	//
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO
+	//
 	return hbr;
 }
 
@@ -262,7 +262,7 @@ HBRUSH CChannelView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
 {
-	// TODO
+	//
 	if ( m_bFirstTime || ( lHint & RIGHT_MASK_CHANNELS ) || lHint == 0 )
 	{
 		m_bFirstTime = false;
@@ -290,7 +290,7 @@ void CChannelView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnContextMenu(CWnd* pWnd, CPoint point) 
 {
-	// TODO
+	//
 	CRect		rect;
 	GetClientRect ( &rect );
 	ClientToScreen ( &rect );
@@ -312,7 +312,7 @@ void CChannelView::OnContextMenu(CWnd* pWnd, CPoint point)
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnChannelsHelp() 
 {
-	// TODO
+	//
 	CAboutDlg	dlg;
 	dlg.DoModal ();
 }
@@ -323,7 +323,7 @@ void CChannelView::OnChannelsHelp()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnChannelsAudible() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
 
@@ -348,7 +348,7 @@ void CChannelView::OnChannelsAudible()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnChannelsMute() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
 
@@ -373,7 +373,7 @@ void CChannelView::OnChannelsMute()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnChannelsMuteall() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
 	int					iX;
@@ -401,7 +401,7 @@ void CChannelView::OnChannelsMuteall()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnChannelsAudibleall() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
 	int					iX;
@@ -429,7 +429,7 @@ void CChannelView::OnChannelsAudibleall()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnChannelsSolo() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
 
@@ -460,7 +460,7 @@ void CChannelView::OnChannelsSolo()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnClickChannels(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO
+	//
 	NMLISTVIEW			*nmListView = ( NMLISTVIEW * ) pNMHDR;
 
 	m_Channels.EditColumn ( nmListView->iSubItem );
@@ -474,7 +474,7 @@ void CChannelView::OnClickChannels(NMHDR* pNMHDR, LRESULT* pResult)
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnDblclkChannels(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO
+	//
 	
 	*pResult = 0;
 }
@@ -684,7 +684,7 @@ LRESULT CChannelView::OnEditSelect(WPARAM wParam, LPARAM lParam)
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnTimer(UINT_PTR nIDEvent) 
 {
-	// TODO
+	//
 
 	//	Update images for the view
 	CMidiDoc			*pMididoc;
@@ -751,7 +751,7 @@ void CChannelView::OnTimer(UINT_PTR nIDEvent)
 ///////////////////////////////////////////////////////////////////////////////////////////
 BOOL CChannelView::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO
+	//
 	
 	BOOL bRes = FriendEraseBkgndScrollView(this, pDC);
 	if ( bRes )
@@ -770,7 +770,7 @@ void CChannelView::OnInitialUpdate()
 {
 	CMWFormView::OnInitialUpdate();
 	
-	// TODO
+	//
 	if ( ! theApp.m_bSplitterWindow )
 	{
 		GetParentFrame ( )->RecalcLayout ( );
@@ -788,7 +788,7 @@ void CChannelView::OnInitialUpdate()
 ///////////////////////////////////////////////////////////////////////////////////////////
 void CChannelView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO
+	//
 	FriendActivate( bActivate, pActivateView, pDeactiveView, false);
 	
 	CMWFormView::OnActivateView(bActivate, pActivateView, pDeactiveView);

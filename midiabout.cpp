@@ -75,7 +75,7 @@ BOOL CAboutDlg::OnInitDialog()
 {
 	CMWDialog::OnInitDialog();
 	
-	// TODO
+	//
 	DWORD			dwLength;
 	DWORD			dwHandle;
 	char			szFilename [ MAX_PATHNAME_STRING ];
@@ -178,7 +178,7 @@ BOOL CAboutDlg::OnInitDialog()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CAboutDlg::OnInternalName() 
 {
-	// TODO
+	//
 	HINSTANCE			hInst;
 	CString				strUrl;
 
@@ -193,7 +193,7 @@ void CAboutDlg::OnInternalName()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CAboutDlg::OnOK() 
 {
-	// TODO
+	//
 	CMWDialog::OnOK();
 }
 
@@ -205,7 +205,7 @@ void CAboutDlg::OnDestroy()
 {
 	CMWDialog::OnDestroy();
 	
-	// TODO
+	//
 	if ( m_pMidiFile != NULL )
 	{
 		m_pMidiFile->LLStop ();
@@ -221,7 +221,7 @@ void CAboutDlg::OnDestroy()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CAboutDlg::OnTune() 
 {
-	// TODO
+	//
 
     //  Stop Current Playing
     CMainFrame *pMainFrame = dynamic_cast<CMainFrame *> ( AfxGetMainWnd( ) );
@@ -293,7 +293,7 @@ void CAboutDlg::OnTune()
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CAboutDlg::OnDropFiles(HDROP hDropInfo) 
 {
-	// TODO
+	//
 	char			szFilename [ MAX_PATHNAME_STRING ];
 
 	//		First get the count of files
@@ -330,7 +330,7 @@ void CAboutDlg::OnDropFiles(HDROP hDropInfo)
 /////////////////////////////////////////////////////////////////////////////////////////////
 void CAboutDlg::OnComments() 
 {
-	// TODO
+	//
 	HINSTANCE			hInst;
 	CString				strUrl;
 

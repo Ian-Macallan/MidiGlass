@@ -53,7 +53,7 @@ END_MESSAGE_MAP()
 ////////////////////////////////////////////////////////////////////////////////////////////
 CMidiWorksApp::CMidiWorksApp()
 {
-	// TODO
+	//
 	// Place all significant initialization in InitInstance
 	m_RecordThread				= NULL;
 
@@ -114,7 +114,7 @@ BOOL CMidiWorksApp::InitInstance()
 	BOOL bRes = AfxInitRichEdit( );
 
 	// Change the registry key under which our settings are stored.
-	// TODO
+	//
 	// such as the name of your company or organization.
 	SetRegistryKey(_T(PROGRAM_REGKEY));
 

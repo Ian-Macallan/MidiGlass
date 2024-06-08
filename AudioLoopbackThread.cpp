@@ -35,7 +35,7 @@ CAudioLoopbackThread::~CAudioLoopbackThread()
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CAudioLoopbackThread::InitInstance()
 {
-	// TODO
+	//
 	startAudioLoopBack();
 
 	return TRUE;
@@ -47,7 +47,7 @@ BOOL CAudioLoopbackThread::InitInstance()
 ///////////////////////////////////////////////////////////////////////////////////
 int CAudioLoopbackThread::ExitInstance()
 {
-	// TODO
+	//
 	return CWinThread::ExitInstance();
 }
 

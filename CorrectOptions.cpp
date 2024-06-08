@@ -70,7 +70,7 @@ BOOL CCorrectOptions::OnInitDialog()
 {
 	CMWDialog::OnInitDialog();
 	
-	// TODO
+	//
 	m_SysEx.SetCurSel ( theApp.m_iSysEx	);
 	m_AddStartOfTrack.SetCheck ( theApp.m_bAddStartOfTrack );
 	m_AddEndOfTrack.SetCheck ( theApp.m_bAddEndOfTrack );
@@ -89,7 +89,7 @@ BOOL CCorrectOptions::OnInitDialog()
 ////////////////////////////////////////////////////////////////////////////////////
 void CCorrectOptions::OnOK() 
 {
-	// TODO
+	//
 	theApp.m_iSysEx					= m_SysEx.GetCurSel ();
 	theApp.m_bAddStartOfTrack		= m_AddStartOfTrack.GetCheck ( );
 	theApp.m_bAddEndOfTrack			= m_AddEndOfTrack.GetCheck ( );
@@ -115,6 +115,6 @@ void CCorrectOptions::OnOK()
 ////////////////////////////////////////////////////////////////////////////////////
 void CCorrectOptions::OnBnClickedOk()
 {
-	// TODO
+	//
 	CCorrectOptions::OnOK();
 }

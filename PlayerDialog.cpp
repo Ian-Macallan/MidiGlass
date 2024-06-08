@@ -91,7 +91,7 @@ BOOL CPlayerDialog::OnInitDialog()
 {
 	CMWDialog::OnInitDialog();
 	
-	// TODO
+	//
 	BOOL			bRes;
 
 	m_bInitializing		= true;
@@ -170,7 +170,7 @@ void CPlayerDialog::OnDestroy()
 	
 	KillTimer ( PLAY_THREAD_TIMER );
 
-	// TODO
+	//
 	switch ( m_iPlayer )
 	{
 		case PLAYER_PLAY_DIR :
@@ -218,7 +218,7 @@ LRESULT CPlayerDialog::OnMciNotify(WPARAM wParam, LPARAM lParam)
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnPlay() 
 {
-	// TODO
+	//
 	switch ( m_iPlayer )
 	{
 		case PLAYER_PLAY_DIR :
@@ -241,7 +241,7 @@ void CPlayerDialog::OnPlay()
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnBackward() 
 {
-	// TODO
+	//
 	switch ( m_iPlayer )
 	{
 		case PLAYER_PLAY_DIR :
@@ -264,7 +264,7 @@ void CPlayerDialog::OnBackward()
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnPause() 
 {
-	// TODO
+	//
 	switch ( m_iPlayer )
 	{
 		case PLAYER_PLAY_DIR :
@@ -287,7 +287,7 @@ void CPlayerDialog::OnPause()
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnStop() 
 {
-	// TODO
+	//
 	switch ( m_iPlayer )
 	{
 		case PLAYER_PLAY_DIR :
@@ -310,7 +310,7 @@ void CPlayerDialog::OnStop()
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnForward() 
 {
-	// TODO
+	//
 	switch ( m_iPlayer )
 	{
 		case PLAYER_PLAY_DIR :
@@ -1035,7 +1035,7 @@ void CPlayerDialog::OnForwardList( )
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnTimer(UINT_PTR nIDEvent) 
 {
-	// TODO
+	//
 
 	//		Here we will do some refresh
 	DisplayMidiCounters();
@@ -1210,12 +1210,12 @@ void CPlayerDialog::DisplayMidiCounters()
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnChangeNumber() 
 {
-	// TODO
+	//
 	// send this notification unless you override the CMWDialog::OnInitDialog()
 	// function and call CRichEditCtrl().SetEventMask()
 	// with the ENM_CHANGE flag ORed into the mask.
 	
-	// TODO
+	//
 	if ( ! m_bInitializing && m_Tune_Combo.m_hWnd != NULL && m_Spin_Number.m_hWnd != NULL )
 	{
 		m_iTune =  m_Spin_Number.GetPos ( );
@@ -1236,7 +1236,7 @@ void CPlayerDialog::OnChangeNumber()
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnSelchangeTuneCombo() 
 {
-	// TODO
+	//
 	if ( ! m_bInitializing && m_Tune_Combo.m_hWnd != NULL && m_Spin_Number.m_hWnd != NULL )
 	{
 		m_iTune = m_Tune_Combo.GetCurSel ( );
@@ -1331,7 +1331,7 @@ void CPlayerDialog::DisplayInstruments()
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnReleasedcaptureSlider(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO
+	//
 	if ( m_pMidiFile != NULL )
 	{
 		m_pMidiFile->LLSlide ( m_Slider.GetPos () );
@@ -1346,7 +1346,7 @@ void CPlayerDialog::OnReleasedcaptureSlider(NMHDR* pNMHDR, LRESULT* pResult)
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnReleasedcaptureSliderSpeed(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO
+	//
 	if ( m_pMidiFile != NULL )
 	{
 		m_pMidiFile->LLSetSpeed ( m_Slider_Speed.GetPos () );
@@ -1361,7 +1361,7 @@ void CPlayerDialog::OnReleasedcaptureSliderSpeed(NMHDR* pNMHDR, LRESULT* pResult
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnBack() 
 {
-	// TODO
+	//
 	if ( m_pMidiFile != NULL )
 	{
 		long iSeconds = ( m_pMidiFile->LLGetTime () / 1000 );
@@ -1383,7 +1383,7 @@ void CPlayerDialog::OnBack()
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnForw() 
 {
-	// TODO
+	//
 	if ( m_pMidiFile != NULL )
 	{
 		long iSeconds = ( m_pMidiFile->LLGetTime () / 1000 );
@@ -1415,7 +1415,7 @@ void CPlayerDialog::StopAndDelete( bool bNotify )
 ///////////////////////////////////////////////////////////////////////////////////
 void CPlayerDialog::OnDropFiles(HDROP hDropInfo) 
 {
-	// TODO
+	//
 	char			szFilename [ MAX_PATHNAME_STRING ];
 
 	//		First get the count of files

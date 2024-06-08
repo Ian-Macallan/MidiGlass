@@ -301,7 +301,7 @@ void CMWNCColor::DrawIconFrame ( CDC *pDC, const CRect crect, bool bFillRect, CB
         }
         else
         {
-            pDC->FillRect ( &rect, CMWColors::GetBKNormalCBrush( true ) );
+            pDC->FillRect ( &rect, CMWColors::GetBKNormalCBrush( CMWColors::m_iDarkTheme != 0 ) );
         }
     }
 
@@ -373,7 +373,7 @@ BOOL CMWNCColor::PaintCaption( CWnd *pWnd, BOOL bActive )
     pWnd->GetWindowRect(&windowRECT);
 
     //
-    COLORREF foregroundColor = CMWColors::GetFGNormalCR(true);
+    COLORREF foregroundColor = CMWColors::GetFGNormalCR(CMWColors::m_iDarkTheme != 0);
 
     //  First Draw Frmae Rect Around the window
     CRect frameFullRECT     = GetFrameFullRect ( windowRECT );
@@ -385,11 +385,11 @@ BOOL CMWNCColor::PaintCaption( CWnd *pWnd, BOOL bActive )
     //
     if ( bActive )
     {
-        pDC->FillSolidRect(&captionFullRECT, CMWColors::GetBKSelectedCR(true));
+        pDC->FillSolidRect(&captionFullRECT, CMWColors::GetBKSelectedCR(CMWColors::m_iDarkTheme != 0));
     }
     else
     {
-        pDC->FillSolidRect(&captionFullRECT, CMWColors::GetBKNormalCR(true));
+        pDC->FillSolidRect(&captionFullRECT, CMWColors::GetBKNormalCR(CMWColors::m_iDarkTheme != 0));
     }
 
     //
@@ -489,7 +489,7 @@ BOOL CMWNCColor::PaintWindow( CWnd *pWnd, BOOL bActive )
 
     //
     RECT clientFullRect = GetClientFullRect ( windowRECT );
-    pDC->FillRect ( &clientFullRect, CMWColors::GetBKNormalCBrush(true) );
+    pDC->FillRect ( &clientFullRect, CMWColors::GetBKNormalCBrush(CMWColors::m_iDarkTheme != 0) );
 
     //
     pWnd->ReleaseDC ( pDC );
@@ -528,7 +528,7 @@ BOOL CMWNCColor::Activate( CWnd *pWnd, BOOL bActive )
 /////////////////////////////////////////////////////////////////////////////
 BOOL CMWNCColor::OnNcLButtonDown(CWnd *pWnd, UINT nHitTest, CPoint point)
 {
-    // TODO
+    //
     if ( CMWColors::m_iDarkTheme == 2 )
     {
         if ( ScreenPointOverRect( pWnd, point, m_IconRect ) )
@@ -599,7 +599,7 @@ BOOL CMWNCColor::OnNcLButtonUp(CWnd *pWnd, UINT nHitTest, CPoint point)
     m_bLeftPressed  = FALSE;
 
     //
-    // TODO
+    //
     if ( CMWColors::m_iDarkTheme == 2 )
     {
         if ( ScreenPointOverRect( pWnd, point, m_IconRect ) )
@@ -706,7 +706,7 @@ BOOL CMWNCColor::OnLButtonUp(CWnd *pWnd, UINT nFlags, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 BOOL CMWNCColor::OnNcMouseMove(CWnd *pWnd, UINT nHitTest, CPoint point)
 {
-    // TODO
+    //
     if ( CMWColors::m_iDarkTheme == 2 )
     {
         TRACKMOUSEEVENT tme;
@@ -736,7 +736,7 @@ BOOL CMWNCColor::OnNcMouseMove(CWnd *pWnd, UINT nHitTest, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 BOOL CMWNCColor::OnMouseMove(CWnd *pWnd, UINT nFlags, CPoint point)
 {
-    // TODO
+    //
     if ( CMWColors::m_iDarkTheme == 2 )
     {
         //  Track Event
@@ -859,7 +859,7 @@ BOOL CMWNCColor::OnNcMouseHover(CWnd *pWnd, UINT nFlags, CPoint point)
             }
             else
             {
-                DrawIconFrame ( pDC, m_MaximizeRect, true, CMWColors::GetBKNormalCBrush(true) );
+                DrawIconFrame ( pDC, m_MaximizeRect, true, CMWColors::GetBKNormalCBrush(CMWColors::m_iDarkTheme != 0) );
             }
             pWnd->ReleaseDC ( pDC );
             m_iHover    = IDI_MAXIMIZE;
@@ -884,7 +884,7 @@ BOOL CMWNCColor::OnNcMouseHover(CWnd *pWnd, UINT nFlags, CPoint point)
             }
             else
             {
-                DrawIconFrame ( pDC, m_MinimizeRect, true, CMWColors::GetBKNormalCBrush(true) );
+                DrawIconFrame ( pDC, m_MinimizeRect, true, CMWColors::GetBKNormalCBrush(CMWColors::m_iDarkTheme != 0) );
             }
             pWnd->ReleaseDC ( pDC );
             m_iHover    = IDI_MINIMIZE;

@@ -187,7 +187,7 @@ void CEventView::DisplayValues()
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
 {
-	// TODO
+	//
 	if ( m_bFirstTime || ( lHint & RIGHT_MASK_EVENTS ) || lHint == 0 )
 	{
 		EnableScrollBarCtrl(SB_BOTH, FALSE);
@@ -216,7 +216,7 @@ void CEventView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnDblclkTrackEventList(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO
+	//
 	ShowEventDetail();
 	
 	*pResult = 0;
@@ -264,7 +264,7 @@ CMidiList * CEventView::GetCurrentMidiEvent()
 void CEventView::OnKeydownTrackEventList(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	LV_KEYDOWN* pLVKeyDow = (LV_KEYDOWN*)pNMHDR;
-	// TODO
+	//
 
 	if ( pLVKeyDow->wVKey == VK_DELETE )
 	{
@@ -377,7 +377,7 @@ void CEventView::DeleteEvents(bool bRemove )
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnContextMenu(CWnd* pWnd, CPoint point) 
 {
-	// TODO
+	//
 	CRect		rect;
 	GetClientRect ( &rect );
 	ClientToScreen ( &rect );
@@ -401,7 +401,7 @@ void CEventView::OnContextMenu(CWnd* pWnd, CPoint point)
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnEventsDetail() 
 {
-	// TODO
+	//
 	ShowEventDetail();
 }
 
@@ -569,7 +569,7 @@ void CEventView::AskAndDeleteEvents(bool bRemove)
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnEventsInsertBefore() 
 {
-	// TODO
+	//
 	InsertEvents(true);
 }
 
@@ -579,7 +579,7 @@ void CEventView::OnEventsInsertBefore()
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnEventsInsertAfter() 
 {
-	// TODO
+	//
 	InsertEvents(false);
 }
 
@@ -589,7 +589,7 @@ void CEventView::OnEventsInsertAfter()
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnEventsModify() 
 {
-	// TODO
+	//
 	ModifyEvents();
 }
 
@@ -599,7 +599,7 @@ void CEventView::OnEventsModify()
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnEventsDelete() 
 {
-	// TODO
+	//
 	AskAndDeleteEvents( false );
 }
 
@@ -609,7 +609,7 @@ void CEventView::OnEventsDelete()
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnEventsRemove() 
 {
-	// TODO
+	//
 	AskAndDeleteEvents( true );
 }
 
@@ -619,7 +619,7 @@ void CEventView::OnEventsRemove()
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnEventsHelp() 
 {
-	// TODO
+	//
 	CAboutDlg	dlg;
 	dlg.DoModal ();
 	
@@ -632,7 +632,7 @@ void CEventView::OnEventsHelp()
 void CEventView::OnGetdispinfoTrackEventList(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	LV_DISPINFO* pDispInfo = (LV_DISPINFO*)pNMHDR;
-	// TODO
+	//
 
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
@@ -864,12 +864,12 @@ void CEventView::OnGetdispinfoTrackEventList(NMHDR* pNMHDR, LRESULT* pResult)
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnChangeTrackname() 
 {
-	// TODO
+	//
 	// send this notification unless you override the CMWFormView::OnInitDialog()
 	// function and call CRichEditCtrl().SetEventMask()
 	// with the ENM_CHANGE flag ORed into the mask.
 
-	// TODO
+	//
 	
 	CMidiDoc			*pMididoc;
 	CMidiFile			*pMidifile;
@@ -962,7 +962,7 @@ void CEventView::FillEventTableAddress()
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnClickTrackEventList(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	// TODO
+	//
 	m_iCurrentIndice = m_TrackEvents.GetSelectionMark ( );
 
 	*pResult = 0;
@@ -1091,7 +1091,7 @@ void CEventView::OnInitialUpdate()
 {
 	CMWFormView::OnInitialUpdate();
 	
-	// TODO
+	//
 	if ( ! theApp.m_bSplitterWindow )
 	{
 		GetParentFrame ( )->RecalcLayout ( );
@@ -1119,7 +1119,7 @@ void CEventView::IncrementCurrentIndice()
 ///////////////////////////////////////////////////////////////////////////////////
 void CEventView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO
+	//
 	FriendActivate( bActivate, pActivateView, pDeactiveView, false);
 	
 	CMWFormView::OnActivateView(bActivate, pActivateView, pDeactiveView);

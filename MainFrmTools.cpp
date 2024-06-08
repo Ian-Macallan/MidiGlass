@@ -21,7 +21,7 @@ static	char szRegisteredActions [ TOOLS_NUMBER ][ MAX_STRING ];
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnToolsTool1() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL1 );
 }
 
@@ -31,7 +31,7 @@ void CMainFrame::OnToolsTool1()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnToolsTool2() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL2 );
 	
 }
@@ -42,7 +42,7 @@ void CMainFrame::OnToolsTool2()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnToolsTool3() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL3 );
 	
 }
@@ -53,7 +53,7 @@ void CMainFrame::OnToolsTool3()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnToolsTool4() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL4 );
 	
 }
@@ -64,7 +64,7 @@ void CMainFrame::OnToolsTool4()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnToolsTool5() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL5 );
 	
 }
@@ -75,7 +75,7 @@ void CMainFrame::OnToolsTool5()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnToolsTool6() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL6 );
 	
 }
@@ -86,7 +86,7 @@ void CMainFrame::OnToolsTool6()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnToolsTool7() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL7 );
 	
 }
@@ -97,7 +97,7 @@ void CMainFrame::OnToolsTool7()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnToolsTool8() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL8 );
 	
 }
@@ -108,7 +108,7 @@ void CMainFrame::OnToolsTool8()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnToolsTool9() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL9 );	
 }
 
@@ -118,7 +118,7 @@ void CMainFrame::OnToolsTool9()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnToolsTool10() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL10 );	
 }
 
@@ -128,7 +128,7 @@ void CMainFrame::OnToolsTool10()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnToolsTool11() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL11 );	
 }
 
@@ -138,7 +138,7 @@ void CMainFrame::OnToolsTool11()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnToolsTool12() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL12 );	
 }
 
@@ -148,52 +148,52 @@ void CMainFrame::OnToolsTool12()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnToolsTool13() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL13 );	
 }
 
 void CMainFrame::OnToolsTool14() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL14 );	
 }
 
 void CMainFrame::OnToolsTool15() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL15 );	
 }
 
 void CMainFrame::OnToolsTool16() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL16 );	
 }
 
 void CMainFrame::OnToolsTool17() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL17 );
 	
 }
 
 void CMainFrame::OnToolsTool18() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL18 );
 	
 }
 
 void CMainFrame::OnToolsTool19() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL19 );
 	
 }
 
 void CMainFrame::OnToolsTool20() 
 {
-	// TODO
+	//
 	OnToolsToolNumber ( ID_TOOLS_TOOL20 );
 	
 }
@@ -338,7 +338,7 @@ void CMainFrame::OnToolsToolNumber(UINT iID)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnToolsExplorer() 
 {
-	// TODO
+	//
 	CMidiDoc			*pMididoc	= GetMidiDoc ();
 
 	HINSTANCE			hInst;
@@ -375,7 +375,7 @@ void CMainFrame::OnToolsExplorer()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::AddToolsMenu()
 {
-	// TODO
+	//
 	char			szValue [ MAX_REGISTRY_STRING ];
 	long			iLength;
 	LONG			iLong; 

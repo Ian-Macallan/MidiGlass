@@ -81,9 +81,9 @@ HBRUSH CMWReBar::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
     HBRUSH hbr = CReBar::OnCtlColor(pDC, pWnd, nCtlColor);
 
-    // TODO
+    //
 
-    // TODO
+    //
     return hbr;
 }
 
@@ -93,7 +93,7 @@ HBRUSH CMWReBar::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWReBar::OnEraseBkgnd(CDC* pDC)
 {
-    // TODO
+    //
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{
@@ -108,7 +108,7 @@ BOOL CMWReBar::OnEraseBkgnd(CDC* pDC)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWReBar::Create(CWnd* pParentWnd, DWORD dwCtrlStyle , DWORD dwStyle , UINT nID)
 {
-    // TODO
+    //
 
     return CReBar::Create(pParentWnd, dwCtrlStyle, dwStyle, nID);
 }

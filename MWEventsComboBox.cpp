@@ -79,7 +79,7 @@ void CMWEventsComboBox::ResetContent()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMWEventsComboBox::OnSelchange() 
 {
-	// TODO
+	//
 	CMWComboBox::OnSelchange();
 }
 
@@ -109,14 +109,14 @@ HBRUSH CMWEventsComboBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CComboBox::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO
+	//
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
 	if ( hBrush != NULL )
 	{
 		return hBrush;
 	}
 
-	// TODO
+	//
 	return hbr;
 }
 
@@ -126,7 +126,7 @@ HBRUSH CMWEventsComboBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWEventsComboBox::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO
+	//
 	BOOL bRes = FriendEraseBkgnd(this, pDC);
 	if ( bRes )
 	{

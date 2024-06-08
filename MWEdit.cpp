@@ -59,7 +59,7 @@ HBRUSH CMWEdit::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CEdit::OnCtlColor(pDC, pWnd, nCtlColor);
 	
-	// TODO
+	//
 	if ( m_foreground != m_background )
 	{
 		pDC->SetTextColor(m_foreground);
@@ -77,7 +77,7 @@ HBRUSH CMWEdit::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 		}
 	}
 
-	// TODO
+	//
 	return hbr;
 }
 
@@ -87,7 +87,7 @@ HBRUSH CMWEdit::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMWEdit::OnKillfocus() 
 {
-	// TODO
+	//
 	CWnd	*wndParent	= GetParent ();
 
 	if ( GetFocus ( ) != this && GetFocus ( ) != wndParent )
@@ -132,7 +132,7 @@ void CMWEdit::SetTextAttributes(COLORREF foreground, COLORREF background)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWEdit::OnEraseBkgnd(CDC* pDC) 
 {
-	// TODO
+	//
 	if ( m_foreground != m_background )
 	{
 		pDC->SetBkColor(m_background);
@@ -166,7 +166,7 @@ void CMWEdit::SendNormalMessage()
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMWEdit::PreTranslateMessage(MSG* pMsg)
 {
-	// TODO
+	//
 
 	if ( false && pMsg != NULL && pMsg->message == WM_KEYDOWN && pMsg->wParam == VK_TAB )
 	{

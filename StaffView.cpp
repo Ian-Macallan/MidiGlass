@@ -81,7 +81,7 @@ void CStaffView::OnDraw(CDC* pDC)
 {
 	CMidiDoc *pMididoc	= dynamic_cast< CMidiDoc * >( GetDocument () );
 
-	// TODO
+	//
 	DrawAll(pDC, NULL, &m_ScreenParms );
 
 }
@@ -125,7 +125,7 @@ void CStaffView::Dump(CDumpContext& dc) const
 ///////////////////////////////////////////////////////////////////////////////////////
 void CStaffView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
 {
-	// TODO
+	//
 
 	SetViewParameters ( );
 
@@ -148,7 +148,7 @@ void CStaffView::OnInitialUpdate()
 {
 	CScrollView::OnInitialUpdate();
 	
-	// TODO
+	//
 	SetViewParameters ();
 
 }
@@ -1886,7 +1886,7 @@ void CStaffView::Round ( CDC *pDC, long iCx1, long iCy1, long iCx2, long iCy2 )
 ///////////////////////////////////////////////////////////////////////////////////////
 void CStaffView::OnContextMenu(CWnd* pWnd, CPoint point) 
 {
-	// TODO
+	//
 	CRect		rect;
 	GetClientRect ( &rect );
 	ClientToScreen ( &rect );
@@ -1911,7 +1911,7 @@ void CStaffView::OnContextMenu(CWnd* pWnd, CPoint point)
 ///////////////////////////////////////////////////////////////////////////////////////
 void CStaffView::OnStaffHelp() 
 {
-	// TODO
+	//
 	CAboutDlg	dlg;
 	dlg.DoModal ();
 }
@@ -1944,7 +1944,7 @@ void CStaffView::SetViewParameters()
 ///////////////////////////////////////////////////////////////////////////////////////
 void CStaffView::OnStaffScale() 
 {
-	// TODO
+	//
 	CSize sizeTotal;
 
 	m_bScale = ! m_bScale;
@@ -2032,7 +2032,7 @@ void CStaffView::DrawAdditionalFrame(CDC *pDC, CPrintInfo *pInfo, CStaffViewParm
 ///////////////////////////////////////////////////////////////////////////////////////
 void CStaffView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
-	// TODO
+	//
 	FriendActivate( bActivate, pActivateView, pDeactiveView, true);
 	
 	CScrollView::OnActivateView(bActivate, pActivateView, pDeactiveView);
@@ -2064,7 +2064,7 @@ void CStaffView::OnSize(UINT nType, int cx, int cy)
 ///////////////////////////////////////////////////////////////////////////////////////
 void CStaffView::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
 {
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    //
 	if ( nIDCtl == 0 )
 	{
 		if ( lpDrawItemStruct->CtlType == ODT_MENU )
@@ -2086,7 +2086,7 @@ void CStaffView::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
 ///////////////////////////////////////////////////////////////////////////////////////
 void CStaffView::OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStruct)
 {
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    //
 	if ( nIDCtl == 0 )
 	{
 		if ( lpMeasureItemStruct->CtlType == ODT_MENU )
