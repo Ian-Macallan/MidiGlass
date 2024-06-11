@@ -90,7 +90,6 @@ void CMWButton::OnKillFocus(CWnd* pNewWnd)
 		WPARAM wParam	= MAKEWPARAM(id, 0);
 		::PostMessage ( wndParent->m_hWnd, WM_MW_EDIT_END, wParam, ( LPARAM ) this->m_hWnd );
 	}
-	
 }
 
 //
@@ -183,7 +182,7 @@ void CMWButton::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 	    pFont = GetFont ( );
 	    pFont->GetLogFont ( & logFont );
 
-	    logFont.lfWeight = FW_BOLD;
+	    // logFont.lfWeight = FW_BOLD;
 	    boldFont.CreateFontIndirect ( &logFont );
 
         //

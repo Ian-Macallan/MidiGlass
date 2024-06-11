@@ -16,133 +16,135 @@
 
 class CPlayerDialog : public CMWDialog
 {
-	friend	HBRUSH	FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
-	friend	BOOL	FriendEraseBkgnd(CWnd* pWnd, CDC* pDC);
+    DECLARE_DYNAMIC(CPlayerDialog)
 
-// Construction
-public:
-	void ResizeButtons ( CBitmap *pBitmap, CMWButton *pButton );
-	void CreateButtons();
-	void StopAndDelete( bool bNotify );
-	void DisplayInstruments();
-	void InitChannelList();
-	void DisplayMidiCounters();
-	void OnForwardList();
-	void OnStopList();
-	void OnPauseList();
-	void OnBackwardList();
-	void OnDestroyList();
-	void OnPlayList();
-	LRESULT OnMciNotifyList ( WPARAM wParam, LPARAM lParam );
-	void PlayTuneList();
-	BOOL InitPlayerList();
+	    friend	HBRUSH	FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	    friend	BOOL	FriendEraseBkgnd(CWnd* pWnd, CDC* pDC);
 
-	void OnForwardDirectory();
-	void OnStopDirectory();
-	void OnPauseDirectory();
-	void OnBackwardDirectory();
-	void OnDestroyDirectory();
-	void OnPlayDirectory();
-	LRESULT OnMciNotifyDirectory ( WPARAM wParam, LPARAM lParam );
-	void PlayTuneDirectory();
-	BOOL InitPlayerDirectory();
+    // Construction
+    public:
+	    void ResizeButtons ( CBitmap *pBitmap, CMWButton *pButton );
+	    void CreateButtons();
+	    void StopAndDelete( bool bNotify );
+	    void DisplayInstruments();
+	    void InitChannelList();
+	    void DisplayMidiCounters();
+	    void OnForwardList();
+	    void OnStopList();
+	    void OnPauseList();
+	    void OnBackwardList();
+	    void OnDestroyList();
+	    void OnPlayList();
+	    LRESULT OnMciNotifyList ( WPARAM wParam, LPARAM lParam );
+	    void PlayTuneList();
+	    BOOL InitPlayerList();
 
-	void PlayTune();
-	char * GetShort ( const char *pString );
-	LRESULT OnMciNotify(WPARAM wParam, LPARAM lParam);
-	CPlayerDialog(CWnd* pParent = NULL);   // standard constructor
+	    void OnForwardDirectory();
+	    void OnStopDirectory();
+	    void OnPauseDirectory();
+	    void OnBackwardDirectory();
+	    void OnDestroyDirectory();
+	    void OnPlayDirectory();
+	    LRESULT OnMciNotifyDirectory ( WPARAM wParam, LPARAM lParam );
+	    void PlayTuneDirectory();
+	    BOOL InitPlayerDirectory();
 
-// Dialog Data
-	//{{AFX_DATA(CPlayerDialog)
-	enum { IDD = IDD_PLAYER_DIALOG };
-	CMWButton	m_Back;
-	CMWButton	m_Forw;
-	CListCtrl	m_Channels;
-	CMWEdit	m_Time;
-	CMWEdit	m_State;
-	CMWSliderCtrl	m_Slider_Speed;
-	CMWSliderCtrl	m_Slider;
-	CMWProgressCtrl	m_Progress;
-	CMWEdit	m_Maximum;
-	CComboBox	m_Tune_Combo;
-	CSpinButtonCtrl	m_Spin_Number;
-	CMWEdit	m_Number;
-	CMWButton	m_Stop;
-	CMWButton	m_Play;
-	CMWButton	m_Pause;
-	CMWButton	m_Forward;
-	CMWButton	m_Backward;
-	//}}AFX_DATA
+	    void PlayTune();
+	    char * GetShort ( const char *pString );
+	    LRESULT OnMciNotify(WPARAM wParam, LPARAM lParam);
+	    CPlayerDialog(CWnd* pParent = NULL);   // standard constructor
+
+    // Dialog Data
+	    //{{AFX_DATA(CPlayerDialog)
+	    enum { IDD = IDD_PLAYER_DIALOG };
+	    CMWButton	m_Back;
+	    CMWButton	m_Forw;
+	    CListCtrl	m_Channels;
+	    CMWEdit	m_Time;
+	    CMWEdit	m_State;
+	    CMWSliderCtrl	m_Slider_Speed;
+	    CMWSliderCtrl	m_Slider;
+	    CMWProgressCtrl	m_Progress;
+	    CMWEdit	m_Maximum;
+	    CComboBox	m_Tune_Combo;
+	    CSpinButtonCtrl	m_Spin_Number;
+	    CMWEdit	m_Number;
+	    CMWButton	m_Stop;
+	    CMWButton	m_Play;
+	    CMWButton	m_Pause;
+	    CMWButton	m_Forward;
+	    CMWButton	m_Backward;
+	    //}}AFX_DATA
 
 
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CPlayerDialog)
-	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	//}}AFX_VIRTUAL
+    // Overrides
+	    // ClassWizard generated virtual function overrides
+	    //{{AFX_VIRTUAL(CPlayerDialog)
+	    protected:
+	    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	    //}}AFX_VIRTUAL
 
-// Implementation
-protected:
-	bool			m_bInitializing;
-	bool			m_bFirstTime;
+    // Implementation
+    protected:
+	    bool			m_bInitializing;
+	    bool			m_bFirstTime;
 
-	CListCtrl		* m_pChannels;
+	    CListCtrl		* m_pChannels;
 
-	int				m_iPlayer;
+	    int				m_iPlayer;
 
-	char			m_Directory [ MAX_PATHNAME_STRING ];
-	char			* m_pFilenames [ MAX_PLAYFILES ];
-	int				m_iFilenames;
+	    char			m_Directory [ MAX_PATHNAME_STRING ];
+	    char			* m_pFilenames [ MAX_PLAYFILES ];
+	    int				m_iFilenames;
 
-	int				m_iAction;
+	    int				m_iAction;
 
-	CMidiFile		* m_pMidiFile;
-	int				m_iTune;
+	    CMidiFile		* m_pMidiFile;
+	    int				m_iTune;
 
-	HBITMAP			m_hBitmapPlay;
-	CBitmap			* m_pBitmapPlay;
+	    HBITMAP			m_hBitmapPlay;
+	    CBitmap			* m_pBitmapPlay;
 
-	HBITMAP			m_hBitmapStop;
-	CBitmap			* m_pBitmapStop;
+	    HBITMAP			m_hBitmapStop;
+	    CBitmap			* m_pBitmapStop;
 
-	HBITMAP			m_hBitmapPause;
-	CBitmap			* m_pBitmapPause;
+	    HBITMAP			m_hBitmapPause;
+	    CBitmap			* m_pBitmapPause;
 
-	HBITMAP			m_hBitmapResume;
-	CBitmap			* m_pBitmapResume;
+	    HBITMAP			m_hBitmapResume;
+	    CBitmap			* m_pBitmapResume;
 
-	HBITMAP			m_hBitmapForward;
-	CBitmap			* m_pBitmapForward;
+	    HBITMAP			m_hBitmapForward;
+	    CBitmap			* m_pBitmapForward;
 
-	HBITMAP			m_hBitmapForw;
-	CBitmap			* m_pBitmapForw;
+	    HBITMAP			m_hBitmapForw;
+	    CBitmap			* m_pBitmapForw;
 
-	HBITMAP			m_hBitmapBackward;
-	CBitmap			* m_pBitmapBackward;
+	    HBITMAP			m_hBitmapBackward;
+	    CBitmap			* m_pBitmapBackward;
 
-	HBITMAP			m_hBitmapBack;
-	CBitmap			* m_pBitmapBack;
+	    HBITMAP			m_hBitmapBack;
+	    CBitmap			* m_pBitmapBack;
 
-	// Generated message map functions
-	//{{AFX_MSG(CPlayerDialog)
-	virtual BOOL OnInitDialog();
-	afx_msg void OnDestroy();
-	afx_msg void OnPlay();
-	afx_msg void OnBackward();
-	afx_msg void OnPause();
-	afx_msg void OnStop();
-	afx_msg void OnForward();
-	afx_msg void OnTimer(UINT_PTR nIDEvent);
-	afx_msg void OnChangeNumber();
-	afx_msg void OnSelchangeTuneCombo();
-	afx_msg void OnReleasedcaptureSlider(NMHDR* pNMHDR, LRESULT* pResult);
-	afx_msg void OnReleasedcaptureSliderSpeed(NMHDR* pNMHDR, LRESULT* pResult);
-	afx_msg void OnBack();
-	afx_msg void OnForw();
-	afx_msg void OnDropFiles(HDROP hDropInfo);
-	//}}AFX_MSG
-	DECLARE_MESSAGE_MAP()
+	    // Generated message map functions
+	    //{{AFX_MSG(CPlayerDialog)
+	    virtual BOOL OnInitDialog();
+	    afx_msg void OnDestroy();
+	    afx_msg void OnPlay();
+	    afx_msg void OnBackward();
+	    afx_msg void OnPause();
+	    afx_msg void OnStop();
+	    afx_msg void OnForward();
+	    afx_msg void OnTimer(UINT_PTR nIDEvent);
+	    afx_msg void OnChangeNumber();
+	    afx_msg void OnSelchangeTuneCombo();
+	    afx_msg void OnReleasedcaptureSlider(NMHDR* pNMHDR, LRESULT* pResult);
+	    afx_msg void OnReleasedcaptureSliderSpeed(NMHDR* pNMHDR, LRESULT* pResult);
+	    afx_msg void OnBack();
+	    afx_msg void OnForw();
+	    afx_msg void OnDropFiles(HDROP hDropInfo);
+	    //}}AFX_MSG
+	    DECLARE_MESSAGE_MAP()
 };
 
 //{{AFX_INSERT_LOCATION}}

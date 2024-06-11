@@ -468,7 +468,7 @@ void CMWListEditCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
     *pResult = 0;
 
     //
-    if( GetHeaderCtrl ( ) && m_bHeaderControlSubclassed == false )
+    if( GetHeaderCtrl ( ) && m_bHeaderControlSubclassed == false && CMWColors::m_iDarkTheme != 0 )
     {
         m_HeaderCtrl.SubclassWindow(GetHeaderCtrl()->m_hWnd);
         m_bHeaderControlSubclassed = true;

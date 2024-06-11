@@ -1,5 +1,6 @@
-// MidiDoc.h : interface of the CMidiDoc class
 //
+/////////////////////////////////////////////////////////////////////////////
+// MidiDoc.h : interface of the CMidiDoc class
 /////////////////////////////////////////////////////////////////////////////
 
 #if !defined(AFX_MIDIDOC_H__F6E8EC4E_B230_11D2_8147_444553540000__INCLUDED_)
@@ -11,56 +12,60 @@
 
 #include "MidiFile.h"
 
+//
+/////////////////////////////////////////////////////////////////////////////
+//
+/////////////////////////////////////////////////////////////////////////////
 class CMidiDoc : public CDocument
 {
-protected: // create from serialization only
-	CMidiDoc();
-	DECLARE_DYNCREATE(CMidiDoc)
+    protected: // create from serialization only
+	    CMidiDoc();
+	    DECLARE_DYNCREATE(CMidiDoc)
 
-// Attributes
-public:
+    // Attributes
+    public:
 
-// Operations
-public:
+    // Operations
+    public:
 
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CMidiDoc)
-	public:
-	virtual BOOL OnNewDocument();
-	virtual void Serialize(CArchive& ar);
-	virtual BOOL OnOpenDocument(LPCTSTR lpszPathName);
-	virtual void OnCloseDocument();
-	virtual BOOL OnSaveDocument(LPCTSTR lpszPathName);
-	virtual void SetTitle(LPCTSTR lpszTitle);
-	virtual void SetPathName(LPCTSTR lpszPathName, BOOL bAddToMRU = TRUE);
-	//}}AFX_VIRTUAL
+    // Overrides
+	    // ClassWizard generated virtual function overrides
+	    //{{AFX_VIRTUAL(CMidiDoc)
+	    public:
+	    virtual BOOL OnNewDocument();
+	    virtual void Serialize(CArchive& ar);
+	    virtual BOOL OnOpenDocument(LPCTSTR lpszPathName);
+	    virtual void OnCloseDocument();
+	    virtual BOOL OnSaveDocument(LPCTSTR lpszPathName);
+	    virtual void SetTitle(LPCTSTR lpszTitle);
+	    virtual void SetPathName(LPCTSTR lpszPathName, BOOL bAddToMRU = TRUE);
+	    //}}AFX_VIRTUAL
 
-// Implementation
-public:
-	void SetCurrentTrack ( unsigned short iTrack );
-	unsigned short GetCurrentTrack();
-	unsigned short GetEventMask();
-	void SetEventMask ( unsigned short iMask );
-	CMidiFile * GetDocumentMidiFile();
-	virtual ~CMidiDoc();
-#ifdef _DEBUG
-	virtual void AssertValid() const;
-	virtual void Dump(CDumpContext& dc) const;
-#endif
+    // Implementation
+    public:
+	    void SetCurrentTrack ( unsigned short iTrack );
+	    unsigned short GetCurrentTrack();
+	    unsigned short GetEventMask();
+	    void SetEventMask ( unsigned short iMask );
+	    CMidiFile * GetDocumentMidiFile();
+	    virtual ~CMidiDoc();
+    #ifdef _DEBUG
+	    virtual void AssertValid() const;
+	    virtual void Dump(CDumpContext& dc) const;
+    #endif
 
-protected:
+    protected:
 
-// Generated message map functions
-protected:
-	unsigned short m_iMidiTrack;
-	unsigned short m_iEventMask;
-	CMidiFile * m_pMidiFile;
-	//{{AFX_MSG(CMidiDoc)
-	afx_msg void OnFileSendMail();
-	afx_msg void OnUpdateFileSendMail(CCmdUI* pCmdUI);
-	//}}AFX_MSG
-	DECLARE_MESSAGE_MAP()
+    // Generated message map functions
+    protected:
+	    unsigned short m_iMidiTrack;
+	    unsigned short m_iEventMask;
+	    CMidiFile * m_pMidiFile;
+	    //{{AFX_MSG(CMidiDoc)
+	    afx_msg void OnFileSendMail();
+	    afx_msg void OnUpdateFileSendMail(CCmdUI* pCmdUI);
+	    //}}AFX_MSG
+	    DECLARE_MESSAGE_MAP()
 };
 
 /////////////////////////////////////////////////////////////////////////////

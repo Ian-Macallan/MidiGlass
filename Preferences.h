@@ -15,6 +15,8 @@
 
 class CPreferences : public CMWDialog
 {
+    DECLARE_DYNAMIC(CPreferences)
+
 	friend	HBRUSH	FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	friend	BOOL	FriendEraseBkgnd(CWnd* pWnd, CDC* pDC);
 

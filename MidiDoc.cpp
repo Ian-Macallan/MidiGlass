@@ -76,8 +76,7 @@ CMidiDoc::CMidiDoc()
 		theApp.WriteProfileInt ( "Settings", "Use Sound Font", theApp.m_bUse_Sound_Font );
 	}
 	strReturned =  theApp.GetProfileString( "Explorer", "Path", "" );
-	strcpy_s ( theApp.m_Explorer_Pathname, 
-				sizeof ( theApp.m_Explorer_Pathname ), strReturned );
+	strcpy_s ( theApp.m_Explorer_Pathname, 	sizeof ( theApp.m_Explorer_Pathname ), strReturned );
 }
 
 //
@@ -223,8 +222,7 @@ BOOL CMidiDoc::OnOpenDocument(LPCTSTR lpszPathName)
 		{
 			HINSTANCE			hInst;
 
-			hInst = 
-				ShellExecute ( NULL, "play", szPathname, "", "", SW_SHOWDEFAULT );
+			hInst = ShellExecute ( NULL, "play", szPathname, "", "", SW_SHOWDEFAULT );
 			break;
 		}
 
@@ -366,7 +364,6 @@ void CMidiDoc::OnUpdateFileSendMail(CCmdUI* pCmdUI)
 void CMidiDoc::SetTitle(LPCTSTR lpszTitle) 
 {
 	//
-	
 	CDocument::SetTitle(lpszTitle);
 }
 
@@ -379,6 +376,7 @@ void CMidiDoc::SetPathName(LPCTSTR lpszPathName, BOOL bAddToMRU)
 	//
 	char		szPathname [ MAX_PATHNAME_STRING ];
 
+    //
 	strcpy_s ( szPathname, sizeof ( szPathname ), lpszPathName );
 	if ( m_pMidiFile != NULL )
 	{

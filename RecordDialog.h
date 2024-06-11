@@ -16,6 +16,8 @@
 ////////////////////////////////////////////////////////////////////////////////////////
 class CRecordDialog : public CMWDialog
 {
+    DECLARE_DYNAMIC(CRecordDialog)
+
 	// Construction
 	public:
 		CRecordDialog(CWnd* pParent = NULL);   // standard constructor

@@ -5,7 +5,7 @@
 //
 //	(c) 2003 - 2024 Macallan - mailto:ian.macallan@gmail.com
 //
-//	Generated : 08/06/2024 13:27:33
+//	Generated : 11/06/2024 18:52:12
 //
 //===========================================================================================
 //
@@ -57,22 +57,22 @@
 #endif
 
 #ifdef UNICODE
-#define PROGRAM_DATE    L"Sat Jun 08 13:27"
-#define PROGRAM_DATE_F  L"Sat Jun 08 13:27 2024"
+#define PROGRAM_DATE    L"Tue Jun 11 18:52"
+#define PROGRAM_DATE_F  L"Tue Jun 11 18:52 2024"
 #define PROGRAM_YEAR    L"2024"
-#define PROGRAM_TIME    L"2024/06/08 13:27:33"
+#define PROGRAM_TIME    L"2024/06/11 18:52:12"
 #else
-#define PROGRAM_DATE    "Sat Jun 08 13:27"
-#define PROGRAM_DATE_F  "Sat Jun 08 13:27 2024"
+#define PROGRAM_DATE    "Tue Jun 11 18:52"
+#define PROGRAM_DATE_F  "Tue Jun 11 18:52 2024"
 #define PROGRAM_YEAR    "2024"
-#define PROGRAM_TIME    "2024/06/08 13:27:33"
+#define PROGRAM_TIME    "2024/06/11 18:52:12"
 #endif
 
 #ifdef UNICODE
-#define PROGRAM_VERSION L"4.0.03.018"
-#define PROGRAM_INSTALL L"4.0.03018"
-#define PROGRAM_VER_NUM 40003018
-#define PROGRAM_BUILD   L"202"
+#define PROGRAM_VERSION L"4.0.04.007"
+#define PROGRAM_INSTALL L"4.0.04007"
+#define PROGRAM_VER_NUM 40004007
+#define PROGRAM_BUILD   L"210"
 #define PROGRAM_TITLE   L"Midi Glass"
 #ifdef _WIN64
 #define PROGRAM_TITLE_P L"Midi Glass (x64 Unicode)"
@@ -80,10 +80,10 @@
 #define PROGRAM_TITLE_P L"Midi Glass (x86 Unicode)"
 #endif
 #else
-#define PROGRAM_VERSION "4.0.03.018"
-#define PROGRAM_INSTALL "4.0.03018"
-#define PROGRAM_VER_NUM 40003018
-#define PROGRAM_BUILD   "202"
+#define PROGRAM_VERSION "4.0.04.007"
+#define PROGRAM_INSTALL "4.0.04007"
+#define PROGRAM_VER_NUM 40004007
+#define PROGRAM_BUILD   "210"
 #define PROGRAM_TITLE   "Midi Glass"
 #ifdef _WIN64
 #define PROGRAM_TITLE_P "Midi Glass (x64 MBCS)"

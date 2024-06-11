@@ -14,49 +14,51 @@
 
 class CFindEvent : public CMWDialog
 {
-	friend	HBRUSH	FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
-	friend	BOOL	FriendEraseBkgnd(CWnd* pWnd, CDC* pDC);
+    	DECLARE_DYNAMIC(CFindEvent)
 
-// Construction
-public:
-	void EnableDisable();
-	CFindEvent(CWnd* pParent = NULL);   // standard constructor
+	    friend	HBRUSH	FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	    friend	BOOL	FriendEraseBkgnd(CWnd* pWnd, CDC* pDC);
 
-// Dialog Data
-	//{{AFX_DATA(CFindEvent)
-	enum { IDD = IDD_FIND_EVENT };
-	CMWEdit	m_V2_To;
-	CMWEdit	m_V2_From;
-	CSpinButtonCtrl	m_Spin_V2_To;
-	CSpinButtonCtrl	m_Spin_V2_From;
-	CMWEdit	m_V1_To;
-	CMWEdit	m_V1_From;
-	CSpinButtonCtrl	m_Spin_V1_To;
-	CSpinButtonCtrl	m_Spin_V1_From;
-	CMWControllersComboBox	m_Controller_Combo;
-	CMWProgramsComboBox	m_Program_Combo;
-	CMWEventsComboBox	m_Event_Combo;
-	//}}AFX_DATA
+    // Construction
+    public:
+	    void EnableDisable();
+	    CFindEvent(CWnd* pParent = NULL);   // standard constructor
+
+    // Dialog Data
+	    //{{AFX_DATA(CFindEvent)
+	    enum { IDD = IDD_FIND_EVENT };
+	    CMWEdit	m_V2_To;
+	    CMWEdit	m_V2_From;
+	    CSpinButtonCtrl	m_Spin_V2_To;
+	    CSpinButtonCtrl	m_Spin_V2_From;
+	    CMWEdit	m_V1_To;
+	    CMWEdit	m_V1_From;
+	    CSpinButtonCtrl	m_Spin_V1_To;
+	    CSpinButtonCtrl	m_Spin_V1_From;
+	    CMWControllersComboBox	m_Controller_Combo;
+	    CMWProgramsComboBox	m_Program_Combo;
+	    CMWEventsComboBox	m_Event_Combo;
+	    //}}AFX_DATA
 
 
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CFindEvent)
-	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	//}}AFX_VIRTUAL
+    // Overrides
+	    // ClassWizard generated virtual function overrides
+	    //{{AFX_VIRTUAL(CFindEvent)
+	    protected:
+	    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	    //}}AFX_VIRTUAL
 
-// Implementation
-protected:
+    // Implementation
+    protected:
 
-	// Generated message map functions
-	//{{AFX_MSG(CFindEvent)
-	virtual BOOL OnInitDialog();
-	virtual void OnOK();
-	afx_msg void OnSelchangeEventCombo();
-	afx_msg void OnSelendokEventCombo();
-	//}}AFX_MSG
-	DECLARE_MESSAGE_MAP()
+	    // Generated message map functions
+	    //{{AFX_MSG(CFindEvent)
+	    virtual BOOL OnInitDialog();
+	    virtual void OnOK();
+	    afx_msg void OnSelchangeEventCombo();
+	    afx_msg void OnSelendokEventCombo();
+	    //}}AFX_MSG
+	    DECLARE_MESSAGE_MAP()
 };
 
 //{{AFX_INSERT_LOCATION}}

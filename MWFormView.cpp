@@ -58,6 +58,10 @@ BEGIN_MESSAGE_MAP(CMWFormView, CFormView)
     ON_WM_MEASUREITEM()
     ON_WM_ERASEBKGND()
     ON_WM_CTLCOLOR()
+    ON_WM_INITMENUPOPUP()
+    ON_WM_SHOWWINDOW()
+    ON_WM_INITMENU()
+    ON_WM_CONTEXTMENU()
 END_MESSAGE_MAP()
 
 
@@ -169,4 +173,43 @@ HBRUSH CMWFormView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 
     //
     return hbr;
+}
+
+//
+/////////////////////////////////////////////////////////////////
+//
+/////////////////////////////////////////////////////////////////
+void CMWFormView::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
+{
+    CFormView::OnInitMenuPopup(pPopupMenu, nIndex, bSysMenu);
+}
+
+//
+/////////////////////////////////////////////////////////////////
+//
+/////////////////////////////////////////////////////////////////
+void CMWFormView::OnShowWindow(BOOL bShow, UINT nStatus)
+{
+    CFormView::OnShowWindow(bShow, nStatus);
+
+}
+
+//
+/////////////////////////////////////////////////////////////////
+//
+/////////////////////////////////////////////////////////////////
+void CMWFormView::OnInitMenu(CMenu* pMenu)
+{
+    CFormView::OnInitMenu(pMenu);
+
+    // TODO: ajoutez ici le code de votre gestionnaire de messages
+}
+
+//
+/////////////////////////////////////////////////////////////////
+//
+/////////////////////////////////////////////////////////////////
+void CMWFormView::OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/)
+{
+    // TODO: ajoutez ici le code de votre gestionnaire de messages
 }

@@ -35,8 +35,10 @@ unsigned char SysExMidiOff [ 5 ] =
 /////////////////////////////////////////////////////////////////////////////
 // CSysExDialog dialog
 
+IMPLEMENT_DYNAMIC(CSysExDialog,CMWDialog)
 
-CSysExDialog::CSysExDialog(CWnd* pParent /*=NULL*/) : CDialog(CSysExDialog::IDD, pParent)
+//
+CSysExDialog::CSysExDialog(CWnd* pParent /*=NULL*/) : CMWDialog(CSysExDialog::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CSysExDialog)
 	//}}AFX_DATA_INIT
@@ -47,7 +49,7 @@ CSysExDialog::CSysExDialog(CWnd* pParent /*=NULL*/) : CDialog(CSysExDialog::IDD,
 
 void CSysExDialog::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CMWDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CSysExDialog)
 	DDX_Control(pDX, IDC_STOP_RECEIVE, m_Stop_Receiving);
 	DDX_Control(pDX, IDC_START_RECEIVE, m_Start_Receiving);
@@ -59,7 +61,7 @@ void CSysExDialog::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CSysExDialog, CDialog)
+BEGIN_MESSAGE_MAP(CSysExDialog, CMWDialog)
 	//{{AFX_MSG_MAP(CSysExDialog)
 	ON_WM_ERASEBKGND()
 	ON_WM_CTLCOLOR()
@@ -87,7 +89,7 @@ BOOL CSysExDialog::OnEraseBkgnd(CDC* pDC)
 		return bRes;
 	}
 
-	return CDialog::OnEraseBkgnd(pDC);
+	return CMWDialog::OnEraseBkgnd(pDC);
 }
 
 //
@@ -96,7 +98,7 @@ BOOL CSysExDialog::OnEraseBkgnd(CDC* pDC)
 /////////////////////////////////////////////////////////////////////////////
 HBRUSH CSysExDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
 {
-	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
+	HBRUSH hbr = CMWDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 	
 	//
 	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
@@ -114,7 +116,7 @@ HBRUSH CSysExDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 /////////////////////////////////////////////////////////////////////////////
 BOOL CSysExDialog::OnInitDialog() 
 {
-	CDialog::OnInitDialog();
+	CMWDialog::OnInitDialog();
 	
 	//
 	if ( m_bFirstTime )
@@ -543,7 +545,7 @@ void CSysExDialog::OnTimer(UINT_PTR nIDEvent)
 {
 	//
 	OnCheckReceive();
-	CDialog::OnTimer(nIDEvent);
+	CMWDialog::OnTimer(nIDEvent);
 }
 
 //
@@ -555,7 +557,7 @@ void CSysExDialog::OnOK()
 	//
 	KillTimer ( INPUT_DIALOG_TIMER );
 	
-	CDialog::OnOK();
+	CMWDialog::OnOK();
 }
 
 //
@@ -567,5 +569,5 @@ void CSysExDialog::OnClose()
 	//
 	KillTimer ( INPUT_DIALOG_TIMER );
 
-	CDialog::OnClose();
+	CMWDialog::OnClose();
 }

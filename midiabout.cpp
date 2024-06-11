@@ -21,6 +21,8 @@ extern CMidiWorksApp theApp;
 //
 static int iMidiFileIndex = 1;
 
+IMPLEMENT_DYNAMIC(CAboutDlg, CMWDialog)
+
 //
 /////////////////////////////////////////////////////////////////////////////////////////////
 // CAboutDlg dialog used for App About

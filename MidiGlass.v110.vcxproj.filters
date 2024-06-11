@@ -336,13 +336,13 @@
     <ClCompile Include="MWMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MWDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="MWColors.cpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MWNCColor.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MWDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

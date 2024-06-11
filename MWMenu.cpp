@@ -1,15 +1,21 @@
 #include "stdafx.h"
+
 #include "MWMenu.h"
 #include "MidiGlassApp.h"
 #include "Friend.h"
 
 static  const int EXTRA_PIXELS_WIDTH    = 8;
 static  const int EXTRA_PIXELS_HEIGHT   = 6;
-static  const int SEPARATOR_HEIGHT      = 7;
+static  const int SEPARATOR_HEIGHT      = 5;
 
 #define MENU_TEXT_SIZE  256
 
 extern CMidiWorksApp theApp;
+
+const UINT MENU_ITEM_MASK   = MIIM_BITMAP | MIIM_CHECKMARKS | MIIM_DATA |
+                              MIIM_FTYPE | MIIM_ID | MIIM_STATE | MIIM_STRING |
+                              MIIM_SUBMENU;
+const UINT MENU_MASK        = MIM_BACKGROUND | MIM_HELPID | MIM_MAXHEIGHT | MIM_MENUDATA | MIM_STYLE;
 
 //
 ////////////////////////////////////////////////////////////////////////
@@ -205,9 +211,7 @@ int CMWMenu::SetOwnDraw ( HMENU hMenu, bool bOwnDrawn )
 
         menuItemInfo.cch        = sizeof ( szText );
         menuItemInfo.dwTypeData = szText;
-        menuItemInfo.fMask      =   MIIM_BITMAP | MIIM_CHECKMARKS | MIIM_DATA |
-                                    MIIM_FTYPE | MIIM_ID | MIIM_STATE | MIIM_STRING |
-                                    MIIM_SUBMENU;
+        menuItemInfo.fMask      =   MENU_ITEM_MASK;
         BOOL bRes = menu->GetMenuItemInfo ( iPos, &menuItemInfo, TRUE );
         if ( bRes )
         {
@@ -231,10 +235,12 @@ int CMWMenu::SetOwnDraw ( HMENU hMenu, bool bOwnDrawn )
             }
             count++;
 
-            OutputDebugString ( "SetOwnDraw " );
-            OutputDebugString ( szText );
-            OutputDebugString ( "\n" );
-
+#ifdef _DEBUG
+            char szDebug [ MAX_PATH ];
+            ZeroMemory ( szDebug, sizeof(szDebug) );
+            sprintf_s ( szDebug, sizeof(szDebug), "SetOwnDraw '%s' 0x%x 0x%lx\n", szText, menuItemInfo.wID, (long) menuItemInfo.dwItemData );
+            OutputDebugString ( szDebug );
+#endif
             if ( menuItemInfo.hSubMenu )
             {
                 count += SetOwnDraw ( menuItemInfo.hSubMenu, bOwnDrawn );
@@ -242,7 +248,9 @@ int CMWMenu::SetOwnDraw ( HMENU hMenu, bool bOwnDrawn )
         }
         else
         {
-            int i = 0;
+#ifdef _DEBUG
+            OutputDebugString ( "SetOwnDraw Not Found\n" );
+#endif
         }
     }
 
@@ -502,7 +510,7 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByP
     MENUINFO cmi;
     ZeroMemory ( &cmi, sizeof(cmi) );
     cmi.cbSize  = sizeof(cmi);
-    cmi.fMask   = MIM_BACKGROUND | MIM_HELPID | MIM_MAXHEIGHT | MIM_MENUDATA | MIM_STYLE;
+    cmi.fMask   = MENU_MASK;
     BOOL bRes = GetMenuInfo ( &cmi );
 
     //
@@ -516,9 +524,10 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByP
 
     MENUITEMINFO    menuItemInfo;
     ZeroMemory ( &menuItemInfo, sizeof ( menuItemInfo ) );
+
     menuItemInfo.cbSize  = sizeof (menuItemInfo);
 
-    menuItemInfo.fMask          = MIIM_STRING | MIIM_STATE | MIIM_FTYPE | MIIM_SUBMENU | MIIM_ID  | MIIM_DATA | MIIM_BITMAP;
+    menuItemInfo.fMask          = MENU_ITEM_MASK;
     menuItemInfo.cch            = sizeof ( szText );
     menuItemInfo.dwTypeData     = szText;
     UINT uItem  = ( UINT ) lpMeasureItemStruct->itemData;
@@ -536,25 +545,30 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByP
             CDC *pDC    = m_pWnd->GetDC ( );
             if ( pDC )
             {
-                if ( fByPos || strchr(szText,'\t') != NULL )
+                if ( fByPos && strchr(szText,'\t') == NULL )
                 {
                     strcat_s  ( szText, sizeof(szText), "SHIFT+F1" );
                 }
                 MeasureMenuItem ( pDC, szText, &size, &menuItemInfo );
-                size.cx     = size.cx + 1;
-                size.cy     = size.cy + 2;
+                size.cx     = size.cx + 1;  // Leave some spacez
+                size.cy     = size.cy + 3;  // Leave some spacez
                 int iRes    = m_pWnd->ReleaseDC ( pDC );
             }
         }
-
-        static char szDebug [ MAX_PATH ];
-        sprintf_s ( szDebug, sizeof(szDebug), "%s %s %d 0x%x \n", "MeasureMenuItem", szText, menuItemInfo.wID, menuItemInfo.fType );
-        OutputDebugString ( szDebug );
     }
     else
     {
-        int i = 0;
+#ifdef _DEBUG
+        OutputDebugString ( "DrawMenuItem Not Found\n" );
+#endif
     }
+
+#ifdef _DEBUG
+    static char szDebug [ MAX_PATH ];
+    sprintf_s ( szDebug, sizeof(szDebug), 
+        "MeasureMenuItem '%s' 0x%x 0x%x 0x%llx\n", szText, menuItemInfo.wID, menuItemInfo.fType, menuItemInfo.hSubMenu );
+    OutputDebugString ( szDebug );
+#endif
 
     lpMeasureItemStruct->itemWidth      = size.cx;
     lpMeasureItemStruct->itemHeight     = size.cy;
@@ -584,17 +598,6 @@ void CMWMenu::DrawMenuItem (   LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC,
     ZeroMemory ( szText, sizeof(szText) );
 
     //
-    HBRUSH      hForeground     = CMWColors::GetFGNormalBrush(CMWColors::m_iDarkTheme != 0);
-    HBRUSH      hFGSelected     = CMWColors::GetFGSelectedBrush(CMWColors::m_iDarkTheme != 0);
-
-    CBrush      *brBKNormal     = CMWColors::GetBKNormalCBrush(CMWColors::m_iDarkTheme != 0);
-    CBrush      *brBKSelected   = CMWColors::GetBKSelectedCBrush(CMWColors::m_iDarkTheme != 0);
-
-    COLORREF    crForeground    = CMWColors::GetFGNormalCR(CMWColors::m_iDarkTheme != 0);;
-    COLORREF    crFGSelected    = CMWColors::GetFGSelectedCR(CMWColors::m_iDarkTheme != 0);
-
-    COLORREF    crDisabled      = CMWColors::GetFGDisabledCR(CMWColors::m_iDarkTheme != 0);
-
     //  The entire control needs to be drawn
     //  This is called line by line
     if ( lpDrawItemStruct->itemAction & ODA_DRAWENTIRE )
@@ -603,9 +606,9 @@ void CMWMenu::DrawMenuItem (   LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC,
         RECT rect = *pRect;
         rect.top        = rect.top + 1;
         rect.left       = rect.left + 1;
-        rect.right      = rect.right  - 1;
-        rect.bottom     = rect.bottom  - 1;
-        pDC->FillRect ( pRect, brBKNormal);
+        rect.right      = rect.right - 1;
+        rect.bottom     = rect.bottom - 1;
+        pDC->FillRect ( pRect, CMWColors::GetBKNormalCBrush(CMWColors::m_iDarkTheme != 0));
     }
 
     int xIconSmall  = GetSystemMetrics(SM_CXSMICON);
@@ -615,7 +618,7 @@ void CMWMenu::DrawMenuItem (   LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC,
     if ( lpDrawItemStruct->itemState & ODS_CHECKED )
     {
         // We Will Have to Draw a Bitmap
-        hOldBrush       = ( HBRUSH ) pDC->SelectObject ( hForeground );
+        hOldBrush       = ( HBRUSH ) pDC->SelectObject ( CMWColors::GetFGNormalBrush(CMWColors::m_iDarkTheme != 0) );
 
         //
         DrawIconEx ( pDC->m_hDC, lpDrawItemStruct->rcItem.left, lpDrawItemStruct->rcItem.top, 
@@ -626,7 +629,7 @@ void CMWMenu::DrawMenuItem (   LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC,
     }
     else if ( menuInfo->hbmpItem != NULL )
     {
-        hOldBrush       = ( HBRUSH ) pDC->SelectObject ( hForeground );
+        hOldBrush       = ( HBRUSH ) pDC->SelectObject ( CMWColors::GetFGNormalBrush(CMWColors::m_iDarkTheme != 0) );
 
         RECT iconRect   = lpDrawItemStruct->rcItem;
         iconRect.top++;
@@ -661,11 +664,11 @@ void CMWMenu::DrawMenuItem (   LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC,
     //
     if ( lpDrawItemStruct->itemAction & ( ODA_FOCUS | ODA_SELECT ) )
     {
-        hOldBrush = ( HBRUSH ) pDC->SelectObject ( hFGSelected );
+        hOldBrush = ( HBRUSH ) pDC->SelectObject ( CMWColors::GetFGSelectedBrush(CMWColors::m_iDarkTheme != 0) );
     }
     else
     {
-        hOldBrush = ( HBRUSH ) pDC->SelectObject ( hForeground );
+        hOldBrush = ( HBRUSH ) pDC->SelectObject ( CMWColors::GetFGNormalBrush(CMWColors::m_iDarkTheme != 0) );
     }
 
     //
@@ -673,22 +676,22 @@ void CMWMenu::DrawMenuItem (   LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC,
     {
         if ( lpDrawItemStruct->itemState & ( ODS_GRAYED | ODS_DISABLED ) )
         {
-            colorFg = pDC->SetTextColor ( crDisabled );
+            colorFg = pDC->SetTextColor ( CMWColors::GetFGDisabledCR(CMWColors::m_iDarkTheme != 0) );
         }
         else
         {
-            colorFg = pDC->SetTextColor ( crFGSelected );
+            colorFg = pDC->SetTextColor ( CMWColors::GetFGSelectedCR(CMWColors::m_iDarkTheme != 0) );
         }
     }
     else
     {
         if ( lpDrawItemStruct->itemState & ( ODS_GRAYED | ODS_DISABLED ) )
         {
-            colorFg = pDC->SetTextColor ( crDisabled );
+            colorFg = pDC->SetTextColor ( CMWColors::GetFGDisabledCR(CMWColors::m_iDarkTheme != 0) );
         }
         else
         {
-            colorFg = pDC->SetTextColor ( crForeground );
+            colorFg = pDC->SetTextColor ( CMWColors::GetFGNormalCR(CMWColors::m_iDarkTheme != 0) );
         }
     }
 
@@ -699,11 +702,11 @@ void CMWMenu::DrawMenuItem (   LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC,
     {
         if ( lpDrawItemStruct->itemState & ODS_SELECTED )
         {
-            pDC->FillRect ( pRect, brBKSelected );
+            pDC->FillRect ( pRect, CMWColors::GetBKSelectedCBrush(CMWColors::m_iDarkTheme != 0) );
         }
         else
         {
-            pDC->FillRect ( pRect, brBKNormal );
+            pDC->FillRect ( pRect, CMWColors::GetBKNormalCBrush(CMWColors::m_iDarkTheme != 0) );
         }
 
         bkMode          = pDC->SetBkMode ( TRANSPARENT );
@@ -731,11 +734,11 @@ void CMWMenu::DrawMenuItem (   LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC,
     {
         if ( lpDrawItemStruct->itemState & ODS_SELECTED )
         {
-            pDC->FillRect ( pRect, brBKSelected );
+            pDC->FillRect ( pRect, CMWColors::GetBKSelectedCBrush(CMWColors::m_iDarkTheme != 0) );
         }
         else
         {
-            pDC->FillRect ( pRect, brBKNormal );
+            pDC->FillRect ( pRect, CMWColors::GetBKNormalCBrush(CMWColors::m_iDarkTheme != 0) );
         }
 
         bkMode          = pDC->SetBkMode ( TRANSPARENT );
@@ -783,11 +786,11 @@ void CMWMenu::DrawMenuItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos )
     //
     MENUITEMINFO    menuItemInfo;
     ZeroMemory ( &menuItemInfo, sizeof ( menuItemInfo ) );
+
     menuItemInfo.cbSize  = sizeof ( menuItemInfo );
 
     //
-    menuItemInfo.fMask      = MIIM_STRING;
-    menuItemInfo.fMask      = MIIM_STRING | MIIM_STATE | MIIM_FTYPE | MIIM_SUBMENU | MIIM_ID  | MIIM_DATA | MIIM_BITMAP;
+    menuItemInfo.fMask      = MENU_ITEM_MASK;
     menuItemInfo.cch        = sizeof ( szText ) - 1;
     menuItemInfo.dwTypeData = szText;
     UINT id   = ( UINT ) lpDrawItemStruct->itemData;
@@ -810,10 +813,18 @@ void CMWMenu::DrawMenuItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos )
             DrawMenuItem ( lpDrawItemStruct, pDC, &rectMenu, szText, &menuItemInfo );
         }
     }
+    else
+    {
+#ifdef _DEBUG
+        OutputDebugString ( "DrawMenuItem Not Found\n" );
+#endif
+    }
 
-    OutputDebugString ( "DrawMenuItem " );
-    OutputDebugString ( szText );
-    OutputDebugString ( "\n" );
+#ifdef _DEBUG
+    static char szDebug [ MAX_PATH ];
+    sprintf_s ( szDebug, sizeof(szDebug), "DrawMenuItem '%s' 0x%lx 0x%x\n", szText, lpDrawItemStruct->itemData, lpDrawItemStruct->itemID );
+    OutputDebugString ( szDebug );
+#endif
 }
 
 //

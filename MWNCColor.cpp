@@ -339,9 +339,72 @@ void CMWNCColor::DrawIcon ( CDC *pDC, UINT icon, const CRect crect, bool bFillRe
 /////////////////////////////////////////////////////////////////////////////
 //
 /////////////////////////////////////////////////////////////////////////////
-BOOL CMWNCColor::PaintCaption( CWnd *pWnd, BOOL bActive )
+RECT CMWNCColor::GetMenuRect ( CWnd *pWnd, CDC *pDC )
 {
-    if ( CMWColors::m_iDarkTheme != 2 )
+    RECT menuRect;
+    ZeroMemory ( &menuRect, sizeof(menuRect) );
+
+    //
+    if ( pWnd == NULL || pDC == NULL )
+    {
+        return menuRect;
+    }
+
+    //
+    CMenu *pMenu = pWnd->GetMenu();
+    if ( pMenu != NULL && pMenu->m_hMenu)
+    {
+        int count = GetMenuItemCount ( pMenu->m_hMenu );
+        for ( int i = 0; i < count; i++ )
+        {
+            RECT itemRect;
+            GetMenuItemRect ( pWnd->m_hWnd, pMenu->m_hMenu, i, &itemRect );
+            if ( i == 0 )
+            {
+                menuRect = itemRect;
+            }
+            else
+            {
+                if ( itemRect.right > menuRect.right )
+                {
+                    menuRect.right = itemRect.right;
+                }
+                if ( itemRect.left < menuRect.left )
+                {
+                    menuRect.left = itemRect.left;
+                }
+                if ( itemRect.top < menuRect.top )
+                {
+                    menuRect.top = itemRect.top;
+                }
+                if ( itemRect.bottom > menuRect.bottom )
+                {
+                    menuRect.bottom = itemRect.bottom;
+                }
+            }
+        }
+
+        //
+        RECT windowRECT;
+        pWnd->GetWindowRect ( &windowRECT );
+        menuRect.top        -= windowRECT.top;
+        menuRect.left       -= windowRECT.left;
+        menuRect.bottom     -= windowRECT.top;
+        menuRect.right      -= windowRECT.left;
+
+    }
+
+    //
+    return menuRect;
+}
+
+//
+/////////////////////////////////////////////////////////////////////////////
+//
+/////////////////////////////////////////////////////////////////////////////
+BOOL CMWNCColor::PaintCaption( CWnd *pWnd, BOOL bActive, int darkIndicator )
+{
+    if ( CMWColors::m_iDarkTheme != 2 && CMWColors::m_iDarkTheme != darkIndicator )
     {
         return FALSE;
     }
@@ -468,9 +531,9 @@ BOOL CMWNCColor::PaintCaption( CWnd *pWnd, BOOL bActive )
 /////////////////////////////////////////////////////////////////////////////
 //
 /////////////////////////////////////////////////////////////////////////////
-BOOL CMWNCColor::PaintWindow( CWnd *pWnd, BOOL bActive )
+BOOL CMWNCColor::PaintWindow( CWnd *pWnd, BOOL bActive, int darkIndicator )
 {
-    if ( CMWColors::m_iDarkTheme != 2 )
+    if ( CMWColors::m_iDarkTheme != 2 && CMWColors::m_iDarkTheme != darkIndicator )
     {
         return FALSE;
     }
@@ -495,7 +558,7 @@ BOOL CMWNCColor::PaintWindow( CWnd *pWnd, BOOL bActive )
     pWnd->ReleaseDC ( pDC );
 
     //
-    PaintCaption ( pWnd, bActive );
+    PaintCaption ( pWnd, bActive, darkIndicator );
 
     //
     {
@@ -504,6 +567,7 @@ BOOL CMWNCColor::PaintWindow( CWnd *pWnd, BOOL bActive )
         pWnd->InvalidateRect ( &clientRect );
     }
 
+    //
     return TRUE;
 }
 
@@ -511,14 +575,14 @@ BOOL CMWNCColor::PaintWindow( CWnd *pWnd, BOOL bActive )
 /////////////////////////////////////////////////////////////////////////////
 //
 /////////////////////////////////////////////////////////////////////////////
-BOOL CMWNCColor::Activate( CWnd *pWnd, BOOL bActive )
+BOOL CMWNCColor::Activate( CWnd *pWnd, BOOL bActive, int darkIndicator )
 {
-    if ( CMWColors::m_iDarkTheme != 2 )
+    if ( CMWColors::m_iDarkTheme != 2 && CMWColors::m_iDarkTheme != darkIndicator )
     {
         return FALSE;
     }
 
-    return PaintCaption ( pWnd, bActive );
+    return PaintCaption ( pWnd, bActive, darkIndicator );
     // return PaintWindow( pWnd, bActive );
 }
 
@@ -526,10 +590,10 @@ BOOL CMWNCColor::Activate( CWnd *pWnd, BOOL bActive )
 /////////////////////////////////////////////////////////////////////////////
 //
 /////////////////////////////////////////////////////////////////////////////
-BOOL CMWNCColor::OnNcLButtonDown(CWnd *pWnd, UINT nHitTest, CPoint point)
+BOOL CMWNCColor::OnNcLButtonDown(CWnd *pWnd, UINT nHitTest, CPoint point, int darkIndicator)
 {
     //
-    if ( CMWColors::m_iDarkTheme == 2 )
+    if ( CMWColors::m_iDarkTheme == 2 || CMWColors::m_iDarkTheme == darkIndicator )
     {
         if ( ScreenPointOverRect( pWnd, point, m_IconRect ) )
         {
@@ -594,13 +658,13 @@ BOOL CMWNCColor::OnNcLButtonDown(CWnd *pWnd, UINT nHitTest, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 //
 /////////////////////////////////////////////////////////////////////////////
-BOOL CMWNCColor::OnNcLButtonUp(CWnd *pWnd, UINT nHitTest, CPoint point)
+BOOL CMWNCColor::OnNcLButtonUp(CWnd *pWnd, UINT nHitTest, CPoint point, int darkIndicator)
 {
     m_bLeftPressed  = FALSE;
 
     //
     //
-    if ( CMWColors::m_iDarkTheme == 2 )
+    if ( CMWColors::m_iDarkTheme == 2 || CMWColors::m_iDarkTheme == darkIndicator )
     {
         if ( ScreenPointOverRect( pWnd, point, m_IconRect ) )
         {
@@ -610,8 +674,21 @@ BOOL CMWNCColor::OnNcLButtonUp(CWnd *pWnd, UINT nHitTest, CPoint point)
 
         else if ( ScreenPointOverRect( pWnd, point, m_CloseRect ) )
         {
-            ::SendMessage ( pWnd->m_hWnd, WM_SYSCOMMAND, SC_CLOSE, NULL );
-            return TRUE;
+            //
+            CMenu *pMenu = pWnd->GetSystemMenu ( FALSE );
+            if ( pMenu != NULL )
+            {
+                MENUITEMINFO menuItemInfo;
+                ZeroMemory ( &menuItemInfo, sizeof(menuItemInfo) );
+                menuItemInfo.cbSize     = sizeof(menuItemInfo);
+                menuItemInfo.fMask      = MIIM_STATE;
+                BOOL bRes = pMenu->GetMenuItemInfo ( SC_CLOSE, &menuItemInfo );
+                if ( ( menuItemInfo.fState & MFS_DISABLED ) == 0 && ( menuItemInfo.fState & MFS_GRAYED ) == 0 )
+                {
+                    ::SendMessage ( pWnd->m_hWnd, WM_SYSCOMMAND, SC_CLOSE, NULL );
+                    return TRUE;
+                }
+            }
         }
 
         else if ( ScreenPointOverRect( pWnd, point, m_MinimizeRect ) )
@@ -670,9 +747,9 @@ BOOL CMWNCColor::OnNcLButtonUp(CWnd *pWnd, UINT nHitTest, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 //
 /////////////////////////////////////////////////////////////////////////////
-BOOL CMWNCColor::OnNcRButtonDown(CWnd *pWnd, UINT nHitTest, CPoint point)
+BOOL CMWNCColor::OnNcRButtonDown(CWnd *pWnd, UINT nHitTest, CPoint point, int darkIndicator)
 {
-    if ( CMWColors::m_iDarkTheme == 2 )
+    if ( CMWColors::m_iDarkTheme == 2 || CMWColors::m_iDarkTheme == darkIndicator )
     {
         CMenu *pMenu = pWnd->GetSystemMenu(FALSE);
         if ( pMenu )
@@ -704,10 +781,10 @@ BOOL CMWNCColor::OnLButtonUp(CWnd *pWnd, UINT nFlags, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 //
 /////////////////////////////////////////////////////////////////////////////
-BOOL CMWNCColor::OnNcMouseMove(CWnd *pWnd, UINT nHitTest, CPoint point)
+BOOL CMWNCColor::OnNcMouseMove(CWnd *pWnd, UINT nHitTest, CPoint point, int darkIndicator)
 {
     //
-    if ( CMWColors::m_iDarkTheme == 2 )
+    if ( CMWColors::m_iDarkTheme == 2 || CMWColors::m_iDarkTheme == darkIndicator )
     {
         TRACKMOUSEEVENT tme;
         ZeroMemory ( &tme, sizeof(tme) );
@@ -734,10 +811,10 @@ BOOL CMWNCColor::OnNcMouseMove(CWnd *pWnd, UINT nHitTest, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 //
 /////////////////////////////////////////////////////////////////////////////
-BOOL CMWNCColor::OnMouseMove(CWnd *pWnd, UINT nFlags, CPoint point)
+BOOL CMWNCColor::OnMouseMove(CWnd *pWnd, UINT nFlags, CPoint point, int darkIndicator)
 {
     //
-    if ( CMWColors::m_iDarkTheme == 2 )
+    if ( CMWColors::m_iDarkTheme == 2 || CMWColors::m_iDarkTheme == darkIndicator )
     {
         //  Track Event
         TRACKMOUSEEVENT tme;
@@ -828,7 +905,26 @@ BOOL CMWNCColor::OnNcMouseHover(CWnd *pWnd, UINT nFlags, CPoint point)
             DrawAllIcons ( pWnd, m_iHover );
 
             CDC* pDC = pWnd->GetWindowDC();
-            DrawIcon ( pDC, IDI_CLOSE, m_CloseRect, true, CMWColors::GetRedCBrush() );
+
+            //
+            CMenu *pMenu = pWnd->GetSystemMenu ( FALSE );
+            if ( pMenu != NULL )
+            {
+                MENUITEMINFO menuItemInfo;
+                ZeroMemory ( &menuItemInfo, sizeof(menuItemInfo) );
+                menuItemInfo.cbSize     = sizeof(menuItemInfo);
+                menuItemInfo.fMask      = MIIM_STATE;
+                BOOL bRes = pMenu->GetMenuItemInfo ( SC_CLOSE, &menuItemInfo );
+                if ( ( menuItemInfo.fState & MFS_DISABLED ) == 0 && ( menuItemInfo.fState & MFS_GRAYED ) == 0 )
+                {
+                    DrawIcon ( pDC, IDI_CLOSE, m_CloseRect, true, CMWColors::GetRedCBrush() );
+                }
+                else
+                {
+                    DrawIcon ( pDC, IDI_CLOSE, m_CloseRect, true, CMWColors::GetGreyCBrush() );
+                }
+            }
+
             pWnd->ReleaseDC ( pDC );
             m_iHover    = IDI_CLOSE;
         }

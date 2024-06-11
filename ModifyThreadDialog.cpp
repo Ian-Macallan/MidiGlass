@@ -18,6 +18,8 @@ static char THIS_FILE[] = __FILE__;
 
 extern CMidiWorksApp	theApp;
 
+IMPLEMENT_DYNAMIC(CModifyThreadDialog, CMWDialog)
+
 //
 ///////////////////////////////////////////////////////////////////////////////////
 // CModifyThreadDialog dialog

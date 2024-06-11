@@ -1,5 +1,6 @@
-// MainFrm.h : interface of the CMainFrame class
 //
+/////////////////////////////////////////////////////////////////////////////
+// MainFrm.h : interface of the CMainFrame class
 /////////////////////////////////////////////////////////////////////////////
 
 #if !defined(AFX_MAINFRM_H__F6E8EC4C_B230_11D2_8147_444553540000__INCLUDED_)
@@ -35,7 +36,12 @@
 #include "ToolBarSoundFont.h"
 #include "MWMenu.h"
 #include "MWNCColor.h"
+#include "MidiFrame.h"
 
+//
+/////////////////////////////////////////////////////////////////////////////
+//
+/////////////////////////////////////////////////////////////////////////////
 class CMainFrame : public CFrameWnd
 {
 		friend	HBRUSH	FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
@@ -162,7 +168,7 @@ class CMainFrame : public CFrameWnd
 		CMWReBar			m_wndReBar;
 		CMWReBar			m_wndLargeReBar;
 
-        CMWMenu             m_Menu;
+        CMWMenu             m_AppMenu;
         CMWMenu             *m_pContextMenu;
         CMWMenu             *m_pSysMenu;
 

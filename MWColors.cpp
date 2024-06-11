@@ -528,75 +528,155 @@ HBRUSH CMWColors::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
     {
         case CTLCOLOR_MSGBOX :
         {
-            pDC->SetTextColor(CMWColors::GetWhiteCR());
-            pDC->SetBkColor(CMWColors::GetBlack30CR());
-            pDC->SetBkMode ( TRANSPARENT );
-            hBrush = CMWColors::GetBlack30Brush();
+            if ( CMWColors::m_iDarkTheme != 0 )
+            {
+                pDC->SetTextColor(CMWColors::GetWhiteCR());
+                pDC->SetBkColor(CMWColors::GetBlack30CR());
+                pDC->SetBkMode ( TRANSPARENT );
+                hBrush = CMWColors::GetBlack30Brush();
+            }
+            else
+            {
+                pDC->SetTextColor(CMWColors::GetBlackCR());
+                pDC->SetBkColor(CMWColors::GetWhiteCFCR());
+                pDC->SetBkMode ( TRANSPARENT );
+                hBrush = CMWColors::GetWhiteCFBrush();
+            }
             break;
         }
 
         case CTLCOLOR_EDIT:
         {
-            pDC->SetTextColor(CMWColors::GetWhiteCR());
-            pDC->SetBkColor(CMWColors::GetBlack10CR());
-            pDC->SetBkMode ( TRANSPARENT );
-            hBrush = CMWColors::GetBlack10Brush();
+            if ( CMWColors::m_iDarkTheme != 0 )
+            {
+                pDC->SetTextColor(CMWColors::GetWhiteCR());
+                pDC->SetBkColor(CMWColors::GetBlack10CR());
+                pDC->SetBkMode ( TRANSPARENT );
+                hBrush = CMWColors::GetBlack10Brush();
+            }
+            else
+            {
+                pDC->SetTextColor(CMWColors::GetBlackCR());
+                pDC->SetBkColor(CMWColors::GetWhiteEFCR());
+                pDC->SetBkMode ( TRANSPARENT );
+                hBrush = CMWColors::GetWhiteEFBrush();
+            }
             break;
         }
 
         case CTLCOLOR_LISTBOX:
         {
-            pDC->SetTextColor(CMWColors::GetWhiteCR());
-            pDC->SetBkColor(CMWColors::GetBlack30CR());
-            pDC->SetBkMode ( TRANSPARENT );
-            hBrush = CMWColors::GetBlack20Brush();
+            if ( CMWColors::m_iDarkTheme != 0 )
+            {
+                pDC->SetTextColor(CMWColors::GetWhiteCR());
+                pDC->SetBkColor(CMWColors::GetBlack30CR());
+                pDC->SetBkMode ( TRANSPARENT );
+                hBrush = CMWColors::GetBlack30Brush();
+            }
+            else
+            {
+                pDC->SetTextColor(CMWColors::GetBlackCR());
+                pDC->SetBkColor(CMWColors::GetWhiteCFCR());
+                pDC->SetBkMode ( TRANSPARENT );
+                hBrush = CMWColors::GetWhiteCFBrush();
+            }
             break;
         }
 
         case CTLCOLOR_BTN:
         {
-            pDC->SetTextColor(CMWColors::GetWhiteCR());
-            pDC->SetBkColor(CMWColors::GetBlack30CR());
-            pDC->SetBkMode ( TRANSPARENT );
-            hBrush = CMWColors::GetBlack30Brush();
+            if ( CMWColors::m_iDarkTheme != 0 )
+            {
+                pDC->SetTextColor(CMWColors::GetWhiteCR());
+                pDC->SetBkColor(CMWColors::GetBlack30CR());
+                pDC->SetBkMode ( TRANSPARENT );
+                hBrush = CMWColors::GetBlack30Brush();
+            }
+            else
+            {
+                pDC->SetTextColor(CMWColors::GetBlackCR());
+                pDC->SetBkColor(CMWColors::GetWhiteCFCR());
+                pDC->SetBkMode ( TRANSPARENT );
+                hBrush = CMWColors::GetWhiteCFBrush();
+            }
             break;
         }
 
         case CTLCOLOR_DLG:
         {
-            pDC->SetTextColor(CMWColors::GetWhiteCR());
-            pDC->SetBkColor(CMWColors::GetBlack30CR());
-            pDC->SetBkMode ( TRANSPARENT );
-            hBrush = CMWColors::GetBlack30Brush();
+            if ( CMWColors::m_iDarkTheme != 0 )
+            {
+                pDC->SetTextColor(CMWColors::GetWhiteCR());
+                pDC->SetBkColor(CMWColors::GetBlack30CR());
+                pDC->SetBkMode ( TRANSPARENT );
+                hBrush = CMWColors::GetBlack30Brush();
+            }
+            else
+            {
+                pDC->SetTextColor(CMWColors::GetBlackCR());
+                pDC->SetBkColor(CMWColors::GetWhiteCFCR());
+                pDC->SetBkMode ( TRANSPARENT );
+                hBrush = CMWColors::GetWhiteCFBrush();
+            }
             break;
         }
 
         case CTLCOLOR_SCROLLBAR:
         {
-            pDC->SetTextColor(CMWColors::GetWhiteCR());
-            pDC->SetBkColor(CMWColors::GetBlack30CR());
-            pDC->SetBkMode ( TRANSPARENT );
-            hBrush = CMWColors::GetBlack30Brush();
+            if ( CMWColors::m_iDarkTheme != 0 )
+            {
+                pDC->SetTextColor(CMWColors::GetWhiteCR());
+                pDC->SetBkColor(CMWColors::GetBlack30CR());
+                pDC->SetBkMode ( TRANSPARENT );
+                hBrush = CMWColors::GetBlack30Brush();
+            }
+            else
+            {
+                pDC->SetTextColor(CMWColors::GetBlackCR());
+                pDC->SetBkColor(CMWColors::GetWhiteCFCR());
+                pDC->SetBkMode ( TRANSPARENT );
+                hBrush = CMWColors::GetWhiteCFBrush();
+            }
             break;
         }
 
         //  Static And Read Only Edit
         case CTLCOLOR_STATIC:
         {
-            pDC->SetTextColor(CMWColors::GetWhiteCR());
-            pDC->SetBkColor(CMWColors::GetBlack30CR());
-            //  Transparent makes scroll garbage
-            // pDC->SetBkMode ( TRANSPARENT );
-            hBrush = CMWColors::GetBlack30Brush();
+            if ( CMWColors::m_iDarkTheme != 0 )
+            {
+                pDC->SetTextColor(CMWColors::GetWhiteCR());
+                pDC->SetBkColor(CMWColors::GetBlack30CR());
+                //  Transparent makes scroll garbage
+                // pDC->SetBkMode ( TRANSPARENT );
+                hBrush = CMWColors::GetBlack30Brush();
+            }
+            else
+            {
+                pDC->SetTextColor(CMWColors::GetBlackCR());
+                pDC->SetBkColor(CMWColors::GetWhiteCFCR());
+                //pDC->SetBkMode ( TRANSPARENT );
+                hBrush = CMWColors::GetWhiteCFBrush();
+            }
             break;
         }
 
         default :
         {
-            pDC->SetTextColor(CMWColors::GetWhiteCR());
-            pDC->SetBkColor(CMWColors::GetBlack30CR());
-            pDC->SetBkMode ( TRANSPARENT );
-            hBrush = CMWColors::GetBlack30Brush();
+            if ( CMWColors::m_iDarkTheme != 0 )
+            {
+                pDC->SetTextColor(CMWColors::GetWhiteCR());
+                pDC->SetBkColor(CMWColors::GetBlack30CR());
+                pDC->SetBkMode ( TRANSPARENT );
+                hBrush = CMWColors::GetBlack30Brush();
+            }
+            else
+            {
+                pDC->SetTextColor(CMWColors::GetBlackCR());
+                pDC->SetBkColor(CMWColors::GetWhiteCFCR());
+                pDC->SetBkMode ( TRANSPARENT );
+                hBrush = CMWColors::GetWhiteCFBrush();
+            }
             break;
         }
     }
@@ -626,7 +706,14 @@ BOOL CMWColors::OnEraseBkgnd(CDC* pDC, CWnd* pWnd)
     pWnd->GetClientRect ( &rectFrame );
 
     //
-    pDC->FillRect ( &rectFrame, CMWColors::GetBlack30CBrush() );
+    if ( CMWColors::m_iDarkTheme != 0 )
+    {
+        pDC->FillRect ( &rectFrame, CMWColors::GetBlack30CBrush() );
+    }
+    else
+    {
+        pDC->FillRect ( &rectFrame, CMWColors::GetWhiteCFCBrush() );
+    }
 
     //
     return TRUE;
@@ -757,11 +844,11 @@ CBrush * CMWColors::GetFGNormalCBrush ( bool bDark )
 {
     if ( bDark )
     {
-        return GetWhiteDFCBrush();
+        return GetWhiteEFCBrush();
     }
     else
     {
-        return GetBlack20CBrush();
+        return GetBlack10CBrush();
     }
 }
 
@@ -773,7 +860,7 @@ CBrush * CMWColors::GetFGSelectedCBrush ( bool bDark )
     }
     else
     {
-        return GetBlackCBrush();
+        return GetBlack40CBrush();
     }
 }
 

@@ -11,6 +11,8 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+IMPLEMENT_DYNAMIC(CFindEvent, CMWDialog)
+
 //
 ////////////////////////////////////////////////////////////////////////
 // CFindEvent dialog

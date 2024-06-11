@@ -14,7 +14,7 @@ class CMWMenu : public CMenu
 
         //
     public:
-        int SetOwnDraw ( HMENU hMenu, bool bOwnDrawn = true );
+        static int SetOwnDraw ( HMENU hMenu, bool bOwnDrawn = true );
 
         int         m_iBitmapWidth;
         int         m_iBitmapHeight;

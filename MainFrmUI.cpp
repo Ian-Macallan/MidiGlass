@@ -527,7 +527,6 @@ void CMainFrame::OnUpdateFileSequencerPlayandloopll(CCmdUI* pCmdUI)
 	}
 
 	pCmdUI->Enable ( pMidifile->LLIsStopped () && ! pMidifile->MciIsPlaying () );
-
 }
 
 //
@@ -746,12 +745,20 @@ void CMainFrame::OnUpdateContentStaff(CCmdUI* pCmdUI)
 	pCmdUI->SetCheck ( IsViewPresentAndVisible ( pCmdUI, m_RightStaffView ) );
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateContentTracks(CCmdUI* pCmdUI) 
 {
 	//
 	pCmdUI->SetCheck ( IsViewPresentAndVisible ( pCmdUI, m_RightEventView ) );
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnUpdateContentErrormessages(CCmdUI* pCmdUI) 
 {
 	//
@@ -831,7 +838,6 @@ bool CMainFrame::IsViewPresentAndVisible(CCmdUI *pCmdUI, CView *pView)
 void CMainFrame::OnUpdateFileRecord(CCmdUI* pCmdUI) 
 {
 	//
-	
 	DisableMenuWhenNoMidifile(pCmdUI);
 	
 }

@@ -44,6 +44,8 @@ BEGIN_MESSAGE_MAP(CMidiView, CView)
 	//}}AFX_MSG_MAP
 	ON_WM_MOVE()
 	ON_WM_SIZE()
+    ON_WM_ERASEBKGND()
+    ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
 //
@@ -160,4 +162,40 @@ void CMidiView::OnSize(UINT nType, int cx, int cy)
 		m_Rich_Edit.MoveWindow ( &clientRect, true );
 	}
 #endif
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+BOOL CMidiView::OnEraseBkgnd(CDC* pDC)
+{
+    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+	BOOL bRes = FriendEraseBkgnd(this, pDC);
+	if ( bRes )
+	{
+		return bRes;
+	}
+
+    return CView::OnEraseBkgnd(pDC);
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
+HBRUSH CMidiView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+    HBRUSH hbr = CView::OnCtlColor(pDC, pWnd, nCtlColor);
+
+    // TODO:  Modifier ici les attributs du DC
+	HBRUSH hBrush = FriendCtlColor(pDC, pWnd, nCtlColor);
+	if ( hBrush != NULL )
+	{
+		return hBrush;
+	}
+
+
+    // TODO:  Retourner un autre pinceau si le pinceau par défaut n'est pas souhaité
+    return hbr;
 }

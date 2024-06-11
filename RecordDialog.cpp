@@ -15,6 +15,8 @@ extern CMidiWorksApp	theApp;
 
 #include "strstr.h"
 
+IMPLEMENT_DYNAMIC(CRecordDialog, CMWDialog)
+
 //
 ////////////////////////////////////////////////////////////////////////////////////////
 // CRecordDialog dialog

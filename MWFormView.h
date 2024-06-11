@@ -39,6 +39,10 @@ class CMWFormView : public CFormView
         afx_msg void OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStruct);
         afx_msg BOOL OnEraseBkgnd(CDC* pDC);
         afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+        afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
+        afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);
+        afx_msg void OnInitMenu(CMenu* pMenu);
+        afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
 };
 
 

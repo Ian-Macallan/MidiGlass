@@ -17,7 +17,7 @@ extern CMidiWorksApp theApp;
 
 /////////////////////////////////////////////////////////////////////////////
 // CParameters dialog
-
+IMPLEMENT_DYNAMIC(CParameters, CMWDialog)
 
 CParameters::CParameters(CWnd* pParent /*=NULL*/) : CMWDialog(CParameters::IDD, pParent)
 {

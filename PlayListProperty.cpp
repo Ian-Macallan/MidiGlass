@@ -18,6 +18,7 @@ extern CMidiWorksApp theApp;
 /////////////////////////////////////////////////////////////////////////////
 // CPlayListProperty dialog
 
+IMPLEMENT_DYNAMIC(CPlayListProperty, CMWDialog)
 
 CPlayListProperty::CPlayListProperty(CWnd* pParent /*=NULL*/) : CMWDialog(CPlayListProperty::IDD, pParent)
 {

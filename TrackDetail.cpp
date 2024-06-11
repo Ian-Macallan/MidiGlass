@@ -15,7 +15,7 @@ extern CMidiWorksApp theApp;
 
 /////////////////////////////////////////////////////////////////////////////
 // CTrackDetail dialog
-
+IMPLEMENT_DYNAMIC(CTrackDetail, CMWDialog)
 
 CTrackDetail::CTrackDetail(CWnd* pParent /*=NULL*/) : CMWDialog(CTrackDetail::IDD, pParent)
 {

@@ -15,6 +15,8 @@
 
 class CTrackDetail : public CMWDialog
 {
+    DECLARE_DYNAMIC(CTrackDetail)
+
 	friend	HBRUSH	FriendCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	friend	BOOL	FriendEraseBkgnd(CWnd* pWnd, CDC* pDC);
 

@@ -16,6 +16,8 @@ static char THIS_FILE[] = __FILE__;
 
 extern CMidiWorksApp	theApp;
 
+IMPLEMENT_DYNAMIC(CPlayerDialog,CMWDialog)
+
 //
 ///////////////////////////////////////////////////////////////////////////////////
 // CPlayerDialog dialog

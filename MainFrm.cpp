@@ -5,6 +5,7 @@
 #include "MidiGlassApp.h"
 #include "MWColors.h"
 #include "MWNCColor.h"
+#include "MidiFrame.h"
 
 #include "MainFrm.h"
 
@@ -47,9 +48,6 @@ extern	CMidiSysEx			clSysExXGReset [ MAX_SYSEX_LINES ];
 #define	MAX_VIEWS			12
 
 extern "C" int _chdir ( const char * );
-
-#define BLACK_APPMENU    1
-#define BLACK_SYSMENU    1
 
 //
 ///////////////////////////////////////////////////////////////////////////////////
@@ -470,13 +468,9 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	DisplayOwnToolBars ( );
 
     //
-    
-
-    //
-#if BLACK_APPMENU
     CMenu *pMenu = GetMenu();
-    m_Menu.SetApplicationMenu ( this, pMenu );
-#endif // BLACK_APPMENU
+    m_AppMenu.SetApplicationMenu ( this, pMenu );
+    SetMenu ( &m_AppMenu );
 
 	return 0;
 }
@@ -525,7 +519,6 @@ void CMainFrame::Dump(CDumpContext& dc) const
 BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext) 
 {
 	//
-
 	if ( theApp.m_bSplitterWindow )
 	{
 		CreateSplitterWindows(lpcs, pContext);
@@ -579,7 +572,6 @@ void CMainFrame::OnContentHeader()
 		{
 			return;
 		}
-
 	}
 	else
 	{
@@ -606,7 +598,6 @@ void CMainFrame::OnContentEvents( int iView )
 		{
 			return;
 		}
-
 	}
 	else
 	{
@@ -1635,7 +1626,9 @@ void CMainFrame::OnShowWindow(BOOL bShow, UINT nStatus)
 {
 	CFrameWnd::OnShowWindow(bShow, nStatus);
 	
-	//
+
+	//  This set the correct position of system menu
+    CMenu	*pMenu = GetSystemMenu ( FALSE );
 }
 
 //
@@ -2557,7 +2550,7 @@ void CMainFrame::OnContextMenu(CWnd* pWnd, CPoint point)
 	}
 
 	CRect		rectLeft;
-	if ( m_LeftExplorerView != NULL )
+	if ( m_LeftExplorerView != NULL && m_LeftExplorerView->IsWindowVisible () )
 	{
 		if ( ! theApp.m_bSplitterWindow ) 
 		{
@@ -2567,8 +2560,11 @@ void CMainFrame::OnContextMenu(CWnd* pWnd, CPoint point)
 
 		m_LeftExplorerView->GetClientRect ( &rectLeft );
 		m_LeftExplorerView->ClientToScreen ( &rectLeft );
-        m_LeftExplorerView->OnContextMenu( pWnd, point );
-		return;
+	    if ( rectLeft.PtInRect ( point ) )
+	    {
+            m_LeftExplorerView->OnContextMenu( pWnd, point );
+    		return;
+        }
 	}
 
 	if ( rect.PtInRect ( point ) )
@@ -2790,30 +2786,6 @@ BOOL CMainFrame::OnEraseBkgnd(CDC* pDC)
 {
 	//
 	return CFrameWnd::OnEraseBkgnd ( pDC );
-
-/*
-	if ( ! theApp.m_bSplitterWindow && ! m_bClosing )
-	{
-		BOOL bRes = FriendEraseBkgnd(this, pDC);
-		if ( bRes )
-		{
-			return bRes;
-		}
-	}
- */
-
-	CRect		rect;
-	GetClientRect ( &rect );
-
-	CBrush		brColor ( RGB (128,128,128) );
-	CBrush		*pOldBrush = pDC->SelectObject ( &brColor );
-
-	pDC->PatBlt ( rect.left, rect.top, rect.right, rect.bottom, PATCOPY );
-
-	pDC->SelectObject ( pOldBrush );
-
-	return true;
-
 }
 
 //
@@ -2828,7 +2800,7 @@ void CMainFrame::SetSearchInfo(	const CString strEvent,
 {
 	if ( m_RightEventView != NULL )
 	{
-		m_RightEventView->SetSearchInfo(
+		m_RightEventView->SetSearchInfo (
 			strEvent,strProgram,strController,
 			V1_From, V1_To, V2_From, V2_To );
 	}
@@ -4055,6 +4027,10 @@ BOOL CMainFrame::CreateViewWindows(LPCREATESTRUCT lpcs, CCreateContext *pContext
 	return true;
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::DestroyViewWindows()
 {
 	if ( m_RightNotesView != NULL )
@@ -4315,10 +4291,8 @@ void CMainFrame::OnFileSavegeometry()
 ///////////////////////////////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////////////////////////////
-BOOL CMainFrame::CreateOneView ( 
-		LPCREATESTRUCT lpcs, CCreateContext *pContext,
-		const char *pTitle, 
-		CView **pView, CRuntimeClass *pClass )
+BOOL CMainFrame::CreateOneView (    LPCREATESTRUCT lpcs, CCreateContext *pContext,
+		                            const char *pTitle, CView **pView, CRuntimeClass *pClass )
 {
 	DWORD			dwStyle = 
 		WS_OVERLAPPEDWINDOW | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME | 
@@ -4331,10 +4305,9 @@ BOOL CMainFrame::CreateOneView (
 
 	CCreateContext	tagContext;
 
-	CFrameWnd		*pFrame;
+	CMidiFrame *pFrame  = new CMidiFrame ();
 
-	pFrame = new CFrameWnd ();
-
+    //  Create Windows with parent m_pMidiView
 	pFrame->Create ( NULL, pTitle, dwStyle, rectDefault, m_pMidiView );
 
 	//		Set the icon for the frame window
@@ -4362,6 +4335,7 @@ BOOL CMainFrame::CreateOneView (
 		return false;
 	}
 
+    //
 	( *pView )->ModifyStyle ( NULL, dwStyleView );
 
 	CMenu	*pMenu;
@@ -4603,7 +4577,6 @@ void CMainFrame::SetModified ( BOOL bFlag )
 			pMididoc->SetModifiedFlag ( bFlag );
 		}
 	}
-
 }
 
 //
@@ -4671,12 +4644,11 @@ void CMainFrame::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
 
     if ( bSysMenu )
     {
-        //  Conflicts with Menu
-#if BLACK_SYSMENU
+        //
         static CMWMenu     sysMenu;
-        CMenu *pSysMenu = GetSystemMenu ( FALSE );
-        m_pSysMenu = sysMenu.SetSystemMenu ( this, pSysMenu );
-#endif
+        //  A GetSystemMenu ( FALSE ) must have been done before
+        //  So the pPopupMenu will reflect the SystemMenu
+        m_pSysMenu = sysMenu.SetSystemMenu ( this, pPopupMenu );
     }
     else
     {
@@ -4719,7 +4691,7 @@ void CMainFrame::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
         }
         else 
         {
-            m_Menu.DrawItem ( lpDrawItemStruct );
+            m_AppMenu.DrawItem ( lpDrawItemStruct );
             return;
         }
 	}
@@ -4743,7 +4715,7 @@ void CMainFrame::OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStru
         }
         else 
         {
-            m_Menu.MeasureItem ( lpMeasureItemStruct );
+            m_AppMenu.MeasureItem ( lpMeasureItemStruct );
             return;
         }
 	}
@@ -4773,6 +4745,8 @@ BOOL CMainFrame::OnNcActivate(BOOL bActive)
     {
         return TRUE;
     }
+
+    //
     return CFrameWnd::OnNcActivate(bActive);
 }
 
@@ -4789,6 +4763,7 @@ void CMainFrame::OnNcPaint()
         return;
     }
 
+    //
     CFrameWnd::OnNcPaint();
 }
 
