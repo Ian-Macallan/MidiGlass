@@ -364,9 +364,7 @@ void CMainFrame::OnToolsExplorer()
 		szDirectory [ iX ] = 0;
 	}
 
-	hInst = 
-		ShellExecute ( NULL, "open", 
-						szDirectory, "", "", SW_SHOWDEFAULT );
+	hInst = ShellExecute ( NULL, "open", szDirectory, "", "", SW_SHOWDEFAULT );
 }
 
 //
@@ -442,103 +440,83 @@ void CMainFrame::AddToolsMenu()
 			switch ( dwIndex )
 			{
 			case 0:
-				strcpy_s (	szRegisteredActions [ 0 ],
-							sizeof ( szRegisteredActions [ 0 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 0 ], sizeof ( szRegisteredActions [ 0 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL1;
 				break;
 			case 1:
-				strcpy_s (	szRegisteredActions [ 1 ],
-							sizeof ( szRegisteredActions [ 1 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 1 ], sizeof ( szRegisteredActions [ 1 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL2;
 				break;
 			case 2:
-				strcpy_s (	szRegisteredActions [ 2 ],
-							sizeof ( szRegisteredActions [ 2 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 2 ], sizeof ( szRegisteredActions [ 2 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL3;
 				break;
 			case 3:
-				strcpy_s (	szRegisteredActions [ 3 ],
-							sizeof ( szRegisteredActions [ 3 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 3 ], sizeof ( szRegisteredActions [ 3 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL4;
 				break;
 			case 4:
-				strcpy_s (	szRegisteredActions [ 4 ],
-							sizeof ( szRegisteredActions [ 4 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 4 ], sizeof ( szRegisteredActions [ 4 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL5;
 				break;
 			case 5:
-				strcpy_s (	szRegisteredActions [ 5 ],
-							sizeof ( szRegisteredActions [ 5 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 5 ], sizeof ( szRegisteredActions [ 5 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL6;
 				break;
 			case 6:
-				strcpy_s (	szRegisteredActions [ 6 ],
-							sizeof ( szRegisteredActions [ 6 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 6 ], sizeof ( szRegisteredActions [ 6 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL7;
 				break;
 			case 7:
-				strcpy_s (	szRegisteredActions [ 7 ],
-							sizeof ( szRegisteredActions [ 7 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 7 ], sizeof ( szRegisteredActions [ 7 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL8;
 				break;
 			case 8:
-				strcpy_s (	szRegisteredActions [ 8 ],
-							sizeof ( szRegisteredActions [ 8 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 8 ], sizeof ( szRegisteredActions [ 8 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL9;
 				break;
 			case 9:
-				strcpy_s (	szRegisteredActions [ 9 ],
-							sizeof ( szRegisteredActions [ 9 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 9 ], sizeof ( szRegisteredActions [ 9 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL10;
 				break;
 			case 10:
-				strcpy_s (	szRegisteredActions [ 10 ],
-							sizeof ( szRegisteredActions [ 10 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 10 ], sizeof ( szRegisteredActions [ 10 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL11;
 				break;
 			case 11:
-				strcpy_s (	szRegisteredActions [ 11 ],
-							sizeof ( szRegisteredActions [ 11 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 11 ], sizeof ( szRegisteredActions [ 11 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL12;
 				break;
 			case 12:
-				strcpy_s (	szRegisteredActions [ 12 ],
-							sizeof ( szRegisteredActions [ 12 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 12 ], sizeof ( szRegisteredActions [ 12 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL13;
 				break;
 			case 13:
-				strcpy_s (	szRegisteredActions [ 13 ],
-							sizeof ( szRegisteredActions [ 13 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 13 ], sizeof ( szRegisteredActions [ 13 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL14;
 				break;
 			case 14:
-				strcpy_s (	szRegisteredActions [ 14 ],
-							sizeof ( szRegisteredActions [ 14 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 14 ], sizeof ( szRegisteredActions [ 14 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL15;
 				break;
 			case 15:
-				strcpy_s (	szRegisteredActions [ 15 ],
-							sizeof ( szRegisteredActions [ 15 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 15 ], sizeof ( szRegisteredActions [ 15 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL16;
 				break;
 			case 16:
-				strcpy_s (	szRegisteredActions [ 16 ],
-							sizeof ( szRegisteredActions [ 16 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 16 ], sizeof ( szRegisteredActions [ 16 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL17;
 				break;
 			case 17:
-				strcpy_s (	szRegisteredActions [ 17 ],
-							sizeof ( szRegisteredActions [ 17 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 17 ], sizeof ( szRegisteredActions [ 17 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL18;
 				break;
 			case 18:
-				strcpy_s (	szRegisteredActions [ 18 ],
-							sizeof ( szRegisteredActions [ 18 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 18 ], sizeof ( szRegisteredActions [ 18 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL19;
 				break;
 			case 19:
-				strcpy_s (	szRegisteredActions [ 19 ],
-							sizeof ( szRegisteredActions [ 19 ] ), szBuffer );
+				strcpy_s (	szRegisteredActions [ 19 ], sizeof ( szRegisteredActions [ 19 ] ), szBuffer );
 				iID = ID_TOOLS_TOOL20;
 				break;
 			}

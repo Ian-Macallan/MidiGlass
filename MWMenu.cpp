@@ -3,6 +3,7 @@
 #include "MWMenu.h"
 #include "MidiGlassApp.h"
 #include "Friend.h"
+#include "strstr.h"
 
 static  const int EXTRA_PIXELS_WIDTH    = 8;
 static  const int EXTRA_PIXELS_HEIGHT   = 6;
@@ -122,12 +123,12 @@ CMWMenu *CMWMenu::SetSystemMenu(CWnd* pWnd, CMenu* pSysMenu)
     if ( pSysMenu != NULL )
     {
         m_pSubMenu = pSysMenu;
-        SetOwnDraw ( m_pSubMenu->m_hMenu, CMWColors::m_iDarkTheme != 0  );
+        SetOwnDraw ( m_pSubMenu->m_hMenu, CMWColors::m_iDarkTheme != 0, ID_SYS_MENU );
     }
     else
     {
         m_pSubMenu = pSysMenu;
-        SetOwnDraw ( m_hMenu, CMWColors::m_iDarkTheme != 0  );
+        SetOwnDraw ( m_hMenu, CMWColors::m_iDarkTheme != 0, ID_SYS_MENU );
     }
 
     return this;
@@ -177,7 +178,7 @@ void CMWMenu::UnSetSystemMenu(CMenu* pSysMenu)
 /////////////////////////////////////////////////////////////////////////////
 //  The hMenu must be the handle of the submenu
 /////////////////////////////////////////////////////////////////////////////
-int CMWMenu::SetOwnDraw ( HMENU hMenu, bool bOwnDrawn )
+int CMWMenu::SetOwnDraw ( HMENU hMenu, bool bOwnDrawn, int level )
 {
     //  MFT_OWNERDRAW
     //
@@ -200,6 +201,20 @@ int CMWMenu::SetOwnDraw ( HMENU hMenu, bool bOwnDrawn )
         return count;
     }
 
+    //
+    if ( level == 0 )
+    {
+        MENUINFO menuInfo;
+        ZeroMemory ( &menuInfo, sizeof(menuInfo) );
+
+        menuInfo.cbSize     = sizeof(menuInfo);
+        menuInfo.fMask      = MIM_BACKGROUND;
+        menuInfo.hbrBack    = CMWColors::GetBKMenuBrush ( CMWColors::m_iDarkTheme != 0 );
+
+        BOOL bSetMenuInfo = menu->SetMenuInfo ( &menuInfo );
+    }
+
+    //
     for ( UINT iPos = 0; iPos < (UINT) menu->GetMenuItemCount ( ); iPos++ )
     {
         char            szText [ MENU_TEXT_SIZE ];
@@ -211,7 +226,7 @@ int CMWMenu::SetOwnDraw ( HMENU hMenu, bool bOwnDrawn )
 
         menuItemInfo.cch        = sizeof ( szText );
         menuItemInfo.dwTypeData = szText;
-        menuItemInfo.fMask      =   MENU_ITEM_MASK;
+        menuItemInfo.fMask      = MENU_ITEM_MASK;
         BOOL bRes = menu->GetMenuItemInfo ( iPos, &menuItemInfo, TRUE );
         if ( bRes )
         {
@@ -225,8 +240,8 @@ int CMWMenu::SetOwnDraw ( HMENU hMenu, bool bOwnDrawn )
                 menuItemInfo.fType          ^= MFT_OWNERDRAW;
             }
 
-            menuItemInfo.dwItemData     = iPos;
-            menuItemInfo.cch            = ( UINT ) strlen ( szText );
+            //
+            menuItemInfo.dwItemData     = ( level << 8 ) | iPos;
             bRes = menu->SetMenuItemInfo ( iPos, &menuItemInfo, TRUE );
             if ( ! bRes )
             {
@@ -243,7 +258,7 @@ int CMWMenu::SetOwnDraw ( HMENU hMenu, bool bOwnDrawn )
 #endif
             if ( menuItemInfo.hSubMenu )
             {
-                count += SetOwnDraw ( menuItemInfo.hSubMenu, bOwnDrawn );
+                count += SetOwnDraw ( menuItemInfo.hSubMenu, bOwnDrawn, level + 1 );
             }
         }
         else
@@ -340,12 +355,12 @@ BOOL CMWMenu::TrackPopupMenu(UINT nFlags, int x, int y, CWnd* pWnd, LPCRECT lpRe
 
     if ( m_pSubMenu != NULL )
     {
-        SetOwnDraw(m_pSubMenu->m_hMenu, CMWColors::m_iDarkTheme != 0 );
+        SetOwnDraw(m_pSubMenu->m_hMenu, CMWColors::m_iDarkTheme != 0, ID_POP_MENU );
         return  m_pSubMenu->TrackPopupMenu( nFlags,  x,  y, pWnd, lpRect );
     }
     else
     {
-        SetOwnDraw(m_hMenu, CMWColors::m_iDarkTheme != 0 );
+        SetOwnDraw(m_hMenu, CMWColors::m_iDarkTheme != 0, ID_POP_MENU );
         return  CMenu::TrackPopupMenu( nFlags,  x,  y, pWnd, lpRect );
     }
 }
@@ -511,7 +526,7 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByP
     ZeroMemory ( &cmi, sizeof(cmi) );
     cmi.cbSize  = sizeof(cmi);
     cmi.fMask   = MENU_MASK;
-    BOOL bRes = GetMenuInfo ( &cmi );
+    BOOL bRes   = GetMenuInfo ( &cmi );
 
     //
     //      The Size
@@ -530,7 +545,7 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByP
     menuItemInfo.fMask          = MENU_ITEM_MASK;
     menuItemInfo.cch            = sizeof ( szText );
     menuItemInfo.dwTypeData     = szText;
-    UINT uItem  = ( UINT ) lpMeasureItemStruct->itemData;
+    UINT uItem  = ( UINT ) lpMeasureItemStruct->itemData & ID_MNU_MASK;
     if ( ! fByPos )
     {
         uItem  = ( UINT ) lpMeasureItemStruct->itemID;
@@ -545,9 +560,16 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByP
             CDC *pDC    = m_pWnd->GetDC ( );
             if ( pDC )
             {
-                if ( fByPos && strchr(szText,'\t') == NULL )
+                ULONG_PTR itemData = menuItemInfo.dwItemData;
+
+                //  Avoid Top Level
+                if ( ( itemData & ID_MNU_MASK ) != itemData )
                 {
                     strcat_s  ( szText, sizeof(szText), "SHIFT+F1" );
+                }
+                else
+                {
+                    UpperCaseString ( szText );
                 }
                 MeasureMenuItem ( pDC, szText, &size, &menuItemInfo );
                 size.cx     = size.cx + 1;  // Leave some spacez
@@ -566,7 +588,7 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByP
 #ifdef _DEBUG
     static char szDebug [ MAX_PATH ];
     sprintf_s ( szDebug, sizeof(szDebug), 
-        "MeasureMenuItem '%s' 0x%x 0x%x 0x%llx\n", szText, menuItemInfo.wID, menuItemInfo.fType, menuItemInfo.hSubMenu );
+        "MeasureMenuItem '%s' 0x%x 0x%x 0x%llx 0x%llx\n", szText, menuItemInfo.wID, menuItemInfo.fType, menuItemInfo.hSubMenu, lpMeasureItemStruct->itemData );
     OutputDebugString ( szDebug );
 #endif
 
@@ -793,7 +815,7 @@ void CMWMenu::DrawMenuItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos )
     menuItemInfo.fMask      = MENU_ITEM_MASK;
     menuItemInfo.cch        = sizeof ( szText ) - 1;
     menuItemInfo.dwTypeData = szText;
-    UINT id   = ( UINT ) lpDrawItemStruct->itemData;
+    UINT id   = ( UINT ) lpDrawItemStruct->itemData & ID_MNU_MASK;
     if ( ! fByPos )
     {
         id   = ( UINT ) lpDrawItemStruct->itemID;
@@ -810,6 +832,12 @@ void CMWMenu::DrawMenuItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos )
         CDC *pDC = CDC::FromHandle(lpDrawItemStruct->hDC);
         if ( pDC )
         {
+            //  Only for Top Level
+            ULONG_PTR itemData = menuItemInfo.dwItemData;
+            if ( ( itemData & ID_MNU_MASK ) == itemData )
+            {
+                UpperCaseString ( szText );
+            }
             DrawMenuItem ( lpDrawItemStruct, pDC, &rectMenu, szText, &menuItemInfo );
         }
     }
@@ -822,7 +850,7 @@ void CMWMenu::DrawMenuItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos )
 
 #ifdef _DEBUG
     static char szDebug [ MAX_PATH ];
-    sprintf_s ( szDebug, sizeof(szDebug), "DrawMenuItem '%s' 0x%lx 0x%x\n", szText, lpDrawItemStruct->itemData, lpDrawItemStruct->itemID );
+    sprintf_s ( szDebug, sizeof(szDebug), "DrawMenuItem '%s' 0x%lx 0x%x 0x%llx\n", szText, lpDrawItemStruct->itemData, lpDrawItemStruct->itemID, lpDrawItemStruct->itemData );
     OutputDebugString ( szDebug );
 #endif
 }

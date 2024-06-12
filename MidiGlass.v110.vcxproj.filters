@@ -345,6 +345,9 @@
     <ClCompile Include="MWNCColor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MWToolTipCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AutomaticVersionHeader.h">
@@ -633,6 +636,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MWDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MWToolTipCtrl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

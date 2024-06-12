@@ -2,13 +2,10 @@
 /////////////////////////////////////////////////////////////////////////////
 // MainFrm.h : interface of the CMainFrame class
 /////////////////////////////////////////////////////////////////////////////
-
-#if !defined(AFX_MAINFRM_H__F6E8EC4C_B230_11D2_8147_444553540000__INCLUDED_)
-#define AFX_MAINFRM_H__F6E8EC4C_B230_11D2_8147_444553540000__INCLUDED_
-
-#if _MSC_VER > 1000
 #pragma once
-#endif // _MSC_VER > 1000
+
+#include "afxmenubar.h"
+#include "afxframewndex.h"
 
 #include "MidiDefs.h"
 
@@ -79,15 +76,11 @@ class CMainFrame : public CFrameWnd
 		void RestoreViewGeometry ( CWnd *pWnd, CView *pView, const char *pText );
 		CMidiView * GetMidiView();
 		void SetMidiView ( CMidiView *m_pMidiView );
-		BOOL CreateColView ( int iCol, CCreateContext *pContext, 
-								CView **pView, 
-								CRuntimeClass *pClass, CSize size );
-		BOOL CreateColViewFull ( int iCol, CView **pView, 
-								CRuntimeClass *pClass, int iView );
-		BOOL CreateOneView ( LPCREATESTRUCT lpcs, CCreateContext *pContext,
-								const char *pTitle, CView **pView, 
-								CRuntimeClass *pClass );
+		BOOL CreateColView ( int iCol, CCreateContext *pContext, CView **pView, CRuntimeClass *pClass, CSize size );
+		BOOL CreateColViewFull ( int iCol, CView **pView, CRuntimeClass *pClass, int iView );
+		BOOL CreateOneView ( LPCREATESTRUCT lpcs, CCreateContext *pContext, const char *pTitle, CView **pView, CRuntimeClass *pClass );
 
+        //
 		void RestoreFrameGeometry( CWnd *pVnd );
 		void SaveFrameGeometry( CWnd *pWnd );
 		void DestroyViewWindows();
@@ -108,8 +101,11 @@ class CMainFrame : public CFrameWnd
 		void DisplayOwnToolBars();
 		void SetOwnToolBars();
 		void SetActiveCWndAsView(CWnd *wnd);
+
+		int CreateOwnMenuBar ( );
 		int CreateOwnStatusBar();
 		int CreateOwnToolBars ( );
+
 		void SetSearchInfo( const CString strEvent, const CString strProgram, const CString strController,
 							int V1_From, int V1_To, int V2_From, int V2_To );
 		void ResetLeftViewHandles();
@@ -130,6 +126,7 @@ class CMainFrame : public CFrameWnd
 		void RefreshFrame();
 		CMidiList * GetCurrentMidiEvent();
 		void OnContentEvents( int iView );
+
 		virtual ~CMainFrame();
 	#ifdef _DEBUG
 		virtual void AssertValid() const;
@@ -139,6 +136,9 @@ class CMainFrame : public CFrameWnd
 	protected:  
 		// control bar embedded members
 		CMWStatusBar		m_wndStatusBar;
+
+        //
+        CMFCMenuBar         m_wndMenuBar;
 
 		//		Tools bars
 		CMWToolBar			m_wndMainToolBar;
@@ -385,7 +385,3 @@ class CMainFrame : public CFrameWnd
 
 /////////////////////////////////////////////////////////////////////////////
 
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
-
-#endif // !defined(AFX_MAINFRM_H__F6E8EC4C_B230_11D2_8147_444553540000__INCLUDED_)

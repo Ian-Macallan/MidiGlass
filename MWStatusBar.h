@@ -1,14 +1,11 @@
 // MWStatusBar.h: interface for the CMWStatusBar class.
 //
 //////////////////////////////////////////////////////////////////////
-
-#if !defined(AFX_MWSTATUSBAR_H__453A25CC_D61D_11D2_8147_444553540000__INCLUDED_)
-#define AFX_MWSTATUSBAR_H__453A25CC_D61D_11D2_8147_444553540000__INCLUDED_
-
-#if _MSC_VER > 1000
 #pragma once
-#endif // _MSC_VER > 1000
 
+#include "afxstatusbar.h"
+
+//
 //
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -44,4 +41,3 @@ class CMWStatusBar : public CStatusBar
         virtual void DrawItem(LPDRAWITEMSTRUCT /*lpDrawItemStruct*/);
 };
 
-#endif // !defined(AFX_MWSTATUSBAR_H__453A25CC_D61D_11D2_8147_444553540000__INCLUDED_)

@@ -436,7 +436,14 @@ CMainFrame::~CMainFrame()
 int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	if (CFrameWnd::OnCreate(lpCreateStruct) == -1)
+    {
 		return -1;
+    }
+
+	if ( CreateOwnMenuBar ( ) == - 1 )
+	{
+		return -1;
+	}
 
 	if ( CreateOwnToolBars ( ) == - 1 )
 	{
@@ -2841,11 +2848,19 @@ void CMainFrame::OnCorrectAddXgreset()
 ///////////////////////////////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////////////////////////////
+int CMainFrame::CreateOwnMenuBar ( )
+{
+   	return 0;
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////////
 int CMainFrame::CreateOwnToolBars()
 {
 	DWORD dwCtrlStyle	= RBS_BANDBORDERS;
-	DWORD dwStyle		= WS_CHILD | WS_CLIPSIBLINGS |
-		WS_CLIPCHILDREN | CBRS_TOP;
+	DWORD dwStyle		= WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | CBRS_TOP;
 
 	if ( ! m_wndReBar.Create ( this, dwCtrlStyle, dwStyle ) )
 	{
@@ -2864,8 +2879,7 @@ int CMainFrame::CreateOwnToolBars()
 	DWORD		tbStyle;
 
 	tbCtrlStyle =	TBSTYLE_FLAT;
-	tbStyle		=	WS_CHILD | CBRS_TOP | CBRS_TOOLTIPS |
-						CBRS_FLYBY | CBRS_GRIPPER | CBRS_SIZE_DYNAMIC;
+	tbStyle		=	WS_CHILD | CBRS_TOP | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_GRIPPER | CBRS_SIZE_DYNAMIC;
 
 	//	Create the first toolbar	
 	if ( ! m_wndMainToolBar.CreateEx(this, tbCtrlStyle, tbStyle ) ||
@@ -3032,7 +3046,6 @@ int CMainFrame::CreateOwnToolBars()
 	}
 
 	return 0;
-
 }
 
 //
@@ -3258,6 +3271,7 @@ void CMainFrame::SetOwnToolBars()
 ///////////////////////////////////////////////////////////////////////////////////
 void CMainFrame::DisplayOwnToolBars()
 {
+    //
 	EnableDocking(CBRS_ALIGN_ANY);
 
 	//	Enable Docking
@@ -3297,7 +3311,6 @@ void CMainFrame::DisplayOwnToolBars()
 	ShowOwnReBar ( &m_wndIeReBar, &m_wndIeLargeReBar, theApp.m_bIeToolBar );
 	ShowOwnReBar ( &m_wndSF2ReBar, &m_wndSF2LargeReBar, theApp.m_bSf2ToolBar );
 	
-
 	//	Hot rebar
 	m_wndReBar.ModifyStyle ( WS_VISIBLE, NULL );
 	m_wndLargeReBar.ModifyStyle ( WS_VISIBLE, NULL );
@@ -3420,6 +3433,7 @@ void CMainFrame::ShowOwnToolBar(CMWToolBar *pToolBar, CMWToolBar *pLargeToolBar,
 		ShowControlBar ( pToolBar, bShow, FALSE );
 		ShowControlBar ( pLargeToolBar, FALSE, FALSE );
 	}
+
 
 	CRect		rectFrame;
 
@@ -4684,7 +4698,9 @@ void CMainFrame::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
     //
 	if ( lpDrawItemStruct != NULL && lpDrawItemStruct->CtlType == ODT_MENU )
 	{
-        if ( m_pSysMenu != NULL && IsSysMenuID ( lpDrawItemStruct->itemID ) )
+        ULONG_PTR itemData = lpDrawItemStruct->itemData;
+        // if ( m_pSysMenu != NULL && IsSysMenuID ( lpDrawItemStruct->itemID ) )
+        if ( ( itemData >> 8 ) == ID_SYS_MENU )
         {
             m_pSysMenu->DrawItem ( lpDrawItemStruct, TRUE );
             return;

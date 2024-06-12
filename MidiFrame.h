@@ -1,12 +1,6 @@
-#if !defined(AFX_MIDIFRAME_H__4A0BCB44_0EB6_11D3_8148_444553540000__INCLUDED_)
-#define AFX_MIDIFRAME_H__4A0BCB44_0EB6_11D3_8148_444553540000__INCLUDED_
-
-#if _MSC_VER > 1000
 #pragma once
-#endif // _MSC_VER > 1000
-// MidiFrame.h : header file
-//
 
+#include "afxframewndex.h"
 #include "MWMenu.h"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -60,9 +54,3 @@ class CMidiFrame : public CFrameWnd
 
 };
 
-/////////////////////////////////////////////////////////////////////////////
-
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
-
-#endif // !defined(AFX_MIDIFRAME_H__4A0BCB44_0EB6_11D3_8148_444553540000__INCLUDED_)

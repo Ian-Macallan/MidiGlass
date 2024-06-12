@@ -2,12 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#if !defined(AFX_MWREBAR_H__B7ED55C1_E2DD_11D2_8147_444553540000__INCLUDED_)
-#define AFX_MWREBAR_H__B7ED55C1_E2DD_11D2_8147_444553540000__INCLUDED_
-
-#if _MSC_VER > 1000
 #pragma once
-#endif // _MSC_VER > 1000
 
 class CMWReBar : public CReBar  
 {
@@ -37,4 +32,3 @@ public:
     afx_msg void OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
-#endif // !defined(AFX_MWREBAR_H__B7ED55C1_E2DD_11D2_8147_444553540000__INCLUDED_)

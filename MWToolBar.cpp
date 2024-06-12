@@ -69,18 +69,20 @@ void CMWToolBar::SetAnsiVarFont()
 	LOGFONT		logFont;
 
 	pFont = GetFont ( );
-	pFont->GetLogFont ( & logFont );
+    if ( pFont != NULL )
+    {
+	    pFont->GetLogFont ( & logFont );
 
-	if ( m_pFont != NULL )
-	{
-		delete m_pFont;
-		m_pFont = NULL;
-	}
+	    if ( m_pFont != NULL )
+	    {
+		    delete m_pFont;
+		    m_pFont = NULL;
+	    }
 
-	// logFont.lfWeight = FW_BOLD;
-	m_pFont = new CFont ( );
-	m_pFont->CreateFontIndirect ( &logFont );
-
+	    // logFont.lfWeight = FW_BOLD;
+	    m_pFont = new CFont ( );
+	    m_pFont->CreateFontIndirect ( &logFont );
+    }
 }
 
 //
@@ -93,17 +95,20 @@ void CMWToolBar::SetAnsiFixedFont()
 	LOGFONT		logFont;
 
 	pFont = GetFont ( );
-	pFont->GetLogFont ( & logFont );
+    if ( pFont != NULL )
+    {
+	    pFont->GetLogFont ( & logFont );
 
-	if ( m_pFont != NULL )
-	{
-		delete m_pFont;
-		m_pFont = NULL;
-	}
+	    if ( m_pFont != NULL )
+	    {
+		    delete m_pFont;
+		    m_pFont = NULL;
+	    }
 
-	// logFont.lfWeight = FW_BOLD;
-	m_pFont = new CFont ( );
-	m_pFont->CreateFontIndirect ( &logFont );
+	    // logFont.lfWeight = FW_BOLD;
+	    m_pFont = new CFont ( );
+	    m_pFont->CreateFontIndirect ( &logFont );
+    }
 }
 
 //
@@ -144,8 +149,9 @@ void CMWToolBar::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
             UINT    nStyle;
             int     iImage;
             //  pCD->dwItemSpec Seems To be The IDB
-            CToolBarCtrl &toolBarCtrl   = GetToolBarCtrl();
 
+            CToolBarCtrl &toolBarCtrl   = GetToolBarCtrl();
+            
             //
             for ( int i = 0; i < toolBarCtrl.GetButtonCount( ) ; i++ )
             {
@@ -156,7 +162,6 @@ void CMWToolBar::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                     break;
                 }
             }
-
             if ( nIndex == -1 )
             {
                 *pResult = CDRF_DODEFAULT;
@@ -170,6 +175,7 @@ void CMWToolBar::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
             CString buttonText = GetButtonText ( nIndex );
 
             CImageList *pImageList      = toolBarCtrl.GetImageList();
+
             if ( pImageList != NULL )
             {
                 CDC *pDC = CDC::FromHandle ( pNMCD->hdc );

@@ -191,7 +191,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;MCNODLL;MCNOEXTERNC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -300,6 +300,7 @@
     <ClCompile Include="MWStatic.cpp" />
     <ClCompile Include="MWStatusBar.cpp" />
     <ClCompile Include="MWToolBar.cpp" />
+    <ClCompile Include="MWToolTipCtrl.cpp" />
     <ClCompile Include="NotesView.cpp" />
     <ClCompile Include="Parameters.cpp" />
     <ClCompile Include="PlayDirThreadProc.cpp" />
@@ -407,6 +408,7 @@
     <ClInclude Include="MWStatic.h" />
     <ClInclude Include="MWStatusBar.h" />
     <ClInclude Include="MWToolBar.h" />
+    <ClInclude Include="MWToolTipCtrl.h" />
     <ClInclude Include="NotesView.h" />
     <ClInclude Include="Parameters.h" />
     <ClInclude Include="PlayDirThreadProc.h" />

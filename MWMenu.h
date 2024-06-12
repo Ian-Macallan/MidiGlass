@@ -1,5 +1,10 @@
 #pragma once
 
+#define ID_MNU_MASK         0xff
+#define ID_SYS_MENU         0xff
+#define ID_POP_MENU         0xfe
+
+
 //
 ////////////////////////////////////////////////////////////////////////
 //
@@ -14,7 +19,7 @@ class CMWMenu : public CMenu
 
         //
     public:
-        static int SetOwnDraw ( HMENU hMenu, bool bOwnDrawn = true );
+        static int SetOwnDraw ( HMENU hMenu, bool bOwnDrawn = true, int level = 0 );
 
         int         m_iBitmapWidth;
         int         m_iBitmapHeight;

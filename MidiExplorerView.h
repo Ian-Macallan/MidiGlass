@@ -1,13 +1,10 @@
-#if !defined(AFX_MIDIEXPLORERVIEW_H__005D69A1_F290_11D2_8148_444553540000__INCLUDED_)
-#define AFX_MIDIEXPLORERVIEW_H__005D69A1_F290_11D2_8148_444553540000__INCLUDED_
-
-#if _MSC_VER > 1000
 #pragma once
-#endif // _MSC_VER > 1000
+
 // MidiExplorerView.h : header file
 //
 #include "afxcview.h"
 #include "afxole.h"
+#include "MWToolTipCtrl.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CMidiExplorerView view
@@ -74,7 +71,7 @@ class CMidiExplorerView : public CTreeView
 	    // Generated message map functions
     protected:
 	    //		Tool type control.
-	    CToolTipCtrl	m_ToolTip;
+	    CMWToolTipCtrl	m_ToolTip;
 
 	    //		Old Values
 	    CImageList		*m_pOldImageList;
@@ -122,17 +119,11 @@ class CMidiExplorerView : public CTreeView
 	    afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	    afx_msg void OnDropFiles(HDROP hDropInfo);
 	    afx_msg void OnExplorerRecord();
-	    //}}AFX_MSG
-	    DECLARE_MESSAGE_MAP()
-    public:
         afx_msg void OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct);
         afx_msg void OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStruct);
         afx_msg void OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult);
+	    //}}AFX_MSG
+	    DECLARE_MESSAGE_MAP()
+    public:
 };
 
-/////////////////////////////////////////////////////////////////////////////
-
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
-
-#endif // !defined(AFX_MIDIEXPLORERVIEW_H__005D69A1_F290_11D2_8148_444553540000__INCLUDED_)
