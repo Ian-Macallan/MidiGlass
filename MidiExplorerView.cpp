@@ -2059,7 +2059,7 @@ void CMidiExplorerView::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct
 		{
             if ( m_pContextMenu != NULL )
             {
-			    m_pContextMenu->DrawItem ( lpDrawItemStruct, TRUE );
+			    m_pContextMenu->DrawItem ( lpDrawItemStruct );
     			return;
             }
 		}
@@ -2081,7 +2081,7 @@ void CMidiExplorerView::OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureI
 		{
             if ( m_pContextMenu != NULL )
             {
-			    m_pContextMenu->MeasureItem ( lpMeasureItemStruct, TRUE );
+			    m_pContextMenu->MeasureItem ( lpMeasureItemStruct );
     			return;
             }
 		}

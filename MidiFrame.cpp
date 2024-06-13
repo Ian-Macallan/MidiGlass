@@ -117,7 +117,7 @@ void CMidiFrame::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
 		{
             if ( m_pFrameMenu != NULL )
             {
-                m_pFrameMenu->DrawItem ( lpDrawItemStruct, TRUE );
+                m_pFrameMenu->DrawItem ( lpDrawItemStruct );
                 return;
             }
 		}
@@ -139,7 +139,7 @@ void CMidiFrame::OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStru
 		{
             if ( m_pFrameMenu != NULL )
             {
-                m_pFrameMenu->MeasureItem ( lpMeasureItemStruct, TRUE );
+                m_pFrameMenu->MeasureItem ( lpMeasureItemStruct );
                 return;
             }
 		}

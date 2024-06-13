@@ -42,8 +42,8 @@ class CMWMenu : public CMenu
         void UnSetSystemMenu(CMenu* pSysMenu);
 
         CMWMenu *GetSubMenu ( int nPos );
-        virtual void DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos = FALSE );
-        virtual void MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByPos = FALSE);
+        virtual void DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct );
+        virtual void MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct );
         virtual BOOL TrackPopupMenu(UINT nFlags, int x, int y, CWnd* pWnd, LPCRECT lpRect = NULL);
 
         virtual UINT GetMenuItemCount ( );
@@ -65,9 +65,9 @@ class CMWMenu : public CMenu
         virtual UINT EnableMenuItem ( UINT nIDEnableItem, UINT nEnable );
 
         void        MeasureMenuItem ( CDC *pDC, const char *pText, CSize *pSize, MENUITEMINFO *menuInfo );
-        void        MeasureMenuItem ( LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByPos = FALSE );
+        void        MeasureMenuItem ( LPMEASUREITEMSTRUCT lpMeasureItemStruct );
         void        DrawMenuItem (  LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC, CRect *pRect, const char *pText, MENUITEMINFO *menuInfo );
-        void        DrawMenuItem ( LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos = FALSE );
+        void        DrawMenuItem ( LPDRAWITEMSTRUCT lpDrawItemStruct );
 
         void        ComputeBitmapMaxSize ( );
         void        ComputeBitmapMaxSize ( HBITMAP hBitmap );

@@ -19,9 +19,6 @@ const UINT MENU_ITEM_MASK   = MIIM_BITMAP | MIIM_CHECKMARKS | MIIM_DATA |
 const UINT MENU_MASK        = MIM_BACKGROUND | MIM_HELPID | MIM_MAXHEIGHT | MIM_MENUDATA | MIM_STYLE;
 
 //
-static const bool IgnoreByPos    = true;
-
-//
 ////////////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////////////
@@ -304,17 +301,17 @@ CMenu *CMWMenu::GetSubMenu ()
 /////////////////////////////////////////////////////////////////////////////
 //
 /////////////////////////////////////////////////////////////////////////////
-void CMWMenu::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos )
+void CMWMenu::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct )
 {
     if ( CMWColors::m_iDarkTheme != 0 )
     {
         if ( m_pSubMenu != NULL )
         {
-            DrawMenuItem( lpDrawItemStruct, fByPos );
+            DrawMenuItem( lpDrawItemStruct );
         }
         else if ( m_hMenu != NULL ) 
         {
-            DrawMenuItem( lpDrawItemStruct, fByPos );
+            DrawMenuItem( lpDrawItemStruct );
         }
         else
         {
@@ -331,17 +328,17 @@ void CMWMenu::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos )
 /////////////////////////////////////////////////////////////////////////////
 //
 /////////////////////////////////////////////////////////////////////////////
-void CMWMenu::MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByPos )
+void CMWMenu::MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct )
 {
     if ( CMWColors::m_iDarkTheme != 0 )
     {
         if ( m_pSubMenu != NULL )
         {
-            MeasureMenuItem(lpMeasureItemStruct, fByPos );
+            MeasureMenuItem(lpMeasureItemStruct );
         }
         else if ( m_hMenu != NULL ) 
         {
-            MeasureMenuItem(lpMeasureItemStruct, fByPos);
+            MeasureMenuItem(lpMeasureItemStruct );
         }
         else
         {
@@ -522,7 +519,7 @@ void CMWMenu::MeasureMenuItem ( CDC *pDC, const char *pText, CSize *pSize, MENUI
 /////////////////////////////////////////////////////////////////////////////
 //  For Submenu
 /////////////////////////////////////////////////////////////////////////////
-void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByPos )
+void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct )
 {
     //
     if ( lpMeasureItemStruct == NULL )
@@ -530,10 +527,8 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByP
         return;
     }
 
-    if ( IgnoreByPos )
-    {
-        fByPos  = FALSE;
-    }
+    //
+    BOOL fByPos  = FALSE;
 
     //
     MENUINFO cmi;
@@ -559,11 +554,7 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByP
     menuItemInfo.fMask          = MENU_ITEM_MASK;
     menuItemInfo.cch            = sizeof ( szText );
     menuItemInfo.dwTypeData     = szText;
-    UINT uItem  = ( UINT ) lpMeasureItemStruct->itemData & ID_MNU_MASK;
-    if ( ! fByPos )
-    {
-        uItem  = ( UINT ) lpMeasureItemStruct->itemID;
-    }
+    UINT uItem  = ( UINT ) lpMeasureItemStruct->itemID;
 
     //
     bRes = GetMenuItemInfo ( uItem, &menuItemInfo, fByPos );
@@ -806,7 +797,7 @@ void CMWMenu::DrawMenuItem (   LPDRAWITEMSTRUCT lpDrawItemStruct, CDC *pDC,
 //
 //      Must be a little cleaned
 //====================================================================================
-void CMWMenu::DrawMenuItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos )
+void CMWMenu::DrawMenuItem(LPDRAWITEMSTRUCT lpDrawItemStruct )
 {
     //
     if ( lpDrawItemStruct == NULL )
@@ -814,10 +805,7 @@ void CMWMenu::DrawMenuItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos )
         return;
     }
 
-    if ( IgnoreByPos )
-    {
-        fByPos  = FALSE;
-    }
+    BOOL fByPos  = FALSE;
 
     //
     //      Get Menu Informations
@@ -834,11 +822,7 @@ void CMWMenu::DrawMenuItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos )
     menuItemInfo.fMask      = MENU_ITEM_MASK;
     menuItemInfo.cch        = sizeof ( szText ) - 1;
     menuItemInfo.dwTypeData = szText;
-    UINT id   = ( UINT ) lpDrawItemStruct->itemData & ID_MNU_MASK;
-    if ( ! fByPos )
-    {
-        id   = ( UINT ) lpDrawItemStruct->itemID;
-    }
+    UINT id   = ( UINT ) lpDrawItemStruct->itemID;
 
     //
     BOOL bRes = GetMenuItemInfo ( id, &menuItemInfo, fByPos );

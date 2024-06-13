@@ -108,7 +108,7 @@ void CMWFormView::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
 		{
             if ( m_pContextMenu != NULL )
             {
-			    m_pContextMenu->DrawItem ( lpDrawItemStruct, TRUE );
+			    m_pContextMenu->DrawItem ( lpDrawItemStruct );
     			return;
             }
 		}
@@ -130,7 +130,7 @@ void CMWFormView::OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStr
 		{
             if ( m_pContextMenu != NULL )
             {
-			    m_pContextMenu->MeasureItem ( lpMeasureItemStruct, TRUE );
+			    m_pContextMenu->MeasureItem ( lpMeasureItemStruct );
     			return;
             }
 		}

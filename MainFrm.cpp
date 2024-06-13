@@ -4708,7 +4708,7 @@ void CMainFrame::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
         // if ( m_pSysMenu != NULL && IsSysMenuID ( lpDrawItemStruct->itemID ) )
         if ( ( itemData >> 8 ) == ID_SYS_MENU )
         {
-            m_pSysMenu->DrawItem ( lpDrawItemStruct, TRUE );
+            m_pSysMenu->DrawItem ( lpDrawItemStruct );
             return;
         }
         else 
@@ -4732,7 +4732,7 @@ void CMainFrame::OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureItemStru
 	{
         if ( m_pSysMenu != NULL && IsSysMenuID ( lpMeasureItemStruct->itemID ) )
         {
-            m_pSysMenu->MeasureItem ( lpMeasureItemStruct, TRUE );
+            m_pSysMenu->MeasureItem ( lpMeasureItemStruct );
             return;
         }
         else 
