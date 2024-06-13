@@ -4303,7 +4303,7 @@ void CMainFrame::OnFileSavegeometry()
 
 //
 ///////////////////////////////////////////////////////////////////////////////////
-//
+//  For Multi Views (not splitted)
 ///////////////////////////////////////////////////////////////////////////////////
 BOOL CMainFrame::CreateOneView (    LPCREATESTRUCT lpcs, CCreateContext *pContext,
 		                            const char *pTitle, CView **pView, CRuntimeClass *pClass )
@@ -4352,6 +4352,7 @@ BOOL CMainFrame::CreateOneView (    LPCREATESTRUCT lpcs, CCreateContext *pContex
     //
 	( *pView )->ModifyStyle ( NULL, dwStyleView );
 
+    //
 	CMenu	*pMenu;
 	pMenu = pFrame->GetSystemMenu ( FALSE );
 	if ( pMenu != NULL )
@@ -4667,9 +4668,14 @@ void CMainFrame::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
     else
     {
         m_pSysMenu  = NULL;
+
+        //
+        if ( pPopupMenu != NULL && pPopupMenu->m_hMenu != NULL )
+        {
+            CMWMenu::SetOwnDraw ( pPopupMenu->m_hMenu, true, 1 );
+        }
     }
 
-    //
 }
 
 //

@@ -19,6 +19,9 @@ const UINT MENU_ITEM_MASK   = MIIM_BITMAP | MIIM_CHECKMARKS | MIIM_DATA |
 const UINT MENU_MASK        = MIM_BACKGROUND | MIM_HELPID | MIM_MAXHEIGHT | MIM_MENUDATA | MIM_STYLE;
 
 //
+static const bool IgnoreByPos    = true;
+
+//
 ////////////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////////////
@@ -201,18 +204,24 @@ int CMWMenu::SetOwnDraw ( HMENU hMenu, bool bOwnDrawn, int level )
         return count;
     }
 
-    //
+    //  Set TOP Level Data
+    MENUINFO menuInfo;
+    ZeroMemory ( &menuInfo, sizeof(menuInfo) );
     if ( level == 0 )
     {
-        MENUINFO menuInfo;
-        ZeroMemory ( &menuInfo, sizeof(menuInfo) );
-
-        menuInfo.cbSize     = sizeof(menuInfo);
-        menuInfo.fMask      = MIM_BACKGROUND;
-        menuInfo.hbrBack    = CMWColors::GetBKMenuBrush ( CMWColors::m_iDarkTheme != 0 );
-
-        BOOL bSetMenuInfo = menu->SetMenuInfo ( &menuInfo );
+        menuInfo.cbSize         = sizeof(menuInfo);
+        menuInfo.fMask          = MIM_BACKGROUND | MIM_MENUDATA;
+        menuInfo.hbrBack        = CMWColors::GetBKMenuBrush ( CMWColors::m_iDarkTheme != 0 );
+        menuInfo.dwMenuData     = level;
     }
+    else
+    {
+        menuInfo.cbSize         = sizeof(menuInfo);
+        menuInfo.fMask          = MIM_MENUDATA;
+        menuInfo.dwMenuData     = level;
+
+    }
+    BOOL bSetMenuInfo = menu->SetMenuInfo ( &menuInfo );
 
     //
     for ( UINT iPos = 0; iPos < (UINT) menu->GetMenuItemCount ( ); iPos++ )
@@ -521,6 +530,11 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct, BOOL fByP
         return;
     }
 
+    if ( IgnoreByPos )
+    {
+        fByPos  = FALSE;
+    }
+
     //
     MENUINFO cmi;
     ZeroMemory ( &cmi, sizeof(cmi) );
@@ -798,6 +812,11 @@ void CMWMenu::DrawMenuItem(LPDRAWITEMSTRUCT lpDrawItemStruct, BOOL fByPos )
     if ( lpDrawItemStruct == NULL )
     {
         return;
+    }
+
+    if ( IgnoreByPos )
+    {
+        fByPos  = FALSE;
     }
 
     //
