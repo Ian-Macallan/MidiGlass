@@ -19,6 +19,11 @@ class CMidiExplorerView : public CTreeView
 
     // Attributes
     public:
+        CFont                   *m_pBoldFont;
+        CFont                   *m_pItalicFont;
+        CFont                   *m_pNormalFont;
+        CFont                   *m_pFixedFont;
+        CFont                   *m_pFixedBoldFont;
 
     // Operations
     public:

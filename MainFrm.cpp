@@ -2,6 +2,7 @@
 //
 
 #include "StdAfx.h"
+
 #include "MidiGlassApp.h"
 #include "MWColors.h"
 #include "MWNCColor.h"

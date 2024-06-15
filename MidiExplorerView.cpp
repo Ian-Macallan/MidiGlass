@@ -53,6 +53,13 @@ CMidiExplorerView::CMidiExplorerView()
 	m_prevDropEffectOle	= DROPEFFECT_NONE;
 
     m_pContextMenu      = NULL;
+
+    m_pNormalFont       = NULL;
+    m_pItalicFont       = NULL;
+    m_pBoldFont         = NULL;
+    m_pFixedFont        = NULL;
+    m_pFixedBoldFont    = NULL;
+
 }
 
 //
@@ -62,6 +69,16 @@ CMidiExplorerView::CMidiExplorerView()
 CMidiExplorerView::~CMidiExplorerView()
 {
 	theApp.WriteProfileString ( "Explorer", "Path", theApp.m_Explorer_Pathname );
+
+#define DELETE_OBJECT(o) if ( o != NULL ) { delete o; o = NULL; }
+
+    //  Do Not Delete m_pNormalFont
+
+    DELETE_OBJECT(m_pItalicFont)
+    DELETE_OBJECT(m_pBoldFont)
+    DELETE_OBJECT(m_pFixedFont)
+    DELETE_OBJECT(m_pFixedBoldFont)
+
 }
 
 //
@@ -95,9 +112,8 @@ BEGIN_MESSAGE_MAP(CMidiExplorerView, CTreeView)
 	ON_NOTIFY_EX( TTN_NEEDTEXT, 0, OnToolTipNotify )
     ON_WM_DRAWITEM()
     ON_WM_MEASUREITEM()
-
-   	//}}AFX_MSG_MAP
     ON_NOTIFY_REFLECT(NM_CUSTOMDRAW, &CMidiExplorerView::OnNMCustomdraw)
+   	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 //
@@ -153,7 +169,48 @@ void CMidiExplorerView::OnInitialUpdate()
 	//
 	if ( m_bFirstTime )
 	{
-		ModifyStyle ( NULL, 
+
+        //
+        //
+        TEXTMETRIC textMetrics;
+        CDC *pDC = GetDC();
+        GetTextMetrics ( pDC->m_hDC, &textMetrics );
+        ReleaseDC ( pDC );
+
+        //  Create Fonts
+        LOGFONT logDefaultFont;
+        LOGFONT logFont;
+
+        m_pNormalFont               = GetFont();
+        m_pNormalFont->GetLogFont(&logDefaultFont);
+
+        logFont                     = logDefaultFont;
+        logFont.lfWeight            = FW_BOLD;
+        m_pBoldFont                 = new CFont();
+        m_pBoldFont->CreateFontIndirect(&logFont);    // Create the font.
+
+        logFont                     = logDefaultFont;
+        logFont.lfItalic            = TRUE;
+        m_pItalicFont               = new CFont();
+        m_pItalicFont->CreateFontIndirect(&logFont);    // Create the font.
+
+        logFont                     = logDefaultFont;
+        m_pFixedFont                = new CFont();
+        logFont.lfPitchAndFamily    = FIXED_PITCH;
+        logFont.lfHeight            = (LONG) ( (float) textMetrics.tmHeight * 1.10 );
+        strcpy_s(logFont.lfFaceName, sizeof(logFont.lfFaceName), "Courier New");
+        m_pFixedFont->CreateFontIndirect(&logFont);    // Create the font.
+
+        logFont                     = logDefaultFont;
+        m_pFixedBoldFont            = new CFont();
+        logFont.lfPitchAndFamily    = FIXED_PITCH;
+        logFont.lfWeight            = FW_BOLD;
+        logFont.lfHeight            = (LONG) ( (float) textMetrics.tmHeight * 1.10 );
+        strcpy_s(logFont.lfFaceName, sizeof(logFont.lfFaceName), "Courier New");
+        m_pFixedBoldFont->CreateFontIndirect(&logFont);    // Create the font.
+
+        //
+        ModifyStyle ( NULL, 
 						TVS_EDITLABELS | TVS_HASBUTTONS |
 						TVS_HASLINES | TVS_LINESATROOT );
 
@@ -168,15 +225,30 @@ void CMidiExplorerView::OnInitialUpdate()
 		RECT		Rect;
 		GetClientRect ( &Rect );
 		BOOL bRes = m_ToolTip.AddTool( this, LPSTR_TEXTCALLBACK );
-		m_ToolTip.Activate ( FALSE );
 
-		// Reset first time
-		m_bFirstTime = false;
+        if ( CMWColors::m_iDarkTheme != 0  )
+        {
+            m_ToolTip.SetTipTextColor ( CMWColors::GetFGMenuCR ( CMWColors::m_iDarkTheme != 0 ) );
+            m_ToolTip.SetTipBkColor ( CMWColors::GetBKMenuCR ( CMWColors::m_iDarkTheme != 0 ) );
+            m_ToolTip.SetMaxTipWidth ( 392 );
+            m_ToolTip.SetFont ( m_pFixedBoldFont );
+        }
+
+		m_ToolTip.Activate ( FALSE );
 
         GetTreeCtrl ( ).SetTextColor ( CMWColors::GetFGNormalCR(CMWColors::m_iDarkTheme != 0) );
         GetTreeCtrl ( ).SetBkColor ( CMWColors::GetBKNormalCR(CMWColors::m_iDarkTheme != 0) );
         GetTreeCtrl ( ).SetLineColor ( CMWColors::GetFGNormalCR(CMWColors::m_iDarkTheme != 0) );
-	}
+
+        //
+        //  To See
+        //  https://stackoverflow.com/questions/39261826/change-the-color-of-the-title-bar-caption-of-a-win32-application
+
+        
+        // Reset first time
+		m_bFirstTime = false;
+
+    }
 }
 
 //

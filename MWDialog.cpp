@@ -97,16 +97,6 @@ BOOL CMWDialog::OnNcActivate(BOOL bActive)
 /////////////////////////////////////////////////////////////////////////////
 void CMWDialog::OnNcPaint()
 {
-    if ( SquaredCorners && CMWColors::m_iDarkTheme == 2 )
-    {
-        RECT rect;
-        GetWindowRect ( &rect );
-    
-        CRgn region;
-        region.CreateRectRgn ( 0, 0,rect.right - rect.left, rect.bottom - rect.top );
-        SetWindowRgn ( (HRGN) region.GetSafeHandle(), FALSE );
-    }
-
     //
     BOOL bTreated = m_NC.PaintWindow(this, 0, 1);
     if ( bTreated )

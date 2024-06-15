@@ -7,7 +7,7 @@
 
 static  const int EXTRA_PIXELS_WIDTH    = 8;
 static  const int EXTRA_PIXELS_HEIGHT   = 6;
-static  const int SEPARATOR_HEIGHT      = 5;
+static  const int SEPARATOR_HEIGHT      = 3;
 
 #define MENU_TEXT_SIZE  256
 
@@ -577,8 +577,11 @@ void CMWMenu::MeasureMenuItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct )
                     UpperCaseString ( szText );
                 }
                 MeasureMenuItem ( pDC, szText, &size, &menuItemInfo );
-                size.cx     = size.cx + 1;  // Leave some spacez
-                size.cy     = size.cy + 3;  // Leave some spacez
+                if ( strlen(szText) > 0 )
+                {
+                    size.cx     = size.cx + 1;  // Leave some spacez
+                    size.cy     = size.cy + 2;  // Leave some spacez
+                }
                 int iRes    = m_pWnd->ReleaseDC ( pDC );
             }
         }
