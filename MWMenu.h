@@ -1,9 +1,8 @@
 #pragma once
 
 #define ID_MNU_MASK         0xff
-#define ID_SYS_MENU         0xff
-#define ID_POP_MENU         0xfe
-
+#define ID_SYS_MENU         0x80
+#define ID_POP_MENU         0xA0
 
 //
 ////////////////////////////////////////////////////////////////////////

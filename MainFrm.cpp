@@ -480,6 +480,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
     m_AppMenu.SetApplicationMenu ( this, pMenu );
     SetMenu ( &m_AppMenu );
 
+    //
 	return 0;
 }
 
