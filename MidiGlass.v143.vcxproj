@@ -474,6 +474,7 @@
     <None Include="res\stop.bmp" />
     <None Include="res\Toolbar.bmp" />
     <None Include="ReadMe.txt" />
+    <None Include="T:\Project\W\WOE5Extract\WOE5Extract.sln" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\CheckBlack.ico" />

@@ -746,6 +746,9 @@
     <None Include="res\midifile2.mid">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="T:\Project\W\WOE5Extract\WOE5Extract.sln">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\Pictogrammers-Material-Midi.ico">
