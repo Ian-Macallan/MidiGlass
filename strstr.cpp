@@ -5431,13 +5431,22 @@ typedef struct CompositeCodesStructW
 //  For values as 0x80 0x81 0x82 0x83 0x84 
 static COMPOSITECODESW CompositeCodesW [ ] =
 {
-    {   0x20ac, 0x80, 0 },
-    {   0x0081, 0x81, 1 },
-    {   0x201a, 0x82, 2 },
-    {   0x201e, 0x83, 3 },
-    {   0x0192, 0x84, 4 },
+    {   0x20ac, 0x80, 0 },  //  à
+    {   0x0081, 0x81, 1 },  //  é
+    {   0x201a, 0x82, 2 },  //  ê
+    {   0x201e, 0x83, 3 },  //  ë
+    {   0x0088, 0x84, 3 },  //  ü
+    {   0x02c6, 0x84, 3 },  //  ü
+    {   0x0192, 0x84, 4 },  //  
 };
 
+//  For values as 0xA7
+static COMPOSITECODESW CompositeCedillaCodesW [ ] =
+{
+    {   0x00A7, 0xA7, 0 },  // ç
+};
+
+//
 static COMPOSITECODESW CompositeDirectsW [ ] =
 {
     {   0x0300, 0x80, 0 },  //  è
@@ -5448,11 +5457,10 @@ static COMPOSITECODESW CompositeDirectsW [ ] =
 };
 
 //  For values as 0xA7
-static COMPOSITECODESW CompositeCedillaCodesW [ ] =
+static COMPOSITECODESW CompositeCedillaDirectW [ ] =
 {
-    {   0x00A7, 0xA7, 0 },
+    {   0x0327, 0xA7, 0 },  // ç
 };
-
 //
 //====================================================================================
 //
@@ -5471,6 +5479,7 @@ SizeInChars ReplaceCompositeW ( WCHAR *wcLine, SizeInChars iWcLine )
     //
     for ( int i = 0; i < sizeof(CompositeCharsW) / sizeof(COMPOSITECHARSW); i++)
     {
+        //  First searched is the letter
         searched [ 0 ] = CompositeCharsW [ i ].searched;
         for ( int j = 0; j < sizeof(CompositeCodesW) / sizeof(COMPOSITECODESW); j++ )
         {
@@ -5481,8 +5490,15 @@ SizeInChars ReplaceCompositeW ( WCHAR *wcLine, SizeInChars iWcLine )
     }
 
     //
+    searched [ 1 ] = 0xcc;
+    searched [ 3 ] = 0x00;
+
+    replaced [ 1 ] = 0x00;
+
+    //
     for ( int i = 0; i < sizeof(CompositeCedillaCharsW) / sizeof(COMPOSITECHARSW); i++)
     {
+        //  First searched is the letter
         searched [ 0 ] = CompositeCedillaCharsW [ i ].searched;
         for ( int j = 0; j < sizeof(CompositeCedillaCodesW) / sizeof(COMPOSITECODESW); j++ )
         {
@@ -5493,14 +5509,31 @@ SizeInChars ReplaceCompositeW ( WCHAR *wcLine, SizeInChars iWcLine )
     }
 
     //
+    //  When ANSI is used
     for ( int i = 0; i < sizeof(CompositeCharsW) / sizeof(COMPOSITECHARSW); i++)
     {
+        //  First searched is the letter
         searched [ 0 ] = CompositeCharsW [ i ].searched;
         for ( int j = 0; j < sizeof(CompositeDirectsW) / sizeof(COMPOSITECODESW); j++ )
         {
             searched [ 1 ] = CompositeDirectsW [ j ].marker;
             searched [ 2 ] = 0x0000;
             replaced [ 0 ] = CompositeCharsW [ i ].replacingBase + CompositeDirectsW [ j ].offset;
+            __strrepW ( wcLine, iWcLine, searched, replaced, true );
+        }
+    }
+
+    //
+    //  When ANSI is used
+    for ( int i = 0; i < sizeof(CompositeCedillaDirectW) / sizeof(COMPOSITECHARSW); i++)
+    {
+        //  First searched is the letter
+        searched [ 0 ] = CompositeCedillaCharsW [ i ].searched;
+        for ( int j = 0; j < sizeof(CompositeCedillaDirectW) / sizeof(COMPOSITECODESW); j++ )
+        {
+            searched [ 1 ] = CompositeCedillaDirectW [ j ].marker;
+            searched [ 2 ] = 0x0000;
+            replaced [ 0 ] = CompositeCedillaCharsW [ i ].replacingBase + CompositeCedillaDirectW [ j ].offset;
             __strrepW ( wcLine, iWcLine, searched, replaced, true );
         }
     }

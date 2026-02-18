@@ -59,10 +59,10 @@ class CMainFrame : public CFrameWnd
 	// Overrides
 		// ClassWizard generated virtual function overrides
 		//{{AFX_VIRTUAL(CMainFrame)
-		public:
+	public:
 		virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 		virtual void OnSetPreviewMode(BOOL bPreview, CPrintPreviewState* pState);
-		protected:
+	protected:
 		virtual BOOL OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
 		//}}AFX_VIRTUAL
 

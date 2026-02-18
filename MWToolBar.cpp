@@ -250,7 +250,10 @@ void CMWToolBar::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                     pt.y += yMargin;
                 }
 
-                pImageList->Draw ( pDC, nIndex, pt, ILD_NORMAL );
+                if ( pImageList != NULL && iImage >= 0 )
+                {
+                    pImageList->Draw ( pDC, iImage, pt, ILD_NORMAL );
+                }
 
                 RECT rectText   = rectTool;
                 // rectText.top    += cxIcon + 2;

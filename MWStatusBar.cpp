@@ -157,8 +157,6 @@ HBRUSH CMWStatusBar::CtlColor(CDC* pDC, UINT nCtlColor)
 ///////////////////////////////////////////////////////////////////////////////////
 void CMWStatusBar::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct )
 {
-    static char szText [ MAX_PATH ];
-
     //
     // CStatusBar::DrawItem ( lpDrawItemStruct );
     CDC *pDC = CDC::FromHandle ( lpDrawItemStruct->hDC );
