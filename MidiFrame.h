@@ -15,8 +15,8 @@ class CMidiFrame : public CFrameWnd
 
     // Attributes
     public:
-       CMWMenu     *m_pFrameMenu;
-      CMWNCColor    m_NC;
+        CMWMenu     *m_pFrameMenu;
+        CMWNCColor  m_NC;
 
     // Operations
     public:
