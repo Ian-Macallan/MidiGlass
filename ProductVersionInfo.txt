@@ -1,4 +1,4 @@
-4.0.5.3
+4.0.5.4
 MidiGlass
-MidiGlass (x86) : Thu May 28 13:12 4.0.5.3
-MidiGlass (x64) : Thu May 28 13:12 4.0.5.3
+MidiGlass (x86) : Sun Aug 23 12:50 4.0.5.4
+MidiGlass (x64) : Sun Aug 23 12:50 4.0.5.4
